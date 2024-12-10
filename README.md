@@ -6,4 +6,5 @@ This repository is a dual app/guide to create a simple CRUD client for a Todo ap
 
 ### Setup - React app, prettier, scripts
 
-1. [Setting up the React and the repository](howTo/1a_setUp_createReactProject.md)
+1. [Set up the React and the repository](howTo/1a_setUp_createReactProject.md)
+2. [Set up Prettier](howTo/1b_setUp_prettier.md)

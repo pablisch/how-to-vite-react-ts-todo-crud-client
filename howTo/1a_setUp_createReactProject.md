@@ -1,4 +1,4 @@
-# Setting up the repository
+# Setting up the React app
 
 ## Create the React app
 
@@ -12,129 +12,64 @@ npm create vite@latest
 
 and follow the prompts.
 
-| <img src="howToImages/1_1_createReact.png" alt="Create new project in MongoDB" width="900" /> |
-| --------------------------------------------------------------------------------------------- |
+| <img src="howToImages/1a_createReact.png" alt="Create React app in terminal" width="900" /> |
+| ------------------------------------------------------------------------------------------- |
 
 In the screenshot above, you can see that I did `npm install` but did not start the app at this point.
 
 The command, `webstorm .`, opens the project in Webstorm IDE and you should open the project in the IDE ir text editor of your choice. That would be `code .` for VSCode and if that does not work for your VSCode then look [here](https://www.geeksforgeeks.org/how-to-open-vs-code-using-terminal/) to set that up, or open it in your usual way.
 
-## Prettier
+## Strip out the gumpf
 
-If you choose to use `prettier`, then this is a good time to set that up:
+If you start the React app, you will see that it is built with lots of code that we have no use for.
 
-```bash
-npm install --save-dev --save-exact prettier
-```
+| <img src="howToImages/1b_reactApp.png" alt="New React app UI" width="400" /> |
+| ---------------------------------------------------------------------------- |
 
-Create a prettier config file, `.prettierrc`, and a `.prettierignore` file in the root of the project:
+### In `app.tsx`
 
-```bash
-touch .prettierrc .prettierignore
-```
-
-I choose the following as my base configuration:
-
-```json
-{
-  "semi": false,
-  "singleQuote": true,
-  "tabWidth": 2
-}
-```
-
-This enforces single quotes and does not use semicolons. Obviously use your own preferences here.
-
-In the `.prettierignore` file, add:
-
-```bash
-node_modules
-```
-
-To help `eslint` and `prettier` play nicely, install these plugins:
-
-```bash
-npm install -D @eslint/js typescript-eslint eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh eslint-plugin-prettier prettier
-```
-
-And amend your `eslint.config.js` file:
+Get rid of everything except the basic functional component, leaving just:
 
 ```javascript
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import prettier from 'eslint-plugin-prettier'
-import react from 'eslint-plugin-react'
-import prettierConfig from 'eslint-config-prettier'
+import './App.css'
 
-export default tseslint.config(
-  {
-    ignores: ['dist'],
-  },
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-      prettierConfig, // This disables ESLint rules that conflict with Prettier
-    ],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: {
-        ...globals.browser,
-      },
-      parser: tseslint.parser,
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      prettier: prettier,
-      react: react,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
-      'prettier/prettier': [
-        'error',
-        {
-          semi: false,
-          singleQuote: true,
-          tabWidth: 2,
-        },
-      ],
-    },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
-  },
-)
+function App() {
+  return <></>
+}
+
+export default App
 ```
 
-## Adding scripts for Prettier and Eslint
+### In `index.html`
 
-In `package.json`, there are already some scripts:
+Change the `title` text:
 
-| <img src="howToImages/1_2_scripts.png" alt="Create new project in MongoDB" width="900" /> |
-| ----------------------------------------------------------------------------------------- |
-
-You may setup whatever scripts suit you but I added the following:
-
-```yml
-"preview": "vite preview",
-"prettier": "prettier . --write",
-"pretty": "npm run lint && npm run prettier"
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/triangle.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo Client</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
 ```
 
-As a personal preference, I prefer `npm start` to start the dev project, so I will also add that now while leaving the `dev` script in place.
+Above, I have also changed the image used for a `favicon` in the link element. You may also add you own here or use the default `Vite` icon if you choose.
+
+### Delete unused images
+
+Delete the `react.svg` in `/src/assets`.
+
+If you are now using your own favicon, you may also delete `vite.svg` in `/public`.
+
+### Delete CSS
+
+Delete all the code in both `App.css` and `index.css` but leave the files as we can use them later.
+
+[NEXT: Set up Prettier](1b_setUp_prettier.md)
