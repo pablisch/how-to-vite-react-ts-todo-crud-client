@@ -28,6 +28,7 @@ In the `.prettierignore` file, add:
 
 ```bash
 node_modules
+.env
 ```
 
 To help `eslint` and `prettier` play nicely, install these plugins:
@@ -123,4 +124,3 @@ As a personal preference, I prefer `npm start` to start the dev project, so I wi
 .........
 
 npm install @stylistic/eslint-plugin --save-dev
-
