@@ -97,7 +97,7 @@ export default tseslint.config(
         version: 'detect',
       },
     },
-  },
+  }
 )
 ```
 
@@ -119,3 +119,8 @@ You may setup whatever scripts suit you but I added the following:
 As a personal preference, I prefer `npm start` to start the dev project, so I will also add that now while leaving the `dev` script in place.
 
 [//]: # 'NEXT'
+
+.........
+
+npm install @stylistic/eslint-plugin --save-dev
+

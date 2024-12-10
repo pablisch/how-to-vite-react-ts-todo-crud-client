@@ -38,6 +38,7 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      'padded-blocks': ['error', { blocks: 'always' }],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
@@ -48,6 +49,10 @@ export default tseslint.config(
           semi: false,
           singleQuote: true,
           tabWidth: 2,
+          jsxBracketSameLine: false,
+        },
+        {
+          usePrettierrc: true, // Uses .prettierrc file
         },
       ],
     },
@@ -56,5 +61,5 @@ export default tseslint.config(
         version: 'detect',
       },
     },
-  },
+  }
 )
