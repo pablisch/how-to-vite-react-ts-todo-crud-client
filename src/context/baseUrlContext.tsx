@@ -4,7 +4,6 @@ import { deployedDefaultUrl, localDefaultUrl } from '../utils/baseUrl.ts'
 
 export interface BaseUrlContextType {
   baseUrl: string
-  defaultBaseUrl: string
   isLocalApi: boolean
   handleSetBaseUrl: (baseUrl: string) => void
   handleResetBaseUrl: () => void
@@ -13,7 +12,6 @@ export interface BaseUrlContextType {
 
 export const BaseUrlContext = createContext<BaseUrlContextType>({
   baseUrl: deployedDefaultUrl,
-  defaultBaseUrl: deployedDefaultUrl,
   isLocalApi: false,
   handleSetBaseUrl: () => {},
   handleResetBaseUrl: () => {},
@@ -29,17 +27,25 @@ export const BaseUrlProvider = ({
   const [isLocalApi, setIsLocalApi] = useState<boolean>(false)
   const [localUrl, setLocalUrl] = useState<string | null>(null)
   const [deployedUrl, setDeployedUrl] = useState<string | null>(null)
-  const [defaultBaseUrl, setDefaultBaseUrl] =
-    useState<string>(deployedDefaultUrl)
 
   const handleSetBaseUrl = (newBaseUrl: string) => {
-    setBaseUrl(newBaseUrl)
+    if (isLocalApi) {
+      setLocalUrl(newBaseUrl)
+    } else {
+      setDeployedUrl(newBaseUrl)
+    }
     console.log(`baseUrl set to ${newBaseUrl}`)
   }
 
   const handleResetBaseUrl = () => {
-    setBaseUrl(deployedDefaultUrl)
-    console.log(`baseUrl set to ${deployedDefaultUrl}`)
+    console.log(`Is local API? ${isLocalApi}`)
+    if (isLocalApi) {
+      setLocalUrl(null)
+      console.log(`localUrl set to ${null}`)
+    } else {
+      setDeployedUrl(null)
+      console.log(`deployedUrl set to ${null}`)
+    }
   }
 
   const handleToggleApiLocation = () => {
@@ -47,7 +53,7 @@ export const BaseUrlProvider = ({
   }
 
   useEffect(() => {
-    console.log(`API is ${isLocalApi ? 'local' : 'deployed'}`)
+    console.log(`🌱 API is ${isLocalApi ? 'local' : 'deployed'}`)
     if (isLocalApi) {
       console.log(
         `local URL is being set to ${localUrl ? localUrl : localDefaultUrl}`
@@ -65,7 +71,6 @@ export const BaseUrlProvider = ({
     <BaseUrlContext.Provider
       value={{
         baseUrl,
-        defaultBaseUrl,
         isLocalApi,
         handleResetBaseUrl,
         handleSetBaseUrl,

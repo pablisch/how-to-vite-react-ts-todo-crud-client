@@ -1,11 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../css/BaseUrlForm.css'
 import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
 
 function BaseUrlFrom() {
   const {
     baseUrl,
-    defaultBaseUrl,
     isLocalApi,
     handleSetBaseUrl,
     handleResetBaseUrl,
@@ -19,13 +18,15 @@ function BaseUrlFrom() {
 
   const handleResetBaseUrlAndInputValue = () => {
     handleResetBaseUrl()
-    setInputValue(defaultBaseUrl)
   }
 
   const handleToggleApiLocalDeployed = () => {
     handleToggleApiLocation()
-    setInputValue(defaultBaseUrl)
   }
+  
+  useEffect(() => {
+    setInputValue(baseUrl)
+  }, [baseUrl])
 
   return (
     <div id="base-url-form">
@@ -39,6 +40,7 @@ function BaseUrlFrom() {
       <div className="base-url-btn-container">
         <button
           className={`base-url-btns ${isLocalApi ? 'local' : 'deployed'}`}
+          disabled={baseUrl === inputValue}
           onClick={() => handleSetBaseUrl(inputValue)}
         >{`Set ${isLocalApi ? 'localhost' : 'remote'} base URL`}</button>
         <button
