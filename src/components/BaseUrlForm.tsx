@@ -23,7 +23,7 @@ function BaseUrlFrom() {
   const handleToggleApiLocalDeployed = () => {
     handleToggleApiLocation()
   }
-  
+
   useEffect(() => {
     setInputValue(baseUrl)
   }, [baseUrl])

@@ -1,14 +1,13 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Todo } from '../types/todo.types.ts'
+import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
 
-interface TodoListProps {
-  baseUrl: string
-}
-
-function TodoList({ baseUrl }: TodoListProps) {
+function TodoList() {
   const [todos, setTodos] = useState<Todo[]>([])
   const [todoError, setTodoError] = useState<string | null>(null)
+
+  const { baseUrl } = useBaseUrl()
 
   const getTodoData = async () => {
     setTodoError(null)
@@ -32,14 +31,14 @@ function TodoList({ baseUrl }: TodoListProps) {
 
   useEffect(() => {
     getTodoData()
-  }, [])
+  }, [baseUrl])
 
   return (
     <>
       <button onClick={handleRefreshTodos}>Refresh Todos</button>
       {todoError ? (
         <p>{todoError}</p>
-      ) : todos.length > 0 ? (
+      ) : typeof(todos) === 'object' && todos.length > 0 ? (
         <div>
           {todos.map(todo => (
             <div key={todo._id}>
