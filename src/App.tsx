@@ -1,9 +1,13 @@
 import './App.css'
-import baseUrl from '../utils/baseUrl.ts'
+import BaseUrlForm from './components/BaseUrlForm.tsx'
+import { BaseUrlProvider } from './context/baseUrlContext.tsx'
 
 function App() {
-
-  return <>{baseUrl}</>
+  return (
+    <BaseUrlProvider>
+      <BaseUrlForm />
+    </BaseUrlProvider>
+  )
 }
 
 export default App

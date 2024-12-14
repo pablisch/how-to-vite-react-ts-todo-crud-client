@@ -1,0 +1,29 @@
+#base-url-form {
+  display: flex;
+}
+
+#base-url-input {
+  width: 300px;
+  font-size: 1rem;
+  padding: 5px;
+  margin: 15px;
+}
+
+.base-url-btns {
+  height: 60px;
+  width: 120px;
+  margin: 5px;
+}
+
+.base-url-btn-container {
+  display: flex;
+}
+
+.local {
+  background: #9dfcff;
+}
+
+.deployed {
+  background: #90b7ea;
+}
+

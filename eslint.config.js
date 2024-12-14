@@ -176,7 +176,7 @@ export default tseslint.config(
       '@stylistic/padding-line-between-statements': [
         'error',
         { blankLine: 'always', prev: 'function', next: 'return' },
-        { blankLine: 'always', prev: '*', next: 'return' }
+        { blankLine: 'always', prev: '*', next: 'return' },
       ],
       'no-extra-semi': 'off',
       'lines-between-class-members': 'off',
@@ -185,12 +185,12 @@ export default tseslint.config(
         'error',
         {
           // spread your existing config here
-          allowBlankLines: true
+          allowBlankLines: true,
         },
         {
-          usePrettierrc: true
-        }
-      ]
+          usePrettierrc: true,
+        },
+      ],
     },
   }
 )

@@ -14,4 +14,4 @@ export default defineConfig({
       supported: { 'import-meta': true }, // Ensure import.meta is supported
     },
   },
-});
+})

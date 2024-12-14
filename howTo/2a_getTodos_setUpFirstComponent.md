@@ -1,6 +1,7 @@
 # title
 
 at some point earlier, add imports for repo:
+
 - prettier and eslint
 
 changes to tsconfig.app.json and tsconfig.node.json and vite.config.ts
