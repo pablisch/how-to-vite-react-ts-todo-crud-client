@@ -5,3 +5,7 @@ export interface Todo {
   createdAt: Date
   updatedAt: Date
 }
+
+export interface UnknownObject {
+  [key: string]: never
+}
