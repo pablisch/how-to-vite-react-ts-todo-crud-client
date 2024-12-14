@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Todo } from '../types/todo.types.ts'
 import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
 
-function TodoList() {
+function List() {
   const [todos, setTodos] = useState<Todo[]>([])
   const [todoError, setTodoError] = useState<string | null>(null)
 
@@ -13,7 +13,7 @@ function TodoList() {
     setTodoError(null)
     try {
       const response = await axios.get(`${baseUrl}/todos`)
-      // console.log("response in TodoList:", response.data)
+      // console.log("response in List:", response.data)
       setTodos(response.data)
 
       return response.data
@@ -58,4 +58,4 @@ function TodoList() {
   )
 }
 
-export default TodoList
+export default List

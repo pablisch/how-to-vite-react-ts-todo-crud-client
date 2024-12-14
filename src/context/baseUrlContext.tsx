@@ -49,9 +49,7 @@ export const BaseUrlProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  const [baseUrl, setBaseUrl] = useState<string>(
-    initialBaseUrl
-  )
+  const [baseUrl, setBaseUrl] = useState<string>(initialBaseUrl)
   const [isLocalApi, setIsLocalApi] = useState<boolean>(
     apiSelection.includes('Local')
   )
@@ -64,7 +62,6 @@ export const BaseUrlProvider = ({
   const [isDefaultUrlValue, setIsDefaultUrlValueUrlValue] = useState<boolean>(
     apiSelection.includes('default')
   )
-  // const [apiSelection, setApiSelection] = useState<string>(storedApiSelection || 'defaultDeployed')
 
   const handleSetBaseUrl = (newBaseUrl: string) => {
     if (isLocalApi) {
@@ -72,17 +69,13 @@ export const BaseUrlProvider = ({
     } else {
       setDeployedUrl(newBaseUrl)
     }
-    // console.log(`baseUrl set to ${newBaseUrl}`)
   }
 
   const handleResetBaseUrl = () => {
-    // console.log(`Is local API? ${isLocalApi}`)
     if (isLocalApi) {
       setLocalUrl(null)
-      // console.log(`localUrl set to ${null}`)
     } else {
       setDeployedUrl(null)
-      // console.log(`deployedUrl set to ${null}`)
     }
   }
 
@@ -91,7 +84,7 @@ export const BaseUrlProvider = ({
   }
 
   useEffect(() => {
-    // console.log(`🌱 API is ${isLocalApi ? 'local' : 'deployed'}`)
+    console.log(`🌱 API is ${isLocalApi ? 'local' : 'deployed'}`)
     if (isLocalApi) {
       console.log(
         `local URL is being set to ${localUrl ? localUrl : localDefaultUrl}`

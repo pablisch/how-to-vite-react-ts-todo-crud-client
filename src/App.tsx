@@ -1,14 +1,21 @@
 import './App.css'
 import BaseUrlForm from './components/BaseUrlForm.tsx'
 import { BaseUrlProvider } from './context/baseUrlContext.tsx'
-import TodoList from './components/TodoList.tsx'
+import List from './components/List.tsx'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
-    <BaseUrlProvider>
-      <BaseUrlForm />
-      <TodoList />
-    </BaseUrlProvider>
+    <div className="app">
+      <BrowserRouter>
+        <BaseUrlProvider>
+          <BaseUrlForm />
+          <Routes>
+            <Route path="/" element={<List />} />
+          </Routes>
+        </BaseUrlProvider>
+      </BrowserRouter>
+    </div>
   )
 }
 

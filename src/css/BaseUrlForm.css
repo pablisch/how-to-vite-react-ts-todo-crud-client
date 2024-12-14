@@ -1,16 +1,24 @@
 #base-url-form {
+  width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+}
+
+#base-url-title {
+  color: #ddd;
 }
 
 #base-url-input {
-  width: 300px;
+  width: 450px;
   font-size: 1rem;
-  padding: 5px;
-  margin: 15px;
+  padding: 10px;
+  margin: 10px 40px 10px 10px;
 }
 
 .base-url-btns {
-  height: 60px;
+  height: 40px;
   width: 120px;
   margin: 5px;
 }
