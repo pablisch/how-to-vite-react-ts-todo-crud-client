@@ -34,6 +34,7 @@ function BaseUrlFrom() {
       <h1 id="base-url-title">Base URL</h1>
       <input
         id="base-url-input"
+        className="url-input"
         type="text"
         value={inputValue}
         onChange={handleInputChange}
@@ -41,17 +42,17 @@ function BaseUrlFrom() {
       />
       <div className="base-url-btn-container">
         <button
-          className={`base-url-btn ${isLocalApi ? 'local' : 'deployed'}`}
+          className={`base-url-btn url-btn ${isLocalApi ? 'local' : 'deployed'}`}
           disabled={baseUrl === inputValue}
           onClick={() => handleSetBaseUrl(inputValue)}
         >{`Set ${isLocalApi ? 'localhost' : 'remote'} base URL`}</button>
         <button
-          className={`base-url-btn ${isLocalApi ? 'local' : 'deployed'}`}
+          className={`base-url-btn url-btn ${isLocalApi ? 'local' : 'deployed'}`}
           disabled={isDefaultUrlValue}
           onClick={handleResetBaseUrlAndInputValue}
         >{`Reset ${isLocalApi ? 'localhost' : 'remote'} base URL`}</button>
         <button
-          className={`base-url-btn ${isLocalApi ? 'deployed' : 'local'}`}
+          className={`base-url-btn url-btn ${isLocalApi ? 'deployed' : 'local'}`}
           onClick={handleToggleApiLocalDeployed}
         >
           {isLocalApi ? 'Use deployed API' : 'Use local API'}

@@ -1,11 +1,13 @@
 import './App.css'
 import BaseUrlForm from './components/BaseUrlForm.tsx'
 import { BaseUrlProvider } from './context/baseUrlContext.tsx'
-import List from './components/List.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import CompleteUrl from './components/CompleteUrl.tsx'
 import UrlEndpointForm from './components/UrlEndpointForm.tsx'
 import { EndpointProvider } from './context/EndpointContext.tsx'
+import { ParamsProvider } from './context/ParamsContext.tsx'
+import UrlParamsForm from './components/UrlParamsForm.tsx'
+import MainPage from './pages/MainPage.tsx'
 
 function App() {
   return (
@@ -13,12 +15,15 @@ function App() {
       <BrowserRouter>
         <BaseUrlProvider>
           <EndpointProvider>
-            <CompleteUrl />
-            <BaseUrlForm />
-            <UrlEndpointForm />
-            <Routes>
-              <Route path="/" element={<List />} />
-            </Routes>
+            <ParamsProvider>
+              <CompleteUrl />
+              <BaseUrlForm />
+              <UrlEndpointForm />
+              <UrlParamsForm />
+              <Routes>
+                <Route path="/" element={<MainPage />} />
+              </Routes>
+            </ParamsProvider>
           </EndpointProvider>
         </BaseUrlProvider>
       </BrowserRouter>

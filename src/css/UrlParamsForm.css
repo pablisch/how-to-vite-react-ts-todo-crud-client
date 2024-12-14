@@ -1,0 +1,19 @@
+#url-params-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #444;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+#url-params-title {
+  color: #ddd;
+  margin-right: 30px;
+}
+
+#url-params-text {
+  color: #ccc;
+  font-size: 1.4rem;
+}

@@ -30,18 +30,16 @@ function List() {
   }, [baseUrl, endpoint])
 
   return (
-    <>
+    <div id="list-container">
       {todoError ? (
         <p>{todoError}</p>
       ) : typeof todos === 'object' && todos.length > 0 ? (
         <div>
           {todos.map(todo => (
-            <div key={todo._id}>
-              <h1>
-                Task: <strong>{todo.task}</strong>
-              </h1>
-              <p>Completed: {todo.completed ? 'Yes' : 'No'}</p>
+            <div className="item-panel" key={todo._id}>
               <p>ID: {todo._id}</p>
+              <p>Task: {todo.task}</p>
+              <p>Completed: {todo.completed ? 'Yes' : 'No'}</p>
               <p>Created at: {new Date(todo.createdAt).toLocaleString()}</p>
               <p>Updated at: {new Date(todo.updatedAt).toLocaleString()}</p>
             </div>
@@ -50,7 +48,7 @@ function List() {
       ) : (
         <p>Loading...</p>
       )}
-    </>
+    </div>
   )
 }
 

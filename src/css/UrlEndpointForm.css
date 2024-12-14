@@ -1,0 +1,18 @@
+#url-endpoint-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  padding: 10px;
+}
+
+#url-endpoint-title {
+  color: #ddd;
+  margin-right: 30px;
+}
+
+#url-endpoint-text {
+  color: #ccc;
+  font-size: 1.4rem;
+}

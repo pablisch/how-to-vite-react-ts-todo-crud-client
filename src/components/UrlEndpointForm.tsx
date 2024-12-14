@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useEndpoint } from '../hooks/useEndpoint.tsx'
+import '../css/UrlEndpointForm.css'
 
 const UrlEndpointForm = () => {
   const { endpoint, handleSetEndpoint, handleResetEndpoint } = useEndpoint()
@@ -18,6 +19,7 @@ const UrlEndpointForm = () => {
       <h1 id="url-endpoint-title">URL endpoint:</h1>
       <input
         id="url-endpoint-input"
+        className="url-input"
         type="text"
         value={inputValue}
         onChange={handleInputChange}
@@ -25,14 +27,14 @@ const UrlEndpointForm = () => {
       />
       <div className="base-url-btn-container">
         <button
-          className={`url-endpoint-btn`}
+          className={`url-endpoint-btn url-btn`}
           // disabled={baseUrl === inputValue}
           onClick={() => handleSetEndpoint(inputValue)}
         >
           Set URL endpoint
         </button>
         <button
-          className={`url-endpoint-btn`}
+          className={`url-endpoint-btn url-btn`}
           // disabled={isDefaultUrlValue}
           onClick={handleResetEndpoint}
         >

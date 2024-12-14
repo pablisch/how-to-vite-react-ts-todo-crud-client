@@ -4,20 +4,21 @@
   justify-content: center;
   align-items: center;
   background: #444;
+  border: 1px solid #ccc;
 }
 
 #base-url-title {
   color: #ddd;
 }
 
-#base-url-input {
+.url-input {
   width: 450px;
   font-size: 1rem;
   padding: 10px;
   margin: 10px 40px 10px 10px;
 }
 
-.base-url-btn {
+.url-btn {
   height: 40px;
   width: 120px;
   margin: 5px;
