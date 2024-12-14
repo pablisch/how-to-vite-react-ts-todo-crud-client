@@ -6,12 +6,13 @@ function BaseUrlFrom() {
   const {
     baseUrl,
     isLocalApi,
+    isDefaultUrlValue,
     handleSetBaseUrl,
     handleResetBaseUrl,
     handleToggleApiLocation,
   } = useBaseUrl()
   const [inputValue, setInputValue] = useState(baseUrl)
-
+  
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
   }
@@ -45,6 +46,7 @@ function BaseUrlFrom() {
         >{`Set ${isLocalApi ? 'localhost' : 'remote'} base URL`}</button>
         <button
           className={`base-url-btns ${isLocalApi ? 'local' : 'deployed'}`}
+          disabled={isDefaultUrlValue}
           onClick={handleResetBaseUrlAndInputValue}
         >{`Reset ${isLocalApi ? 'localhost' : 'remote'} base URL`}</button>
         <button

@@ -5,6 +5,7 @@ import { deployedDefaultUrl, localDefaultUrl } from '../utils/baseUrl.ts'
 export interface BaseUrlContextType {
   baseUrl: string
   isLocalApi: boolean
+  isDefaultUrlValue: boolean
   handleSetBaseUrl: (baseUrl: string) => void
   handleResetBaseUrl: () => void
   handleToggleApiLocation: () => void
@@ -13,6 +14,7 @@ export interface BaseUrlContextType {
 export const BaseUrlContext = createContext<BaseUrlContextType>({
   baseUrl: deployedDefaultUrl,
   isLocalApi: false,
+  isDefaultUrlValue: true,
   handleSetBaseUrl: () => {},
   handleResetBaseUrl: () => {},
   handleToggleApiLocation: () => {},
@@ -27,6 +29,7 @@ export const BaseUrlProvider = ({
   const [isLocalApi, setIsLocalApi] = useState<boolean>(false)
   const [localUrl, setLocalUrl] = useState<string | null>(null)
   const [deployedUrl, setDeployedUrl] = useState<string | null>(null)
+  const [isDefaultUrlValue, setIsDefaultUrlValueUrlValue] = useState<boolean>(true)
 
   const handleSetBaseUrl = (newBaseUrl: string) => {
     if (isLocalApi) {
@@ -66,12 +69,22 @@ export const BaseUrlProvider = ({
       setBaseUrl(deployedUrl ? deployedUrl : deployedDefaultUrl)
     }
   }, [isLocalApi, localUrl, deployedUrl])
+  
+  useEffect(() => {
+      const defaultUrl = isLocalApi ? localDefaultUrl : deployedDefaultUrl
+    if (isDefaultUrlValue && baseUrl !== defaultUrl) {
+      setIsDefaultUrlValueUrlValue(false)
+    } else if (!isDefaultUrlValue && baseUrl === defaultUrl) {
+      setIsDefaultUrlValueUrlValue(true)
+    }
+  }, [baseUrl])
 
   return (
     <BaseUrlContext.Provider
       value={{
         baseUrl,
         isLocalApi,
+        isDefaultUrlValue,
         handleResetBaseUrl,
         handleSetBaseUrl,
         handleToggleApiLocation,
