@@ -12,7 +12,7 @@ function BaseUrlFrom() {
     handleToggleApiLocation,
   } = useBaseUrl()
   const [inputValue, setInputValue] = useState(baseUrl)
-  
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
   }

@@ -25,8 +25,7 @@ function TodoList() {
 
   const handleRefreshTodos = async () => {
     const data = await getTodoData()
-    console.log('Getting todos')
-    console.log(data)
+    setTodos(data)
   }
 
   useEffect(() => {
@@ -38,7 +37,7 @@ function TodoList() {
       <button onClick={handleRefreshTodos}>Refresh Todos</button>
       {todoError ? (
         <p>{todoError}</p>
-      ) : typeof(todos) === 'object' && todos.length > 0 ? (
+      ) : typeof todos === 'object' && todos.length > 0 ? (
         <div>
           {todos.map(todo => (
             <div key={todo._id}>
