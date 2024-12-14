@@ -2,17 +2,19 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Todo } from '../types/todo.types.ts'
 import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
+import { useEndpoint } from '../hooks/useEndpoint.tsx'
 
 function List() {
   const [todos, setTodos] = useState<Todo[]>([])
   const [todoError, setTodoError] = useState<string | null>(null)
 
   const { baseUrl } = useBaseUrl()
+  const { endpoint } = useEndpoint()
 
   const getTodoData = async () => {
     setTodoError(null)
     try {
-      const response = await axios.get(`${baseUrl}/todos`)
+      const response = await axios.get(`${baseUrl}/${endpoint}`)
       // console.log("response in List:", response.data)
       setTodos(response.data)
 
@@ -23,18 +25,12 @@ function List() {
     }
   }
 
-  const handleRefreshTodos = async () => {
-    const data = await getTodoData()
-    setTodos(data)
-  }
-
   useEffect(() => {
     getTodoData()
-  }, [baseUrl])
+  }, [baseUrl, endpoint])
 
   return (
     <>
-      <button onClick={handleRefreshTodos}>Refresh Todos</button>
       {todoError ? (
         <p>{todoError}</p>
       ) : typeof todos === 'object' && todos.length > 0 ? (

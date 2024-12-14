@@ -1,0 +1,18 @@
+#complete-url-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  padding: 10px;
+}
+
+#complete-url-title {
+  color: #ddd;
+  margin-right: 30px;
+}
+
+#complete-url-text {
+  color: #ccc;
+  font-size: 1.4rem;
+}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../css/BaseUrlForm.css'
 import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
 
@@ -11,7 +11,7 @@ function BaseUrlFrom() {
     handleResetBaseUrl,
     handleToggleApiLocation,
   } = useBaseUrl()
-  const [inputValue, setInputValue] = useState(baseUrl)
+  const [inputValue, setInputValue] = useState<string>(baseUrl)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
@@ -31,7 +31,7 @@ function BaseUrlFrom() {
 
   return (
     <div id="base-url-form">
-      <h1 id='base-url-title'>Base URL</h1>
+      <h1 id="base-url-title">Base URL</h1>
       <input
         id="base-url-input"
         type="text"
@@ -41,17 +41,17 @@ function BaseUrlFrom() {
       />
       <div className="base-url-btn-container">
         <button
-          className={`base-url-btns ${isLocalApi ? 'local' : 'deployed'}`}
+          className={`base-url-btn ${isLocalApi ? 'local' : 'deployed'}`}
           disabled={baseUrl === inputValue}
           onClick={() => handleSetBaseUrl(inputValue)}
         >{`Set ${isLocalApi ? 'localhost' : 'remote'} base URL`}</button>
         <button
-          className={`base-url-btns ${isLocalApi ? 'local' : 'deployed'}`}
+          className={`base-url-btn ${isLocalApi ? 'local' : 'deployed'}`}
           disabled={isDefaultUrlValue}
           onClick={handleResetBaseUrlAndInputValue}
         >{`Reset ${isLocalApi ? 'localhost' : 'remote'} base URL`}</button>
         <button
-          className={`base-url-btns ${isLocalApi ? 'deployed' : 'local'}`}
+          className={`base-url-btn ${isLocalApi ? 'deployed' : 'local'}`}
           onClick={handleToggleApiLocalDeployed}
         >
           {isLocalApi ? 'Use deployed API' : 'Use local API'}
