@@ -1,7 +1,8 @@
 import React, { createContext, useState } from 'react'
 
 const defaultIdParams: string = ''
-const initialIdParams: string = localStorage.getItem('idParams') || defaultIdParams
+const initialIdParams: string =
+  localStorage.getItem('idParams') || defaultIdParams
 console.log('Setting idParams:', initialIdParams)
 
 export interface IdParamsContextType {
@@ -16,7 +17,11 @@ export const IdParamsContext = createContext<IdParamsContextType>({
   handleResetIdParams: () => {},
 })
 
-export const IdParamsProvider = ({ children }: { children: React.ReactNode }) => {
+export const IdParamsProvider = ({
+  children,
+}: {
+  children: React.ReactNode
+}) => {
   const [idParams, setIdParams] = useState<string>(initialIdParams)
 
   const handleSetIdParams = (newIdParams: string) => {

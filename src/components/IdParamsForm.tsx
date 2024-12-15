@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useUrlParams } from '../hooks/useUrlParams.tsx'
-import '../css/UrlParamsForm.css'
+import { useIdParams } from '../hooks/useIdParams.tsx'
+import '../css/QueryParamsForm.css'
 
-const UrlIdParamsForm = () => {
-  const { idParams, handleSetIdParams, handleResetIdParams } = useUrlParams()
+const IdParamsForm = () => {
+  const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
   const [inputValue, setInputValue] = useState<string>(idParams)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +31,7 @@ const UrlIdParamsForm = () => {
           // disabled={baseUrl === inputValue}
           onClick={() => handleSetIdParams(inputValue)}
         >
-          Set URL /:id param
+          Set /:id param
         </button>
         <button
           className={`url-idParam-btn url-btn`}
@@ -45,4 +45,4 @@ const UrlIdParamsForm = () => {
   )
 }
 
-export default UrlIdParamsForm
+export default IdParamsForm

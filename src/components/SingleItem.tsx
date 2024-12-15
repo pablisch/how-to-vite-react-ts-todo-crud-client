@@ -3,7 +3,7 @@ import { useEndpoint } from '../hooks/useEndpoint.tsx'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { UnknownObject } from '../types/types.ts'
-import { useUrlParams } from '../hooks/useUrlParams.tsx'
+import { useIdParams } from '../hooks/useIdParams.tsx'
 
 const SingleItem = () => {
   const [item, setItem] = useState<UnknownObject | null>()
@@ -11,7 +11,7 @@ const SingleItem = () => {
 
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
-  const { idParams } = useUrlParams()
+  const { idParams } = useIdParams()
   console.log('Params', idParams)
 
   const getListData = async () => {

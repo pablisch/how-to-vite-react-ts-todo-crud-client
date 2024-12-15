@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useEndpoint } from '../hooks/useEndpoint.tsx'
-import '../css/UrlEndpointForm.css'
+import '../css/EndpointForm.css'
 
-const UrlEndpointForm = () => {
+const EndpointForm = () => {
   const { endpoint, handleSetEndpoint, handleResetEndpoint } = useEndpoint()
   const [inputValue, setInputValue] = useState<string>(endpoint)
 
@@ -45,4 +45,4 @@ const UrlEndpointForm = () => {
   )
 }
 
-export default UrlEndpointForm
+export default EndpointForm

@@ -1,47 +1,52 @@
 import React, { createContext, useState } from 'react'
 
 const defaultQueryParams: string = ''
-const initialQueryParams: string = localStorage.getItem('params') || defaultQueryParams
-console.log('Setting params:', initialQueryParams)
+const initialQueryParams: string =
+  localStorage.getItem('queryParams') || defaultQueryParams
+console.log('Setting queryParams:', initialQueryParams)
 
-export interface ItemQueryParamsContextType {
-  params: string
+export interface QueryParamsContextType {
+  queryParams: string
   handleSetQueryParams: (newQueryParams: string) => void
   handleResetQueryParams: () => void
 }
 
-export const ItemQueryParamsContext = createContext<ItemQueryParamsContextType>({
-  params: initialQueryParams,
+export const QueryParamsContext = createContext<QueryParamsContextType>({
+  queryParams: initialQueryParams,
   handleSetQueryParams: () => {},
   handleResetQueryParams: () => {},
 })
 
-export const ItemQueryParamsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [params, setQueryParams] = useState<string>(initialQueryParams)
+export const QueryParamsProvider = ({
+  children,
+}: {
+  children: React.ReactNode
+}) => {
+  const [queryParams, setQueryParams] = useState<string>(initialQueryParams)
 
   const handleSetQueryParams = (newQueryParams: string) => {
     setQueryParams(newQueryParams)
     if (newQueryParams === defaultQueryParams) {
-      localStorage.removeItem('params')
+      localStorage.removeItem('queryParams')
     } else {
-      localStorage.setItem('params', newQueryParams)
+      localStorage.setItem('queryParams', newQueryParams)
     }
   }
 
   const handleResetQueryParams = () => {
     setQueryParams(defaultQueryParams)
-    localStorage.removeItem('params')
+    localStorage.removeItem('queryParams')
   }
 
   return (
-    <ItemQueryParamsContext.Provider
+    <QueryParamsContext.Provider
       value={{
-        params,
+        queryParams,
         handleSetQueryParams,
         handleResetQueryParams,
       }}
     >
       {children}
-    </ItemQueryParamsContext.Provider>
+    </QueryParamsContext.Provider>
   )
 }

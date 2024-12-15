@@ -1,0 +1,19 @@
+#url-query-params-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+#url-query-params-title {
+  color: #ddd;
+  margin-right: 30px;
+}
+
+#url-query-params-text {
+  color: #ccc;
+  font-size: 1.4rem;
+}
