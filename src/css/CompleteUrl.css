@@ -3,16 +3,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #222;
+  background: #eee;
   padding: 10px;
 }
 
 #complete-url-title {
-  color: #ddd;
+  color: #222;
   margin-right: 30px;
 }
 
 #complete-url-text {
-  color: #ccc;
+  color: #444;
   font-size: 1.4rem;
+}
+
+.base-url-text {
+  color: #0d35f3;
+}
+
+.url-endpoint-text {
+  color: #c51414;
+}
+
+.url-id-param-text {
+  color: #0d8e0f;
 }

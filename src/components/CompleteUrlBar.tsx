@@ -11,7 +11,7 @@ const CompleteUrlBar = () => {
   return (
     <div className="flex-container" id="complete-url-container">
       <h1 id="complete-url-title">Complete URL:</h1>
-      <p id="complete-url-text">{`${baseUrl}/${endpoint}${params ? '/' : ''}${params}`}</p>
+      <p id="complete-url-text"><span className="base-url-text">{baseUrl}</span><span className="url-endpoint-text">{`/${endpoint}`}</span><span className="url-id-param-text">{`${params ? '/' : ''}${params}`}</span></p>
     </div>
   )
 }
