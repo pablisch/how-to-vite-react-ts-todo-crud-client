@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
 
-const defaultEndpoint: string = 'todos'
+const defaultEndpoint: string = '/todos'
 const initialEndpoint: string =
   localStorage.getItem('endpoint') || defaultEndpoint
 
@@ -24,6 +24,8 @@ export const EndpointProvider = ({
   const [endpoint, setEndpoint] = useState<string>(initialEndpoint)
 
   const handleSetEndpoint = (newEndpoint: string) => {
+    if (!newEndpoint) return
+    newEndpoint = newEndpoint.startsWith('/') ? newEndpoint : `/${newEndpoint}`
     setEndpoint(newEndpoint)
     if (newEndpoint == defaultEndpoint) {
       localStorage.removeItem('endpoint')

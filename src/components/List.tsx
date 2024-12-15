@@ -4,6 +4,7 @@ import { UnknownObject } from '../types/types.ts'
 import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
 import { useEndpoint } from '../hooks/useEndpoint.tsx'
 import ListItem from './ListItem.tsx'
+import { useQueryParams } from '../hooks/useQueryParams.tsx'
 
 function List() {
   const [items, setItems] = useState<UnknownObject[]>([])
@@ -11,11 +12,12 @@ function List() {
 
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
+  const { queryParams } = useQueryParams()
 
   const getItemData = async () => {
     setItemError(null)
     try {
-      const response = await axios.get(`${baseUrl}/${endpoint}`)
+      const response = await axios.get(`${baseUrl}${endpoint}${queryParams}`)
       setItems(response.data)
 
       return response.data

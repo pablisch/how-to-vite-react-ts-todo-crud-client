@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { UnknownObject } from '../types/types.ts'
 import { useIdParams } from '../hooks/useIdParams.tsx'
+import { useQueryParams } from '../hooks/useQueryParams.tsx'
 
 const SingleItem = () => {
   const [item, setItem] = useState<UnknownObject | null>()
@@ -12,13 +13,16 @@ const SingleItem = () => {
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
+  const { queryParams } = useQueryParams()
   console.log('Params', idParams)
 
   const getListData = async () => {
-    console.log('calling...', `${baseUrl}/${endpoint}/${idParams}`)
+    console.log('calling...', `${baseUrl}${endpoint}${idParams}${queryParams}`)
     setItemError(null)
     try {
-      const response = await axios.get(`${baseUrl}/${endpoint}/${idParams}`)
+      const response = await axios.get(
+        `${baseUrl}${endpoint}${idParams}${queryParams}`
+      )
       console.log('response in Single Item:', response.data)
       setItem(response.data)
 

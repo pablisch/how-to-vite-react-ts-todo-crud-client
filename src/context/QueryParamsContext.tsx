@@ -25,6 +25,10 @@ export const QueryParamsProvider = ({
   const [queryParams, setQueryParams] = useState<string>(initialQueryParams)
 
   const handleSetQueryParams = (newQueryParams: string) => {
+    if (!newQueryParams) return
+    newQueryParams = newQueryParams.startsWith('?')
+      ? newQueryParams
+      : `?${newQueryParams}`
     setQueryParams(newQueryParams)
     if (newQueryParams === defaultQueryParams) {
       localStorage.removeItem('queryParams')
