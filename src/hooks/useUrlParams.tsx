@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import { ParamsContext } from '../context/ParamsContext.tsx'
+import { IdParamsContext } from '../context/IdParamsContext.tsx'
 
 export const useUrlParams = () => {
-  const context = useContext(ParamsContext)
+  const context = useContext(IdParamsContext)
   if (!context) {
-    throw new Error('useParams must be used within an ParamsProvider')
+    throw new Error('useParams must be used within an IdParamsProvider')
   }
 
   return context

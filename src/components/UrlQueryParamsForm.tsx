@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useUrlParams } from '../hooks/useUrlParams.tsx'
 import '../css/UrlParamsForm.css'
 
-const UrlParamsForm = () => {
+const UrlQueryParamsForm = () => {
   const { params, handleSetParams, handleResetParams } = useUrlParams()
   const [inputValue, setInputValue] = useState<string>(params)
 
@@ -45,4 +45,4 @@ const UrlParamsForm = () => {
   )
 }
 
-export default UrlParamsForm
+export default UrlQueryParamsForm

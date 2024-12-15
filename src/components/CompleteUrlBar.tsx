@@ -6,12 +6,12 @@ import { useUrlParams } from '../hooks/useUrlParams.tsx'
 const CompleteUrlBar = () => {
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
-  const { params } = useUrlParams()
+  const { idParams } = useUrlParams()
 
   return (
     <div className="flex-container" id="complete-url-container">
       <h1 id="complete-url-title">Complete URL:</h1>
-      <p id="complete-url-text"><span className="base-url-text">{baseUrl}</span><span className="url-endpoint-text">{`/${endpoint}`}</span><span className="url-id-param-text">{`${params ? '/' : ''}${params}`}</span></p>
+      <p id="complete-url-text"><span className="base-url-text">{baseUrl}</span><span className="url-endpoint-text">{`/${endpoint}`}</span><span className="url-id-param-text">{`${idParams ? '/' : ''}${idParams}`}</span></p>
     </div>
   )
 }

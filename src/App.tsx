@@ -5,8 +5,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import CompleteUrlBar from './components/CompleteUrlBar.tsx'
 import UrlEndpointForm from './components/UrlEndpointForm.tsx'
 import { EndpointProvider } from './context/EndpointContext.tsx'
-import { ParamsProvider } from './context/ParamsContext.tsx'
-import UrlParamsForm from './components/UrlParamsForm.tsx'
+import { IdParamsProvider } from './context/IdParamsContext.tsx'
+import UrlIdParamsForm from './components/UrlIdParamsForm.tsx'
 import MainPage from './pages/MainPage.tsx'
 
 function App() {
@@ -15,15 +15,15 @@ function App() {
       <BrowserRouter>
         <BaseUrlProvider>
           <EndpointProvider>
-            <ParamsProvider>
+            <IdParamsProvider>
               <CompleteUrlBar />
               <BaseUrlForm />
               <UrlEndpointForm />
-              <UrlParamsForm />
+              <UrlIdParamsForm />
               <Routes>
                 <Route path="/" element={<MainPage />} />
               </Routes>
-            </ParamsProvider>
+            </IdParamsProvider>
           </EndpointProvider>
         </BaseUrlProvider>
       </BrowserRouter>

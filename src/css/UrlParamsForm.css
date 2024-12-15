@@ -1,4 +1,4 @@
-#url-params-form {
+#url-id-param-form {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -8,12 +8,12 @@
   border: 1px solid #ccc;
 }
 
-#url-params-title {
+#url-id-param-title {
   color: #ddd;
   margin-right: 30px;
 }
 
-#url-params-text {
+#url-id-param-text {
   color: #ccc;
   font-size: 1.4rem;
 }

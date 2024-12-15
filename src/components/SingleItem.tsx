@@ -11,34 +11,34 @@ const SingleItem = () => {
 
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
-  const { params } = useUrlParams()
-  console.log('Params', params)
+  const { idParams } = useUrlParams()
+  console.log('Params', idParams)
 
   const getListData = async () => {
-    console.log('calling...', `${baseUrl}/${endpoint}/${params}`)
+    console.log('calling...', `${baseUrl}/${endpoint}/${idParams}`)
     setItemError(null)
     try {
-      const response = await axios.get(`${baseUrl}/${endpoint}/${params}`)
+      const response = await axios.get(`${baseUrl}/${endpoint}/${idParams}`)
       console.log('response in Single Item:', response.data)
       setItem(response.data)
 
       return response.data
     } catch (error) {
       console.error('Error fetching single item data:', error)
-      setItemError(`Failed to fetch data for item with ID: ${params}`)
+      setItemError(`Failed to fetch data for item with ID: ${idParams}`)
     }
   }
 
   useEffect(() => {
     console.log('something changed')
     getListData()
-  }, [baseUrl, endpoint, params])
+  }, [baseUrl, endpoint, idParams])
 
   return (
     <div id="single-item-container">
       {itemError ? (
         <p>{itemError}</p>
-      ) : !params ? (
+      ) : !idParams ? (
         <p>Set URL /:id parameter to get an item by ID</p>
       ) : item && !Array.isArray(item) ? (
         Object.entries(item).map(([key, value]) => (
