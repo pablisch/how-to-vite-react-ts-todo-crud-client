@@ -2,7 +2,7 @@ import './App.css'
 import BaseUrlForm from './components/BaseUrlForm.tsx'
 import { BaseUrlProvider } from './context/baseUrlContext.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import CompleteUrl from './components/CompleteUrl.tsx'
+import CompleteUrlBar from './components/CompleteUrlBar.tsx'
 import UrlEndpointForm from './components/UrlEndpointForm.tsx'
 import { EndpointProvider } from './context/EndpointContext.tsx'
 import { ParamsProvider } from './context/ParamsContext.tsx'
@@ -16,7 +16,7 @@ function App() {
         <BaseUrlProvider>
           <EndpointProvider>
             <ParamsProvider>
-              <CompleteUrl />
+              <CompleteUrlBar />
               <BaseUrlForm />
               <UrlEndpointForm />
               <UrlParamsForm />

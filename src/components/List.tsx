@@ -33,18 +33,15 @@ function List() {
     <div id="list-container">
       {itemError ? (
         <p>{itemError}</p>
-      ) : typeof items === 'object' && items.length > 0 ? (
+      ) : Array.isArray(items) && items.length > 0 ? (
         <div>
           {items.map((item, index) => (
             <ListItem item={item} key={item?._id || item?.id || index} />
-            // <div className="item-panel" key={item._id}>
-            //   <p>ID: {item._id}</p>
-            //   <p>Task: {item.task}</p>
-            //   <p>Completed: {item.completed ? 'Yes' : 'No'}</p>
-            //   <p>Created at: {new Date(item.createdAt).toLocaleString()}</p>
-            //   <p>Updated at: {new Date(item.updatedAt).toLocaleString()}</p>
-            // </div>
           ))}
+        </div>
+      ) : Array.isArray(items) && items.length === 0 ? (
+        <div className="flex-container">
+          {`There are no ${endpoint} to display`}
         </div>
       ) : (
         <p>Loading...</p>

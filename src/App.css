@@ -19,3 +19,10 @@
   border-radius: 15px;
   margin: 30px 10px;
 }
+
+#single-item-container {
+  border: 1px solid #bbb;
+  padding: 30px;
+  border-radius: 25px;
+}
+

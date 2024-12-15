@@ -16,7 +16,7 @@ const UrlParamsForm = () => {
 
   return (
     <div id="url-params-form" className="flex-container">
-      <h1 id="url-params-title">URL params:</h1>
+      <h1 id="url-params-title">URL /:id params:</h1>
       <input
         id="url-params-input"
         className="url-input"
@@ -31,7 +31,7 @@ const UrlParamsForm = () => {
           // disabled={baseUrl === inputValue}
           onClick={() => handleSetParams(inputValue)}
         >
-          Set URL params
+          Set URL /:id param
         </button>
         <button
           className={`url-params-btn url-btn`}

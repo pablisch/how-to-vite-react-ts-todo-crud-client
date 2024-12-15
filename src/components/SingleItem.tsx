@@ -38,7 +38,9 @@ const SingleItem = () => {
     <div id="single-item-container">
       {itemError ? (
         <p>{itemError}</p>
-      ) : item ? (
+      ) : !params ? (
+        <p>Set URL /:id parameter to get an item by ID</p>
+      ) : item && !Array.isArray(item) ? (
         Object.entries(item).map(([key, value]) => (
           <p key={key}>
             <strong>{key}:</strong> {String(value)}
