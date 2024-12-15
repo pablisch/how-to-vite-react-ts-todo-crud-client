@@ -26,14 +26,12 @@ const ListItem = ({ item }: ListItemProps) => {
     )
 
     // Merge properties in desired order: id/_id -> name -> first 3 of others
-    const orderedItems = [
+    return [
       ...(idKey ? [[idKey, idValue]] : [['id', idValue]]), // Use 'id' for warning message if no idKey is found
       ...(nameKey ? [[nameKey, item[nameKey]]] : []),
       ...(lastNameKey ? [[lastNameKey, item[lastNameKey]]] : []),
-      ...otherKeys.slice(0, 2).map(key => [key, item[key]]), // Limit to the first 2 remaining keys
-    ]
-
-    return orderedItems
+      ...otherKeys.map(key => [key, item[key]]), // Limit to the first 2 remaining keys
+    ].slice(0, 3)
   }
 
   const displayItem = processItem(item)

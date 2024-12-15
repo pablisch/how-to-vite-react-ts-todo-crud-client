@@ -43,7 +43,7 @@ function List() {
         </div>
       ) : Array.isArray(items) && items.length === 0 ? (
         <div className="flex-container">
-          {`There are no ${endpoint} to display`}
+          {`There are no ${endpoint.replace(/^\/+/, '')} to display`}
         </div>
       ) : (
         <p>Loading...</p>
