@@ -1,11 +1,11 @@
 :root {
-    /*  NAV FORMS  */
-    --url-form-title: 1.3rem;
-    --nav-title-margin-right: 15px;
-    --form-height: 50px;
-    --form-btn-height: 35px;
-    --full-url-font-size: 1rem;
+  /*  NAV FORMS  */
+  --url-form-title: 1.3rem;
+  --nav-title-margin-right: 15px;
+  --form-height: 50px;
+  --form-btn-height: 35px;
+  --full-url-font-size: 1rem;
 
-    /*  ITEM SECTION  */
-    --panel-side-margin: 3%;
+  /*  ITEM SECTION  */
+  --panel-side-margin: 3%;
 }

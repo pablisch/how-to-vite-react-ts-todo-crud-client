@@ -141,7 +141,7 @@ const SingleItem = () => {
         <p>{itemError}</p>
       ) : !idParams ? (
         <p>Set URL /:id parameter to get an item by ID</p>
-      ) : item ? (
+      ) : item && !Array.isArray(item) ? (
         <pre
           style={{
             whiteSpace: 'pre-wrap',

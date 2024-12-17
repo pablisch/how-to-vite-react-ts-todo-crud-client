@@ -1,0 +1,10 @@
+.btn {
+  padding: 0.5rem;
+  background: #bad3f4;
+  border: 1px solid #2e3843;
+  border-radius: 5px;
+}
+
+.deselect {
+    background: #f4baba;
+}

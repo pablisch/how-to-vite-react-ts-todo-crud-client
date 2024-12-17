@@ -1,9 +1,13 @@
 import { UnknownObject } from '../types/types.ts'
+import Button from './Button.tsx'
+import { useIdParams } from '../hooks/useIdParams.tsx'
 
 interface ListItemProps {
   item: UnknownObject
 }
 const ListItem = ({ item }: ListItemProps) => {
+  const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
+
   console.log('item:', item)
   // const {_id, ...rest} = item
   // console.log('rest:', rest)
@@ -35,21 +39,40 @@ const ListItem = ({ item }: ListItemProps) => {
   }
 
   const displayItem = processItem(item)
-  // console.log(displayItem)
+  const id = displayItem[0][1]
+  console.log('displayItem:', displayItem)
+  console.log('id:', id)
+  
+  const isViewed = `/${id}` === idParams
+
+  const handleViewItem = () => {
+    console.log('isViewed:', isViewed, 'id:', id, 'idParams:', idParams)
+    if (isViewed) {
+      handleResetIdParams()
+    } else {
+      console.log('view item:', id)
+      handleSetIdParams(id)
+    }
+  }
 
   return (
     <div className="item-panel">
       <div className="item-details">
-      {displayItem.map(([key, value]) => (
-        <p key={key}>
-          <strong>{key}:</strong> {String(value)}
-        </p>
-      ))}
+        {displayItem.map(([key, value]) => (
+          <p key={key}>
+            <strong>{key}:</strong> {String(value)}
+          </p>
+        ))}
       </div>
       <div className="item-btns">
-        <button>
-          View
-        </button>
+        <Button
+          ariaLabel="view item button"
+          id={`view-item-id-${id}`}
+          onClick={handleViewItem}
+          className={`btn ${isViewed ? 'deselect' : ''}`}
+        >
+          {isViewed ? 'Deselect' : 'View item'}
+        </Button>
       </div>
     </div>
   )
