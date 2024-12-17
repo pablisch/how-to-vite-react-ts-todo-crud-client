@@ -39,11 +39,18 @@ const ListItem = ({ item }: ListItemProps) => {
 
   return (
     <div className="item-panel">
+      <div className="item-details">
       {displayItem.map(([key, value]) => (
         <p key={key}>
           <strong>{key}:</strong> {String(value)}
         </p>
       ))}
+      </div>
+      <div className="item-btns">
+        <button>
+          View
+        </button>
+      </div>
     </div>
   )
 }

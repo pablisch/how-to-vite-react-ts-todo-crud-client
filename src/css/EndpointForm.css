@@ -1,5 +1,6 @@
 #url-endpoint-form {
   width: 100%;
+  height: var(--form-height);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +10,8 @@
 
 #url-endpoint-title {
   color: #ddd;
-  margin-right: 30px;
+  font-size: var(--url-form-title);
+  margin-right: var(--nav-title-margin-right);
 }
 
 #url-endpoint-text {

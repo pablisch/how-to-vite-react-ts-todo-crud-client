@@ -10,6 +10,7 @@ import IdParamsForm from './components/IdParamsForm.tsx'
 import MainPage from './pages/MainPage.tsx'
 import { QueryParamsProvider } from './context/QueryParamsContext.tsx'
 import QueryParamsForm from './components/QueryParamsForm.tsx'
+import './global.css'
 
 function App() {
   return (
