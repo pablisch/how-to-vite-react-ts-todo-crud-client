@@ -1,12 +1,15 @@
 import { UnknownObject } from '../types/types.ts'
 import Button from './Button.tsx'
 import { useIdParams } from '../hooks/useIdParams.tsx'
+import '../css/ListItem.css'
+import { useItems } from '../hooks/useItems.tsx'
 
 interface ListItemProps {
   item: UnknownObject
 }
 const ListItem = ({ item }: ListItemProps) => {
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
+  const { deleteItem } = useItems()
 
   console.log('item:', item)
   // const {_id, ...rest} = item
@@ -42,7 +45,7 @@ const ListItem = ({ item }: ListItemProps) => {
   const id = displayItem[0][1]
   console.log('displayItem:', displayItem)
   console.log('id:', id)
-  
+
   const isViewed = `/${id}` === idParams
 
   const handleViewItem = () => {
@@ -53,6 +56,13 @@ const ListItem = ({ item }: ListItemProps) => {
       console.log('view item:', id)
       handleSetIdParams(id)
     }
+  }
+
+  const handleDeleteItem = async () => {
+    if (isViewed) {
+      handleResetIdParams()
+    }
+    await deleteItem(id)
   }
 
   return (
@@ -72,6 +82,15 @@ const ListItem = ({ item }: ListItemProps) => {
           className={`btn ${isViewed ? 'deselect' : ''}`}
         >
           {isViewed ? 'Deselect' : 'View item'}
+        </Button>
+        <Button
+          ariaLabel="view item button"
+          id={`view-item-id-${id}`}
+          onClick={handleDeleteItem}
+          className="btn bottom-btn red-btn"
+        >
+          {/*{isViewed ? 'Deselect' : 'View item'}*/}
+          Delete item
         </Button>
       </div>
     </div>
