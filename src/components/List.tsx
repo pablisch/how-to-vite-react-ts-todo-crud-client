@@ -11,7 +11,7 @@ function List() {
 
   useEffect(() => {
     getAllItems()
-  }, [baseUrl, endpoint, items])
+  }, [baseUrl, endpoint])
 
   return (
     <div id="list-container">
