@@ -13,10 +13,10 @@ const PatchUpdateItemForm = () => {
   const { idParams } = useIdParams()
   const { singleItem, getSingleItem, getSingleItemError } = useItems()
 
-  useEffect(() => {
-    console.log('something changed')
-    getSingleItem()
-  }, [baseUrl, endpoint, idParams])
+  // useEffect(() => {
+  //   // console.log('something changed')
+  //   getSingleItem()
+  // }, [baseUrl, endpoint, idParams])
 
   return (
     <div id="single-item-container">
@@ -26,6 +26,9 @@ const PatchUpdateItemForm = () => {
         <p>Set URL /:id parameter to get an item by ID</p>
       ) : singleItem && !Array.isArray(singleItem) ? (
         <div className="single-item-display">
+          <p>
+            <strong>Update Form</strong>
+          </p>
           {formatObjectAsJSX(singleItem)}
         </div>
       ) : (
@@ -42,9 +45,6 @@ const PatchUpdateItemForm = () => {
 
     return (
       <>
-        <p>
-          <strong>Update Form</strong>
-        </p>
         <br />
         <ul className="single-item-details">
           {Object.entries(obj).map(([key, value]) => (

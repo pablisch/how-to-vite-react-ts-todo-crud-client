@@ -34,7 +34,7 @@ export const ItemsContext = createContext<ItemsContextType>({
   deleteItemError: null,
   patchUpdateItem: () => {},
   patchUpdateItemError: null,
-  operation: 'singleItem',
+  operation: 'getById',
   handleChangeOperation: () => {},
 })
 
@@ -52,8 +52,8 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
   const { queryParams } = useQueryParams()
-  const [operation, setOperation] = useState<string>('singleItem')
-
+  const [operation, setOperation] = useState<string>('getById')
+  
   const getAllItems = async () => {
     setGetAllItemError(null)
     try {
@@ -66,6 +66,8 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const getSingleItem = async () => {
+    console.log('setting operation in getSingleItem to getById')
+    setOperation('getById')
     setGetSingleItemError(null)
     try {
       const response = await apiClient.get(
@@ -82,6 +84,8 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const deleteItem = async (id: string) => {
+    console.log('setting operation in deleteItem to delete')
+    setOperation('delete')
     setDeleteItemError(null)
     try {
       const response = await axios.delete(`${baseUrl}${endpoint}/${id}`, {
@@ -99,6 +103,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const patchUpdateItem = async () => {
+    console.log('setting operation in patchUpdateItem to patchUpdate')
     setOperation('patchUpdate')
     setPatchUpdateItemError(null)
     const body = {}

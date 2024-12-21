@@ -9,9 +9,9 @@ interface ListItemProps {
 }
 const ListItem = ({ item }: ListItemProps) => {
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
-  const { deleteItem, patchUpdateItem } = useItems()
+  const { handleChangeOperation, deleteItem, patchUpdateItem } = useItems()
 
-  console.log('item:', item)
+  // console.log('item:', item)
   // const {_id, ...rest} = item
   // console.log('rest:', rest)
 
@@ -43,19 +43,21 @@ const ListItem = ({ item }: ListItemProps) => {
 
   const displayItem = processItem(item)
   const id = displayItem[0][1]
-  console.log('displayItem:', displayItem)
-  console.log('id:', id)
+  // console.log('displayItem:', displayItem)
+  // console.log('id:', id)
 
   const isViewed = `/${id}` === idParams
 
-  const handleViewItem = () => {
+  const handleViewItem = async () => {
     // console.log('isViewed:', isViewed, 'id:', id, 'idParams:', idParams)
     if (isViewed) {
       handleResetIdParams()
     } else {
-      console.log('view item:', id)
+      // console.log('view item:', id)
       handleSetIdParams(id)
+      handleChangeOperation("getById")
     }
+    // await getSingleItem()
   }
 
   const handleDeleteItem = async () => {

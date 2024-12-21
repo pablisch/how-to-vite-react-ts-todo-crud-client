@@ -11,11 +11,11 @@ const SingleItem = () => {
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
-  const { singleItem, getSingleItem, getSingleItemError } = useItems()
+  const { singleItem, getSingleItem, getSingleItemError, operation } = useItems()
 
   useEffect(() => {
-    console.log('something changed')
-    getSingleItem()
+    console.log('something changed. Operation:', operation)
+    if (operation === 'getById') getSingleItem()
   }, [baseUrl, endpoint, idParams])
 
   return (
@@ -41,7 +41,7 @@ const SingleItem = () => {
     }
 
     return (
-      <ul className="single-item-details" >
+      <ul className="single-item-details">
         {Object.entries(obj).map(([key, value]) => (
           <li key={key}>
             <strong>{key}</strong>:{' '}
