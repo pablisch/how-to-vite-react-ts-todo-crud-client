@@ -71,7 +71,7 @@ const ListItem = ({ item }: ListItemProps) => {
   }
 
   return (
-    <div className="item-panel">
+    <div className={`item-panel ${isViewed ? 'focus-item-panel' : ''}`}>
       <div className="item-details">
         {displayItem.map(([key, value]) => (
           <p key={key}>

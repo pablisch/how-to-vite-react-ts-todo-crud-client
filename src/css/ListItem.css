@@ -6,3 +6,11 @@
 .item-details {
   line-height: 1.5;
 }
+
+.item-panel {
+    background: #fff;
+}
+
+.focus-item-panel {
+    background: #dee;
+}
