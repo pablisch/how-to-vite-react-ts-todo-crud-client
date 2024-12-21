@@ -25,27 +25,65 @@ const SingleItem = () => {
       ) : !idParams ? (
         <p>Set URL /:id parameter to get an item by ID</p>
       ) : singleItem && !Array.isArray(singleItem) ? (
-        <pre className="single-item-display">
-          <code>{formatObjectAsJSObject(singleItem)}</code>
-        </pre>
+        <div className="single-item-display">
+          {formatObjectAsJSX(singleItem)}
+        </div>
       ) : (
         <p>Loading...</p>
       )}
     </div>
   )
 
-  // Function to format object as JS object (without quotes around keys)
-  function formatObjectAsJSObject(obj: UnknownObject) {
+  // Function to format object as JSX with bold keys
+  function formatObjectAsJSX(obj: UnknownObject): React.ReactNode {
     if (typeof obj !== 'object' || obj === null) {
-      return String(obj) // Return the value itself if it's not an object
+      return <span>{String(obj)}</span> // Return the value itself if it's not an object
     }
 
-    // Recursively format objects and arrays with proper indentation
-    const formattedObject = JSON.stringify(obj, null, 5)
-      .replace(/"([^(")"]+)":/g, '$1:') // Remove quotes around keys
-
-    return formattedObject
+    return (
+      <ul style={{ listStyleType: 'none', paddingLeft: '20px' }}>
+        {Object.entries(obj).map(([key, value]) => (
+          <li key={key}>
+            <strong>{key}</strong>:{' '}
+            {typeof value === 'object' && value !== null ? (
+              formatObjectAsJSX(value) // Recursively render nested objects
+            ) : (
+              <span>{String(value)}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    )
   }
+
+  // return (
+  //   <div id="single-item-container">
+  //     {getSingleItemError ? (
+  //       <pre className="error-message">{getSingleItemError}</pre>
+  //     ) : !idParams ? (
+  //       <p>Set URL /:id parameter to get an item by ID</p>
+  //     ) : singleItem && !Array.isArray(singleItem) ? (
+  //       <pre className="single-item-display">
+  //         <code>{formatObjectAsJSObject(singleItem)}</code>
+  //       </pre>
+  //     ) : (
+  //       <p>Loading...</p>
+  //     )}
+  //   </div>
+  // )
+  //
+  // // Function to format object as JS object (without quotes around keys)
+  // function formatObjectAsJSObject(obj: UnknownObject) {
+  //   if (typeof obj !== 'object' || obj === null) {
+  //     return String(obj) // Return the value itself if it's not an object
+  //   }
+  //
+  //   // Recursively format objects and arrays with proper indentation
+  //   const formattedObject = JSON.stringify(obj, null, 5)
+  //     .replace(/"([^(")"]+)":/g, '$1:') // Remove quotes around keys
+  //
+  //   return formattedObject
+  // }
 
   // return (
   //   <div id="single-item-container">
