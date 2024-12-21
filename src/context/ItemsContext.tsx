@@ -21,6 +21,7 @@ export interface ItemsContextType {
   patchUpdateItemError: React.ReactElement | null
   operation: string
   handleChangeOperation: (newOperation: string) => void
+  handleResetOperation: () => void
 }
 
 export const ItemsContext = createContext<ItemsContextType>({
@@ -36,6 +37,7 @@ export const ItemsContext = createContext<ItemsContextType>({
   patchUpdateItemError: null,
   operation: 'getById',
   handleChangeOperation: () => {},
+  handleResetOperation: () => {},
 })
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
@@ -130,6 +132,10 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     if (newOperation !== operation) setOperation(newOperation)
   }
 
+  const handleResetOperation = () => {
+    if (operation !== 'getById') setOperation('getById')
+  }
+
   return (
     <ItemsContext.Provider
       value={{
@@ -145,6 +151,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         patchUpdateItemError,
         operation,
         handleChangeOperation,
+        handleResetOperation,
       }}
     >
       {children}

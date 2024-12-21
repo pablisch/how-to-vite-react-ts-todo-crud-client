@@ -9,7 +9,7 @@ interface ListItemProps {
 }
 const ListItem = ({ item }: ListItemProps) => {
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
-  const { handleChangeOperation, deleteItem, patchUpdateItem, operation } =
+  const { handleResetOperation, deleteItem, patchUpdateItem, operation } =
     useItems()
 
   // console.log('item:', item)
@@ -56,7 +56,7 @@ const ListItem = ({ item }: ListItemProps) => {
     } else {
       // console.log('view item:', id)
       handleSetIdParams(id)
-      handleChangeOperation('getById')
+      handleResetOperation()
     }
     // await getSingleItem()
   }
@@ -71,6 +71,7 @@ const ListItem = ({ item }: ListItemProps) => {
   const handleUpdateItem = async () => {
     if (isPatched) {
       handleResetIdParams()
+      handleResetOperation()
     } else {
       handleSetIdParams(id)
       await patchUpdateItem(id)
