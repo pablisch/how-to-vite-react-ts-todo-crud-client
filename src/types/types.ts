@@ -9,3 +9,9 @@ export interface Todo {
 export interface UnknownObject {
   [key: string]: never
 }
+
+export interface ApiErrorObject {
+  status?: number
+  message?: string
+  [key: string]: unknown
+}

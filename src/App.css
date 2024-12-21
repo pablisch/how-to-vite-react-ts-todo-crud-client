@@ -33,3 +33,20 @@
 .form-text {
   color: #eee;
 }
+
+.error-message {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+.spacer {
+  line-height: 0.6;
+}
+
+.wrap-text {
+  white-space: pre-wrap;
+}

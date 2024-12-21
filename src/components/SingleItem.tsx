@@ -4,6 +4,8 @@ import { useEffect } from 'react'
 import { UnknownObject } from '../types/types.ts'
 import { useIdParams } from '../hooks/useIdParams.tsx'
 import { useItems } from '../hooks/useItems.tsx'
+import '../css/SingleItem.css'
+import '../App.css'
 
 const SingleItem = () => {
   const { baseUrl } = useBaseUrl()
@@ -19,20 +21,11 @@ const SingleItem = () => {
   return (
     <div id="single-item-container">
       {getSingleItemError ? (
-        <p>{getSingleItemError}</p>
+        <pre className="error-message">{getSingleItemError}</pre>
       ) : !idParams ? (
         <p>Set URL /:id parameter to get an item by ID</p>
       ) : singleItem && !Array.isArray(singleItem) ? (
-        <pre
-          style={{
-            whiteSpace: 'pre-wrap',
-            wordWrap: 'break-word',
-            background: '#f4f4f4',
-            padding: '10px',
-            borderRadius: '5px',
-            overflowX: 'auto',
-          }}
-        >
+        <pre className="single-item-display">
           <code>{formatObjectAsJSObject(singleItem)}</code>
         </pre>
       ) : (
@@ -48,7 +41,7 @@ const SingleItem = () => {
     }
 
     // Recursively format objects and arrays with proper indentation
-    const formattedObject = JSON.stringify(obj, null, 5) // 2 spaces indentation
+    const formattedObject = JSON.stringify(obj, null, 5)
       .replace(/"([^(")"]+)":/g, '$1:') // Remove quotes around keys
 
     return formattedObject
