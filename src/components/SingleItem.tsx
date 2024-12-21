@@ -41,7 +41,7 @@ const SingleItem = () => {
     }
 
     return (
-      <ul style={{ listStyleType: 'none', paddingLeft: '20px' }}>
+      <ul className="single-item-details" >
         {Object.entries(obj).map(([key, value]) => (
           <li key={key}>
             <strong>{key}</strong>:{' '}
