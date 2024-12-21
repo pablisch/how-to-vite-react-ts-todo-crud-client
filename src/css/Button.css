@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 
-.deselect {
+.active-btn {
   background: #bad5f4;
 }
 

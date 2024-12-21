@@ -1,0 +1,24 @@
+.operation-indicator-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.operation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7.5rem;
+    height: 3rem;
+    background: #ccc;
+    text-align: center;
+    border-radius: 0.5rem;
+    color: #999;
+}
+
+.active-operation {
+    background: #049a0a;
+    color: #fff;
+    transition: all 0.7s ease;
+}

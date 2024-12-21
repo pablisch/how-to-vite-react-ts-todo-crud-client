@@ -53,7 +53,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const { idParams } = useIdParams()
   const { queryParams } = useQueryParams()
   const [operation, setOperation] = useState<string>('getById')
-  
+
   const getAllItems = async () => {
     setGetAllItemError(null)
     try {

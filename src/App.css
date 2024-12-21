@@ -22,8 +22,16 @@
   margin: 30px 10px;
 }
 
-#single-item-container {
+#operation-panel {
   width: 45%;
+  border: 1px solid #bbb;
+  padding: 30px;
+  border-radius: 25px;
+  margin-right: var(--panel-side-margin);
+}
+
+#single-item-container {
+  /*width: 45%;*/
   border: 1px solid #bbb;
   padding: 30px;
   border-radius: 25px;

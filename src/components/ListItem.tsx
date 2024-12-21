@@ -9,7 +9,8 @@ interface ListItemProps {
 }
 const ListItem = ({ item }: ListItemProps) => {
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
-  const { handleChangeOperation, deleteItem, patchUpdateItem } = useItems()
+  const { handleChangeOperation, deleteItem, patchUpdateItem, operation } =
+    useItems()
 
   // console.log('item:', item)
   // const {_id, ...rest} = item
@@ -45,17 +46,17 @@ const ListItem = ({ item }: ListItemProps) => {
   const id = displayItem[0][1]
   // console.log('displayItem:', displayItem)
   // console.log('id:', id)
-
-  const isViewed = `/${id}` === idParams
+  const isFocussed = `/${id}` === idParams
+  const isViewed = `/${id}` === idParams && operation === 'getById'
+  const isPatched = `/${id}` === idParams && operation === 'patchUpdate'
 
   const handleViewItem = async () => {
-    // console.log('isViewed:', isViewed, 'id:', id, 'idParams:', idParams)
     if (isViewed) {
       handleResetIdParams()
     } else {
       // console.log('view item:', id)
       handleSetIdParams(id)
-      handleChangeOperation("getById")
+      handleChangeOperation('getById')
     }
     // await getSingleItem()
   }
@@ -68,12 +69,16 @@ const ListItem = ({ item }: ListItemProps) => {
   }
 
   const handleUpdateItem = async () => {
-    if (!isViewed) handleSetIdParams(id)
-    await patchUpdateItem(id)
+    if (isPatched) {
+      handleResetIdParams()
+    } else {
+      handleSetIdParams(id)
+      await patchUpdateItem(id)
+    }
   }
 
   return (
-    <div className={`item-panel ${isViewed ? 'focus-item-panel' : ''}`}>
+    <div className={`item-panel ${isFocussed ? 'focus-item-panel' : ''}`}>
       <div className="item-details">
         {displayItem.map(([key, value]) => (
           <p key={key}>
@@ -86,7 +91,7 @@ const ListItem = ({ item }: ListItemProps) => {
           ariaLabel="view item button"
           id={`view-item-id-${id}`}
           onClick={handleViewItem}
-          className={`btn ${isViewed ? 'deselect' : ''}`}
+          className={`btn ${isViewed && operation === 'getById' ? 'active-btn' : ''}`}
         >
           {isViewed ? 'Deselect' : 'View item'}
         </Button>
@@ -103,9 +108,9 @@ const ListItem = ({ item }: ListItemProps) => {
           ariaLabel="update item button"
           id={`update-item-id-${id}`}
           onClick={handleUpdateItem}
-          className="btn bottom-btn action-btn"
+          className={`btn bottom-btn action-btn ${isPatched ? 'active-btn' : ''}`}
         >
-          Update item (PATCH)
+          {isPatched ? 'Cancel update' : 'Update item (PATCH)'}
         </Button>
       </div>
     </div>

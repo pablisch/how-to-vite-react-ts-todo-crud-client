@@ -11,7 +11,8 @@ const SingleItem = () => {
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
-  const { singleItem, getSingleItem, getSingleItemError, operation } = useItems()
+  const { singleItem, getSingleItem, getSingleItemError, operation } =
+    useItems()
 
   useEffect(() => {
     console.log('something changed. Operation:', operation)
