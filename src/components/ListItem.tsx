@@ -9,7 +9,7 @@ interface ListItemProps {
 }
 const ListItem = ({ item }: ListItemProps) => {
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
-  const { deleteItem } = useItems()
+  const { deleteItem, patchUpdateItem } = useItems()
 
   console.log('item:', item)
   // const {_id, ...rest} = item
@@ -49,7 +49,7 @@ const ListItem = ({ item }: ListItemProps) => {
   const isViewed = `/${id}` === idParams
 
   const handleViewItem = () => {
-    console.log('isViewed:', isViewed, 'id:', id, 'idParams:', idParams)
+    // console.log('isViewed:', isViewed, 'id:', id, 'idParams:', idParams)
     if (isViewed) {
       handleResetIdParams()
     } else {
@@ -63,6 +63,11 @@ const ListItem = ({ item }: ListItemProps) => {
       handleResetIdParams()
     }
     await deleteItem(id)
+  }
+
+  const handleUpdateItem = async () => {
+    if (!isViewed) handleSetIdParams(id)
+    await patchUpdateItem(id)
   }
 
   return (
@@ -84,13 +89,21 @@ const ListItem = ({ item }: ListItemProps) => {
           {isViewed ? 'Deselect' : 'View item'}
         </Button>
         <Button
-          ariaLabel="view item button"
-          id={`view-item-id-${id}`}
+          ariaLabel="delete item button"
+          id={`delete-item-id-${id}`}
           onClick={handleDeleteItem}
           className="btn bottom-btn red-btn"
         >
           {/*{isViewed ? 'Deselect' : 'View item'}*/}
           Delete item
+        </Button>
+        <Button
+          ariaLabel="update item button"
+          id={`update-item-id-${id}`}
+          onClick={handleUpdateItem}
+          className="btn bottom-btn action-btn"
+        >
+          Update item (PATCH)
         </Button>
       </div>
     </div>

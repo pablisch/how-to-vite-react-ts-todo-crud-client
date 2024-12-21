@@ -16,7 +16,11 @@ export interface ItemsContextType {
   getSingleItem: () => void
   getSingleItemError: React.ReactElement | null
   deleteItem: (id: string) => void
-  deleteItemError: string | null
+  deleteItemError: React.ReactElement | null
+  patchUpdateItem: (id: string) => void
+  patchUpdateItemError: React.ReactElement | null
+  operation: string
+  handleChangeOperation: (newOperation: string) => void
 }
 
 export const ItemsContext = createContext<ItemsContextType>({
@@ -28,6 +32,10 @@ export const ItemsContext = createContext<ItemsContextType>({
   getSingleItemError: null,
   deleteItem: () => {},
   deleteItemError: null,
+  patchUpdateItem: () => {},
+  patchUpdateItemError: null,
+  operation: 'singleItem',
+  handleChangeOperation: () => {},
 })
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
@@ -36,11 +44,15 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const [getAllItemsError, setGetAllItemError] = useState<string | null>(null)
   const [getSingleItemError, setGetSingleItemError] =
     useState<React.ReactElement | null>(null)
-  const [deleteItemError, setDeleteItemError] = useState<string | null>(null)
+  const [deleteItemError, setDeleteItemError] =
+    useState<React.ReactElement | null>(null)
+  const [patchUpdateItemError, setPatchUpdateItemError] =
+    useState<React.ReactElement | null>(null)
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
   const { queryParams } = useQueryParams()
+  const [operation, setOperation] = useState<string>('singleItem')
 
   const getAllItems = async () => {
     setGetAllItemError(null)
@@ -62,45 +74,12 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
       setSingleItem(response.data)
       console.log(response)
     } catch (error) {
-      // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
       const errorMessage: React.ReactElement =
+        // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
         helpers.constructErrorMessage(error)
       setGetSingleItemError(errorMessage)
     }
-
-    // try {
-    //   const response = await axios.get(
-    //     `${baseUrl}${endpoint}${idParams}${queryParams}`
-    //   )
-    //   setSingleItem(response.data)
-    // } catch (error) {
-    //   console.error(
-    //     `Error fetching single item data for item: ${idParams}`,
-    //     error
-    //   )
-    //   setGetSingleItemError(
-    //     `Failed to fetch data for item with ID: ${idParams}`
-    //   )
-    // }
   }
-
-  // const getSingleItem = async () => {
-  //   setGetSingleItemError(null)
-  //   try {
-  //     const response = await axios.get(
-  //       `${baseUrl}${endpoint}${idParams}${queryParams}`
-  //     )
-  //     setSingleItem(response.data)
-  //   } catch (error) {
-  //     console.error(
-  //       `Error fetching single item data for item: ${idParams}`,
-  //       error
-  //     )
-  //     setGetSingleItemError(
-  //       `Failed to fetch data for item with ID: ${idParams}`
-  //     )
-  //   }
-  // }
 
   const deleteItem = async (id: string) => {
     setDeleteItemError(null)
@@ -112,9 +91,38 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
       })
       console.log(response.status, response.data)
     } catch (error) {
-      console.error(error)
-      setDeleteItemError(`Failed to delete item: ${id}`)
+      const errorMessage: React.ReactElement =
+        // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
+        helpers.constructErrorMessage(error)
+      setDeleteItemError(errorMessage)
     }
+  }
+
+  const patchUpdateItem = async () => {
+    setOperation('patchUpdate')
+    setPatchUpdateItemError(null)
+    const body = {}
+    try {
+      const response = await axios.patch(
+        `${baseUrl}${endpoint}${idParams}${queryParams}`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body,
+        }
+      )
+      console.log(response.status, response.data)
+    } catch (error) {
+      const errorMessage: React.ReactElement =
+        // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
+        helpers.constructErrorMessage(error)
+      setPatchUpdateItemError(errorMessage)
+    }
+  }
+
+  const handleChangeOperation = (newOperation: string) => {
+    if (newOperation !== operation) setOperation(newOperation)
   }
 
   return (
@@ -128,6 +136,10 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         getSingleItemError,
         deleteItem,
         deleteItemError,
+        patchUpdateItem,
+        patchUpdateItemError,
+        operation,
+        handleChangeOperation,
       }}
     >
       {children}

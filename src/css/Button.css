@@ -3,7 +3,8 @@
   background: #baf4ca;
   border: 1px solid #2e3843;
   border-radius: 5px;
-  width: 8rem;
+  width: 11rem;
+  cursor: pointer;
 }
 
 .deselect {
