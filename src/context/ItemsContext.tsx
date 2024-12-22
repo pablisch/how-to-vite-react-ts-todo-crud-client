@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import { UnknownObject } from '../types/types.ts'
+import { StatusObject, UnknownObject } from '../types/types.ts'
 import axios from 'axios'
 import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
 import { useEndpoint } from '../hooks/useEndpoint.tsx'
@@ -22,6 +22,8 @@ export interface ItemsContextType {
   operation: string
   handleChangeOperation: (newOperation: string) => void
   handleResetOperation: () => void
+  getItemsStatus: StatusObject
+  singleItemStatus: StatusObject
 }
 
 export const ItemsContext = createContext<ItemsContextType>({
@@ -38,6 +40,8 @@ export const ItemsContext = createContext<ItemsContextType>({
   operation: 'getById',
   handleChangeOperation: () => {},
   handleResetOperation: () => {},
+  getItemsStatus: {},
+  singleItemStatus: {},
 })
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
@@ -55,12 +59,18 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const { idParams } = useIdParams()
   const { queryParams } = useQueryParams()
   const [operation, setOperation] = useState<string>('getById')
+  const [getItemsStatus, setGetItemsStatus] = useState<StatusObject>({})
+  const [singleItemStatus, setSingleItemStatus] = useState<StatusObject>({})
 
   const getAllItems = async () => {
     setGetAllItemError(null)
     try {
       const response = await axios.get(`${baseUrl}${endpoint}${queryParams}`)
       setItems(response.data)
+      setGetItemsStatus({
+        status: response?.status,
+        statusType: helpers.getStatusType(response?.status),
+      })
     } catch (error) {
       console.error('Error fetching item data:', error)
       setGetAllItemError('Failed to fetch data')
@@ -76,6 +86,10 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         `${baseUrl}${endpoint}${idParams}${queryParams}`
       )
       setSingleItem(response.data)
+      setSingleItemStatus({
+        status: response?.status,
+        statusType: helpers.getStatusType(response?.status),
+      })
       console.log(response)
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -158,6 +172,8 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         operation,
         handleChangeOperation,
         handleResetOperation,
+        getItemsStatus,
+        singleItemStatus,
       }}
     >
       {children}

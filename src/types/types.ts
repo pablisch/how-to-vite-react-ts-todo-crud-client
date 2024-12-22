@@ -15,3 +15,8 @@ export interface ApiErrorObject {
   message?: string
   [key: string]: unknown
 }
+
+export interface StatusObject {
+  status?: number
+  statusType?: string
+}

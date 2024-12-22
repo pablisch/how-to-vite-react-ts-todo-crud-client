@@ -1,6 +1,6 @@
 import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
 import { useEndpoint } from '../hooks/useEndpoint.tsx'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { UnknownObject } from '../types/types.ts'
 import { useIdParams } from '../hooks/useIdParams.tsx'
 import { useItems } from '../hooks/useItems.tsx'
@@ -12,7 +12,7 @@ const SingleItem = () => {
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
-  const { singleItem, getSingleItem, getSingleItemError, operation } =
+  const { singleItem, getSingleItem, getSingleItemError, operation, singleItemStatus } =
     useItems()
 
   useEffect(() => {
@@ -28,6 +28,7 @@ const SingleItem = () => {
         <p>Set URL /:id parameter to get an item by ID</p>
       ) : singleItem && !Array.isArray(singleItem) ? (
         <div className="single-item-display">
+          <div className={`status-label ${singleItemStatus.statusType}`}>{singleItemStatus.status}</div>
           {formatObjectAsJSX(singleItem)}
         </div>
       ) : (

@@ -7,10 +7,14 @@ import { useItems } from '../hooks/useItems.tsx'
 function List() {
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
-  const { items, getAllItems, getAllItemsError } = useItems()
+  const { items, getAllItems, getAllItemsError, getItemsStatus } = useItems()
 
   useEffect(() => {
     getAllItems()
+  }, [baseUrl, endpoint])
+
+  useEffect(() => {
+    console.log("status for get items:", JSON.stringify(getItemsStatus, null, 2))
   }, [baseUrl, endpoint])
 
   return (
