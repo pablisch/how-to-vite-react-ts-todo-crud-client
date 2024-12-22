@@ -9,7 +9,7 @@ interface ListItemProps {
 }
 const ListItem = ({ item }: ListItemProps) => {
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
-  const { handleResetOperation, deleteItem, patchUpdateItem, operation } =
+  const { handleResetOperation, deleteItem, loadUpdateForm, operation } =
     useItems()
 
   // console.log('item:', item)
@@ -48,7 +48,7 @@ const ListItem = ({ item }: ListItemProps) => {
   // console.log('id:', id)
   const isFocussed = `/${id}` === idParams
   const isViewed = `/${id}` === idParams && operation === 'getById'
-  const isPatched = `/${id}` === idParams && operation === 'patchUpdate'
+  const isPatched = `/${id}` === idParams && operation === 'update'
 
   const handleViewItem = async () => {
     if (isViewed) {
@@ -68,13 +68,13 @@ const ListItem = ({ item }: ListItemProps) => {
     await deleteItem(id)
   }
 
-  const handleUpdateItem = async () => {
+  const handleChooseUpdate = async () => {
     if (isPatched) {
       handleResetIdParams()
       handleResetOperation()
     } else {
       handleSetIdParams(id)
-      await patchUpdateItem(id)
+      loadUpdateForm()
     }
   }
 
@@ -108,10 +108,10 @@ const ListItem = ({ item }: ListItemProps) => {
         <Button
           ariaLabel="update item button"
           id={`update-item-id-${id}`}
-          onClick={handleUpdateItem}
+          onClick={handleChooseUpdate}
           className={`btn bottom-btn action-btn ${isPatched ? 'active-btn' : ''}`}
         >
-          {isPatched ? 'Cancel update' : 'Update item (PATCH)'}
+          {isPatched ? 'Cancel update' : 'Configure update'}
         </Button>
       </div>
     </div>

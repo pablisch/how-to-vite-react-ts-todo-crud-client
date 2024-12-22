@@ -48,26 +48,26 @@ function BaseUrlFrom() {
           onClick={() => handleSetBaseUrl(inputValue)}
           disabled={inputValue === baseUrl}
           className={`btn url-btn ${isLocalApi ? 'local' : 'deployed'} ${inputValue === baseUrl ? 'disabled' : ''}`}
-          >
+        >
           {`Set ${isLocalApi ? 'localhost' : 'remote'} base URL`}
-      </Button>
+        </Button>
         <Button
           ariaLabel="view item button"
           id={`reset-api-base-url`}
           className={`btn url-btn ${isLocalApi ? 'local' : 'deployed'} ${isDefaultUrlValue ? 'disabled' : ''}`}
           disabled={isDefaultUrlValue}
           onClick={handleResetBaseUrlAndInputValue}
-          >
+        >
           {`Reset ${isLocalApi ? 'localhost' : 'remote'} base URL`}
-      </Button>
+        </Button>
         <Button
           ariaLabel="view item button"
           id={`set-api-location`}
           className={`btn url-btn ${isLocalApi ? 'deployed' : 'local'}`}
           onClick={handleToggleApiLocalDeployed}
-          >
+        >
           {isLocalApi ? 'Use deployed API' : 'Use local API'}
-      </Button>
+        </Button>
       </div>
     </div>
   )

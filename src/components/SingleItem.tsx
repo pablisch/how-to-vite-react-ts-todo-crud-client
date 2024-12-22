@@ -12,8 +12,13 @@ const SingleItem = () => {
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
-  const { singleItem, getSingleItem, getSingleItemError, operation, singleItemStatus } =
-    useItems()
+  const {
+    singleItem,
+    getSingleItem,
+    getItemByIdError,
+    operation,
+    singleItemStatus,
+  } = useItems()
 
   useEffect(() => {
     console.log('something changed. Operation:', operation)
@@ -21,14 +26,16 @@ const SingleItem = () => {
   }, [baseUrl, endpoint, idParams])
 
   return (
-    <div id="single-item-container">
-      {getSingleItemError ? (
-        <pre className="error-message">{getSingleItemError}</pre>
+    <div id="single-item-operation-container">
+      {getItemByIdError ? (
+        <pre className="error-message">{getItemByIdError}</pre>
       ) : !idParams ? (
         <p>Set URL /:id parameter to get an item by ID</p>
       ) : singleItem && !Array.isArray(singleItem) ? (
         <div className="single-item-display">
-          <div className={`status-label ${singleItemStatus.statusType}`}>{singleItemStatus.status}</div>
+          <div className={`status-label ${singleItemStatus.statusType}`}>
+            {singleItemStatus.status}
+          </div>
           {formatObjectAsJSX(singleItem)}
         </div>
       ) : (
@@ -61,8 +68,8 @@ const SingleItem = () => {
 
   // return (
   //   <div id="single-item-container">
-  //     {getSingleItemError ? (
-  //       <pre className="error-message">{getSingleItemError}</pre>
+  //     {getItemByIdError ? (
+  //       <pre className="error-message">{getItemByIdError}</pre>
   //     ) : !idParams ? (
   //       <p>Set URL /:id parameter to get an item by ID</p>
   //     ) : singleItem && !Array.isArray(singleItem) ? (

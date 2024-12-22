@@ -1,6 +1,6 @@
 import List from '../components/List.tsx'
 import SingleItem from '../components/SingleItem.tsx'
-import PatchUpdateItemForm from '../components/PatchUpdateItemForm.tsx'
+import UpdateItemForm from '../components/UpdateItemForm.tsx'
 import { useItems } from '../hooks/useItems.tsx'
 import OperationIndicator from '../components/OperationIndicator.tsx'
 
@@ -14,8 +14,8 @@ const MainPage = () => {
         <OperationIndicator />
         {operation === 'getById' ? (
           <SingleItem />
-        ) : operation === 'patchUpdate' ? (
-          <PatchUpdateItemForm />
+        ) : operation === 'update' ? (
+          <UpdateItemForm />
         ) : (
           <SingleItem />
         )}

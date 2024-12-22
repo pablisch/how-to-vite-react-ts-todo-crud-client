@@ -14,16 +14,19 @@ export interface ItemsContextType {
   getAllItems: () => void
   getAllItemsError: string | null
   getSingleItem: () => void
-  getSingleItemError: React.ReactElement | null
+  getItemByIdError: React.ReactElement | null
   deleteItem: (id: string) => void
   deleteItemError: React.ReactElement | null
-  patchUpdateItem: (id: string) => void
-  patchUpdateItemError: React.ReactElement | null
+  updateItem: (id: string) => void
+  updateItemError: React.ReactElement | null
   operation: string
   handleChangeOperation: (newOperation: string) => void
   handleResetOperation: () => void
   getItemsStatus: StatusObject
   singleItemStatus: StatusObject
+  isPatchUpdate: boolean
+  toggleUpdateType: () => void
+  loadUpdateForm: () => void
 }
 
 export const ItemsContext = createContext<ItemsContextType>({
@@ -32,27 +35,30 @@ export const ItemsContext = createContext<ItemsContextType>({
   getAllItems: () => {},
   getAllItemsError: null,
   getSingleItem: () => {},
-  getSingleItemError: null,
+  getItemByIdError: null,
   deleteItem: () => {},
   deleteItemError: null,
-  patchUpdateItem: () => {},
-  patchUpdateItemError: null,
+  updateItem: () => {},
+  updateItemError: null,
   operation: 'getById',
   handleChangeOperation: () => {},
   handleResetOperation: () => {},
   getItemsStatus: {},
   singleItemStatus: {},
+  isPatchUpdate: true,
+  toggleUpdateType: () => {},
+  loadUpdateForm: () => {},
 })
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const [items, setItems] = useState<UnknownObject[]>([])
   const [singleItem, setSingleItem] = useState<UnknownObject | null>(null)
   const [getAllItemsError, setGetAllItemError] = useState<string | null>(null)
-  const [getSingleItemError, setGetSingleItemError] =
+  const [getItemByIdError, setGetItemByIdError] =
     useState<React.ReactElement | null>(null)
   const [deleteItemError, setDeleteItemError] =
     useState<React.ReactElement | null>(null)
-  const [patchUpdateItemError, setPatchUpdateItemError] =
+  const [updateItemError, setUpdateItemError] =
     useState<React.ReactElement | null>(null)
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
@@ -61,6 +67,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const [operation, setOperation] = useState<string>('getById')
   const [getItemsStatus, setGetItemsStatus] = useState<StatusObject>({})
   const [singleItemStatus, setSingleItemStatus] = useState<StatusObject>({})
+  const [isPatchUpdate, setIsPatchUpdate] = useState<boolean>(true)
 
   const getAllItems = async () => {
     setGetAllItemError(null)
@@ -80,7 +87,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const getSingleItem = async () => {
     console.log('setting operation in getSingleItem to getById')
     setOperation('getById')
-    setGetSingleItemError(null)
+    setGetItemByIdError(null)
     try {
       const response = await apiClient.get(
         `${baseUrl}${endpoint}${idParams}${queryParams}`
@@ -92,16 +99,10 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
       })
       console.log(response)
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.log("Axios error")
-      } else {
-        console.log("NOT axios error")
-      }
-      console.error("Error in single item:", error)
       const errorMessage: React.ReactElement =
         // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
         helpers.constructErrorMessage(error)
-      setGetSingleItemError(errorMessage)
+      setGetItemByIdError(errorMessage)
     }
   }
 
@@ -124,10 +125,10 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  const patchUpdateItem = async () => {
-    console.log('setting operation in patchUpdateItem to patchUpdate')
-    setOperation('patchUpdate')
-    setPatchUpdateItemError(null)
+  const updateItem = async () => {
+    console.log('setting operation in updateItem to update')
+    setOperation('update')
+    setUpdateItemError(null)
     const body = {}
     try {
       const response = await axios.patch(
@@ -144,7 +145,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
       const errorMessage: React.ReactElement =
         // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
         helpers.constructErrorMessage(error)
-      setPatchUpdateItemError(errorMessage)
+      setUpdateItemError(errorMessage)
     }
   }
 
@@ -156,6 +157,14 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     if (operation !== 'getById') setOperation('getById')
   }
 
+  const toggleUpdateType = () => {
+    setIsPatchUpdate(!isPatchUpdate)
+  }
+
+  const loadUpdateForm = () => {
+    console.log('setting operation in loadUpdateForm')
+  }
+
   return (
     <ItemsContext.Provider
       value={{
@@ -164,16 +173,19 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         getAllItems,
         getAllItemsError,
         getSingleItem,
-        getSingleItemError,
+        getItemByIdError,
         deleteItem,
         deleteItemError,
-        patchUpdateItem,
-        patchUpdateItemError,
+        updateItem,
+        updateItemError,
         operation,
         handleChangeOperation,
         handleResetOperation,
         getItemsStatus,
         singleItemStatus,
+        isPatchUpdate,
+        toggleUpdateType,
+        loadUpdateForm,
       }}
     >
       {children}

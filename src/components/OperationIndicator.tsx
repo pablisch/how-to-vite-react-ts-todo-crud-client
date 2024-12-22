@@ -1,9 +1,8 @@
-import React from 'react'
 import { useItems } from '../hooks/useItems.tsx'
 import '../css/OperationIndicator.css'
 
 const OperationIndicator = () => {
-  const { operation } = useItems()
+  const { operation, isPatchUpdate } = useItems()
 
   return (
     <div className="operation-indicator-container">
@@ -18,12 +17,12 @@ const OperationIndicator = () => {
         POST items
       </div>
       <div
-        className={`operation ${operation === 'patchUpdate' ? 'active-operation' : ''}`}
+        className={`operation ${operation === 'update' && isPatchUpdate ? 'active-operation' : ''}`}
       >
         PATCH items/:id
       </div>
       <div
-        className={`operation ${operation === 'putUpdate' ? 'active-operation' : ''}`}
+        className={`operation ${operation === 'update' && !isPatchUpdate ? 'active-operation' : ''}`}
       >
         PUT items/:id
       </div>

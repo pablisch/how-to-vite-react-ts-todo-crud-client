@@ -1,17 +1,18 @@
 import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
 import { useEndpoint } from '../hooks/useEndpoint.tsx'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { UnknownObject } from '../types/types.ts'
 import { useIdParams } from '../hooks/useIdParams.tsx'
 import { useItems } from '../hooks/useItems.tsx'
 import '../css/SingleItem.css'
 import '../App.css'
 
-const PatchUpdateItemForm = () => {
+const UpdateItemForm = () => {
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
-  const { singleItem, getSingleItem, getSingleItemError } = useItems()
+  const { singleItem, getSingleItem, updateItemError, singleItemStatus } =
+    useItems()
 
   // useEffect(() => {
   //   // console.log('something changed')
@@ -19,16 +20,14 @@ const PatchUpdateItemForm = () => {
   // }, [baseUrl, endpoint, idParams])
 
   return (
-    <div id="single-item-container">
-      {getSingleItemError ? (
-        <pre className="error-message">{getSingleItemError}</pre>
+    <div id="single-item-operation-container">
+      {updateItemError ? (
+        <pre className="error-message">{updateItemError}</pre>
       ) : !idParams ? (
         <p>Set URL /:id parameter to get an item by ID</p>
       ) : singleItem && !Array.isArray(singleItem) ? (
         <div className="single-item-display">
-          <p>
-            <strong>Update Form</strong>
-          </p>
+          {/*<div className={`status-label ${singleItemStatus.statusType}`}>{singleItemStatus.status}</div>*/}
           {formatObjectAsJSX(singleItem)}
         </div>
       ) : (
@@ -45,7 +44,6 @@ const PatchUpdateItemForm = () => {
 
     return (
       <>
-        <br />
         <ul className="single-item-details">
           {Object.entries(obj).map(([key, value]) => (
             <li key={key}>
@@ -63,4 +61,4 @@ const PatchUpdateItemForm = () => {
   }
 }
 
-export default PatchUpdateItemForm
+export default UpdateItemForm

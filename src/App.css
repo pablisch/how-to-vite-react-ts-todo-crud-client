@@ -30,12 +30,13 @@
   margin-right: var(--panel-side-margin);
 }
 
-#single-item-container {
+#single-item-operation-container {
+  line-height: 1.5;
   /*width: 45%;*/
-  border: 1px solid #bbb;
-  padding: 30px;
-  border-radius: 25px;
-  margin-right: var(--panel-side-margin);
+  /*border: 1px solid #bbb;*/
+  /*padding: 30px;*/
+  /*border-radius: 25px;*/
+  /*margin-right: var(--panel-side-margin);*/
 }
 
 .form-text {

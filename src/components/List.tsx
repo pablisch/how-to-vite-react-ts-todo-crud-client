@@ -14,7 +14,10 @@ function List() {
   }, [baseUrl, endpoint])
 
   useEffect(() => {
-    console.log("status for get items:", JSON.stringify(getItemsStatus, null, 2))
+    console.log(
+      'status for get items:',
+      JSON.stringify(getItemsStatus, null, 2)
+    )
   }, [baseUrl, endpoint])
 
   return (

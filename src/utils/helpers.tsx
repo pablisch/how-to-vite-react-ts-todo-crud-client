@@ -3,11 +3,11 @@ import React from 'react'
 
 export default {
   constructErrorMessage: function (error: ApiErrorObject): React.ReactElement {
-    console.log("error:", error)
+    console.log('error:', error)
     const status: number | undefined = error?.status
     const message: string | undefined = error?.message
     const statusType = this.getStatusType(status)
-    console.log("status", status, "type", statusType)
+    console.log('status', status, 'type', statusType)
 
     const responseDetails = (
       <>
@@ -36,7 +36,7 @@ export default {
         </>
       )
     }
-    
+
     if (!status) {
       return (
         <>
@@ -46,12 +46,12 @@ export default {
           </p>
           <p className="spacer"></p>
           <p>Message: {message}</p>
-          
+
           <p>{responseDetails}</p>
         </>
       )
     }
-    
+
     if (!message) {
       return (
         <>
@@ -67,7 +67,7 @@ export default {
         </>
       )
     }
-    
+
     return (
       <>
         <div className={`status-label ${statusType}`}>{status}</div>
@@ -82,12 +82,12 @@ export default {
       </>
     )
   },
-  
-  getStatusType: function(status) {
+
+  getStatusType: function (status: number | undefined): string {
     let statusType: string | undefined = undefined
     let statusGroup: number | undefined = undefined
     if (status) statusGroup = Math.floor(status / 100)
-    console.log("statusGroup:", statusGroup)
+    console.log('statusGroup:', statusGroup)
     if (!status) {
       statusType = 'status-group-none'
     } else if (statusGroup === 1) {
@@ -103,6 +103,7 @@ export default {
     } else {
       statusType = 'unknown'
     }
+
     return statusType
   },
 }
