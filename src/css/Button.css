@@ -18,3 +18,17 @@
 .red-btn {
   background: #f4baba;
 }
+
+.url-btn {
+  height: var(--form-btn-height);
+  width: 120px;
+  margin: 5px;
+  padding: 0.2rem;
+  line-height: 0.8rem;
+}
+
+.disabled {
+  background: #939393;
+  color: #cccccc;
+  cursor: not-allowed;
+}

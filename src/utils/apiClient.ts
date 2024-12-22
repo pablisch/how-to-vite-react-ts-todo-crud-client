@@ -14,7 +14,7 @@ apiClient.interceptors.response.use(
       const { status, data } = error.response
       const apiError = {
         status,
-        message: data?.message || 'An unknown error occurred',
+        ...data,
       }
 
       return Promise.reject(apiError)

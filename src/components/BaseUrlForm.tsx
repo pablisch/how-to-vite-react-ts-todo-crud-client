@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../css/BaseUrlForm.css'
 import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
+import Button from './Button.tsx'
 
 function BaseUrlFrom() {
   const {
@@ -41,22 +42,32 @@ function BaseUrlFrom() {
         placeholder="Enter new base URL"
       />
       <div className="base-url-btn-container">
-        <button
-          className={`base-url-btn url-btn ${isLocalApi ? 'local' : 'deployed'}`}
-          disabled={baseUrl === inputValue}
+        <Button
+          ariaLabel="view item button"
+          id={`set-api-base-url`}
           onClick={() => handleSetBaseUrl(inputValue)}
-        >{`Set ${isLocalApi ? 'localhost' : 'remote'} base URL`}</button>
-        <button
-          className={`base-url-btn url-btn ${isLocalApi ? 'local' : 'deployed'}`}
+          disabled={inputValue === baseUrl}
+          className={`btn url-btn ${isLocalApi ? 'local' : 'deployed'} ${inputValue === baseUrl ? 'disabled' : ''}`}
+          >
+          {`Set ${isLocalApi ? 'localhost' : 'remote'} base URL`}
+      </Button>
+        <Button
+          ariaLabel="view item button"
+          id={`reset-api-base-url`}
+          className={`btn url-btn ${isLocalApi ? 'local' : 'deployed'} ${isDefaultUrlValue ? 'disabled' : ''}`}
           disabled={isDefaultUrlValue}
           onClick={handleResetBaseUrlAndInputValue}
-        >{`Reset ${isLocalApi ? 'localhost' : 'remote'} base URL`}</button>
-        <button
-          className={`base-url-btn url-btn ${isLocalApi ? 'deployed' : 'local'}`}
+          >
+          {`Reset ${isLocalApi ? 'localhost' : 'remote'} base URL`}
+      </Button>
+        <Button
+          ariaLabel="view item button"
+          id={`set-api-location`}
+          className={`btn url-btn ${isLocalApi ? 'deployed' : 'local'}`}
           onClick={handleToggleApiLocalDeployed}
-        >
+          >
           {isLocalApi ? 'Use deployed API' : 'Use local API'}
-        </button>
+      </Button>
       </div>
     </div>
   )

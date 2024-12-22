@@ -78,6 +78,12 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
       setSingleItem(response.data)
       console.log(response)
     } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.log("Axios error")
+      } else {
+        console.log("NOT axios error")
+      }
+      console.error("Error in single item:", error)
       const errorMessage: React.ReactElement =
         // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
         helpers.constructErrorMessage(error)

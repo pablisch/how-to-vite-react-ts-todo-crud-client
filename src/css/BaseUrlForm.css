@@ -24,12 +24,6 @@
   border-radius: 5px;
 }
 
-.url-btn {
-  height: var(--form-btn-height);
-  width: 120px;
-  margin: 5px;
-}
-
 .base-url-btn-container {
   display: flex;
 }

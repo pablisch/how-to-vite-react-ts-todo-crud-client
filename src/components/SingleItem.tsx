@@ -6,6 +6,7 @@ import { useIdParams } from '../hooks/useIdParams.tsx'
 import { useItems } from '../hooks/useItems.tsx'
 import '../css/SingleItem.css'
 import '../App.css'
+import '../css/right-hand-pane.css'
 
 const SingleItem = () => {
   const { baseUrl } = useBaseUrl()
