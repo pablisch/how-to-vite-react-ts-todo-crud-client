@@ -169,7 +169,9 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const handlePerformUpdate = () => {
-    console.log('placeholder for actually updating depending on if patch or put')
+    console.log(
+      'placeholder for actually updating depending on if patch or put'
+    )
   }
 
   return (

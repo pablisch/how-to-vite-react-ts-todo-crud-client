@@ -1,6 +1,4 @@
-import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
-import { useEndpoint } from '../hooks/useEndpoint.tsx'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { UnknownObject } from '../types/types.ts'
 import { useIdParams } from '../hooks/useIdParams.tsx'
 import { useItems } from '../hooks/useItems.tsx'
@@ -9,34 +7,36 @@ import '../App.css'
 import Button from './Button.tsx'
 
 const UpdateItemForm = () => {
-  const { baseUrl } = useBaseUrl()
-  const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
-  const { singleItem, getSingleItem, updateItemError, singleItemStatus, isPatchUpdate, handlePerformUpdate, toggleUpdateType } =
-    useItems()
+  const {
+    singleItem,
+    updateItemError,
+    isPatchUpdate,
+    handlePerformUpdate,
+    toggleUpdateType,
+  } = useItems()
 
-  // useEffect(() => {
-  //   // console.log('something changed')
-  //   getSingleItem()
-  // }, [baseUrl, endpoint, idParams])
-  const updateFormBtns = (<div className="update-form-btns">
-    
-    <Button ariaLabel={`${isPatchUpdate ? 'patch' : 'put'} update item with id ${idParams}`}
-            id="perform-update-btn"
-            className={`btn update-btn`}
-            onClick={handlePerformUpdate}
-    >
-      {`Perform ${isPatchUpdate ? 'PATCH' : 'PUT'} update`}
-    </Button>
-    <Button ariaLabel={`switch to ${isPatchUpdate ? 'patch' : 'put'} update`}
-            id="toggle-update-type-btn"
-            className={`btn update-btn`}
-            onClick={toggleUpdateType}
-    >
-      {`Switch to ${isPatchUpdate ? 'PUT' : 'PATCH'} operation`}
-    </Button>
-  </div>)
-  
+  const updateFormBtns = (
+    <div className="update-form-btns">
+      <Button
+        ariaLabel={`${isPatchUpdate ? 'patch' : 'put'} update item with id ${idParams}`}
+        id="perform-update-btn"
+        className={`btn update-btn`}
+        onClick={handlePerformUpdate}
+      >
+        {`Perform ${isPatchUpdate ? 'PATCH' : 'PUT'} update`}
+      </Button>
+      <Button
+        ariaLabel={`switch to ${isPatchUpdate ? 'patch' : 'put'} update`}
+        id="toggle-update-type-btn"
+        className={`btn update-btn`}
+        onClick={toggleUpdateType}
+      >
+        {`Switch to ${isPatchUpdate ? 'PUT' : 'PATCH'} operation`}
+      </Button>
+    </div>
+  )
+
   return (
     <div id="single-item-operation-container">
       {updateItemError ? (
@@ -54,7 +54,7 @@ const UpdateItemForm = () => {
       )}
     </div>
   )
-  
+
   // Function to format object as JSX with bold keys
   function formatObjectAsJSX(obj: UnknownObject): React.ReactNode {
     if (typeof obj !== 'object' || obj === null) {
