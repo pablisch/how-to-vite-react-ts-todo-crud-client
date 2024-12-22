@@ -39,3 +39,14 @@
     background: #8f0606;
     color: #fff;
 }
+
+.update-form-btns {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 1rem 1.2rem;
+}
+
+.update-btn {
+    width: 12rem;
+    height: 3rem;
+}

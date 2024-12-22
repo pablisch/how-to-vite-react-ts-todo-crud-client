@@ -6,19 +6,37 @@ import { useIdParams } from '../hooks/useIdParams.tsx'
 import { useItems } from '../hooks/useItems.tsx'
 import '../css/SingleItem.css'
 import '../App.css'
+import Button from './Button.tsx'
 
 const UpdateItemForm = () => {
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
-  const { singleItem, getSingleItem, updateItemError, singleItemStatus } =
+  const { singleItem, getSingleItem, updateItemError, singleItemStatus, isPatchUpdate, handlePerformUpdate, toggleUpdateType } =
     useItems()
 
   // useEffect(() => {
   //   // console.log('something changed')
   //   getSingleItem()
   // }, [baseUrl, endpoint, idParams])
-
+  const updateFormBtns = (<div className="update-form-btns">
+    
+    <Button ariaLabel={`${isPatchUpdate ? 'patch' : 'put'} update item with id ${idParams}`}
+            id="perform-update-btn"
+            className={`btn update-btn`}
+            onClick={handlePerformUpdate}
+    >
+      {`Perform ${isPatchUpdate ? 'PATCH' : 'PUT'} update`}
+    </Button>
+    <Button ariaLabel={`switch to ${isPatchUpdate ? 'patch' : 'put'} update`}
+            id="toggle-update-type-btn"
+            className={`btn update-btn`}
+            onClick={toggleUpdateType}
+    >
+      {`Switch to ${isPatchUpdate ? 'PUT' : 'PATCH'} operation`}
+    </Button>
+  </div>)
+  
   return (
     <div id="single-item-operation-container">
       {updateItemError ? (
@@ -27,15 +45,16 @@ const UpdateItemForm = () => {
         <p>Set URL /:id parameter to get an item by ID</p>
       ) : singleItem && !Array.isArray(singleItem) ? (
         <div className="single-item-display">
-          {/*<div className={`status-label ${singleItemStatus.statusType}`}>{singleItemStatus.status}</div>*/}
+          {updateFormBtns}
           {formatObjectAsJSX(singleItem)}
+          {updateFormBtns}
         </div>
       ) : (
         <p>Loading...</p>
       )}
     </div>
   )
-
+  
   // Function to format object as JSX with bold keys
   function formatObjectAsJSX(obj: UnknownObject): React.ReactNode {
     if (typeof obj !== 'object' || obj === null) {

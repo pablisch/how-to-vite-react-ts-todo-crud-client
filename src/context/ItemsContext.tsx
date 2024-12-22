@@ -27,6 +27,7 @@ export interface ItemsContextType {
   isPatchUpdate: boolean
   toggleUpdateType: () => void
   loadUpdateForm: () => void
+  handlePerformUpdate: () => void
 }
 
 export const ItemsContext = createContext<ItemsContextType>({
@@ -48,6 +49,7 @@ export const ItemsContext = createContext<ItemsContextType>({
   isPatchUpdate: true,
   toggleUpdateType: () => {},
   loadUpdateForm: () => {},
+  handlePerformUpdate: () => {},
 })
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
@@ -163,6 +165,11 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
 
   const loadUpdateForm = () => {
     console.log('setting operation in loadUpdateForm')
+    setOperation('update')
+  }
+
+  const handlePerformUpdate = () => {
+    console.log('placeholder for actually updating depending on if patch or put')
   }
 
   return (
@@ -186,6 +193,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         isPatchUpdate,
         toggleUpdateType,
         loadUpdateForm,
+        handlePerformUpdate,
       }}
     >
       {children}
