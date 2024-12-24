@@ -74,7 +74,7 @@ const ListItem = ({ item }: ListItemProps) => {
       handleResetOperation()
     } else {
       handleSetIdParams(id)
-      loadUpdateForm()
+      loadUpdateForm(id)
     }
   }
 

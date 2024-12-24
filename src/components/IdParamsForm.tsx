@@ -15,7 +15,9 @@ const IdParamsForm = () => {
 
   return (
     <div id="url-id-param-form" className="url-form">
-      <h1 id="url-id-param-title" className="url-form-title">URL /:id params:</h1>
+      <h1 id="url-id-param-title" className="url-form-title">
+        URL /:id params:
+      </h1>
       <input
         id="url-id-param-input"
         className="url-input"

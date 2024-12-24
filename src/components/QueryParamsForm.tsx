@@ -16,7 +16,9 @@ const QueryParamsForm = () => {
 
   return (
     <div id="url-query-params-form" className="url-form">
-      <h1 id="url-query-params-title" className="url-form-title">URL query params:</h1>
+      <h1 id="url-query-params-title" className="url-form-title">
+        URL query params:
+      </h1>
       <input
         id="url-query-params-input"
         className="url-input"

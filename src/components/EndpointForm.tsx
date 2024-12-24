@@ -15,7 +15,9 @@ const EndpointForm = () => {
 
   return (
     <div id="url-endpoint-form" className="url-form">
-      <h1 id="url-endpoint-title" className="url-form-title">URL endpoint:</h1>
+      <h1 id="url-endpoint-title" className="url-form-title">
+        URL endpoint:
+      </h1>
       <input
         id="url-endpoint-input"
         className="url-input"

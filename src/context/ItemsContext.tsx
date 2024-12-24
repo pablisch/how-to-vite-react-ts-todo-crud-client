@@ -11,6 +11,7 @@ import helpers from '../utils/helpers.tsx'
 export interface ItemsContextType {
   items: UnknownObject[]
   singleItem: UnknownObject | null
+  itemToUpdate: UnknownObject | undefined | null
   getAllItems: () => void
   getAllItemsError: string | null
   getSingleItem: () => void
@@ -26,13 +27,14 @@ export interface ItemsContextType {
   singleItemStatus: StatusObject
   isPatchUpdate: boolean
   toggleUpdateType: () => void
-  loadUpdateForm: () => void
+  loadUpdateForm: (id: string) => void
   handlePerformUpdate: () => void
 }
 
 export const ItemsContext = createContext<ItemsContextType>({
   items: [],
   singleItem: null,
+  itemToUpdate: null,
   getAllItems: () => {},
   getAllItemsError: null,
   getSingleItem: () => {},
@@ -55,6 +57,9 @@ export const ItemsContext = createContext<ItemsContextType>({
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const [items, setItems] = useState<UnknownObject[]>([])
   const [singleItem, setSingleItem] = useState<UnknownObject | null>(null)
+  const [itemToUpdate, setItemToUpdate] = useState<
+    UnknownObject | null | undefined
+  >(null)
   const [getAllItemsError, setGetAllItemError] = useState<string | null>(null)
   const [getItemByIdError, setGetItemByIdError] =
     useState<React.ReactElement | null>(null)
@@ -163,9 +168,12 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     setIsPatchUpdate(!isPatchUpdate)
   }
 
-  const loadUpdateForm = () => {
+  const loadUpdateForm = (id: string) => {
     console.log('setting operation in loadUpdateForm')
     setOperation('update')
+
+    if (items.length)
+      setItemToUpdate(items.find(item => item._id === id || item.id === id))
   }
 
   const handlePerformUpdate = () => {
@@ -179,6 +187,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
       value={{
         items,
         singleItem,
+        itemToUpdate,
         getAllItems,
         getAllItemsError,
         getSingleItem,

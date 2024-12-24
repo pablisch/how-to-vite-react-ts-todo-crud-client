@@ -1,26 +1,26 @@
 .operation-indicator-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 .operation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 7.5rem;
-    height: 3rem;
-    background: #ccc;
-    text-align: center;
-    border-radius: 0.5rem;
-    border: 1px solid #aaa;
-    color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7.5rem;
+  height: 3rem;
+  background: #ccc;
+  text-align: center;
+  border-radius: 0.5rem;
+  border: 1px solid #aaa;
+  color: #999;
 }
 
 .active-operation {
-    background: #5a99cc;
-    color: #fff;
-    border: 1px solid #216195;
-    transition: all 0.7s ease;
+  background: #5a99cc;
+  color: #fff;
+  border: 1px solid #216195;
+  transition: all 0.7s ease;
 }

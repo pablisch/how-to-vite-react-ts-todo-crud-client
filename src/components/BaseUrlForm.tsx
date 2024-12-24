@@ -32,7 +32,9 @@ function BaseUrlFrom() {
   return (
     // <div id="url-form">
     <div id="base-url-form" className="url-form">
-      <h1 id="base-url-title" className="url-form-title">Base URL:</h1>
+      <h1 id="base-url-title" className="url-form-title">
+        Base URL:
+      </h1>
       <input
         id="base-url-input"
         className="url-input"

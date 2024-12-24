@@ -7,7 +7,10 @@ import '../css/UrlComponents.css'
 
 const UrlComponents = () => {
   return (
-    <div className="flex-container border-1 url-components-container" id="url-components-container">
+    <div
+      className="flex-container border-1 url-components-container"
+      id="url-components-container"
+    >
       <BaseUrlForm />
       <EndpointForm />
       <IdParamsForm />

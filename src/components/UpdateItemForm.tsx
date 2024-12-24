@@ -9,7 +9,7 @@ import Button from './Button.tsx'
 const UpdateItemForm = () => {
   const { idParams } = useIdParams()
   const {
-    singleItem,
+    itemToUpdate,
     updateItemError,
     isPatchUpdate,
     handlePerformUpdate,
@@ -43,10 +43,10 @@ const UpdateItemForm = () => {
         <pre className="error-message">{updateItemError}</pre>
       ) : !idParams ? (
         <p>Set URL /:id parameter to get an item by ID</p>
-      ) : singleItem && !Array.isArray(singleItem) ? (
+      ) : itemToUpdate && !Array.isArray(itemToUpdate) ? (
         <div className="single-item-display">
           {updateFormBtns}
-          {formatObjectAsJSX(singleItem)}
+          {formatObjectAsJSX(itemToUpdate)}
           {updateFormBtns}
         </div>
       ) : (

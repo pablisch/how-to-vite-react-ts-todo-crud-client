@@ -1,52 +1,52 @@
 .status-label {
- width: 4.1rem;
-    height: 2.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #999;
-    border-radius: 0.5rem;
-    font-size: 1.4rem;
-    margin: 2rem 1rem 1.2rem;
-        }
+  width: 4.1rem;
+  height: 2.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #999;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  margin: 2rem 1rem 1.2rem;
+}
 
 .status-group-none {
-    background: #bfbfbf;
-    color: #000;
+  background: #bfbfbf;
+  color: #000;
 }
 
 .status-group-info {
-    background: #0f42af;
-    color: #fff;
+  background: #0f42af;
+  color: #fff;
 }
 
 .status-group-ok {
-    background: #38c130;
-    color: #fff;
+  background: #38c130;
+  color: #fff;
 }
 
 .status-group-redirect {
-    background: #722ebd;
-    color: #fff;
+  background: #722ebd;
+  color: #fff;
 }
 
 .status-group-error {
-    background: #f00;
-    color: #fff;
+  background: #f00;
+  color: #fff;
 }
 
 .status-group-server {
-    background: #8f0606;
-    color: #fff;
+  background: #8f0606;
+  color: #fff;
 }
 
 .update-form-btns {
-    display: flex;
-    justify-content: space-between;
-    margin: 2rem 1rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 1rem 1.2rem;
 }
 
 .update-btn {
-    width: 12rem;
-    height: 3rem;
+  width: 12rem;
+  height: 3rem;
 }

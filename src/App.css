@@ -47,7 +47,7 @@
   color: var(--white-100);
 }
 
-.error-message {;
+.error-message {
   white-space: pre-wrap;
   word-wrap: break-word;
   padding: 10px;

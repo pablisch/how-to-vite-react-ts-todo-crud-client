@@ -25,12 +25,6 @@
 
   --font-colour: var(--grey-900);
 
-
-
-
-
-
-
   /*  NAV FORMS  */
   --url-form-title: 1.3rem;
   --nav-title-margin-right: 15px;
@@ -40,8 +34,6 @@
 
   /*  ITEM SECTION  */
   --panel-side-margin: 3%;
-
-
 }
 
 .border-1 {
