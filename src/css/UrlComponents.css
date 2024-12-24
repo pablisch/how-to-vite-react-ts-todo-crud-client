@@ -4,3 +4,37 @@
     margin: 0 auto;
     background: var(--panel-background-1);
 }
+
+.url-form {
+    height: var(--form-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.url-form-title {
+    font-size: var(--url-form-title);
+    margin-right: var(--nav-title-margin-right);
+}
+
+.url-input {
+    width: 450px;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin: 5px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.url-btn-container {
+    display: flex;
+}
+
+.local {
+    background: #afe6e8;
+}
+
+.deployed {
+    background: #90b7ea;
+}

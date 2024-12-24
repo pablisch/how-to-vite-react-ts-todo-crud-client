@@ -31,8 +31,9 @@ function BaseUrlFrom() {
   }, [baseUrl])
 
   return (
-    <div id="base-url-form">
-      <h1 id="base-url-title">Base URL:</h1>
+    // <div id="url-form">
+    <div id="base-url-form" className="url-form">
+      <h1 id="base-url-title" className="url-form-title">Base URL:</h1>
       <input
         id="base-url-input"
         className="url-input"
@@ -41,7 +42,7 @@ function BaseUrlFrom() {
         onChange={handleInputChange}
         placeholder="Enter new base URL"
       />
-      <div className="base-url-btn-container">
+      <div className="url-btn-container">
         <Button
           ariaLabel="view item button"
           id={`set-api-base-url`}

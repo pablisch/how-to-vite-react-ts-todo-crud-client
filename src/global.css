@@ -9,6 +9,7 @@
   --grey-150: #ccc;
   --grey-200: #bbb;
   --grey-350: #939393;
+  --grey-900: #424242;
 
   --btn-ready-1: var(--green-250);
   --btn-ready-2: var(--green-blue-250);
@@ -20,6 +21,8 @@
 
   --background: var(--green-blue-150);
   --panel-background-1: var(--white-100);
+
+  --font-colour: var(--grey-900);
 
 
 
