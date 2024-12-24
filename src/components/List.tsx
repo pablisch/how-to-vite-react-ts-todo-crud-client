@@ -21,7 +21,7 @@ function List() {
   }, [baseUrl, endpoint])
 
   return (
-    <div id="list-container">
+    <div id="list-container" className="panel-1">
       {getAllItemsError ? (
         <p>{getAllItemsError}</p>
       ) : Array.isArray(items) && items.length > 0 ? (

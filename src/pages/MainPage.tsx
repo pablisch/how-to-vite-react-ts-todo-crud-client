@@ -10,7 +10,7 @@ const MainPage = () => {
   return (
     <div className="main-page-container">
       <List />
-      <div id="operation-panel">
+      <div id="operation-panel" className="panel-1">
         <OperationIndicator />
         {operation === 'getById' ? (
           <SingleItem />

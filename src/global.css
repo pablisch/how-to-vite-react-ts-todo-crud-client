@@ -4,6 +4,7 @@
   --green-blue-150: #e1f8f4;
   --green-blue-250: #d0f4ee;
   --blue-250: #baedf4;
+  --grey-blue-150: #e9ebec;
   --red-250: #f4baba;
   --white-100: #eee;
   --grey-150: #ccc;
@@ -19,7 +20,7 @@
 
   --btn-warning-1: var(--red-250);
 
-  --background: var(--green-blue-150);
+  --background: var(--grey-blue-150);
   --panel-background-1: var(--white-100);
 
   --font-colour: var(--grey-900);
@@ -46,4 +47,8 @@
 .border-1 {
   border: 1px solid var(--grey-350);
   border-radius: 1rem;
+}
+
+.panel-1 {
+  background: var(--panel-background-1);
 }
