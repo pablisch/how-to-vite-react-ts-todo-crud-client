@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import '../css/BaseUrlForm.css'
 import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
 import Button from './Button.tsx'
 

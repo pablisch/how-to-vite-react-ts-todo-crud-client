@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useIdParams } from '../hooks/useIdParams.tsx'
-import '../css/QueryParamsForm.css'
 
 const IdParamsForm = () => {
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
@@ -15,8 +14,8 @@ const IdParamsForm = () => {
   }, [idParams])
 
   return (
-    <div id="url-id-param-form" className="flex-container">
-      <h1 id="url-id-param-title">URL /:id params:</h1>
+    <div id="url-id-param-form" className="url-form">
+      <h1 id="url-id-param-title" className="url-form-title">URL /:id params:</h1>
       <input
         id="url-id-param-input"
         className="url-input"
@@ -25,7 +24,7 @@ const IdParamsForm = () => {
         onChange={handleInputChange}
         placeholder="Enter new URL /:id param"
       />
-      <div className="base-url-btn-container">
+      <div className="url-btn-container">
         <button
           className={`url-id-param-btn url-btn`}
           // disabled={baseUrl === inputValue}
