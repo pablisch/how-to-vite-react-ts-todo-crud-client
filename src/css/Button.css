@@ -1,6 +1,6 @@
 .btn {
   padding: 0.5rem;
-  background: #baf4ca;
+  background: var(--btn-ready-1);
   border: 1px solid #2e3843;
   border-radius: 5px;
   width: 11rem;
@@ -8,7 +8,7 @@
 }
 
 .active-btn {
-  background: #bad5f4;
+  background: var(--focus);
 }
 
 .bottom-btn {
@@ -16,7 +16,7 @@
 }
 
 .red-btn {
-  background: #f4baba;
+  background: var(--btn-warning-1);
 }
 
 .url-btn {
@@ -28,7 +28,7 @@
 }
 
 .disabled {
-  background: #939393;
-  color: #cccccc;
+  background: var(--grey-350);
+  color: var(--grey-150);
   cursor: not-allowed;
 }

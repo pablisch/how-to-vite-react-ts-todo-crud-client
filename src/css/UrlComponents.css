@@ -1,0 +1,6 @@
+.url-components-container {
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    background: var(--panel-background-1);
+}

@@ -1,11 +1,11 @@
 #base-url-form {
   height: var(--form-height);
-  width: 100%;
+  /*width: 100%;*/
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #444;
-  border: 1px solid #ccc;
+  /*background: #444;*/
+  /*border: 1px solid #ccc;*/
 }
 
 #base-url-title {

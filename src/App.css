@@ -1,3 +1,7 @@
+#app {
+  /*background: var(--background);*/
+}
+
 .main-page-container {
   display: flex;
   justify-content: space-between;
@@ -6,7 +10,7 @@
 
 #list-container {
   width: 45%;
-  border: 1px solid #bbb;
+  border: 1px solid var(--grey-200);
   padding: 0 20px;
   border-radius: 25px;
   margin-left: var(--panel-side-margin);
@@ -17,14 +21,14 @@
   align-items: center;
   justify-content: space-around;
   padding: 20px;
-  border: 1px solid #bbb;
+  border: 1px solid var(--grey-200);
   border-radius: 15px;
   margin: 30px 10px;
 }
 
 #operation-panel {
   width: 45%;
-  border: 1px solid #bbb;
+  border: 1px solid var(--grey-200);
   padding: 30px;
   border-radius: 25px;
   margin-right: var(--panel-side-margin);
@@ -40,13 +44,12 @@
 }
 
 .form-text {
-  color: #eee;
+  color: var(--white-100);
 }
 
-.error-message {
+.error-message {;
   white-space: pre-wrap;
   word-wrap: break-word;
-  background: #f4f4f4;
   padding: 10px;
   border-radius: 5px;
   overflow-x: auto;

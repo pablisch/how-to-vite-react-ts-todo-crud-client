@@ -1,10 +1,11 @@
 #complete-url-container {
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #eee;
+  background: var(--panel-background-1);
   padding: 10px;
+  margin: 15px auto 10px;
 }
 
 #complete-url-title {

@@ -1,4 +1,32 @@
 :root {
+  /*  COLOURS  */
+  --green-250: #baf4ca;
+  --green-blue-150: #e1f8f4;
+  --green-blue-250: #d0f4ee;
+  --blue-250: #baedf4;
+  --red-250: #f4baba;
+  --white-100: #eee;
+  --grey-150: #ccc;
+  --grey-200: #bbb;
+  --grey-350: #939393;
+
+  --btn-ready-1: var(--green-250);
+  --btn-ready-2: var(--green-blue-250);
+  --btn-ready-3: var(--blue-250);
+
+  --focus: var(--blue-250);
+
+  --btn-warning-1: var(--red-250);
+
+  --background: var(--green-blue-150);
+  --panel-background-1: var(--white-100);
+
+
+
+
+
+
+
   /*  NAV FORMS  */
   --url-form-title: 1.3rem;
   --nav-title-margin-right: 15px;
@@ -8,4 +36,11 @@
 
   /*  ITEM SECTION  */
   --panel-side-margin: 3%;
+
+
+}
+
+.border-1 {
+  border: 1px solid var(--grey-350);
+  border-radius: 1rem;
 }

@@ -14,11 +14,13 @@
     background: #ccc;
     text-align: center;
     border-radius: 0.5rem;
+    border: 1px solid #aaa;
     color: #999;
 }
 
 .active-operation {
-    background: #049a0a;
+    background: #5a99cc;
     color: #fff;
+    border: 1px solid #216195;
     transition: all 0.7s ease;
 }

@@ -12,10 +12,11 @@ import { QueryParamsProvider } from './context/QueryParamsContext.tsx'
 import QueryParamsForm from './components/QueryParamsForm.tsx'
 import './global.css'
 import { ItemsProvider } from './context/ItemsContext.tsx'
+import UrlComponents from './components/UrlComponents.tsx'
 
 function App() {
   return (
-    <div className="app">
+    <div id="app">
       <BrowserRouter>
         <BaseUrlProvider>
           <EndpointProvider>
@@ -23,10 +24,7 @@ function App() {
               <QueryParamsProvider>
                 <ItemsProvider>
                   <CompleteUrlBar />
-                  <BaseUrlForm />
-                  <EndpointForm />
-                  <IdParamsForm />
-                  <QueryParamsForm />
+                  <UrlComponents />
                   <Routes>
                     <Route path="/" element={<MainPage />} />
                   </Routes>
