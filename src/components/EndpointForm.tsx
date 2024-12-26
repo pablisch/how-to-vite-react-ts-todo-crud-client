@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useEndpoint } from '../hooks/useEndpoint.tsx'
+import Button from './Button.tsx'
 
 const EndpointForm = () => {
   const { endpoint, handleSetEndpoint, handleResetEndpoint } = useEndpoint()
@@ -27,20 +28,24 @@ const EndpointForm = () => {
         placeholder="Enter new URL endpoint"
       />
       <div className="url-btn-container">
-        <button
-          className={`url-endpoint-btn url-btn`}
-          // disabled={baseUrl === inputValue}
+        <Button
+          ariaLabel="set endpoint url section"
+          id={`set-endpoint-url`}
+          className={`btn url-btn`}
+          // disabled={isDefaultUrlValue}
           onClick={() => handleSetEndpoint(inputValue)}
         >
-          Set URL endpoint
-        </button>
-        <button
-          className={`url-endpoint-btn url-btn`}
+          {`Set URL endpoint`}
+        </Button>
+        <Button
+          ariaLabel="reset endpoint url section"
+          id={`reset-endpoint-url`}
+          className={`btn url-btn`}
           // disabled={isDefaultUrlValue}
           onClick={handleResetEndpoint}
         >
-          Reset endpoint
-        </button>
+          {`Reset endpoint`}
+        </Button>
       </div>
     </div>
   )

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useQueryParams } from '../hooks/useQueryParams.tsx'
+import Button from './Button.tsx'
 
 const QueryParamsForm = () => {
   const { queryParams, handleSetQueryParams, handleResetQueryParams } =
@@ -28,20 +29,24 @@ const QueryParamsForm = () => {
         placeholder="Enter new URL query params"
       />
       <div className="url-btn-container">
-        <button
-          className={`url-query-params-btn url-btn`}
-          // disabled={baseUrl === inputValue}
+        <Button
+          ariaLabel="set query params url section"
+          id={`set-query-params-url`}
+          className={`btn url-btn`}
+          // disabled={isDefaultUrlValue}
           onClick={() => handleSetQueryParams(inputValue)}
         >
-          Set query param
-        </button>
-        <button
-          className={`url-query-params-btn url-btn`}
+          {`Set query param`}
+        </Button>
+        <Button
+          ariaLabel="reset query params url section"
+          id={`reset-query-params-url`}
+          className={`btn url-btn`}
           // disabled={isDefaultUrlValue}
           onClick={handleResetQueryParams}
         >
-          Reset query params
-        </button>
+          {`Reset query param`}
+        </Button>
       </div>
     </div>
   )

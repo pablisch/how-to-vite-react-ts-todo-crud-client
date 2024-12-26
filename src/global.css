@@ -6,6 +6,8 @@
   --blue-250: #baedf4;
   --grey-blue-150: #e9ebec;
   --red-250: #f4baba;
+  --white: #fff;
+  --white-50: #f7f7f7;
   --white-100: #eee;
   --grey-150: #ccc;
   --grey-200: #bbb;
@@ -21,7 +23,7 @@
   --btn-warning-1: var(--red-250);
 
   --background: var(--grey-blue-150);
-  --panel-background-1: var(--white-100);
+  --panel-background-1: var(--white-50);
 
   --font-colour: var(--grey-900);
 

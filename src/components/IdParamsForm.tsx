@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useIdParams } from '../hooks/useIdParams.tsx'
+import Button from './Button.tsx'
 
 const IdParamsForm = () => {
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
@@ -27,20 +28,24 @@ const IdParamsForm = () => {
         placeholder="Enter new URL /:id param"
       />
       <div className="url-btn-container">
-        <button
-          className={`url-id-param-btn url-btn`}
-          // disabled={baseUrl === inputValue}
+        <Button
+          ariaLabel="set id params url section"
+          id={`set-id-params-url`}
+          className={`btn url-btn`}
+          // disabled={isDefaultUrlValue}
           onClick={() => handleSetIdParams(inputValue)}
         >
-          Set /:id param
-        </button>
-        <button
-          className={`url-idParam-btn url-btn`}
+          {`Set /:id param`}
+        </Button>
+        <Button
+          ariaLabel="reset id params url section"
+          id={`reset-endpoint-url`}
+          className={`btn url-btn`}
           // disabled={isDefaultUrlValue}
           onClick={handleResetIdParams}
         >
-          Reset /:id Params
-        </button>
+          {`Reset /:id param`}
+        </Button>
       </div>
     </div>
   )
