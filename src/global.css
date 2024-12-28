@@ -46,3 +46,13 @@
 .panel-1 {
   background: var(--panel-background-1);
 }
+
+.whole-width-container {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--panel-background-1);
+  padding: 10px;
+  margin: 15px auto 10px;
+}

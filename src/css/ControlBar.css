@@ -1,0 +1,13 @@
+#control-bar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--panel-background-1);
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.control-icon {
+  width: 40px;
+}

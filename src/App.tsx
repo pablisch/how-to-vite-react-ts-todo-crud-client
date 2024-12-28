@@ -9,8 +9,13 @@ import { QueryParamsProvider } from './context/QueryParamsContext.tsx'
 import './global.css'
 import { ItemsProvider } from './context/ItemsContext.tsx'
 import UrlComponents from './components/UrlComponents.tsx'
+import ControlBar from './components/ControlBar.tsx'
+import { useSettings } from './hooks/useSettings.tsx'
+import Settings from './components/Settings.tsx'
 
 function App() {
+  const { menuIsOpen } = useSettings()
+
   return (
     <div id="app">
       <BrowserRouter>
@@ -19,6 +24,8 @@ function App() {
             <IdParamsProvider>
               <QueryParamsProvider>
                 <ItemsProvider>
+                  <ControlBar />
+                  {menuIsOpen && <Settings />}
                   <CompleteUrlBar />
                   <UrlComponents />
                   <Routes>

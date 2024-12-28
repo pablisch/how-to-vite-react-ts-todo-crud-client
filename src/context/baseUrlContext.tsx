@@ -24,7 +24,7 @@ export interface BaseUrlContextType {
   baseUrl: string
   isLocalApi: boolean
   isDefaultUrlValue: boolean
-  handleSetBaseUrl: (baseUrl: string) => void
+  handleSetBaseUrl: (baseUrl: string | undefined) => void
   handleResetBaseUrl: () => void
   handleToggleApiLocation: () => void
 }
@@ -57,7 +57,8 @@ export const BaseUrlProvider = ({
     apiSelection.includes('default')
   )
 
-  const handleSetBaseUrl = (newBaseUrl: string) => {
+  const handleSetBaseUrl = (newBaseUrl: string | undefined) => {
+    if (!newBaseUrl) return
     if (isLocalApi) {
       setLocalUrl(newBaseUrl)
     } else {

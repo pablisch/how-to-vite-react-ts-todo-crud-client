@@ -11,6 +11,7 @@ const UrlComponents = () => {
       className="flex-container border-1 url-components-container"
       id="url-components-container"
     >
+      {/*<BaseUrlForm />*/}
       <BaseUrlForm />
       <EndpointForm />
       <IdParamsForm />

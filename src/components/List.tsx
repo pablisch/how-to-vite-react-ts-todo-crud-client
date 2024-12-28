@@ -14,10 +14,32 @@ function List() {
     getAllItems()
   }, [baseUrl, endpoint])
 
+  console.log(
+    '****()** error in List componenent:',
+    getAllItemsError?.props?.children[0]?.props?.children
+  )
+
   return (
     <div id="list-container" className="panel-1">
       {getAllItemsError ? (
-        <p>{getAllItemsError}</p>
+        <div>
+          {getAllItemsError?.props?.children[0]?.props?.children && (
+            <>
+              <p>
+                Since no response status was returned from the API request, it
+                is recommended to inspect the Network and Console in dev tools
+                to find more information.
+              </p>
+              <br />
+              <p>
+                <strong>Example:</strong> A Network Status 'CORS error' tells
+                you that the API you are trying to connect with has a CORS
+                policy that is blocking the connection.
+              </p>
+            </>
+          )}
+          <p>{getAllItemsError}</p>
+        </div>
       ) : Array.isArray(items) && items.length > 0 ? (
         <div>
           {items.map((item, index) => (

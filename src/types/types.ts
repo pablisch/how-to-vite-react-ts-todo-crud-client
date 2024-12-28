@@ -20,3 +20,8 @@ export interface StatusObject {
   status?: number
   statusType?: string
 }
+
+export interface Settings {
+  setUrlOnChange: boolean
+  lightMode: boolean
+}
