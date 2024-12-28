@@ -42,27 +42,6 @@ const SingleItem = () => {
       )}
     </div>
   )
-
-  // function formatObjectAsJsxWithBoldKeys(obj: UnknownObject): React.ReactNode {
-  //   if (typeof obj !== 'object' || obj === null) {
-  //     return <span>{String(obj)}</span>
-  //   }
-  //
-  //   return (
-  //     <ul className="single-item-details">
-  //       {Object.entries(obj).map(([key, value]) => (
-  //         <li key={key}>
-  //           <strong>{key}</strong>:{' '}
-  //           {typeof value === 'object' && value !== null ? (
-  //             formatObjectAsJsxWithBoldKeys(value) // Recursively render nested objects
-  //           ) : (
-  //             <span>{String(value)}</span>
-  //           )}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   )
-  // }
 }
 
 export default SingleItem

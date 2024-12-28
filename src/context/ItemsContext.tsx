@@ -10,7 +10,7 @@ import helpers from '../utils/helpers.tsx'
 
 export interface ItemsContextType {
   items: UnknownObject[] | UnknownObject
-  singleItem: UnknownObject | null
+  singleItem: UnknownObject[] | UnknownObject | null
   itemToUpdate: UnknownObject | undefined | null
   getAllItems: () => void
   getAllItemsError: string | null
@@ -56,7 +56,9 @@ export const ItemsContext = createContext<ItemsContextType>({
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const [items, setItems] = useState<UnknownObject[] | UnknownObject>([])
-  const [singleItem, setSingleItem] = useState<UnknownObject | null>(null)
+  const [singleItem, setSingleItem] = useState<
+    UnknownObject[] | UnknownObject | null
+  >(null)
   const [itemToUpdate, setItemToUpdate] = useState<
     UnknownObject | null | undefined
   >(null)
