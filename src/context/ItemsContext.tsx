@@ -13,7 +13,7 @@ export interface ItemsContextType {
   singleItem: UnknownObject[] | UnknownObject | null
   itemToUpdate: UnknownObject | undefined | null
   getAllItems: () => void
-  getAllItemsError: string | null
+  getAllItemsError: React.ReactElement | null
   getSingleItem: () => void
   getItemByIdError: React.ReactElement | null
   deleteItem: (id: string) => void
@@ -62,7 +62,8 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const [itemToUpdate, setItemToUpdate] = useState<
     UnknownObject | null | undefined
   >(null)
-  const [getAllItemsError, setGetAllItemError] = useState<string | null>(null)
+  const [getAllItemsError, setGetAllItemError] =
+    useState<React.ReactElement | null>(null)
   const [getItemByIdError, setGetItemByIdError] =
     useState<React.ReactElement | null>(null)
   const [deleteItemError, setDeleteItemError] =
@@ -90,7 +91,10 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
       })
     } catch (error) {
       console.warn('Error from getAllItems in itemsContent:', error)
-      setGetAllItemError('Failed to fetch data')
+      const errorMessage: React.ReactElement =
+        // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
+        helpers.constructErrorMessage(error)
+      setGetAllItemError(errorMessage)
     }
   }
 
@@ -101,7 +105,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
       const response = await apiClient.get(
         `${baseUrl}${endpoint}${idParams}${queryParams}`
       )
-      console.log('****()** getById response in itemsContext:', response.data)
+      // console.log('****()** getById response in itemsContext:', response.data)
       setSingleItem(response.data)
       setSingleItemStatus({
         status: response?.status,

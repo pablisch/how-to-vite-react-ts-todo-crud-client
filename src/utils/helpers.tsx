@@ -3,6 +3,7 @@ import React from 'react'
 
 export default {
   constructErrorMessage: function (error: ApiErrorObject): React.ReactElement {
+    console.log('****()** in constructErrorMessage:', error)
     const status: number | undefined = error?.status
     const message: string | undefined = error?.message
     const statusType = this.getStatusType(status)
@@ -13,14 +14,17 @@ export default {
         <p>
           <strong>Response from API:</strong>
         </p>
-        <pre className="wrap-text">{JSON.stringify(error, null, 2)}</pre>
+        <pre className="wrap-text">
+          {this.formatObjectAsJsxWithBoldKeys(error)}
+        </pre>
+        {/*<pre className="wrap-text">{JSON.stringify(error, null, 2)}</pre>*/}
       </>
     )
 
     if (!status && !message) {
       return (
         <>
-          <div className={`status-label ${statusType}`}>{status}</div>
+          <div className={`status-label ${statusType}`}>N/A</div>
           <div className="alert alert-info"></div>
           <p>
             <strong>An unknown error occurred.</strong>
@@ -35,7 +39,7 @@ export default {
     if (!status) {
       return (
         <>
-          <div className={`status-label ${statusType}`}>{status}</div>
+          <div className={`status-label ${statusType}`}>N/A</div>
           <p>
             <strong>No status property was received from the API.</strong>
           </p>
@@ -102,7 +106,7 @@ export default {
   },
 
   formatObjectAsJsxWithBoldKeys: function (
-    obj: UnknownObject
+    obj: UnknownObject | ApiErrorObject
   ): React.ReactNode {
     console.log(
       '****()** object passed into formatObjectAsJsxWithBoldKeys:',
@@ -118,7 +122,9 @@ export default {
           <li key={key}>
             <strong>{key}</strong>:{' '}
             {typeof value === 'object' && value !== null ? (
-              this.formatObjectAsJsxWithBoldKeys(value) // Recursively render nested objects
+              this.formatObjectAsJsxWithBoldKeys(
+                value as UnknownObject | ApiErrorObject
+              ) // Recursively render nested objects
             ) : (
               <span>{String(value)}</span>
             )}

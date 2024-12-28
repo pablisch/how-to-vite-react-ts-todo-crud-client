@@ -10,6 +10,7 @@ const apiClient = axios.create({
 apiClient.interceptors.response.use(
   response => response,
   error => {
+    console.log('****()** error in apiClient code:', error)
     if (error.response) {
       const { status, data } = error.response
       const apiError = {
