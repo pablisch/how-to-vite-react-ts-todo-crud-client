@@ -17,9 +17,9 @@ const BaseUrlForm = () => {
       placeholder="Enter new base URL"
       value={baseUrl}
       onChange={(value: string | undefined) => handleSetBaseUrl(value)}
-      // onSetUrl={(value: string | undefined) => handleSetBaseUrl(value)}
+      onSetUrl={(value: string | undefined) => handleSetBaseUrl(value)}
       onResetUrl={handleResetBaseUrl}
-      // setUrlButtonText={`Set ${isLocalApi ? 'localhost' : 'remote'} base URL`}
+      setUrlButtonText={`Set ${isLocalApi ? 'localhost' : 'remote'} base URL`}
       resetUrlButtonText="Reset base URL"
       additionalButtons={[
         {

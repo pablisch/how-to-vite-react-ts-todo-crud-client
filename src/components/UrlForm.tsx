@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Button from './Button.tsx'
+import { useSettings } from '../hooks/useSettings.tsx'
 
 interface UrlFormProps {
   id: string
@@ -7,9 +8,9 @@ interface UrlFormProps {
   placeholder: string
   value: string
   onChange: (value: string) => void
-  // onSetUrl: (value: string) => void
+  onSetUrl: (value: string) => void
   onResetUrl: () => void
-  // setUrlButtonText: string
+  setUrlButtonText: string
   resetUrlButtonText: string
   additionalButtons?: Array<{
     text: string
@@ -26,13 +27,15 @@ const UrlForm: React.FC<UrlFormProps> = ({
   placeholder,
   value,
   onChange,
-  // onSetUrl,
+  onSetUrl,
   onResetUrl,
-  // setUrlButtonText,
+  setUrlButtonText,
   resetUrlButtonText,
   additionalButtons = [],
 }) => {
   const [inputValue, setInputValue] = useState(value)
+
+  const { settings } = useSettings()
 
   useEffect(() => {
     setInputValue(value)
@@ -40,12 +43,20 @@ const UrlForm: React.FC<UrlFormProps> = ({
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
-    onChange(event.target.value)
+    console.log('****()** settings:', JSON.stringify(settings, null, 2))
   }
 
-  // const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setInputValue(event.target.value)
+  // const handleInputOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   // if (settings.setUrlOnChange) {
+  //     setInputValue(event.target.value)
+  //     // onChange(event.target.value)
+  //   // }
   // }
+  useEffect(() => {
+    if (settings.setUrlOnChange) {
+      onSetUrl(inputValue)
+    }
+  }, [inputValue])
 
   return (
     <div id={`${id}-form`} className="url-form">
@@ -61,14 +72,14 @@ const UrlForm: React.FC<UrlFormProps> = ({
         placeholder={placeholder}
       />
       <div className="url-btn-container">
-        {/*<Button*/}
-        {/*  ariaLabel={`set ${id}`}*/}
-        {/*  id={`set-${id}-btn`}*/}
-        {/*  onClick={() => onSetUrl(inputValue)}*/}
-        {/*  className="btn url-btn"*/}
-        {/*>*/}
-        {/*  {setUrlButtonText}*/}
-        {/*</Button>*/}
+        <Button
+          ariaLabel={`set ${id}`}
+          id={`set-${id}-btn`}
+          onClick={() => onSetUrl(inputValue)}
+          className="btn url-btn"
+        >
+          {setUrlButtonText}
+        </Button>
         <Button
           ariaLabel={`reset ${id}`}
           id={`reset-${id}-btn`}
