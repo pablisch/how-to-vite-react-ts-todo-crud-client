@@ -3,7 +3,6 @@ import React, { createContext, useState } from 'react'
 const defaultQueryParams: string = ''
 const initialQueryParams: string =
   localStorage.getItem('queryParams') || defaultQueryParams
-console.log('Setting queryParams:', initialQueryParams)
 
 export interface QueryParamsContextType {
   queryParams: string

@@ -9,7 +9,7 @@ import apiClient from '../utils/apiClient.ts'
 import helpers from '../utils/helpers.tsx'
 
 export interface ItemsContextType {
-  items: UnknownObject[]
+  items: UnknownObject[] | UnknownObject
   singleItem: UnknownObject | null
   itemToUpdate: UnknownObject | undefined | null
   getAllItems: () => void
@@ -55,7 +55,7 @@ export const ItemsContext = createContext<ItemsContextType>({
 })
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [items, setItems] = useState<UnknownObject[]>([])
+  const [items, setItems] = useState<UnknownObject[] | UnknownObject>([])
   const [singleItem, setSingleItem] = useState<UnknownObject | null>(null)
   const [itemToUpdate, setItemToUpdate] = useState<
     UnknownObject | null | undefined
@@ -80,31 +80,31 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     setGetAllItemError(null)
     try {
       const response = await axios.get(`${baseUrl}${endpoint}${queryParams}`)
+      console.log('****()** getAll response in itemsContext:', response.data)
       setItems(response.data)
       setGetItemsStatus({
         status: response?.status,
         statusType: helpers.getStatusType(response?.status),
       })
     } catch (error) {
-      console.error('Error fetching item data:', error)
+      console.warn('Error from getAllItems in itemsContent:', error)
       setGetAllItemError('Failed to fetch data')
     }
   }
 
   const getSingleItem = async () => {
-    console.log('setting operation in getSingleItem to getById')
     setOperation('getById')
     setGetItemByIdError(null)
     try {
       const response = await apiClient.get(
         `${baseUrl}${endpoint}${idParams}${queryParams}`
       )
+      console.log('****()** getById response in itemsContext:', response.data)
       setSingleItem(response.data)
       setSingleItemStatus({
         status: response?.status,
         statusType: helpers.getStatusType(response?.status),
       })
-      console.log(response)
     } catch (error) {
       const errorMessage: React.ReactElement =
         // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
@@ -114,7 +114,6 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const deleteItem = async (id: string) => {
-    console.log('setting operation in deleteItem to delete')
     setOperation('delete')
     setDeleteItemError(null)
     try {
@@ -123,7 +122,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
           'Content-Type': 'application/json',
         },
       })
-      console.log(response.status, response.data)
+      console.log('****()** delete response in itemsContext:', response.data)
     } catch (error) {
       const errorMessage: React.ReactElement =
         // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
@@ -133,7 +132,6 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const updateItem = async () => {
-    console.log('setting operation in updateItem to update')
     setOperation('update')
     setUpdateItemError(null)
     const body = {}
@@ -147,7 +145,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
           body,
         }
       )
-      console.log(response.status, response.data)
+      console.log('****()** update response in itemsContext:', response.data)
     } catch (error) {
       const errorMessage: React.ReactElement =
         // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
@@ -169,7 +167,6 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const loadUpdateForm = (id: string) => {
-    console.log('setting operation in loadUpdateForm')
     setOperation('update')
 
     if (items.length)

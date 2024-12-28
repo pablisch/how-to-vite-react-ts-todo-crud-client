@@ -3,21 +3,15 @@ import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
 import { useEndpoint } from '../hooks/useEndpoint.tsx'
 import ListItem from './ListItem.tsx'
 import { useItems } from '../hooks/useItems.tsx'
+import helpers from '../utils/helpers.tsx'
 
 function List() {
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
-  const { items, getAllItems, getAllItemsError, getItemsStatus } = useItems()
+  const { items, getAllItems, getAllItemsError } = useItems()
 
   useEffect(() => {
     getAllItems()
-  }, [baseUrl, endpoint])
-
-  useEffect(() => {
-    console.log(
-      'status for get items:',
-      JSON.stringify(getItemsStatus, null, 2)
-    )
   }, [baseUrl, endpoint])
 
   return (
@@ -33,6 +27,10 @@ function List() {
       ) : Array.isArray(items) && items.length === 0 ? (
         <div className="flex-container">
           {`There are no ${endpoint.replace(/^\/+/, '')} to display`}
+        </div>
+      ) : typeof items === 'object' && !Array.isArray(items) ? (
+        <div className="flex-container">
+          {helpers.formatObjectAsJsxWithBoldKeys(items)}
         </div>
       ) : (
         <p>Loading...</p>

@@ -12,10 +12,6 @@ const ListItem = ({ item }: ListItemProps) => {
   const { handleResetOperation, deleteItem, loadUpdateForm, operation } =
     useItems()
 
-  // console.log('item:', item)
-  // const {_id, ...rest} = item
-  // console.log('rest:', rest)
-
   const processItem = (item: UnknownObject) => {
     const keys = Object.keys(item)
 
@@ -44,8 +40,6 @@ const ListItem = ({ item }: ListItemProps) => {
 
   const displayItem = processItem(item)
   const id = displayItem[0][1]
-  // console.log('displayItem:', displayItem)
-  // console.log('id:', id)
   const isFocussed = `/${id}` === idParams
   const isViewed = `/${id}` === idParams && operation === 'getById'
   const isPatched = `/${id}` === idParams && operation === 'update'
@@ -54,11 +48,9 @@ const ListItem = ({ item }: ListItemProps) => {
     if (isViewed) {
       handleResetIdParams()
     } else {
-      // console.log('view item:', id)
       handleSetIdParams(id)
       handleResetOperation()
     }
-    // await getSingleItem()
   }
 
   const handleDeleteItem = async () => {

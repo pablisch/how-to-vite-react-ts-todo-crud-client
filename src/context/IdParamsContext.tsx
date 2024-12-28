@@ -3,7 +3,6 @@ import React, { createContext, useState } from 'react'
 const defaultIdParams: string = ''
 const initialIdParams: string =
   localStorage.getItem('idParams') || defaultIdParams
-console.log('Setting idParams:', initialIdParams)
 
 export interface IdParamsContextType {
   idParams: string

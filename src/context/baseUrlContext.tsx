@@ -20,12 +20,6 @@ if (apiSelection && apiSelection.includes('default')) {
   if (deployedStoredUrlValue) initialBaseUrl = deployedStoredUrlValue
 }
 
-console.log('Initial apiSelection:', apiSelection)
-console.log('localStorage apiSelection:', localStorage.getItem('apiSelection'))
-console.log('localStorage localUrl:', localStorage.getItem('localUrl'))
-console.log('localStorage deployedUrl:', localStorage.getItem('deployedUrl'))
-console.log('initialBaseUrl:', initialBaseUrl)
-
 export interface BaseUrlContextType {
   baseUrl: string
   isLocalApi: boolean
@@ -84,19 +78,12 @@ export const BaseUrlProvider = ({
   }
 
   useEffect(() => {
-    console.log(`🌱 API is ${isLocalApi ? 'local' : 'deployed'}`)
     if (isLocalApi) {
-      console.log(
-        `local URL is being set to ${localUrl ? localUrl : localDefaultUrl}`
-      )
       const newLocalUrlValue = localUrl ? localUrl : localDefaultUrl
       setBaseUrl(newLocalUrlValue)
       if (newLocalUrlValue !== localDefaultUrl)
         localStorage.setItem('localUrl', newLocalUrlValue)
     } else {
-      console.log(
-        `deployed URL is being set to ${deployedUrl ? deployedUrl : deployedDefaultUrl}`
-      )
       const newDeployedUrlValue = deployedUrl ? deployedUrl : deployedDefaultUrl
       setBaseUrl(newDeployedUrlValue)
       if (newDeployedUrlValue !== deployedDefaultUrl)

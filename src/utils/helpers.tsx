@@ -1,13 +1,11 @@
-import { ApiErrorObject } from '../types/types.ts'
+import { ApiErrorObject, UnknownObject } from '../types/types.ts'
 import React from 'react'
 
 export default {
   constructErrorMessage: function (error: ApiErrorObject): React.ReactElement {
-    console.log('error:', error)
     const status: number | undefined = error?.status
     const message: string | undefined = error?.message
     const statusType = this.getStatusType(status)
-    console.log('status', status, 'type', statusType)
 
     const responseDetails = (
       <>
@@ -18,9 +16,6 @@ export default {
         <pre className="wrap-text">{JSON.stringify(error, null, 2)}</pre>
       </>
     )
-
-    console.error('Status:', status)
-    console.error('Message:', message)
 
     if (!status && !message) {
       return (
@@ -87,7 +82,6 @@ export default {
     let statusType: string | undefined = undefined
     let statusGroup: number | undefined = undefined
     if (status) statusGroup = Math.floor(status / 100)
-    console.log('statusGroup:', statusGroup)
     if (!status) {
       statusType = 'status-group-none'
     } else if (statusGroup === 1) {
@@ -105,5 +99,32 @@ export default {
     }
 
     return statusType
+  },
+
+  formatObjectAsJsxWithBoldKeys: function (
+    obj: UnknownObject
+  ): React.ReactNode {
+    console.log(
+      '****()** object passed into formatObjectAsJsxWithBoldKeys:',
+      obj
+    )
+    if (typeof obj !== 'object' || obj === null) {
+      return <span>{String(obj)}</span>
+    }
+
+    return (
+      <ul className="single-item-details">
+        {Object.entries(obj).map(([key, value]) => (
+          <li key={key}>
+            <strong>{key}</strong>:{' '}
+            {typeof value === 'object' && value !== null ? (
+              this.formatObjectAsJsxWithBoldKeys(value) // Recursively render nested objects
+            ) : (
+              <span>{String(value)}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    )
   },
 }

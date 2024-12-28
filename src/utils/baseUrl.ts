@@ -1,5 +1,4 @@
 const environment: string = import.meta.env.VITE_NODE_ENV as unknown as string
-console.log(environment)
 
 const localDefaultUrl =
   environment === 'deploy'
