@@ -28,7 +28,8 @@
 }
 
 .disabled {
-  background: var(--grey-350);
-  color: var(--grey-150);
+  background: var(--grey-150);
+  color: var(--grey-350);
   cursor: not-allowed;
+  border: 1px solid var(--grey-350);
 }

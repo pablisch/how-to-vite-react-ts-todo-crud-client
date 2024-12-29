@@ -37,6 +37,8 @@ const UrlForm: React.FC<UrlFormProps> = ({
 
   const { settings } = useSettings()
 
+  const setUrlDisabled: boolean = inputValue === defaultUrlValue
+
   useEffect(() => {
     setInputValue(defaultUrlValue)
   }, [defaultUrlValue])
@@ -71,8 +73,8 @@ const UrlForm: React.FC<UrlFormProps> = ({
             ariaLabel={`set ${id}`}
             id={`set-${id}-btn`}
             onClick={() => onSetUrl(inputValue)}
-            className="btn url-btn"
-            disabled={inputValue === defaultUrlValue}
+            className={`btn url-btn ${setUrlDisabled ? 'disabled' : ''}`}
+            disabled={setUrlDisabled}
           >
             {setUrlBtnText}
           </Button>
@@ -81,7 +83,7 @@ const UrlForm: React.FC<UrlFormProps> = ({
           ariaLabel={`reset ${id}`}
           id={`reset-${id}-btn`}
           onClick={onResetUrl}
-          className="btn url-btn"
+          className={`btn url-btn ${isDefaultUrlValue ? 'disabled' : ''}`}
           disabled={isDefaultUrlValue}
         >
           {resetUrlBtnText}
