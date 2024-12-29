@@ -36,6 +36,7 @@
 
   /*  ITEM SECTION  */
   --panel-side-margin: 3%;
+  --message-space-margin-1: 20px;
 }
 
 .border-1 {
@@ -55,4 +56,8 @@
   background: var(--panel-background-1);
   padding: 10px;
   margin: 15px auto 10px;
+}
+
+.message-spacing {
+  margin-top: var(--message-space-margin-1);
 }

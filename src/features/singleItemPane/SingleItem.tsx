@@ -29,7 +29,9 @@ const SingleItem = () => {
       {getItemByIdError ? (
         <pre className="error-message">{getItemByIdError}</pre>
       ) : !idParams ? (
-        <p>Set URL /:id parameter to get an item by ID</p>
+        <p className={'message-spacing'}>
+          Set URL /:id parameter to get an item by ID
+        </p>
       ) : singleItem && !Array.isArray(singleItem) ? (
         <div className="single-item-display">
           <div className={`status-label ${singleItemStatus.statusType}`}>

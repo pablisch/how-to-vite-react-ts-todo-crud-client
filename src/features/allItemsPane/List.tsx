@@ -55,7 +55,7 @@ function List() {
           {items && helpers.formatObjectAsJsxWithBoldKeys(items)}
         </div>
       ) : (
-        <p>Loading...</p>
+        <p className={`message-spacing`}>Loading...</p>
       )}
     </div>
   )

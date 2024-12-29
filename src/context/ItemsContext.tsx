@@ -105,6 +105,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     setOperation('getById')
     setSingleItem(undefined)
     setGetItemByIdError(null)
+    if (!idParams) return
     try {
       const response = await apiClient.get(
         `${baseUrl}${endpoint}${idParams}${queryParams}`
