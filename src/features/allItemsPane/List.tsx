@@ -23,7 +23,7 @@ function List() {
     <div id="list-container" className="panel-1">
       {getAllItemsError ? (
         <div>
-          {getAllItemsError?.props?.children[0]?.props?.children && (
+          {getAllItemsError?.props?.children[0]?.props?.children === 0 && (
             <>
               <p>
                 Since no response status was returned from the API request, it
@@ -52,7 +52,7 @@ function List() {
         </div>
       ) : typeof items === 'object' && !Array.isArray(items) ? (
         <div className="flex-container">
-          {helpers.formatObjectAsJsxWithBoldKeys(items)}
+          {items && helpers.formatObjectAsJsxWithBoldKeys(items)}
         </div>
       ) : (
         <p>Loading...</p>

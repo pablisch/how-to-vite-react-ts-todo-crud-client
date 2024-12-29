@@ -9,8 +9,8 @@ import apiClient from '../utils/apiClient.ts'
 import helpers from '../utils/helpers.tsx'
 
 export interface ItemsContextType {
-  items: UnknownObject[] | UnknownObject
-  singleItem: UnknownObject[] | UnknownObject | null
+  items: UnknownObject[] | UnknownObject | undefined
+  singleItem: UnknownObject[] | UnknownObject | undefined
   itemToUpdate: UnknownObject | undefined | null
   getAllItems: () => void
   getAllItemsError: React.ReactElement | null
@@ -32,8 +32,8 @@ export interface ItemsContextType {
 }
 
 export const ItemsContext = createContext<ItemsContextType>({
-  items: [],
-  singleItem: null,
+  items: undefined,
+  singleItem: undefined,
   itemToUpdate: null,
   getAllItems: () => {},
   getAllItemsError: null,
@@ -55,10 +55,12 @@ export const ItemsContext = createContext<ItemsContextType>({
 })
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [items, setItems] = useState<UnknownObject[] | UnknownObject>([])
+  const [items, setItems] = useState<
+    UnknownObject[] | UnknownObject | undefined
+  >(undefined)
   const [singleItem, setSingleItem] = useState<
-    UnknownObject[] | UnknownObject | null
-  >(null)
+    UnknownObject[] | UnknownObject | undefined
+  >(undefined)
   const [itemToUpdate, setItemToUpdate] = useState<
     UnknownObject | null | undefined
   >(null)
@@ -81,6 +83,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
 
   const getAllItems = async () => {
     setGetAllItemError(null)
+    setItems(undefined)
     try {
       const response = await axios.get(`${baseUrl}${endpoint}${queryParams}`)
       console.log('****()** getAll response in itemsContext:', response.data)
@@ -100,6 +103,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
 
   const getSingleItem = async () => {
     setOperation('getById')
+    setSingleItem(undefined)
     setGetItemByIdError(null)
     try {
       const response = await apiClient.get(
@@ -175,7 +179,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const loadUpdateForm = (id: string) => {
     setOperation('update')
 
-    if (items.length)
+    if (items && items.length)
       setItemToUpdate(items.find(item => item._id === id || item.id === id))
   }
 
