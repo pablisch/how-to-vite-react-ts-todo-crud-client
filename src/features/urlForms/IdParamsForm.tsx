@@ -12,7 +12,7 @@ const IdParamsForm = () => {
   return (
     <UrlForm
       id="id-params"
-      title="URL /:id params:"
+      title="URL /:id param:"
       placeholder="Enter new URL endpoint"
       defaultUrlValue={idParams}
       isDefaultUrlValue={isDefaultUrlValue}
