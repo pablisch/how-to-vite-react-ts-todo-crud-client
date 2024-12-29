@@ -1,9 +1,9 @@
 // import React from 'react'
 import BaseUrlForm from './BaseUrlForm.tsx'
-import IdParamsForm from './IdParamsForm.tsx'
-import QueryParamsForm from './QueryParamsForm.tsx'
+import QueryParamsFormOld from './QueryParamsFormOld.tsx'
 import './UrlComponents.css'
 import EndpointUrlForm from './EndpointUrlForm.tsx'
+import IdParamsForm from './IdParamsForm.tsx'
 
 const UrlComponents = () => {
   return (
@@ -14,7 +14,7 @@ const UrlComponents = () => {
       <BaseUrlForm />
       <EndpointUrlForm />
       <IdParamsForm />
-      <QueryParamsForm />
+      <QueryParamsFormOld />
     </div>
   )
 }

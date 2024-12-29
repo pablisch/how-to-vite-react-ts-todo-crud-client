@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useQueryParams } from '../../hooks/useQueryParams.tsx'
 import Button from '../../components/Button.tsx'
 
-const QueryParamsForm = () => {
+const QueryParamsFormOld = () => {
   const { queryParams, handleSetQueryParams, handleResetQueryParams } =
     useQueryParams()
   const [inputValue, setInputValue] = useState<string>(queryParams)
@@ -52,4 +52,4 @@ const QueryParamsForm = () => {
   )
 }
 
-export default QueryParamsForm
+export default QueryParamsFormOld

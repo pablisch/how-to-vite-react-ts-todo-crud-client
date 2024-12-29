@@ -24,7 +24,9 @@ export const EndpointProvider = ({
   children: React.ReactNode
 }) => {
   const [endpoint, setEndpoint] = useState<string>(initialEndpoint)
-  const [isDefaultUrlValue, setIsDefaultUrlValue] = useState<boolean>(false)
+  const [isDefaultUrlValue, setIsDefaultUrlValue] = useState<boolean>(
+    initialEndpoint === defaultEndpoint
+  )
 
   const handleSetEndpoint = (newEndpoint: string) => {
     if (!newEndpoint) return
