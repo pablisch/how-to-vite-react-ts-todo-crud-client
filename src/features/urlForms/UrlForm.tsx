@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Button from './Button.tsx'
-import { useSettings } from '../hooks/useSettings.tsx'
+import Button from '../../components/Button.tsx'
+import { useSettings } from '../../hooks/useSettings.tsx'
 
 interface UrlFormProps {
   id: string

@@ -1,15 +1,15 @@
 import './App.css'
 import { BaseUrlProvider } from './context/baseUrlContext.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import CompleteUrlBar from './components/CompleteUrlBar.tsx'
+import CompleteUrl from './features/urlForms/CompleteUrl.tsx'
 import { EndpointProvider } from './context/EndpointContext.tsx'
 import { IdParamsProvider } from './context/IdParamsContext.tsx'
 import MainPage from './pages/MainPage.tsx'
 import { QueryParamsProvider } from './context/QueryParamsContext.tsx'
 import './global.css'
 import { ItemsProvider } from './context/ItemsContext.tsx'
-import UrlComponents from './components/UrlComponents.tsx'
-import ControlBar from './components/ControlBar.tsx'
+import UrlComponents from './features/urlForms/UrlComponents.tsx'
+import ControlBar from './features/navbar/ControlBar.tsx'
 import { useSettings } from './hooks/useSettings.tsx'
 import Settings from './components/Settings.tsx'
 
@@ -26,7 +26,7 @@ function App() {
                 <ItemsProvider>
                   <ControlBar />
                   {menuIsOpen && <Settings />}
-                  <CompleteUrlBar />
+                  <CompleteUrl />
                   <UrlComponents />
                   <Routes>
                     <Route path="/" element={<MainPage />} />

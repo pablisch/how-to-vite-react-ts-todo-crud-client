@@ -1,4 +1,4 @@
-import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
+import { useBaseUrl } from '../../hooks/useBaseUrl.tsx'
 import UrlForm from './UrlForm.tsx'
 
 const BaseUrlForm = () => {

@@ -1,12 +1,12 @@
-import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
-import { useEndpoint } from '../hooks/useEndpoint.tsx'
+import { useBaseUrl } from '../../hooks/useBaseUrl.tsx'
+import { useEndpoint } from '../../hooks/useEndpoint.tsx'
 import { useEffect } from 'react'
-import { useIdParams } from '../hooks/useIdParams.tsx'
-import { useItems } from '../hooks/useItems.tsx'
-import '../css/SingleItem.css'
-import '../App.css'
-import '../css/right-hand-pane.css'
-import helpers from '../utils/helpers.tsx'
+import { useIdParams } from '../../hooks/useIdParams.tsx'
+import { useItems } from '../../hooks/useItems.tsx'
+import './SingleItem.css'
+import '../../App.css'
+import './singleItemPane.css'
+import helpers from '../../utils/helpers.tsx'
 
 const SingleItem = () => {
   const { baseUrl } = useBaseUrl()

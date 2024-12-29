@@ -1,10 +1,10 @@
-import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
-import '../css/CompleteUrl.css'
-import { useEndpoint } from '../hooks/useEndpoint.tsx'
-import { useIdParams } from '../hooks/useIdParams.tsx'
-import { useQueryParams } from '../hooks/useQueryParams.tsx'
+import { useBaseUrl } from '../../hooks/useBaseUrl.tsx'
+import './CompleteUrl.css'
+import { useEndpoint } from '../../hooks/useEndpoint.tsx'
+import { useIdParams } from '../../hooks/useIdParams.tsx'
+import { useQueryParams } from '../../hooks/useQueryParams.tsx'
 
-const CompleteUrlBar = () => {
+const CompleteUrl = () => {
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
@@ -23,4 +23,4 @@ const CompleteUrlBar = () => {
   )
 }
 
-export default CompleteUrlBar
+export default CompleteUrl

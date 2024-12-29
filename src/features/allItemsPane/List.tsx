@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
-import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
-import { useEndpoint } from '../hooks/useEndpoint.tsx'
+import { useBaseUrl } from '../../hooks/useBaseUrl.tsx'
+import { useEndpoint } from '../../hooks/useEndpoint.tsx'
 import ListItem from './ListItem.tsx'
-import { useItems } from '../hooks/useItems.tsx'
-import helpers from '../utils/helpers.tsx'
+import { useItems } from '../../hooks/useItems.tsx'
+import helpers from '../../utils/helpers.tsx'
 
 function List() {
   const { baseUrl } = useBaseUrl()

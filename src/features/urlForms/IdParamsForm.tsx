@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useIdParams } from '../hooks/useIdParams.tsx'
-import Button from './Button.tsx'
+import { useIdParams } from '../../hooks/useIdParams.tsx'
+import Button from '../../components/Button.tsx'
 
 const IdParamsForm = () => {
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()

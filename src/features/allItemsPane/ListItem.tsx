@@ -1,8 +1,8 @@
-import { UnknownObject } from '../types/types.ts'
-import Button from './Button.tsx'
-import { useIdParams } from '../hooks/useIdParams.tsx'
-import '../css/ListItem.css'
-import { useItems } from '../hooks/useItems.tsx'
+import { UnknownObject } from '../../types/types.ts'
+import Button from '../../components/Button.tsx'
+import { useIdParams } from '../../hooks/useIdParams.tsx'
+import './ListItem.css'
+import { useItems } from '../../hooks/useItems.tsx'
 
 interface ListItemProps {
   item: UnknownObject

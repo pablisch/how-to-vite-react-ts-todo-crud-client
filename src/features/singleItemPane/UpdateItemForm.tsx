@@ -1,10 +1,10 @@
 import React from 'react'
-import { UnknownObject } from '../types/types.ts'
-import { useIdParams } from '../hooks/useIdParams.tsx'
-import { useItems } from '../hooks/useItems.tsx'
-import '../css/SingleItem.css'
-import '../App.css'
-import Button from './Button.tsx'
+import { UnknownObject } from '../../types/types.ts'
+import { useIdParams } from '../../hooks/useIdParams.tsx'
+import { useItems } from '../../hooks/useItems.tsx'
+import './SingleItem.css'
+import '../../App.css'
+import Button from '../../components/Button.tsx'
 
 const UpdateItemForm = () => {
   const { idParams } = useIdParams()

@@ -1,5 +1,5 @@
-import { useItems } from '../hooks/useItems.tsx'
-import '../css/OperationIndicator.css'
+import { useItems } from '../../hooks/useItems.tsx'
+import './OperationIndicator.css'
 
 const OperationIndicator = () => {
   const { operation, isPatchUpdate } = useItems()

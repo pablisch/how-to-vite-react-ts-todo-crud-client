@@ -1,5 +1,5 @@
-import '../css/ControlBar.css'
-import { useSettings } from '../hooks/useSettings.tsx'
+import './ControlBar.css'
+import { useSettings } from '../../hooks/useSettings.tsx'
 
 const ControlBar = () => {
   const { handleToggleSettingsMenu } = useSettings()

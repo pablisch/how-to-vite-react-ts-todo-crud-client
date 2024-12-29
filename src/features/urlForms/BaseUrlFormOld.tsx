@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useBaseUrl } from '../hooks/useBaseUrl.tsx'
-import Button from './Button.tsx'
+import { useBaseUrl } from '../../hooks/useBaseUrl.tsx'
+import Button from '../../components/Button.tsx'
 
 function BaseUrlFromOld() {
   const {

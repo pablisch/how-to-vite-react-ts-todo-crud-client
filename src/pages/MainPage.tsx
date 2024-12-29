@@ -1,8 +1,8 @@
-import List from '../components/List.tsx'
-import SingleItem from '../components/SingleItem.tsx'
-import UpdateItemForm from '../components/UpdateItemForm.tsx'
+import List from '../features/allItemsPane/List.tsx'
+import SingleItem from '../features/singleItemPane/SingleItem.tsx'
+import UpdateItemForm from '../features/singleItemPane/UpdateItemForm.tsx'
 import { useItems } from '../hooks/useItems.tsx'
-import OperationIndicator from '../components/OperationIndicator.tsx'
+import OperationIndicator from '../features/singleItemPane/OperationIndicator.tsx'
 
 const MainPage = () => {
   const { operation } = useItems()

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useQueryParams } from '../hooks/useQueryParams.tsx'
-import Button from './Button.tsx'
+import { useQueryParams } from '../../hooks/useQueryParams.tsx'
+import Button from '../../components/Button.tsx'
 
 const QueryParamsForm = () => {
   const { queryParams, handleSetQueryParams, handleResetQueryParams } =

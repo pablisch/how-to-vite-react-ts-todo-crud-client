@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useEndpoint } from '../hooks/useEndpoint.tsx'
-import Button from './Button.tsx'
+import { useEndpoint } from '../../hooks/useEndpoint.tsx'
+import Button from '../../components/Button.tsx'
 
-const EndpointForm = () => {
+const EndpointFormOld = () => {
   const { endpoint, handleSetEndpoint, handleResetEndpoint } = useEndpoint()
   const [inputValue, setInputValue] = useState<string>(endpoint)
 
@@ -51,4 +51,4 @@ const EndpointForm = () => {
   )
 }
 
-export default EndpointForm
+export default EndpointFormOld
