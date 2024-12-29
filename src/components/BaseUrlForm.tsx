@@ -4,6 +4,7 @@ import UrlForm from './UrlForm.tsx'
 const BaseUrlForm = () => {
   const {
     baseUrl,
+    isDefaultUrlValue,
     isLocalApi,
     handleSetBaseUrl,
     handleResetBaseUrl,
@@ -15,12 +16,12 @@ const BaseUrlForm = () => {
       id="base-url"
       title="Base URL:"
       placeholder="Enter new base URL"
-      value={baseUrl}
-      onChange={(value: string | undefined) => handleSetBaseUrl(value)}
+      defaultUrlValue={baseUrl}
+      isDefaultUrlValue={isDefaultUrlValue}
       onSetUrl={(value: string | undefined) => handleSetBaseUrl(value)}
       onResetUrl={handleResetBaseUrl}
-      setUrlButtonText={`Set ${isLocalApi ? 'localhost' : 'remote'} base URL`}
-      resetUrlButtonText="Reset base URL"
+      setUrlBtnText={`Set ${isLocalApi ? 'localhost' : 'remote'} base URL`}
+      resetUrlBtnText="Reset base URL"
       additionalButtons={[
         {
           id: 'placeholder id',
