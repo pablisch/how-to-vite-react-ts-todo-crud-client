@@ -4,6 +4,7 @@ import { useEndpoint } from '../../hooks/useEndpoint.tsx'
 import ListItem from './ListItem.tsx'
 import { useItems } from '../../hooks/useItems.tsx'
 import helpers from '../../utils/helpers.tsx'
+import Loading from '../../components/Loading.tsx'
 
 function List() {
   const { baseUrl } = useBaseUrl()
@@ -15,7 +16,7 @@ function List() {
   }, [baseUrl, endpoint])
 
   console.log(
-    '****()** error in List componenent:',
+    '****()** error in List component:',
     getAllItemsError?.props?.children[0]?.props?.children
   )
 
@@ -55,7 +56,10 @@ function List() {
           {items && helpers.formatObjectAsJsxWithBoldKeys(items)}
         </div>
       ) : (
-        <p className={`message-spacing`}>Loading...</p>
+        <div className="loading-container">
+          <Loading />
+        </div>
+        // <p className={`message-spacing`}>Loading...</p>
       )}
     </div>
   )
