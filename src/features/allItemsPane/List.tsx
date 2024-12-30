@@ -59,7 +59,7 @@ function List() {
         <div className="loading-container">
           <Loading />
         </div>
-        // <p className={`message-spacing`}>Loading...</p>
+        // <p className={`message-spacing`}>LoadingBars...</p>
       )}
     </div>
   )
