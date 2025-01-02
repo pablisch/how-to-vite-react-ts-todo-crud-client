@@ -31,11 +31,16 @@
   animation-delay: -0.5s;
 }
 .loading-io-spinner-ripple {
-  width: 200px;
-  height: 200px;
-  display: inline-block;
+  margin-top: 20px;
+  width: 105px;
+  height: 105px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   background: #ffffff;
+  /*background: #ae1313;*/
+  /*border: 1px solid #aaa;*/
 }
 .ripple-loader {
   width: 100%;
