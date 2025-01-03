@@ -7,7 +7,7 @@ import QueryParamsForm from './QueryParamsForm.tsx'
 const UrlComponents = () => {
   return (
     <div
-      className="flex-container border-1 url-components-container"
+      className="flex-container border-primary url-components-container"
       id="url-components-container"
     >
       <BaseUrlForm />

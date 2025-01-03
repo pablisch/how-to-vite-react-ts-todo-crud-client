@@ -21,7 +21,7 @@ function List() {
   )
 
   return (
-    <div id="list-container" className="panel-1">
+    <div id="list-container" className="panel-primary border-primary">
       {getAllItemsError ? (
         <div>
           {getAllItemsError?.props?.children[0]?.props?.children === 0 && (

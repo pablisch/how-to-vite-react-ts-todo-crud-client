@@ -12,7 +12,6 @@
 
 #list-container {
   width: 45%;
-  border: 1px solid var(--grey-200);
   padding: 0 20px;
   border-radius: 25px;
   margin-left: var(--panel-side-margin);
@@ -30,7 +29,6 @@
 
 #operation-panel {
   width: 45%;
-  border: 1px solid var(--grey-200);
   padding: 30px;
   border-radius: 25px;
   margin-right: var(--panel-side-margin);

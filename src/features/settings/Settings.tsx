@@ -6,14 +6,13 @@ const Settings = () => {
 
   return (
     <div
-      className="whole-width-container flex-container border-1"
+      className="whole-width-container flex-container border-primary"
       id="settings-container"
     >
       <Button
         ariaLabel="set url section setting behaviour"
         id={`set-url-mode`}
         className={`btn url-btn`}
-        // disabled={isDefaultUrlValue}
         onClick={handleSetUrlSetMode}
       >
         {`Set URL section ${settings.setUrlOnChange ? 'on submit' : 'as you type'}`}
@@ -22,7 +21,6 @@ const Settings = () => {
         ariaLabel="toggle the colour theme"
         id={`toggle-theme`}
         className={`btn url-btn ${settings.theme === 'light' ? 'dark' : 'light'}`}
-        // disabled={isDefaultUrlValue}
         onClick={handleToggleTheme}
       >
         {`Select ${settings.theme === 'light' ? 'dark' : 'light'} theme`}

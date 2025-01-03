@@ -11,7 +11,7 @@ const CompleteUrl = () => {
   const { queryParams } = useQueryParams()
 
   return (
-    <div className="flex-container border-1" id="complete-url-container">
+    <div className="flex-container border-primary" id="complete-url-container">
       <h1 id="complete-url-title">Complete URL:</h1>
       <p id="complete-url-text">
         <span className="base-url-text">{baseUrl}</span>

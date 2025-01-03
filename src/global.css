@@ -39,12 +39,12 @@
   --message-space-margin-1: 20px;
 }
 
-.border-1 {
-  border: 1px solid var(--grey-350);
+.border-primary {
+  border: 1px solid var(--border-1);
   border-radius: 1rem;
 }
 
-.panel-1 {
+.panel-primary {
   background: var(--panel-background-1);
 }
 
