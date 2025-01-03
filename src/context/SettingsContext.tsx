@@ -3,7 +3,7 @@ import { Settings } from '../types/types.ts'
 
 const defaultSettings: Settings = {
   setUrlOnChange: true,
-  lightMode: true,
+  theme: 'light',
 }
 
 const storedSettings = localStorage.getItem('storedSettings')
@@ -18,6 +18,7 @@ export interface SettingsContextType {
   handleSetUrlSetMode: () => void
   handleResetSettings: () => void
   handleToggleSettingsMenu: () => void
+  handleToggleTheme: () => void
 }
 
 export const SettingsContext = createContext<SettingsContextType>({
@@ -26,6 +27,7 @@ export const SettingsContext = createContext<SettingsContextType>({
   handleSetUrlSetMode: () => {},
   handleResetSettings: () => {},
   handleToggleSettingsMenu: () => {},
+  handleToggleTheme: () => {},
 })
 
 export const SettingsProvider = ({
@@ -51,6 +53,14 @@ export const SettingsProvider = ({
     setMenuIsOpen(!menuIsOpen)
   }
 
+  const handleToggleTheme = () => {
+    const theme: string = settings.theme === 'light' ? 'dark' : 'light'
+    setSettings({
+      ...settings,
+      theme: theme,
+    })
+  }
+
   useEffect(() => {
     localStorage.setItem('storedSettings', JSON.stringify(settings))
   })
@@ -63,6 +73,7 @@ export const SettingsProvider = ({
         handleSetUrlSetMode,
         handleResetSettings,
         handleToggleSettingsMenu,
+        handleToggleTheme,
       }}
     >
       {children}

@@ -7,17 +7,19 @@ import { IdParamsProvider } from './context/IdParamsContext.tsx'
 import MainPage from './pages/MainPage.tsx'
 import { QueryParamsProvider } from './context/QueryParamsContext.tsx'
 import './global.css'
+import './colours.css'
+import './themes.css'
 import { ItemsProvider } from './context/ItemsContext.tsx'
 import UrlComponents from './features/urlForms/UrlComponents.tsx'
 import ControlBar from './features/navbar/ControlBar.tsx'
 import { useSettings } from './hooks/useSettings.tsx'
-import Settings from './components/Settings.tsx'
+import Settings from './features/settings/Settings.tsx'
 
 function App() {
-  const { menuIsOpen } = useSettings()
+  const { menuIsOpen, settings } = useSettings()
 
   return (
-    <div id="app">
+    <div id="app" data-theme={settings.theme}>
       <BrowserRouter>
         <BaseUrlProvider>
           <EndpointProvider>

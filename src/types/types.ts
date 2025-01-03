@@ -23,5 +23,5 @@ export interface StatusObject {
 
 export interface Settings {
   setUrlOnChange: boolean
-  lightMode: boolean
+  theme: string
 }

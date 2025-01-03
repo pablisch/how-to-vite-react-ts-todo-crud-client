@@ -1,0 +1,15 @@
+:root {
+    --background: var(--grey-blue-150);
+    --panel-background-1: var(--white-100);
+    --btn-ready-1: var(--green-250);
+    --btn-ready-2: var(--green-blue-250);
+    --btn-ready-3: var(--blue-250);
+}
+
+[data-theme="dark"] {
+    --background: var(--grey-900);
+    --panel-background-1: var(--grey-1100);
+    --btn-ready-1: var(--green-900);
+    --btn-ready-2: var(--green-blue-900);
+    --btn-ready-3: var(--blue-900);
+}

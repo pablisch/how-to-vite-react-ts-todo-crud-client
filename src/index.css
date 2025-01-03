@@ -13,9 +13,9 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  background-color: var(--background);
-  color: var(--font-colour);
+  height: 100vh;
+  /*background-color: var(--background);*/
+  /*color: var(--font-colour);*/
 }
 
 .flex-container {
