@@ -12,6 +12,7 @@
 [data-theme="dark"] {
     --background: var(--grey-1000);
     --panel-background-1: var(--grey-1100);
+    --text-primary: var(--grey-200);
 
     --border-1: var(--grey-500);
 

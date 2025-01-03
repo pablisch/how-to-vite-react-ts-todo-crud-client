@@ -1,7 +1,7 @@
 #app {
   min-height: 100vh;
   background-color: var(--background);
-  color: var(--font-colour);
+  color: var(--text-primary);
 }
 
 .main-page-container {
@@ -22,7 +22,8 @@
   align-items: center;
   justify-content: space-around;
   padding: 20px;
-  border: 1px solid var(--grey-200);
+  background: var(--panel-background-1);
+  border: 1px solid var(--border-1);
   border-radius: 15px;
   margin: 30px 10px;
 }
