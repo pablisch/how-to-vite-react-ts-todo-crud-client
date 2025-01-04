@@ -23,8 +23,9 @@
   font-size: 1rem;
   padding: 5px 10px;
   margin: 5px;
-  background: #eee;
-  border: 1px solid #ccc;
+  background: var(--background-2);
+  color: var(--text-1);
+  border: 1px solid var(--border-1);
   border-radius: 5px;
 }
 
@@ -33,9 +34,9 @@
 }
 
 .local {
-  background: #afe6e8;
+  background: var(--btn-option-1);
 }
 
 .deployed {
-  background: #90b7ea;
+  background: var(--btn-option-2);
 }

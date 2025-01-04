@@ -1,7 +1,7 @@
 .btn {
   padding: 0.5rem;
   background: var(--btn-passive-1);
-  border: 1px solid #2e3843;
+  border: 1px solid var(--border-1);
   border-radius: 5px;
   width: 11rem;
   cursor: pointer;
@@ -9,7 +9,7 @@
 }
 
 .active-btn {
-  background: var(--focus);
+  background: var(--btn-focus-1);
 }
 
 .bottom-btn {
@@ -29,8 +29,8 @@
 }
 
 .disabled {
-  background: var(--grey-150);
-  color: var(--grey-350);
+  background: var(--btn-disabled-1);
+  color: var(--text-1);
   cursor: not-allowed;
   border: 1px solid var(--grey-350);
 }

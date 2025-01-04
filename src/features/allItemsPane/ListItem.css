@@ -20,5 +20,5 @@
 }
 
 .focus-item-panel {
-  background: #dee;
+  background: var(--background-focus-1);
 }

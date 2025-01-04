@@ -15,22 +15,21 @@
 }
 
 #complete-url-text {
-  color: #444;
   font-size: var(--full-url-font-size);
 }
 
 .base-url-text {
-  color: #0d35f3;
+  color: var(--base-url-text);
 }
 
 .url-endpoint-text {
-  color: #c51414;
+  color: var(--url-endpoint-text);
 }
 
 .url-id-param-text {
-  color: #0d8e0f;
+  color: var(--url-id-param-text);
 }
 
 .url-query-param-text {
-  color: #8414af;
+  color: var(--url-query-param-text);
 }
