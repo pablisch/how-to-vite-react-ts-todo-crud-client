@@ -11,33 +11,33 @@
 }
 
 .status-group-none {
-  background: #bfbfbf;
-  color: #000;
+  background: var(--status-none);
+  color: var(--status-text-2);
 }
 
 .status-group-info {
-  background: #0f42af;
-  color: #fff;
+  background: var(--status-info);
+  color: var(--status-text-1);
 }
 
 .status-group-ok {
-  background: #38c130;
-  color: #fff;
+  background: var(--status-ok);
+  color: var(--status-text-1);
 }
 
 .status-group-redirect {
-  background: #722ebd;
-  color: #fff;
+  background: var(--status-redirect);
+  color: var(--status-text-1);
 }
 
 .status-group-error {
-  background: #f00;
-  color: #fff;
+  background: var(--status-error);
+  color: var(--status-text-1);
 }
 
 .status-group-server {
-  background: #8f0606;
-  color: #fff;
+  background: var(--status-server);
+  color: var(--status-text-1);
 }
 
 .update-form-btns {

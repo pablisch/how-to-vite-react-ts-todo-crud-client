@@ -120,13 +120,13 @@ export default {
       <ul className="single-item-details">
         {Object.entries(obj).map(([key, value]) => (
           <li key={key}>
-            <strong>{key}</strong>:{' '}
+            <span className={`mono-bold`}>{key}</span>:{' '}
             {typeof value === 'object' && value !== null ? (
               this.formatObjectAsJsxWithBoldKeys(
                 value as UnknownObject | ApiErrorObject
               ) // Recursively render nested objects
             ) : (
-              <span>{String(value)}</span>
+              <span className={`mono pad-left`}>{`${String(value)}`}</span>
             )}
           </li>
         ))}

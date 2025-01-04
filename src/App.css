@@ -15,6 +15,7 @@
   padding: 0 20px;
   border-radius: 25px;
   margin-left: var(--panel-side-margin);
+  margin-bottom: var(--panel-side-margin);
 }
 
 .item-panel {
@@ -33,6 +34,7 @@
   padding: 30px;
   border-radius: 25px;
   margin-right: var(--panel-side-margin);
+  margin-bottom: var(--panel-side-margin);
 }
 
 #single-item-operation-container {
@@ -62,4 +64,22 @@
 
 .wrap-text {
   white-space: pre-wrap;
+}
+
+.invert {
+  filter: invert(1)
+}
+
+.mono {
+  font-family: "Roboto Mono", serif;
+  font-weight: 300;
+}
+
+.mono-bold {
+  font-family: "Roboto Mono", serif;
+  font-weight: 500;
+}
+
+.pad-left {
+  padding-left: var(--padding-1);
 }

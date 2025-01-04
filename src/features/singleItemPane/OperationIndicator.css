@@ -20,7 +20,7 @@
 
 .active-operation {
   background: var(--btn-focus-1);
-  color: #fff;
+  color: var(--text-1);
   border: 1px solid #216195;
   transition: all 0.7s ease;
 }

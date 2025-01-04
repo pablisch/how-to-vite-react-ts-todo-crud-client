@@ -35,6 +35,8 @@
   /*  ITEM SECTION  */
   --panel-side-margin: 3%;
   --message-space-margin-1: 20px;
+
+  --padding-1: 3px;
 }
 
 .border-primary {

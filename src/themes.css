@@ -22,6 +22,15 @@
     --url-endpoint-text: var(--red-500);
     --url-id-param-text: var(--green-500);
     --url-query-param-text: var(--magenta-800);
+
+    --status-none: var(--grey-200);
+    --status-info: var(--blue-550);
+    --status-ok: var(--green-400);
+    --status-redirect: var(--purple-700);
+    --status-error: var(--red-400);
+    --status-server: var(--red-800);
+    --status-text-1: var(--white);
+    --status-text-2: var(--grey-1200);
 }
 
 [data-theme="dark"] {
@@ -48,4 +57,13 @@
     --url-endpoint-text: var(--red-250);
     --url-id-param-text: var(--green-250);
     --url-query-param-text: var(--magenta-250);
+
+    --status-none: var(--grey-750);
+    --status-info: var(--blue-700);
+    --status-ok: var(--green-500);
+    --status-redirect: var(--purple-700);
+    --status-error: var(--red-800);
+    --status-server: var(--red-1000);
+    --status-text-1: var(--white);
+    --status-text-2: var(--white);
 }
