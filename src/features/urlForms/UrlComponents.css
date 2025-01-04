@@ -2,7 +2,7 @@
   flex-direction: column;
   width: 90%;
   margin: 0 auto;
-  background: var(--panel-background-1);
+  background: var(--background-2);
 }
 
 .url-form {
@@ -15,6 +15,7 @@
 .url-form-title {
   font-size: var(--url-form-title);
   margin-right: var(--nav-title-margin-right);
+  color: var(--text-2);
 }
 
 .url-input {

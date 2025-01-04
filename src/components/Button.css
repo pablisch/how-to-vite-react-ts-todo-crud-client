@@ -1,10 +1,11 @@
 .btn {
   padding: 0.5rem;
-  background: var(--btn-ready-1);
+  background: var(--btn-passive-1);
   border: 1px solid #2e3843;
   border-radius: 5px;
   width: 11rem;
   cursor: pointer;
+  color: var(--text-1);
 }
 
 .active-btn {

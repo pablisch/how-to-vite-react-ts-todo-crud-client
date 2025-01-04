@@ -3,13 +3,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--panel-background-1);
+  background: var(--background-2);
   padding: 10px;
   margin: 15px auto 10px;
 }
 
 #complete-url-title {
-  color: #222;
+  color: var(--text-2);
   font-size: var(--url-form-title);
   margin-right: 30px;
 }
