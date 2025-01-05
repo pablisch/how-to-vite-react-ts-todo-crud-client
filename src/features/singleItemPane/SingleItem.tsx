@@ -7,6 +7,7 @@ import './SingleItem.css'
 import '../../App.css'
 import './singleItemPane.css'
 import helpers from '../../utils/helpers.tsx'
+import Loading from '../../components/Loading.tsx'
 
 const SingleItem = () => {
   const { baseUrl } = useBaseUrl()
@@ -40,7 +41,9 @@ const SingleItem = () => {
           {helpers.formatObjectAsJsxWithBoldKeys(singleItem)}
         </div>
       ) : (
-        <p>Loading...</p>
+        <div className="loading-container">
+          <Loading />
+        </div>
       )}
     </div>
   )
