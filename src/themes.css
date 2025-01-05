@@ -6,8 +6,10 @@
 
     --text-1: var(--grey-1100);
     --text-2: var(--grey-1000);
+    --text-mid-grey: var(--grey-300);
 
     --border-1: var(--grey-200);
+    --border-mid-grey: var(--grey-300);
 
     --btn-passive-1: var(--green-150);
     --btn-passive-2: var(--turquoise-100);
@@ -41,6 +43,7 @@
 
     --text-1: var(--grey-150);
     --text-2: var(--grey-200);
+    --text-mid-grey: var(--grey-300);
 
     --border-1: var(--grey-500);
 

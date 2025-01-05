@@ -14,13 +14,15 @@
   background: var(--btn-disabled-1);
   text-align: center;
   border-radius: 0.5rem;
-  border: 1px solid #aaa;
-  color: #999;
+  border: 1px solid var(--border-1);
+  color: var(--text-mid-grey);
+  padding: 5px;
+  transition: background var(--color-trans) ease, color var(--color-trans) ease;
 }
 
 .active-operation {
   background: var(--btn-focus-1);
   color: var(--text-1);
-  border: 1px solid #216195;
-  transition: all 0.7s ease;
+  border: 1px solid var(--border-1);
+  transition: background var(--color-trans) ease, color var(--color-trans) ease;
 }
