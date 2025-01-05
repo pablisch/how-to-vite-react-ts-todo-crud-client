@@ -30,6 +30,7 @@
 
 .control-icon {
   width: 40px;
+  max-height: 40px;
 }
 
 .inner-icon {
@@ -37,8 +38,8 @@
 }
 
 .light-mode-icon {
-  opacity: 45%;
-  filter: brightness(80%);
+  opacity: 60%;
+  filter: brightness(95%);
 }
 
 .dark-mode-icon {
