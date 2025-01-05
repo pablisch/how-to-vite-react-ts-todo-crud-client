@@ -29,7 +29,7 @@ const CombinedUrl = () => {
   return (
     <div className="url-form" id="combined-url-form">
       <h1 id="complete-url-title" className={`url-form-title`}>
-        Complete URL:
+        Combined URL:
       </h1>
       {/* styled overlay */}
       <div className={`url-overlay-container combined-input`}>
