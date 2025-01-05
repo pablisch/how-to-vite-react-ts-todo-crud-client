@@ -8,7 +8,7 @@ import CompleteUrl from './CompleteUrl.tsx'
 const UrlComponents = () => {
   return (
     <div
-      className="flex-container border-primary url-components-container"
+      className="flex-container url-components-container"
       id="url-components-container"
     >
       <CompleteUrl />

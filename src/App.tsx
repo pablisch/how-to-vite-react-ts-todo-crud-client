@@ -27,10 +27,12 @@ function App() {
                 <ItemsProvider>
                   <Navbar />
                   {menuIsOpen && <Settings />}
-                  <UrlComponents />
-                  <Routes>
-                    <Route path="/" element={<MainPage />} />
-                  </Routes>
+                  <div id="main-page-container">
+                    <UrlComponents />
+                    <Routes>
+                      <Route path="/" element={<MainPage />} />
+                    </Routes>
+                  </div>
                 </ItemsProvider>
               </QueryParamsProvider>
             </IdParamsProvider>

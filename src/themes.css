@@ -9,6 +9,7 @@
   --text-mid-grey: var(--grey-300);
 
   --border-1: var(--grey-200);
+  --border-mute: var(--grey-150);
   --border-mid-grey: var(--grey-300);
 
   --btn-passive-1: var(--green-150);
@@ -46,6 +47,8 @@
   --text-mid-grey: var(--grey-300);
 
   --border-1: var(--grey-500);
+  --border-mute: var(--grey-650);
+  --border-mid-grey: var(--grey-300);
 
   --btn-passive-1: var(--green-1100);
   --btn-passive-2: var(--turquoise-900);
