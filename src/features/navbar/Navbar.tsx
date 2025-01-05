@@ -2,7 +2,8 @@ import './Navbar.css'
 import { useSettings } from '../../hooks/useSettings.tsx'
 
 const Navbar = () => {
-  const { handleToggleSettingsMenu, settings, handleToggleTheme } = useSettings()
+  const { handleToggleSettingsMenu, settings, handleToggleTheme } =
+    useSettings()
 
   return (
     <nav id="navbar">
@@ -12,7 +13,8 @@ const Navbar = () => {
           <img
             className={`control-icon inner-icon ${settings.theme === 'dark' ? 'dark-mode-icon' : 'light-mode-icon'}`}
             onClick={handleToggleTheme}
-            src="/colour-bulb.png"
+            src="/colour-bulb-light-3.png"
+            // src="/colour-bulb-light-2.png"
             alt="settings"
           />
           <img
