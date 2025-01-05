@@ -16,6 +16,7 @@
 
 .url-input {
   width: 450px;
+  height: var(--form-input-height);
   font-size: 0.9rem;
   padding: 5px 10px;
   margin: 5px;
