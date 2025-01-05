@@ -3,6 +3,7 @@ import './UrlComponents.css'
 import EndpointUrlForm from './EndpointUrlForm.tsx'
 import IdParamsForm from './IdParamsForm.tsx'
 import QueryParamsForm from './QueryParamsForm.tsx'
+import CompleteUrl from './CompleteUrl.tsx'
 
 const UrlComponents = () => {
   return (
@@ -10,6 +11,7 @@ const UrlComponents = () => {
       className="flex-container border-primary url-components-container"
       id="url-components-container"
     >
+      <CompleteUrl />
       <BaseUrlForm />
       <EndpointUrlForm />
       <IdParamsForm />
