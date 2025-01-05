@@ -1,30 +1,4 @@
 :root {
-  /*  COLOURS  */
-  --green-150: #baf4ca;
-  --turquoise-50: #e1f8f4;
-  --turquoise-100: #d0f4ee;
-  --blue-150: #baedf4;
-  --grey-blue-150: #e9ebec;
-  --red-150: #f4baba;
-  --white: #fff;
-  --white-50: #f7f7f7;
-  --white-100: #eee;
-  --grey-150: #ccc;
-  --grey-200: #bbb;
-  --grey-350: #939393;
-  --grey-900: #424242;
-
-  /*--btn-passive-1: var(--green-150);*/
-  /*--btn-passive-2: var(--turquoise-100);*/
-  /*--btn-passive-3: var(--blue-150);*/
-
-  --focus: var(--blue-150);
-
-  --background-1: var(--grey-blue-150);
-  --background-2: var(--white-50);
-
-  --font-colour: var(--grey-900);
-
   /*  NAV FORMS  */
   --url-form-title: 1.3rem;
   --nav-title-margin-right: 15px;
@@ -37,6 +11,8 @@
   --message-space-margin-1: 20px;
 
   --padding-1: 3px;
+
+  --color-trans: 0.7s;
 }
 
 .border-primary {
@@ -46,6 +22,7 @@
 
 .panel-primary {
   background: var(--background-2);
+  transition: background var(--color-trans) ease, color var(--color-trans) ease;
 }
 
 .whole-width-container {
@@ -56,6 +33,7 @@
   background: var(--background-2);
   padding: 10px;
   margin: 15px auto 10px;
+  transition: background var(--color-trans) ease, color var(--color-trans) ease;
 }
 
 .message-spacing {

@@ -6,6 +6,7 @@
   background: var(--background-2);
   padding: 10px;
   margin: 0 auto;
+  transition: background var(--color-trans) ease, color var(--color-trans) ease;
 }
 
 .control-icon {

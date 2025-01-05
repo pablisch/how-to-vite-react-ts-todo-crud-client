@@ -21,4 +21,6 @@
 
 .focus-item-panel {
   background: var(--background-focus-1);
+  transition: background var(--color-trans) ease;
+  /*transition: background var(--color-trans) ease, color var(--color-trans) ease;*/
 }

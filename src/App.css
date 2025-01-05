@@ -2,6 +2,8 @@
   min-height: 100vh;
   background-color: var(--background-1);
   color: var(--text-1);
+  /*transition: background var(--color-trans) ease, color var(--color-trans) ease;*/
+  transition: background var(--color-trans) ease;
 }
 
 .main-page-container {
@@ -27,6 +29,8 @@
   border: 1px solid var(--border-1);
   border-radius: 15px;
   margin: 30px 10px;
+  /*transition: background var(--color-trans) ease, color var(--color-trans) ease;*/
+  transition: background var(--color-trans) ease;
 }
 
 #operation-panel {
@@ -39,15 +43,11 @@
 
 #single-item-operation-container {
   line-height: 1.5;
-  /*width: 45%;*/
-  /*border: 1px solid #bbb;*/
-  /*padding: 30px;*/
-  /*border-radius: 25px;*/
-  /*margin-right: var(--panel-side-margin);*/
 }
 
 .form-text {
   color: var(--white-100);
+  transition: background var(--color-trans) ease, color var(--color-trans) ease;
 }
 
 .error-message {
@@ -71,15 +71,26 @@
 }
 
 .mono {
-  font-family: "Roboto Mono", serif;
+  font-family: "Inconsolata", serif;
   font-weight: 300;
+  font-stretch: 20%;
+  font-variation-settings: "wdth" 100;
 }
 
 .mono-bold {
-  font-family: "Roboto Mono", serif;
+  font-family: "Inconsolata", serif;
   font-weight: 500;
 }
 
 .pad-left {
   padding-left: var(--padding-1);
 }
+
+.inconsolata {
+                font-family: "Inconsolata", serif;
+                font-optical-sizing: auto;
+                font-weight: 300;
+                font-style: normal;
+                font-variation-settings:
+                        "wdth" 100;
+              }

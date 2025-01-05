@@ -61,7 +61,7 @@ const UrlForm: React.FC<UrlFormProps> = ({
       </h1>
       <input
         id={`${id}-input`}
-        className="url-input"
+        className="url-input mono inconsolata roboto-flex"
         type="text"
         value={inputValue}
         onChange={handleInputChange}
