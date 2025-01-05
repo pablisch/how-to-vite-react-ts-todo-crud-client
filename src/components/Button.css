@@ -6,12 +6,16 @@
   width: 11rem;
   cursor: pointer;
   color: var(--text-1);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .active-btn {
   background: var(--btn-focus-1);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .bottom-btn {
@@ -20,7 +24,9 @@
 
 .red-btn {
   background: var(--btn-warning-1);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .url-btn {
@@ -36,5 +42,7 @@
   color: var(--text-1);
   cursor: not-allowed;
   border: 1px solid var(--grey-350);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }

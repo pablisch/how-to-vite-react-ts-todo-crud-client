@@ -1,0 +1,47 @@
+#navbar {
+  width: 100%;
+  background: var(--background-2);
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
+}
+
+#navbar-container {
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.nav-title {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+  font-size: 50px;
+  padding: 2px;
+  margin: 2px;
+}
+
+.nav-controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.control-icon {
+  width: 40px;
+}
+
+.inner-icon {
+  margin-right: 20px;
+}
+
+.light-mode-icon {
+  opacity: 45%;
+  filter: brightness(80%);
+}
+
+.dark-mode-icon {
+  opacity: 80%;
+  filter: invert(100%) brightness(80%);
+}

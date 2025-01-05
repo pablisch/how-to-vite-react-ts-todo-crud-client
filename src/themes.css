@@ -1,72 +1,72 @@
-[data-theme="light"] {
-    --background-1: var(--grey-blue-150);
-    --background-2: var(--white-100);
-    --background-3: var(--white-150);
-    --background-focus-1: var(--cyan-50);
+[data-theme='light'] {
+  --background-1: var(--grey-blue-150);
+  --background-2: var(--white-100);
+  --background-3: var(--white-150);
+  --background-focus-1: var(--cyan-50);
 
-    --text-1: var(--grey-1100);
-    --text-2: var(--grey-1000);
-    --text-mid-grey: var(--grey-300);
+  --text-1: var(--grey-1100);
+  --text-2: var(--grey-1000);
+  --text-mid-grey: var(--grey-300);
 
-    --border-1: var(--grey-200);
-    --border-mid-grey: var(--grey-300);
+  --border-1: var(--grey-200);
+  --border-mid-grey: var(--grey-300);
 
-    --btn-passive-1: var(--green-150);
-    --btn-passive-2: var(--turquoise-100);
-    --btn-passive-3: var(--blue-150);
-    --btn-warning-1: var(--red-150);
-    --btn-focus-1: var(--blue-150);
-    --btn-disabled-1: var(--grey-150);
-    --btn-option-1: var(--turquoise-200);
-    --btn-option-2: var(--blue-200);
+  --btn-passive-1: var(--green-150);
+  --btn-passive-2: var(--turquoise-100);
+  --btn-passive-3: var(--blue-150);
+  --btn-warning-1: var(--red-150);
+  --btn-focus-1: var(--blue-150);
+  --btn-disabled-1: var(--grey-150);
+  --btn-option-1: var(--turquoise-200);
+  --btn-option-2: var(--blue-200);
 
-    --base-url-text: var(--blue-500);
-    --url-endpoint-text: var(--red-500);
-    --url-id-param-text: var(--green-500);
-    --url-query-param-text: var(--magenta-800);
+  --base-url-text: var(--blue-500);
+  --url-endpoint-text: var(--red-500);
+  --url-id-param-text: var(--green-500);
+  --url-query-param-text: var(--magenta-800);
 
-    --status-none: var(--grey-200);
-    --status-info: var(--blue-550);
-    --status-ok: var(--green-400);
-    --status-redirect: var(--purple-700);
-    --status-error: var(--red-400);
-    --status-server: var(--red-800);
-    --status-text-1: var(--white);
-    --status-text-2: var(--grey-1200);
+  --status-none: var(--grey-200);
+  --status-info: var(--blue-550);
+  --status-ok: var(--green-400);
+  --status-redirect: var(--purple-700);
+  --status-error: var(--red-400);
+  --status-server: var(--red-800);
+  --status-text-1: var(--white);
+  --status-text-2: var(--grey-1200);
 }
 
-[data-theme="dark"] {
-    --background-1: var(--grey-1000);
-    --background-2: var(--grey-1100);
-    --background-3: var(--grey-1200);
-    --background-focus-1: var(--blue-1500);
+[data-theme='dark'] {
+  --background-1: var(--grey-1000);
+  --background-2: var(--grey-1100);
+  --background-3: var(--grey-1200);
+  --background-focus-1: var(--blue-1500);
 
-    --text-1: var(--grey-150);
-    --text-2: var(--grey-200);
-    --text-mid-grey: var(--grey-300);
+  --text-1: var(--grey-150);
+  --text-2: var(--grey-200);
+  --text-mid-grey: var(--grey-300);
 
-    --border-1: var(--grey-500);
+  --border-1: var(--grey-500);
 
-    --btn-passive-1: var(--green-1100);
-    --btn-passive-2: var(--turquoise-900);
-    --btn-passive-3: var(--blue-900);
-    --btn-warning-1: var(--red-900);
-    --btn-focus-1: var(--blue-900);
-    --btn-disabled-1: var(--grey-900);
-    --btn-option-1: var(--turquoise-900);
-    --btn-option-2: var(--blue-800);
+  --btn-passive-1: var(--green-1100);
+  --btn-passive-2: var(--turquoise-900);
+  --btn-passive-3: var(--blue-900);
+  --btn-warning-1: var(--red-900);
+  --btn-focus-1: var(--blue-900);
+  --btn-disabled-1: var(--grey-900);
+  --btn-option-1: var(--turquoise-900);
+  --btn-option-2: var(--blue-800);
 
-    --base-url-text: var(--blue-250);
-    --url-endpoint-text: var(--red-250);
-    --url-id-param-text: var(--green-250);
-    --url-query-param-text: var(--magenta-250);
+  --base-url-text: var(--blue-250);
+  --url-endpoint-text: var(--red-250);
+  --url-id-param-text: var(--green-250);
+  --url-query-param-text: var(--magenta-250);
 
-    --status-none: var(--grey-750);
-    --status-info: var(--blue-700);
-    --status-ok: var(--green-500);
-    --status-redirect: var(--purple-700);
-    --status-error: var(--red-800);
-    --status-server: var(--red-1000);
-    --status-text-1: var(--white);
-    --status-text-2: var(--white);
+  --status-none: var(--grey-750);
+  --status-info: var(--blue-700);
+  --status-ok: var(--green-500);
+  --status-redirect: var(--purple-700);
+  --status-error: var(--red-800);
+  --status-server: var(--red-1000);
+  --status-text-1: var(--white);
+  --status-text-2: var(--white);
 }

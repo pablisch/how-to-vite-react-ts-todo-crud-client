@@ -13,37 +13,49 @@
 .status-group-none {
   background: var(--status-none);
   color: var(--status-text-2);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .status-group-info {
   background: var(--status-info);
   color: var(--status-text-1);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .status-group-ok {
   background: var(--status-ok);
   color: var(--status-text-1);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .status-group-redirect {
   background: var(--status-redirect);
   color: var(--status-text-1);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .status-group-error {
   background: var(--status-error);
   color: var(--status-text-1);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .status-group-server {
   background: var(--status-server);
   color: var(--status-text-1);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .update-form-btns {

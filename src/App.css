@@ -47,7 +47,9 @@
 
 .form-text {
   color: var(--white-100);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .error-message {
@@ -67,18 +69,18 @@
 }
 
 .invert {
-  filter: invert(1)
+  filter: invert(1);
 }
 
 .mono {
-  font-family: "Inconsolata", serif;
+  font-family: 'Inconsolata', serif;
   font-weight: 300;
   font-stretch: 20%;
-  font-variation-settings: "wdth" 100;
+  font-variation-settings: 'wdth' 100;
 }
 
 .mono-bold {
-  font-family: "Inconsolata", serif;
+  font-family: 'Inconsolata', serif;
   font-weight: 500;
 }
 
@@ -87,10 +89,9 @@
 }
 
 .inconsolata {
-                font-family: "Inconsolata", serif;
-                font-optical-sizing: auto;
-                font-weight: 300;
-                font-style: normal;
-                font-variation-settings:
-                        "wdth" 100;
-              }
+  font-family: 'Inconsolata', serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}

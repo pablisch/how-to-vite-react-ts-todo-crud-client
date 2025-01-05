@@ -6,14 +6,18 @@
   background: var(--background-2);
   padding: 10px;
   margin: 15px auto 10px;
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 #complete-url-title {
   color: var(--text-2);
   font-size: var(--url-form-title);
   margin-right: 30px;
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 #complete-url-text {
@@ -22,20 +26,28 @@
 
 .base-url-text {
   color: var(--base-url-text);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .url-endpoint-text {
   color: var(--url-endpoint-text);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .url-id-param-text {
   color: var(--url-id-param-text);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .url-query-param-text {
   color: var(--url-query-param-text);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
