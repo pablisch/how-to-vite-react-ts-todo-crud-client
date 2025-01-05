@@ -17,6 +17,11 @@ const OperationIndicator = () => {
         POST items
       </div>
       <div
+        className={`operation ${operation === 'delete' ? 'active-operation' : ''}`}
+      >
+        DELETE items
+      </div>
+      <div
         className={`operation ${operation === 'update' && isPatchUpdate ? 'active-operation' : ''}`}
       >
         PATCH items/:id

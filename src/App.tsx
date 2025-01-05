@@ -1,7 +1,6 @@
 import './App.css'
 import { BaseUrlProvider } from './context/baseUrlContext.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import CompleteUrl from './features/urlForms/CompleteUrl.tsx'
 import { EndpointProvider } from './context/EndpointContext.tsx'
 import { IdParamsProvider } from './context/IdParamsContext.tsx'
 import MainPage from './pages/MainPage.tsx'
@@ -28,11 +27,12 @@ function App() {
                 <ItemsProvider>
                   <Navbar />
                   {menuIsOpen && <Settings />}
-                  <CompleteUrl />
-                  <UrlComponents />
-                  <Routes>
-                    <Route path="/" element={<MainPage />} />
-                  </Routes>
+                  <div id="main-page-container">
+                    <UrlComponents />
+                    <Routes>
+                      <Route path="/" element={<MainPage />} />
+                    </Routes>
+                  </div>
                 </ItemsProvider>
               </QueryParamsProvider>
             </IdParamsProvider>

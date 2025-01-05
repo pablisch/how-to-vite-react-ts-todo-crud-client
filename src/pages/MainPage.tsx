@@ -8,9 +8,9 @@ const MainPage = () => {
   const { operation } = useItems()
 
   return (
-    <div className="main-page-container">
+    <div className="main-section-container">
       <List />
-      <div id="operation-panel" className="panel-primary border-primary">
+      <div id="operation-panel-container" className={`main-section-panes`}>
         <OperationIndicator />
         {operation === 'getById' ? (
           <SingleItem />

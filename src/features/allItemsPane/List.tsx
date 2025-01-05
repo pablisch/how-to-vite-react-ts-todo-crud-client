@@ -21,9 +21,9 @@ function List() {
   )
 
   return (
-    <div id="list-container" className="panel-primary border-primary">
+    <div id="list-container" className="main-section-panes">
       {getAllItemsError ? (
-        <div>
+        <>
           {getAllItemsError?.props?.children[0]?.props?.children === 0 && (
             <>
               <p>
@@ -40,11 +40,15 @@ function List() {
             </>
           )}
           <p>{getAllItemsError}</p>
-        </div>
+        </>
       ) : Array.isArray(items) && items.length > 0 ? (
         <div>
           {items.map((item, index) => (
-            <ListItem item={item} key={item?._id || item?.id || index} />
+            <ListItem
+              item={item}
+              key={item?._id || item?.id || index}
+              index={index}
+            />
           ))}
         </div>
       ) : Array.isArray(items) && items.length === 0 ? (
@@ -59,7 +63,6 @@ function List() {
         <div className="loading-container">
           <Loading />
         </div>
-        // <p className={`message-spacing`}>LoadingBars...</p>
       )}
     </div>
   )

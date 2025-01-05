@@ -6,8 +6,9 @@ import { useItems } from '../../hooks/useItems.tsx'
 
 interface ListItemProps {
   item: UnknownObject
+  index: number
 }
-const ListItem = ({ item }: ListItemProps) => {
+const ListItem = ({ item, index }: ListItemProps) => {
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
   const { handleResetOperation, deleteItem, loadUpdateForm, operation } =
     useItems()
@@ -71,7 +72,9 @@ const ListItem = ({ item }: ListItemProps) => {
   }
 
   return (
-    <div className={`item-panel ${isFocussed ? 'focus-item-panel' : ''}`}>
+    <div
+      className={`item-panel ${isFocussed ? 'focus-item-panel' : ''} ${index > 0 ? 'item-spacer' : ''}`}
+    >
       <div className="item-details">
         {displayItem.map(([key, value]) => (
           <p key={key}>

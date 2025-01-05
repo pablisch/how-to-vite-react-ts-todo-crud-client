@@ -1,5 +1,4 @@
 import { useBaseUrl } from '../../hooks/useBaseUrl.tsx'
-import './CompleteUrl.css'
 import { useEndpoint } from '../../hooks/useEndpoint.tsx'
 import { useIdParams } from '../../hooks/useIdParams.tsx'
 import { useQueryParams } from '../../hooks/useQueryParams.tsx'
@@ -11,8 +10,10 @@ const CompleteUrl = () => {
   const { queryParams } = useQueryParams()
 
   return (
-    <div className="flex-container border-primary" id="complete-url-container">
-      <h1 id="complete-url-title">Complete URL:</h1>
+    <div className="url-form" id="complete-url-form">
+      <h1 id="complete-url-title" className={`url-form-title`}>
+        Complete URL:
+      </h1>
       <p id="complete-url-text">
         <span className="base-url-text">{baseUrl}</span>
         <span className="url-endpoint-text">{endpoint}</span>

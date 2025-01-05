@@ -1,13 +1,3 @@
-.url-components-container {
-  flex-direction: column;
-  width: 90%;
-  margin: 0 auto;
-  background: var(--background-2);
-  transition:
-    background var(--color-trans) ease,
-    color var(--color-trans) ease;
-}
-
 .url-form {
   height: var(--form-height);
   display: flex;
@@ -42,6 +32,8 @@
   display: flex;
 }
 
+/* BASE URL FORM SPECIFIC */
+
 .local {
   background: var(--btn-option-1);
   transition:
@@ -51,6 +43,40 @@
 
 .deployed {
   background: var(--btn-option-2);
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
+}
+
+/* COMPLETE URL FORM SPECIFIC */
+
+#complete-url-text {
+  font-size: var(--full-url-font-size);
+}
+
+.base-url-text {
+  color: var(--base-url-text);
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
+}
+
+.url-endpoint-text {
+  color: var(--url-endpoint-text);
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
+}
+
+.url-id-param-text {
+  color: var(--url-id-param-text);
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
+}
+
+.url-query-param-text {
+  color: var(--url-query-param-text);
   transition:
     background var(--color-trans) ease,
     color var(--color-trans) ease;
