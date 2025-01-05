@@ -3,7 +3,9 @@
   width: 90%;
   margin: 0 auto;
   background: var(--background-2);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .url-form {
@@ -17,7 +19,9 @@
   font-size: var(--url-form-title);
   margin-right: var(--nav-title-margin-right);
   color: var(--text-2);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .url-input {
@@ -29,7 +33,9 @@
   color: var(--text-1);
   border: 1px solid var(--border-1);
   border-radius: 5px;
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .url-btn-container {
@@ -38,10 +44,14 @@
 
 .local {
   background: var(--btn-option-1);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .deployed {
   background: var(--btn-option-2);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }

@@ -11,7 +11,7 @@ import './colours.css'
 import './themes.css'
 import { ItemsProvider } from './context/ItemsContext.tsx'
 import UrlComponents from './features/urlForms/UrlComponents.tsx'
-import ControlBar from './features/navbar/ControlBar.tsx'
+import Navbar from './features/navbar/Navbar.tsx'
 import { useSettings } from './hooks/useSettings.tsx'
 import Settings from './features/settings/Settings.tsx'
 
@@ -26,7 +26,7 @@ function App() {
             <IdParamsProvider>
               <QueryParamsProvider>
                 <ItemsProvider>
-                  <ControlBar />
+                  <Navbar />
                   {menuIsOpen && <Settings />}
                   <CompleteUrl />
                   <UrlComponents />

@@ -12,7 +12,7 @@
 
   --padding-1: 3px;
 
-  --color-trans: 0.7s;
+  --color-trans: 0.3s;
 }
 
 .border-primary {
@@ -22,7 +22,9 @@
 
 .panel-primary {
   background: var(--background-2);
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .whole-width-container {
@@ -33,7 +35,9 @@
   background: var(--background-2);
   padding: 10px;
   margin: 15px auto 10px;
-  transition: background var(--color-trans) ease, color var(--color-trans) ease;
+  transition:
+    background var(--color-trans) ease,
+    color var(--color-trans) ease;
 }
 
 .message-spacing {
