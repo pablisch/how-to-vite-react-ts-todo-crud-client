@@ -23,10 +23,14 @@
   background: var(--background-2);
   color: var(--text-1);
   border: 1px solid var(--border-1);
-  border-radius: 5px;
+  border-radius: var(--form-border-radius);
   transition:
     background var(--color-trans) ease,
     color var(--color-trans) ease;
+}
+
+.combined-input {
+  width: var(--combined-url-input-width);
 }
 
 .url-btn-container {
@@ -50,6 +54,40 @@
 }
 
 /* COMPLETE URL FORM SPECIFIC */
+
+.url-overlay-container {
+  position: relative;
+  /*height: var(--form-input-height);*/
+  /*padding: 5px;*/
+}
+
+.url-overlay {
+  /*background: var(--btn-option-1);*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /*height: 100%;*/
+  height: var(--form-input-height);
+  border: 1px solid transparent;
+  border-radius: var(--form-border-radius);
+  pointer-events: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+.space-left-18 {
+  margin-left: 10px;
+}
+
+.hidden-input-element {
+  color: transparent;
+  caret-color: var(--white);
+  background: var(--background-2);
+  /*border: 1px solid transparent;*/
+}
 
 #complete-url-text {
   font-size: var(--full-url-font-size);

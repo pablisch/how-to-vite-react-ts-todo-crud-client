@@ -3,7 +3,7 @@ import { Settings } from '../types/types.ts'
 
 const defaultSettings: Settings = {
   setUrlOnChange: true,
-  theme: 'light',
+  theme: 'dark',
 }
 
 const storedSettings = localStorage.getItem('storedSettings')
