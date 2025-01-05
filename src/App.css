@@ -97,25 +97,17 @@
 }
 
 .mono {
-  font-family: 'Inconsolata', serif;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 300;
-  font-stretch: 20%;
-  font-variation-settings: 'wdth' 100;
+  font-stretch: 80%;
+  font-variation-settings: 'wdth' 80;
 }
 
 .mono-bold {
-  font-family: 'Inconsolata', serif;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 500;
 }
 
 .pad-left {
   padding-left: var(--padding-1);
-}
-
-.inconsolata {
-  font-family: 'Inconsolata', serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  font-variation-settings: 'wdth' 100;
 }

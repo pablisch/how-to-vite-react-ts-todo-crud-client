@@ -15,10 +15,10 @@ const CompleteUrl = () => {
         Complete URL:
       </h1>
       <p id="complete-url-text">
-        <span className="base-url-text">{baseUrl}</span>
-        <span className="url-endpoint-text">{endpoint}</span>
-        <span className="url-id-param-text">{idParams}</span>
-        <span className="url-query-param-text">{queryParams}</span>
+        <span className="base-url-text mono">{baseUrl}</span>
+        <span className="url-endpoint-text mono">{endpoint}</span>
+        <span className="url-id-param-text mono">{idParams}</span>
+        <span className="url-query-param-text mono">{queryParams}</span>
       </p>
     </div>
   )
