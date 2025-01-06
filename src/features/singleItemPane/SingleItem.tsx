@@ -34,11 +34,13 @@ const SingleItem = () => {
           Set URL /:id parameter to get an item by ID
         </p>
       ) : singleItem && !Array.isArray(singleItem) ? (
-        <div className="single-item-display">
+        <div className="single-item-display-container">
           <div className={`status-label ${singleItemStatus.statusType}`}>
             {singleItemStatus.status}
           </div>
-          {helpers.formatObjectAsJsxWithBoldKeys(singleItem)}
+          <div className="response-object-container">
+            {helpers.formatObjectAsJsxWithBoldKeys(singleItem)}
+          </div>
         </div>
       ) : (
         <div className="loading-container">

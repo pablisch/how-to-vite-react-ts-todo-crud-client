@@ -5,6 +5,16 @@
   align-items: center;
 }
 
+.form-title-wrapper {
+  width: 210px;
+  margin-left: 100px;
+}
+
+.form-input-wrapper {
+  width: 900px;
+  justify-content: flex-start;
+}
+
 .url-form-title {
   font-size: var(--url-form-title);
   margin-right: var(--nav-title-margin-right);

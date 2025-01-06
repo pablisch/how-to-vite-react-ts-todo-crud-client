@@ -34,6 +34,9 @@
   --status-server: var(--red-800);
   --status-text-1: var(--white);
   --status-text-2: var(--grey-1200);
+
+  --scrollbar: var(--grey-100);
+  --scrollbar-hover: var(--grey-150);
 }
 
 [data-theme='dark'] {
@@ -72,4 +75,7 @@
   --status-server: var(--red-1000);
   --status-text-1: var(--white);
   --status-text-2: var(--white);
+
+  --scrollbar: var(--grey-1100);
+  --scrollbar-hover: var(--grey-1200);
 }
