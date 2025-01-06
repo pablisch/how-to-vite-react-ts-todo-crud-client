@@ -56,49 +56,53 @@ const UrlForm: React.FC<UrlFormProps> = ({
 
   return (
     <div id={`${id}-form`} className="url-form">
-      <h1 id={`${id}-title`} className="url-form-title">
-        {title}
-      </h1>
-      <input
-        id={`${id}-input`}
-        className="url-input mono"
-        type="text"
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder={placeholder}
-      />
-      <div className="url-btn-container">
-        {!settings.setUrlOnChange && (
+      <div className="form-title-wrapper">
+        <h1 id={`${id}-title`} className="url-form-title">
+          {title}
+        </h1>
+      </div>
+      <div className="form-input-wrapper flex-container">
+        <input
+          id={`${id}-input`}
+          className="url-input mono"
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder={placeholder}
+        />
+        <div className="url-btn-container">
+          {!settings.setUrlOnChange && (
+            <Button
+              ariaLabel={`set ${id}`}
+              id={`set-${id}-btn`}
+              onClick={() => onSetUrl(inputValue)}
+              className={`btn url-btn ${setUrlDisabled ? 'disabled' : ''}`}
+              disabled={setUrlDisabled}
+            >
+              {setUrlBtnText}
+            </Button>
+          )}
           <Button
-            ariaLabel={`set ${id}`}
-            id={`set-${id}-btn`}
-            onClick={() => onSetUrl(inputValue)}
-            className={`btn url-btn ${setUrlDisabled ? 'disabled' : ''}`}
-            disabled={setUrlDisabled}
+            ariaLabel={`reset ${id}`}
+            id={`reset-${id}-btn`}
+            onClick={onResetUrl}
+            className={`btn url-btn ${isDefaultUrlValue ? 'disabled' : ''}`}
+            disabled={isDefaultUrlValue}
           >
-            {setUrlBtnText}
+            {resetUrlBtnText}
           </Button>
-        )}
-        <Button
-          ariaLabel={`reset ${id}`}
-          id={`reset-${id}-btn`}
-          onClick={onResetUrl}
-          className={`btn url-btn ${isDefaultUrlValue ? 'disabled' : ''}`}
-          disabled={isDefaultUrlValue}
-        >
-          {resetUrlBtnText}
-        </Button>
-        {additionalButtons.map((button, index) => (
-          <Button
-            key={index}
-            ariaLabel={button.ariaLabel}
-            id={button.id}
-            onClick={button.onClick}
-            className={button.className || 'btn url-btn'}
-          >
-            {button.text}
-          </Button>
-        ))}
+          {additionalButtons.map((button, index) => (
+            <Button
+              key={index}
+              ariaLabel={button.ariaLabel}
+              id={button.id}
+              onClick={button.onClick}
+              className={button.className || 'btn url-btn'}
+            >
+              {button.text}
+            </Button>
+          ))}
+        </div>
       </div>
     </div>
   )

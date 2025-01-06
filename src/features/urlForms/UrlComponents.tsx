@@ -3,7 +3,7 @@ import './UrlComponents.css'
 import EndpointUrlForm from './EndpointUrlForm.tsx'
 import IdParamsForm from './IdParamsForm.tsx'
 import QueryParamsForm from './QueryParamsForm.tsx'
-import CompleteUrl from './CompleteUrl.tsx'
+// import CompleteUrl from './CompleteUrl.tsx'
 import { useBaseUrl } from '../../hooks/useBaseUrl.tsx'
 import { useEndpoint } from '../../hooks/useEndpoint.tsx'
 import { useIdParams } from '../../hooks/useIdParams.tsx'
@@ -30,8 +30,8 @@ const UrlComponents = () => {
       className="flex-container url-components-container"
       id="url-components-container"
     >
-      <CompleteUrl combinedUrl={url} />
-      <CombinedUrl combinedUrl={url} />
+      {/*<CompleteUrl combinedUrl={url} />*/}
+      <CombinedUrl />
       <BaseUrlForm />
       <EndpointUrlForm />
       <IdParamsForm />
