@@ -51,6 +51,7 @@
 
   --border-1: var(--grey-500);
   --border-mute: var(--grey-650);
+  --border-mute-2: var(--grey-800);
   --border-mid-grey: var(--grey-300);
 
   --btn-passive-1: var(--green-1100);
