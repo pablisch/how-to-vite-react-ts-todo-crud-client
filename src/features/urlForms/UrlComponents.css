@@ -30,7 +30,7 @@
   font-size: 0.9rem;
   padding: 5px 10px;
   margin: 5px;
-  background: var(--background-2);
+  background: var(--background-3);
   color: var(--text-1);
   border: 1px solid var(--border-1);
   border-radius: var(--form-border-radius);
@@ -95,7 +95,7 @@
 .hidden-input-element {
   color: transparent;
   caret-color: var(--white);
-  background: var(--background-2);
+  background: var(--background-3);
   /*border: 1px solid transparent;*/
 }
 

@@ -84,7 +84,7 @@ const ListItem = ({ item }: ListItemProps) => {
           ariaLabel="view item button"
           id={`view-item-id-${id}`}
           onClick={handleViewItem}
-          className={`btn ${isViewed && operation === 'getById' ? 'active-btn' : ''}`}
+          className={`btn ${!isFocussed ? 'inactive-btn' : ''} ${isViewed && operation === 'getById' ? 'active-btn' : ''}`}
         >
           {isViewed ? 'Deselect' : 'View'}
         </Button>
@@ -92,7 +92,7 @@ const ListItem = ({ item }: ListItemProps) => {
           ariaLabel="delete item button"
           id={`delete-item-id-${id}`}
           onClick={handleDeleteItem}
-          className="btn bottom-btn red-btn"
+          className={`btn bottom-btn red-btn ${!isFocussed ? 'inactive-btn' : ''}`}
         >
           {/*{isViewed ? 'Deselect' : 'View item'}*/}
           Delete
@@ -101,7 +101,7 @@ const ListItem = ({ item }: ListItemProps) => {
           ariaLabel="update item button"
           id={`update-item-id-${id}`}
           onClick={handleChooseUpdate}
-          className={`btn bottom-btn action-btn ${isPatched ? 'active-btn' : ''}`}
+          className={`btn bottom-btn action-btn ${isPatched ? 'active-btn' : ''} ${!isFocussed ? 'inactive-btn' : ''}`}
         >
           {isPatched ? 'Cancel update' : 'Update'}
         </Button>
