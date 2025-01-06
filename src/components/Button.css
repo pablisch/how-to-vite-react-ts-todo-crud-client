@@ -39,9 +39,9 @@
 
 .disabled {
   background: var(--btn-disabled-1);
-  color: var(--text-1);
+  color: var(--text-mid-grey);
   cursor: not-allowed;
-  border: 1px solid var(--grey-350);
+  border: 1px solid var(--border-mute);
   transition:
     background var(--color-trans) ease,
     color var(--color-trans) ease;
