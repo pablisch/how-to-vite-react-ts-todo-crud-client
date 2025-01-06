@@ -86,7 +86,7 @@ const ListItem = ({ item }: ListItemProps) => {
           onClick={handleViewItem}
           className={`btn ${isViewed && operation === 'getById' ? 'active-btn' : ''}`}
         >
-          {isViewed ? 'Deselect' : 'View item'}
+          {isViewed ? 'Deselect' : 'View'}
         </Button>
         <Button
           ariaLabel="delete item button"
@@ -95,7 +95,7 @@ const ListItem = ({ item }: ListItemProps) => {
           className="btn bottom-btn red-btn"
         >
           {/*{isViewed ? 'Deselect' : 'View item'}*/}
-          Delete item
+          Delete
         </Button>
         <Button
           ariaLabel="update item button"
@@ -103,7 +103,7 @@ const ListItem = ({ item }: ListItemProps) => {
           onClick={handleChooseUpdate}
           className={`btn bottom-btn action-btn ${isPatched ? 'active-btn' : ''}`}
         >
-          {isPatched ? 'Cancel update' : 'Configure update'}
+          {isPatched ? 'Cancel update' : 'Update'}
         </Button>
       </div>
     </div>
