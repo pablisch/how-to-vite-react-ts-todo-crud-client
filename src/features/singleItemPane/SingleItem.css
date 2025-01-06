@@ -8,10 +8,20 @@
   overflow-y: scroll;
   scrollbar-gutter: stable;
   scrollbar-width: auto;
-  background: var(--background-2);
-  padding: 15px 0 20px;
+  /*background: var(--background-2);*/
+  /*padding: 15px 0 20px;*/
   position: relative;
   height: var(--single-item-display-height);
+}
+
+.response-object-panel {
+  /*overflow-y: scroll;*/
+  /*scrollbar-gutter: stable;*/
+  /*scrollbar-width: auto;*/
+  background: var(--background-2);
+  padding: 15px 0 20px;
+  /*position: relative;*/
+  /*height: var(--single-item-display-height);*/
 }
 
 .response-object-container::-webkit-scrollbar {

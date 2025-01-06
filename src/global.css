@@ -20,7 +20,7 @@
   --operation-indicator-container-height: 48px;
   --above-single-status-spacing: 30px;
   --single-status-height: 34px;
-  --below-single-status-spacing: 20px;
+  --below-single-status-spacing: 25px;
   --all-above-single-item-operation-display: calc(
     var(--all-above-list-height) + var(--operation-indicator-container-height) +
       var(--above-single-status-spacing) + var(--single-status-height) +
