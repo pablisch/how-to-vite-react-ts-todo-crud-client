@@ -8,8 +8,16 @@
   --full-url-font-size: 1rem;
   --form-border-radius: 5px;
 
+  /* SECTION DIMENSIONS */
+  --nav-height: 70px;
+  --url-components-section-height: 290px;
+  --main-section-top-margin: 30px;
+
+  --all-above-list-height: calc(var(--nav-height) + var(--url-components-section-height) + var(--main-section-top-margin));
+  --list-height: calc(100vh - var(--all-above-list-height));
+
   /*  ITEM SECTION  */
-  --main-panel-bottom-margin: 30px;
+  --main-panel-bottom-margin: var(--main-section-top-margin);
   --main-centre-spacer: 30px;
   --message-space-margin-1: 20px;
 
