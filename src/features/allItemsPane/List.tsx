@@ -44,11 +44,7 @@ function List() {
       ) : Array.isArray(items) && items.length > 0 ? (
         <div>
           {items.map((item, index) => (
-            <ListItem
-              item={item}
-              key={item?._id || item?.id || index}
-              index={index}
-            />
+            <ListItem item={item} key={item?._id || item?.id || index} />
           ))}
         </div>
       ) : Array.isArray(items) && items.length === 0 ? (

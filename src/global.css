@@ -8,13 +8,29 @@
   --full-url-font-size: 1rem;
   --form-border-radius: 5px;
 
-  /* SECTION DIMENSIONS */
+  /* SECTION HEIGHTS for calculating scroll box heights */
   --nav-height: 70px;
   --url-components-section-height: 290px;
   --main-section-top-margin: 30px;
+  --all-above-list-height: calc(
+    var(--nav-height) + var(--url-components-section-height) +
+      var(--main-section-top-margin) + 26px
+  );
 
-  --all-above-list-height: calc(var(--nav-height) + var(--url-components-section-height) + var(--main-section-top-margin));
+  --operation-indicator-container-height: 48px;
+  --above-single-status-spacing: 30px;
+  --single-status-height: 34px;
+  --below-single-status-spacing: 20px;
+  --all-above-single-item-operation-display: calc(
+    var(--all-above-list-height) + var(--operation-indicator-container-height) +
+      var(--above-single-status-spacing) + var(--single-status-height) +
+      var(--below-single-status-spacing)
+  );
+
   --list-height: calc(100vh - var(--all-above-list-height));
+  --single-item-display-height: calc(
+    100vh - var(--all-above-single-item-operation-display)
+  );
 
   /*  ITEM SECTION  */
   --main-panel-bottom-margin: var(--main-section-top-margin);

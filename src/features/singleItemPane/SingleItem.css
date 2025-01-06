@@ -2,18 +2,38 @@
   list-style-type: none;
   padding-left: 20px;
   word-break: break-word;
+}
+
+.response-object-container {
   overflow-y: scroll;
   scrollbar-gutter: stable;
   scrollbar-width: auto;
-  scrollbar-color: #8f0606 #0d35f3;
+  background: var(--background-2);
+  padding: 15px 0 20px;
+  position: relative;
+  height: var(--single-item-display-height);
 }
 
-.single-item-details::-webkit-scrollbar {
+.response-object-container::-webkit-scrollbar {
   width: 8px;
-  background-color: #0d35f3;
+  background-color: var(--background-1);
 }
 
-.single-item-details::-webkit-scrollbar-thumb {
-  background-color: #8f0606;
+.response-object-container::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar);
   border-radius: 4px;
+}
+
+.response-object-container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-hover);
+  border-radius: 4px;
+}
+
+@supports (scrollbar-color: auto) {
+  .response-object-container {
+    scrollbar-color: var(--background-1) var(--background-1);
+  }
+  .response-object-container:hover {
+    scrollbar-color: var(--scrollbar) var(--background-1);
+  }
 }

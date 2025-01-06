@@ -44,7 +44,7 @@ const UpdateItemForm = () => {
       ) : !idParams ? (
         <p>Set URL /:id parameter to get an item by ID</p>
       ) : itemToUpdate && !Array.isArray(itemToUpdate) ? (
-        <div className="single-item-display">
+        <div className="single-item-display-container">
           {updateFormBtns}
           {formatObjectAsJSX(itemToUpdate)}
           {updateFormBtns}
