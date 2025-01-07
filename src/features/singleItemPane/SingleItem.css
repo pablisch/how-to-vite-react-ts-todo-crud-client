@@ -8,10 +8,14 @@
   overflow-y: scroll;
   scrollbar-gutter: stable;
   scrollbar-width: auto;
-  background: var(--background-2);
-  padding: 15px 0 20px;
   position: relative;
   height: var(--single-item-display-height);
+}
+
+.response-object-panel {
+  background: var(--background-3);
+  padding: 15px 0 20px;
+  border: 1px solid var(--border-mute-2);
 }
 
 .response-object-container::-webkit-scrollbar {

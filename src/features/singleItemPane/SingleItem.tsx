@@ -39,7 +39,9 @@ const SingleItem = () => {
             {singleItemStatus.status}
           </div>
           <div className="response-object-container">
-            {helpers.formatObjectAsJsxWithBoldKeys(singleItem)}
+            <div className="response-object-panel">
+              {helpers.formatObjectAsJsxWithBoldKeys(singleItem)}
+            </div>
           </div>
         </div>
       ) : (

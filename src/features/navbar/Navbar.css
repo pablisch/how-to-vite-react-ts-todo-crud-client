@@ -1,7 +1,7 @@
 #navbar {
   height: var(--nav-height);
   width: 100%;
-  background: var(--background-2);
+  background: var(--background-3);
   transition:
     background var(--color-trans) ease,
     color var(--color-trans) ease;

@@ -3,7 +3,7 @@
   background: var(--btn-passive-1);
   border: 1px solid var(--border-1);
   border-radius: 5px;
-  width: 11rem;
+  width: 120px;
   cursor: pointer;
   color: var(--text-1);
   transition:
@@ -37,11 +37,16 @@
   line-height: 0.8rem;
 }
 
+.inactive-btn {
+  background: var(--btn-inactive-1);
+  color: var(--text-mute);
+}
+
 .disabled {
   background: var(--btn-disabled-1);
-  color: var(--text-1);
+  color: var(--text-mid-grey);
   cursor: not-allowed;
-  border: 1px solid var(--grey-350);
+  border: 1px solid var(--border-mute);
   transition:
     background var(--color-trans) ease,
     color var(--color-trans) ease;

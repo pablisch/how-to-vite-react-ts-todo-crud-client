@@ -20,7 +20,7 @@
   --operation-indicator-container-height: 48px;
   --above-single-status-spacing: 30px;
   --single-status-height: 34px;
-  --below-single-status-spacing: 20px;
+  --below-single-status-spacing: 25px;
   --all-above-single-item-operation-display: calc(
     var(--all-above-list-height) + var(--operation-indicator-container-height) +
       var(--above-single-status-spacing) + var(--single-status-height) +
@@ -51,7 +51,7 @@
 }
 
 .panel-primary {
-  background: var(--background-2);
+  background: var(--background-3);
   transition:
     background var(--color-trans) ease,
     color var(--color-trans) ease;
@@ -62,7 +62,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--background-2);
+  background: var(--background-3);
   padding: 10px;
   margin: 15px auto 10px;
   transition:
