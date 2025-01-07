@@ -29,29 +29,35 @@
 
 .view-btn-hover {
   opacity: 100%;
-  background: var(--btn-inactive-hover-1);
+  background: var(--op-get-by-id);
+  filter: brightness(70%);
 }
 
 .view-btn-focus {
   background: var(--op-get-by-id);
+  filter: brightness(100%);
 }
 
 .delete-btn-hover {
   opacity: 100%;
-  background: var(--btn-inactive-hover-1);
+  background: var(--op-delete);
+  filter: brightness(70%);
 }
 
 .delete-btn-focus {
   background: var(--op-delete);
+  filter: brightness(100%);
 }
 
 .update-btn-hover {
   opacity: 100%;
-  background: var(--btn-inactive-hover-1);
+  background: var(--op-patch);
+  filter: brightness(70%);
 }
 
 .update-patch-btn-focus {
   background: var(--op-patch);
+  filter: brightness(100%);
 }
 
 .update-put-btn-focus {
