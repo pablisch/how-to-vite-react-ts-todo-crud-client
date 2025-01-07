@@ -94,7 +94,6 @@ const ListItem = ({ item }: ListItemProps) => {
           onClick={handleDeleteItem}
           className={`btn bottom-btn red-btn ${!isFocussed ? 'inactive-btn' : ''}`}
         >
-          {/*{isViewed ? 'Deselect' : 'View item'}*/}
           Delete
         </Button>
         <Button
