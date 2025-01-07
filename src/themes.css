@@ -93,6 +93,6 @@
   --op-get-by-id: var(--blueish-1000);
   --op-post: var(--greenish-1100);
   --op-delete: var(--red-1000);
-  --op-patch: var(--turquoise-1100);
-  --op-put: var(--cyan-1100);
+  --op-patch: var(--violet-1000);
+  --op-put: var(--indigo-1000);
 }

@@ -21,7 +21,7 @@ const UpdateItemForm = () => {
       <Button
         ariaLabel={`${isPatchUpdate ? 'patch' : 'put'} update item with id ${idParams}`}
         id="perform-update-btn"
-        className={`btn update-btn`}
+        className={`btn update-btn ${isPatchUpdate ? 'update-patch-btn-focus' : 'update-put-btn-focus'}`}
         onClick={handlePerformUpdate}
       >
         {`Perform ${isPatchUpdate ? 'PATCH' : 'PUT'} update`}
@@ -29,7 +29,7 @@ const UpdateItemForm = () => {
       <Button
         ariaLabel={`switch to ${isPatchUpdate ? 'patch' : 'put'} update`}
         id="toggle-update-type-btn"
-        className={`btn update-btn`}
+        className={`btn update-btn ${isPatchUpdate ? 'update-put-btn-focus' : 'update-patch-btn-focus'}`}
         onClick={toggleUpdateType}
       >
         {`Switch to ${isPatchUpdate ? 'PUT' : 'PATCH'} operation`}
@@ -47,7 +47,7 @@ const UpdateItemForm = () => {
         <div className="single-item-display-container">
           {updateFormBtns}
           {formatObjectAsJSX(itemToUpdate)}
-          {updateFormBtns}
+          {/*{updateFormBtns}*/}
         </div>
       ) : (
         <p>Loading...</p>

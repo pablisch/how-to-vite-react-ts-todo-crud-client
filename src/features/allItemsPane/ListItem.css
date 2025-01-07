@@ -49,9 +49,15 @@
   filter: brightness(100%);
 }
 
-.update-btn-hover {
+.update-patch-btn-hover {
   opacity: 100%;
   background: var(--op-patch);
+  filter: brightness(70%);
+}
+
+.update-put-btn-hover {
+  opacity: 100%;
+  background: var(--op-put);
   filter: brightness(70%);
 }
 
