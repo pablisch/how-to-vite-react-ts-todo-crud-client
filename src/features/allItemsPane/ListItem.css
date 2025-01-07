@@ -7,20 +7,15 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  /*overflow-wrap: break-word;*/
-  /*word-wrap: break-word;*/
   word-break: break-word;
-  /*max-width: 100%;*/
   white-space: normal;
 }
 
 .item-details p {
   margin: 0.3rem 0.8rem 0.3rem 0;
-  /*overflow-wrap: break-word; */
 }
 
 .focus-item-panel {
   background: var(--background-focus-1);
   transition: background var(--color-trans) ease;
-  /*transition: background var(--color-trans) ease, color var(--color-trans) ease;*/
 }
