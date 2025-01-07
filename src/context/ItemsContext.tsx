@@ -80,24 +80,41 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const [getItemsStatus, setGetItemsStatus] = useState<StatusObject>({})
   const [singleItemStatus, setSingleItemStatus] = useState<StatusObject>({})
   const [isPatchUpdate, setIsPatchUpdate] = useState<boolean>(true)
+  const [abortController, setAbortController] =
+    useState<AbortController | null>(null)
 
   const getAllItems = async () => {
+    // Cancel the previous request if it exists
+    if (abortController) {
+      abortController.abort()
+    }
+
+    // Create a new AbortController for the current request
+    const controller = new AbortController()
+    setAbortController(controller)
+
     setGetAllItemError(null)
     setItems(undefined)
+
     try {
-      const response = await axios.get(`${baseUrl}${endpoint}${queryParams}`)
-      console.log('****()** getAll response in itemsContext:', response.data)
+      const response = await axios.get(`${baseUrl}${endpoint}${queryParams}`, {
+        signal: controller.signal, // Pass the abort signal
+      })
+
       setItems(response.data)
       setGetItemsStatus({
         status: response?.status,
         statusType: helpers.getStatusType(response?.status),
       })
     } catch (error) {
-      console.warn('Error from getAllItems in itemsContent:', error)
-      const errorMessage: React.ReactElement =
-        // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
-        helpers.constructErrorMessage(error)
-      setGetAllItemError(errorMessage)
+      if (axios.isCancel(error)) {
+        console.log('Request canceled:', error.message)
+      } else {
+        const errorMessage: React.ReactElement =
+          // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
+          helpers.constructErrorMessage(error)
+        setGetAllItemError(errorMessage)
+      }
     }
   }
 
@@ -110,7 +127,6 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
       const response = await apiClient.get(
         `${baseUrl}${endpoint}${idParams}${queryParams}`
       )
-      // console.log('****()** getById response in itemsContext:', response.data)
       setSingleItem(response.data)
       setSingleItemStatus({
         status: response?.status,
@@ -133,7 +149,10 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
           'Content-Type': 'application/json',
         },
       })
-      console.log('****()** delete response in itemsContext:', response.data)
+      console.log(
+        '****()** - AVOID ERRORS - delete response in itemsContext:',
+        response.data
+      )
     } catch (error) {
       const errorMessage: React.ReactElement =
         // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
@@ -156,7 +175,10 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
           body,
         }
       )
-      console.log('****()** update response in itemsContext:', response.data)
+      console.log(
+        '****()** - AVOID ERRORS - update response in itemsContext:',
+        response.data
+      )
     } catch (error) {
       const errorMessage: React.ReactElement =
         // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown

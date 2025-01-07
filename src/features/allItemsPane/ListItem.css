@@ -70,7 +70,10 @@
   background: var(--op-put);
 }
 
-.view-btn-active, .create-btn-active, .delete-btn-active, .update-btn-active {
+.view-btn-active,
+.create-btn-active,
+.delete-btn-active,
+.update-btn-active {
   filter: brightness(150%);
 }
 

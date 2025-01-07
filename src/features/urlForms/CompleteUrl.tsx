@@ -12,8 +12,11 @@ const CompleteUrl = ({ combinedUrl }: CompleteUrlProps) => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // setInputValue(event.target.value)
     setInputValue(inputValue) // TODO nonsense placeholder line
-    console.log('****()** event:', event.target.value)
-    console.log('****()** settings:', JSON.stringify(settings, null, 2))
+    console.log('****()** - AVOID ERRORS - event:', event.target.value)
+    console.log(
+      '****()** - AVOID ERRORS - settings:',
+      JSON.stringify(settings, null, 2)
+    )
   }
 
   useEffect(() => {

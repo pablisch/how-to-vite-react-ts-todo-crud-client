@@ -45,7 +45,10 @@ const UrlForm: React.FC<UrlFormProps> = ({
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
-    console.log('****()** settings:', JSON.stringify(settings, null, 2))
+    console.log(
+      '****()** - AVOID ERRORS - settings:',
+      JSON.stringify(settings, null, 2)
+    )
   }
 
   useEffect(() => {

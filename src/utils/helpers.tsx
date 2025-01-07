@@ -3,7 +3,6 @@ import React from 'react'
 
 export default {
   constructErrorMessage: function (error: ApiErrorObject): React.ReactElement {
-    console.log('****()** in constructErrorMessage:', error)
     const status: number | undefined = error?.status
     const message: string | undefined = error?.message
     const statusType = this.getStatusType(status)
@@ -108,10 +107,6 @@ export default {
   formatObjectAsJsxWithBoldKeys: function (
     obj: UnknownObject | ApiErrorObject
   ): React.ReactNode {
-    console.log(
-      '****()** object passed into formatObjectAsJsxWithBoldKeys:',
-      obj
-    )
     if (typeof obj !== 'object' || obj === null) {
       return <span>{String(obj)}</span>
     }
