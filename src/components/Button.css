@@ -11,14 +11,7 @@
     color var(--color-trans) ease;
 }
 
-.active-btn {
-  background: var(--btn-focus-1);
-  transition:
-    background var(--color-trans) ease,
-    color var(--color-trans) ease;
-}
-
-.bottom-btn {
+.btn-space-above {
   margin-top: 0.5rem;
 }
 

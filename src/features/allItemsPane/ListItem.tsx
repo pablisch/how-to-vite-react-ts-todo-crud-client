@@ -1,16 +1,43 @@
-import { UnknownObject } from '../../types/types.ts'
+import {
+  IsHoveredObject,
+  itemClassesObject,
+  UnknownObject,
+} from '../../types/types.ts'
 import Button from '../../components/Button.tsx'
 import { useIdParams } from '../../hooks/useIdParams.tsx'
 import './ListItem.css'
 import { useItems } from '../../hooks/useItems.tsx'
+import { useState } from 'react'
+
+const defaultIsHoveredSettings: IsHoveredObject = {
+  item: false,
+  view: false,
+  create: false,
+  delete: false,
+  update: false,
+}
+
+const defaultClasses: itemClassesObject = {
+  item: ['item-panel'],
+  view: ['btn', 'item-btn', 'inactive-btn'],
+  create: ['btn', 'item-btn', 'btn-space-above', 'inactive-btn'],
+  update: ['btn', 'item-btn', 'btn-space-above', 'inactive-btn'],
+  delete: ['btn', 'item-btn', 'btn-space-above', 'inactive-btn'],
+}
 
 interface ListItemProps {
   item: UnknownObject
 }
 const ListItem = ({ item }: ListItemProps) => {
+  const [isHovered, setIsHovered] = useState<IsHoveredObject>(
+    defaultIsHoveredSettings
+  )
+  // const [classes, setClasses] = useState<itemClassesObject>(defaultClasses)
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
-  const { handleResetOperation, deleteItem, loadUpdateForm, operation } =
+  const { handleResetOperation, deleteItem, loadUpdateForm, operation, isPatchUpdate } =
     useItems()
+
+  // let classes: itemClassesObject = defaultClasses
 
   const processItem = (item: UnknownObject) => {
     const keys = Object.keys(item)
@@ -44,7 +71,7 @@ const ListItem = ({ item }: ListItemProps) => {
   const isViewed = `/${id}` === idParams && operation === 'getById'
   const isPatched = `/${id}` === idParams && operation === 'update'
 
-  const handleViewItem = async () => {
+  const handleToggleViewItem = async () => {
     if (isViewed) {
       handleResetIdParams()
     } else {
@@ -70,8 +97,77 @@ const ListItem = ({ item }: ListItemProps) => {
     }
   }
 
+  const handleItemHoverStart = () => {
+    setIsHovered(prev => ({ ...prev, item: true }))
+  }
+
+  const handleItemHoverEnd = () => {
+    setIsHovered(prev => ({ ...prev, item: false }))
+  }
+
+  const handleViewHoverStart = () => {
+    setIsHovered(prev => ({ ...prev, view: true }))
+  }
+
+  const handleViewHoverEnd = () => {
+    setIsHovered(prev => ({ ...prev, view: false }))
+  }
+
+  const handleDeleteHoverStart = () => {
+    setIsHovered(prev => ({ ...prev, delete: true }))
+  }
+
+  const handleDeleteHoverEnd = () => {
+    setIsHovered(prev => ({ ...prev, delete: false }))
+  }
+
+  const handleUpdateHoverStart = () => {
+    setIsHovered(prev => ({ ...prev, update: true }))
+  }
+
+  const handleUpdateHoverEnd = () => {
+    setIsHovered(prev => ({ ...prev, update: false }))
+  }
+
+  const classes = {
+    item: [
+      ...defaultClasses.item,
+      isHovered.item ? 'item-panel-hover' : '',
+      isFocussed ? 'item-panel-focus' : '',
+    ],
+    view: [
+      ...defaultClasses.view,
+      isHovered.view ? 'view-btn-hover' : '',
+      isFocussed ? 'view-btn-focus' : '',
+      isViewed ? 'view-btn-active' : '',
+    ],
+    create: [
+      ...defaultClasses.create,
+      isHovered.create ? 'create-btn-hover' : '',
+      isFocussed ? 'create-btn-focus' : '',
+      isViewed ? 'create-btn-active' : '',
+    ],
+    delete: [
+      ...defaultClasses.delete,
+      isHovered.delete ? 'delete-btn-hover' : '',
+      isFocussed ? 'delete-btn-focus' : '',
+      isViewed ? 'delete-btn-active' : '',
+    ],
+    update: [
+      ...defaultClasses.update,
+      isHovered.update ? 'update-btn-hover' : '',
+      isFocussed ? isPatchUpdate ? 'update-patch-btn-focus' : 'update-put-btn-focus' : '',
+      isViewed ? 'update-btn-active' : '',
+    ],
+  }
+
   return (
-    <div className={`item-panel ${isFocussed ? 'focus-item-panel' : ''}`}>
+    <div
+      // className={`item-panel ${isFocussed ? 'item-panel-focus' : ''} ${isHovered.item && !isFocussed ? 'item-panel-hover' : ''}`}
+      className={[...classes.item].join(' ')}
+      onMouseEnter={handleItemHoverStart}
+      onMouseLeave={handleItemHoverEnd}
+    >
       <div className="item-details">
         {displayItem.map(([key, value]) => (
           <p key={key}>
@@ -83,8 +179,11 @@ const ListItem = ({ item }: ListItemProps) => {
         <Button
           ariaLabel="view item button"
           id={`view-item-id-${id}`}
-          onClick={handleViewItem}
-          className={`btn ${!isFocussed ? 'inactive-btn' : ''} ${isViewed && operation === 'getById' ? 'active-btn' : ''}`}
+          onClick={handleToggleViewItem}
+          onMouseEnter={handleViewHoverStart}
+          onMouseLeave={handleViewHoverEnd}
+          // className={`btn item-btn ${!isFocussed ? 'inactive-btn' : ''} ${isViewed && operation === 'getById' ? 'active-btn' : ''} ${isHovered.view && !isFocussed ? 'hover-item-view-btn' : ''}`}
+          className={[...classes.view].join(' ')}
         >
           {isViewed ? 'Deselect' : 'View'}
         </Button>
@@ -92,7 +191,10 @@ const ListItem = ({ item }: ListItemProps) => {
           ariaLabel="delete item button"
           id={`delete-item-id-${id}`}
           onClick={handleDeleteItem}
-          className={`btn bottom-btn red-btn ${!isFocussed ? 'inactive-btn' : ''}`}
+          onMouseEnter={handleDeleteHoverStart}
+          onMouseLeave={handleDeleteHoverEnd}
+          // className={`btn item-btn bottom-btn red-btn ${!isFocussed ? 'inactive-btn' : ''} ${isHovered.delete && !isFocussed ? 'hover-item-view-btn' : ''}`}
+          className={[...classes.delete].join(' ')}
         >
           Delete
         </Button>
@@ -100,7 +202,10 @@ const ListItem = ({ item }: ListItemProps) => {
           ariaLabel="update item button"
           id={`update-item-id-${id}`}
           onClick={handleChooseUpdate}
-          className={`btn bottom-btn action-btn ${isPatched ? 'active-btn' : ''} ${!isFocussed ? 'inactive-btn' : ''}`}
+          onMouseEnter={handleUpdateHoverStart}
+          onMouseLeave={handleUpdateHoverEnd}
+          // className={`btn item-btn bottom-btn action-btn ${isPatched ? 'active-btn' : ''} ${!isFocussed ? 'inactive-btn' : ''} ${isHovered.update && !isFocussed ? 'hover-item-view-btn' : ''}`}
+          className={[...classes.update].join(' ')}
         >
           {isPatched ? 'Cancel update' : 'Update'}
         </Button>

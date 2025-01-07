@@ -15,7 +15,59 @@
   margin: 0.3rem 0.8rem 0.3rem 0;
 }
 
-.focus-item-panel {
+.item-btn {
+  opacity: 70%;
+}
+
+.item-panel-hover {
+  background: var(--background-hover-1);
+}
+
+.item-panel-focus {
   background: var(--background-focus-1);
+}
+
+.view-btn-hover {
+  opacity: 100%;
+  background: var(--btn-inactive-hover-1);
+}
+
+.view-btn-focus {
+  background: var(--op-get-by-id);
+}
+
+.delete-btn-hover {
+  opacity: 100%;
+  background: var(--btn-inactive-hover-1);
+}
+
+.delete-btn-focus {
+  background: var(--op-delete);
+}
+
+.update-btn-hover {
+  opacity: 100%;
+  background: var(--btn-inactive-hover-1);
+}
+
+.update-patch-btn-focus {
+  background: var(--op-patch);
+}
+
+.update-put-btn-focus {
+  background: var(--op-put);
+}
+
+.view-btn-active, .create-btn-active, .delete-btn-active, .update-btn-active {
+  filter: brightness(150%);
+}
+
+.hover-item-delete-btn {
+  background: var(--background-3);
+  transition: background var(--color-trans) ease;
+}
+
+.hover-item-update-btn {
+  background: var(--background-3);
   transition: background var(--color-trans) ease;
 }

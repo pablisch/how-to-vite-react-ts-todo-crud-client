@@ -37,13 +37,20 @@
 
   --scrollbar: var(--grey-100);
   --scrollbar-hover: var(--grey-150);
+
+  --op-get-by-id: var(--blueish-1000);
+  --op-post: var(--greenish-1100);
+  --op-delete: var(--red-1000);
+  --op-patch: var(--turquoise-1100);
+  --op-put: var(--cyan-1100);
 }
 
 [data-theme='dark'] {
   --background-1: var(--grey-1000);
   --background-2: var(--grey-850);
   --background-3: var(--grey-1100);
-  --background-focus-1: var(--grey-1050);
+  --background-focus-1: var(--grey-1100);
+  --background-hover-1: var(--grey-1030);
 
   --text-1: var(--grey-150);
   --text-2: var(--grey-200);
@@ -61,6 +68,7 @@
   --btn-warning-1: var(--red-900);
   --btn-focus-1: var(--blue-900);
   --btn-inactive-1: var(--grey-1000);
+  --btn-inactive-hover-1: var(--grey-1050);
   --btn-disabled-1: var(--grey-900);
   --btn-option-1: var(--turquoise-900);
   --btn-option-2: var(--blue-800);
@@ -81,4 +89,10 @@
 
   --scrollbar: var(--grey-1100);
   --scrollbar-hover: var(--grey-1200);
+
+  --op-get-by-id: var(--blueish-1000);
+  --op-post: var(--greenish-1100);
+  --op-delete: var(--red-1000);
+  --op-patch: var(--turquoise-1100);
+  --op-put: var(--cyan-1100);
 }

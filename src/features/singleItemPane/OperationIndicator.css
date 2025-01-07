@@ -27,7 +27,34 @@
   background: var(--btn-focus-1);
   color: var(--text-1);
   border: 1px solid var(--border-1);
-  transition:
-    background var(--color-trans) ease,
-    color var(--color-trans) ease;
+}
+
+.active-get-by-id {
+  background: var(--op-get-by-id);
+  color: var(--text-1);
+  border: 1px solid var(--border-1);
+}
+
+.active-post {
+  background: var(--op-post);
+  color: var(--text-1);
+  border: 1px solid var(--border-1);
+}
+
+.active-delete {
+  background: var(--op-delete);
+  color: var(--text-1);
+  border: 1px solid var(--border-1);
+}
+
+.active-patch {
+  background: var(--op-patch);
+  color: var(--text-1);
+  border: 1px solid var(--border-1);
+}
+
+.active-put {
+  background: var(--op-put);
+  color: var(--text-1);
+  border: 1px solid var(--border-1);
 }
