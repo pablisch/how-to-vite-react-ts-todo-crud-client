@@ -34,7 +34,7 @@ const ListItem = ({ item }: ListItemProps) => {
   )
   // const [classes, setClasses] = useState<itemClassesObject>(defaultClasses)
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
-  const { handleResetOperation, deleteItem, loadUpdateForm, operation } =
+  const { handleResetOperation, deleteItem, loadUpdateForm, operation, isPatchUpdate } =
     useItems()
 
   // let classes: itemClassesObject = defaultClasses
@@ -141,9 +141,24 @@ const ListItem = ({ item }: ListItemProps) => {
       isFocussed ? 'view-btn-focus' : '',
       isViewed ? 'view-btn-active' : '',
     ],
-    create: [...defaultClasses.create],
-    delete: [...defaultClasses.delete],
-    update: [...defaultClasses.update],
+    create: [
+      ...defaultClasses.create,
+      isHovered.create ? 'create-btn-hover' : '',
+      isFocussed ? 'create-btn-focus' : '',
+      isViewed ? 'create-btn-active' : '',
+    ],
+    delete: [
+      ...defaultClasses.delete,
+      isHovered.delete ? 'delete-btn-hover' : '',
+      isFocussed ? 'delete-btn-focus' : '',
+      isViewed ? 'delete-btn-active' : '',
+    ],
+    update: [
+      ...defaultClasses.update,
+      isHovered.update ? 'update-btn-hover' : '',
+      isFocussed ? isPatchUpdate ? 'update-patch-btn-focus' : 'update-put-btn-focus' : '',
+      isViewed ? 'update-btn-active' : '',
+    ],
   }
 
   return (

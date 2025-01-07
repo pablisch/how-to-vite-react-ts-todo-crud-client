@@ -36,7 +36,29 @@
   background: var(--op-get-by-id);
 }
 
-.view-btn-active {
+.delete-btn-hover {
+  opacity: 100%;
+  background: var(--btn-inactive-hover-1);
+}
+
+.delete-btn-focus {
+  background: var(--op-delete);
+}
+
+.update-btn-hover {
+  opacity: 100%;
+  background: var(--btn-inactive-hover-1);
+}
+
+.update-patch-btn-focus {
+  background: var(--op-patch);
+}
+
+.update-put-btn-focus {
+  background: var(--op-put);
+}
+
+.view-btn-active, .create-btn-active, .delete-btn-active, .update-btn-active {
   filter: brightness(150%);
 }
 
