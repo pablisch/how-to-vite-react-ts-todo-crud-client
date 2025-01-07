@@ -19,3 +19,8 @@
   background: var(--background-focus-1);
   transition: background var(--color-trans) ease;
 }
+
+.hover-item-panel {
+  background: var(--background-hover-1);
+  transition: background var(--color-trans) ease;
+}

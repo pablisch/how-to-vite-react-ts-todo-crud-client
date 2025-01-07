@@ -43,7 +43,8 @@
   --background-1: var(--grey-1000);
   --background-2: var(--grey-850);
   --background-3: var(--grey-1100);
-  --background-focus-1: var(--grey-1050);
+  --background-focus-1: var(--grey-1100);
+  --background-hover-1: var(--grey-1030);
 
   --text-1: var(--grey-150);
   --text-2: var(--grey-200);

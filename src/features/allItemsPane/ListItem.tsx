@@ -3,11 +3,13 @@ import Button from '../../components/Button.tsx'
 import { useIdParams } from '../../hooks/useIdParams.tsx'
 import './ListItem.css'
 import { useItems } from '../../hooks/useItems.tsx'
+import { useState } from 'react'
 
 interface ListItemProps {
   item: UnknownObject
 }
 const ListItem = ({ item }: ListItemProps) => {
+  const [isHovered, setHovered] = useState<boolean>(false)
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
   const { handleResetOperation, deleteItem, loadUpdateForm, operation } =
     useItems()
@@ -69,9 +71,18 @@ const ListItem = ({ item }: ListItemProps) => {
       loadUpdateForm(id)
     }
   }
+  
+  const handleHoverStart = () => {
+    setHovered(true)
+  }
+  
+  const handleHoverEnd = () => {
+    setHovered(false)
+  }
 
   return (
-    <div className={`item-panel ${isFocussed ? 'focus-item-panel' : ''}`}>
+    <div className={`item-panel ${isFocussed ? 'focus-item-panel' : ''} ${isHovered && !isFocussed ? 'hover-item-panel' : ''}`} onMouseEnter={handleHoverStart} onMouseLeave={handleHoverEnd}
+    >
       <div className="item-details">
         {displayItem.map(([key, value]) => (
           <p key={key}>
