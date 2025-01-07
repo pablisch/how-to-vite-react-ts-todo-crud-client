@@ -49,8 +49,8 @@
   --background-1: var(--grey-1000);
   --background-2: var(--grey-850);
   --background-3: var(--grey-1100);
-  --background-focus-1: var(--grey-1100);
-  --background-hover-1: var(--grey-1030);
+  --background-focus-1: var(--grey-1050);
+  --background-hover-1: var(--grey-1010);
 
   --text-1: var(--grey-150);
   --text-2: var(--grey-200);
@@ -93,6 +93,6 @@
   --op-get-by-id: var(--blueish-1000);
   --op-post: var(--greenish-1100);
   --op-delete: var(--red-1000);
-  --op-patch: var(--turquoise-1100);
-  --op-put: var(--cyan-1100);
+  --op-patch: var(--violet-1000);
+  --op-put: var(--indigo-1000);
 }

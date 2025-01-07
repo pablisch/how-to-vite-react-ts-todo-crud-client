@@ -68,8 +68,9 @@ const ListItem = ({ item }: ListItemProps) => {
   const displayItem = processItem(item)
   const id = displayItem[0][1]
   const isFocussed = `/${id}` === idParams
-  const isViewed = `/${id}` === idParams && operation === 'getById'
-  const isPatched = `/${id}` === idParams && operation === 'update'
+  const isViewed = isFocussed && operation === 'getById'
+  const isPatched = isFocussed && operation === 'update'
+  const isActive = isViewed || isPatched
 
   const handleToggleViewItem = async () => {
     if (isViewed) {
@@ -139,25 +140,25 @@ const ListItem = ({ item }: ListItemProps) => {
       ...defaultClasses.view,
       isHovered.view ? 'view-btn-hover' : '',
       isFocussed ? 'view-btn-focus' : '',
-      isViewed ? 'view-btn-active' : '',
+      isActive ? 'view-btn-active' : '',
     ],
     create: [
       ...defaultClasses.create,
       isHovered.create ? 'create-btn-hover' : '',
       isFocussed ? 'create-btn-focus' : '',
-      isViewed ? 'create-btn-active' : '',
+      isActive ? 'create-btn-active' : '',
     ],
     delete: [
       ...defaultClasses.delete,
       isHovered.delete ? 'delete-btn-hover' : '',
       isFocussed ? 'delete-btn-focus' : '',
-      isViewed ? 'delete-btn-active' : '',
+      isActive ? 'delete-btn-active' : '',
     ],
     update: [
       ...defaultClasses.update,
-      isHovered.update ? 'update-btn-hover' : '',
+      isHovered.update ? isPatchUpdate ? 'update-patch-btn-hover' : 'update-put-btn-hover' : '',
       isFocussed ? isPatchUpdate ? 'update-patch-btn-focus' : 'update-put-btn-focus' : '',
-      isViewed ? 'update-btn-active' : '',
+      isActive ? 'update-btn-active' : '',
     ],
   }
 
@@ -207,7 +208,7 @@ const ListItem = ({ item }: ListItemProps) => {
           // className={`btn item-btn bottom-btn action-btn ${isPatched ? 'active-btn' : ''} ${!isFocussed ? 'inactive-btn' : ''} ${isHovered.update && !isFocussed ? 'hover-item-view-btn' : ''}`}
           className={[...classes.update].join(' ')}
         >
-          {isPatched ? 'Cancel update' : 'Update'}
+          {isPatched ? 'Cancel' : 'Update'}
         </Button>
       </div>
     </div>
