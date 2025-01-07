@@ -207,7 +207,7 @@ const ListItem = ({ item }: ListItemProps) => {
           // className={`btn item-btn bottom-btn action-btn ${isPatched ? 'active-btn' : ''} ${!isFocussed ? 'inactive-btn' : ''} ${isHovered.update && !isFocussed ? 'hover-item-view-btn' : ''}`}
           className={[...classes.update].join(' ')}
         >
-          {isPatched ? 'Cancel update' : 'Update'}
+          {isPatched ? 'Cancel' : 'Update'}
         </Button>
       </div>
     </div>
