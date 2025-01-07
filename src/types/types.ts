@@ -25,3 +25,11 @@ export interface IsHoveredObject {
   delete: boolean
   update: boolean
 }
+
+export interface itemClassesObject {
+  item: string
+  view: string
+  create: string
+  delete: string
+  update: string
+}

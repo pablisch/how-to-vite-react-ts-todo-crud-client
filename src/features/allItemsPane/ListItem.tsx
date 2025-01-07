@@ -1,4 +1,4 @@
-import { IsHoveredObject, UnknownObject } from '../../types/types.ts'
+import { IsHoveredObject, itemClassesObject, UnknownObject } from '../../types/types.ts'
 import Button from '../../components/Button.tsx'
 import { useIdParams } from '../../hooks/useIdParams.tsx'
 import './ListItem.css'
@@ -11,6 +11,14 @@ const defaultIsHoveredSettings: IsHoveredObject = {
   create: false,
   delete: false,
   update: false,
+}
+
+let classes: itemClassesObject = {
+  item: 'item-panel',
+  view: 'btn item-btn inactive-btn',
+  create: 'btn item-btn inactive-btn',
+  delete: 'btn item-btn inactive-btn',
+  update: 'btn item-btn inactive-btn',
 }
 
 interface ListItemProps {
@@ -113,6 +121,14 @@ const ListItem = ({ item }: ListItemProps) => {
   const handleUpdateHoverEnd = () => {
     setHovered(prev => ({ ...prev, update: false }))
   }
+  
+  const classes = {
+    item: '',
+    view: '',
+    create: '',
+    delete: '',
+    update: '',
+  }
 
   return (
     <div
@@ -134,7 +150,7 @@ const ListItem = ({ item }: ListItemProps) => {
           onClick={handleViewItem}
           onMouseEnter={handleViewHoverStart}
           onMouseLeave={handleViewHoverEnd}
-          className={`btn ${!isFocussed ? 'inactive-btn' : ''} ${isViewed && operation === 'getById' ? 'active-btn' : ''} ${isHovered.view && !isFocussed ? 'hover-item-view-btn' : ''}`}
+          className={`btn item-btn ${!isFocussed ? 'inactive-btn' : ''} ${isViewed && operation === 'getById' ? 'active-btn' : ''} ${isHovered.view && !isFocussed ? 'hover-item-view-btn' : ''}`}
         >
           {isViewed ? 'Deselect' : 'View'}
         </Button>
@@ -144,7 +160,7 @@ const ListItem = ({ item }: ListItemProps) => {
           onClick={handleDeleteItem}
           onMouseEnter={handleDeleteHoverStart}
           onMouseLeave={handleDeleteHoverEnd}
-          className={`btn bottom-btn red-btn ${!isFocussed ? 'inactive-btn' : ''} ${isHovered.delete && !isFocussed ? 'hover-item-view-btn' : ''}`}
+          className={`btn item-btn bottom-btn red-btn ${!isFocussed ? 'inactive-btn' : ''} ${isHovered.delete && !isFocussed ? 'hover-item-view-btn' : ''}`}
         >
           Delete
         </Button>
@@ -154,7 +170,7 @@ const ListItem = ({ item }: ListItemProps) => {
           onClick={handleChooseUpdate}
           onMouseEnter={handleUpdateHoverStart}
           onMouseLeave={handleUpdateHoverEnd}
-          className={`btn bottom-btn action-btn ${isPatched ? 'active-btn' : ''} ${!isFocussed ? 'inactive-btn' : ''} ${isHovered.update && !isFocussed ? 'hover-item-view-btn' : ''}`}
+          className={`btn item-btn bottom-btn action-btn ${isPatched ? 'active-btn' : ''} ${!isFocussed ? 'inactive-btn' : ''} ${isHovered.update && !isFocussed ? 'hover-item-view-btn' : ''}`}
         >
           {isPatched ? 'Cancel update' : 'Update'}
         </Button>

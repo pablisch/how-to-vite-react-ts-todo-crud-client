@@ -37,6 +37,13 @@
 
   --scrollbar: var(--grey-100);
   --scrollbar-hover: var(--grey-150);
+
+
+  --op-get-by-id: var(--blueish-1000);
+  --op-post: var(--greenish-1100);
+  --op-delete: var(--red-1000);
+  --op-patch: var(--turquoise-1100);
+  --op-put: var(--cyan-1100);
 }
 
 [data-theme='dark'] {
