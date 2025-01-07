@@ -11,16 +11,7 @@
     color var(--color-trans) ease;
 }
 
-.item-btn {
-  opacity: 50%
-}
-
-.active-btn {
-  /*background: var(--btn-focus-1);*/
-  opacity: 100%;
-}
-
-.bottom-btn {
+.btn-space-above {
   margin-top: 0.5rem;
 }
 

@@ -15,19 +15,29 @@
   margin: 0.3rem 0.8rem 0.3rem 0;
 }
 
-.focus-item-panel {
-  background: var(--background-focus-1);
-  transition: background var(--color-trans) ease;
+.item-btn {
+  opacity: 70%;
 }
 
-.hover-item-panel {
+.item-panel-hover {
   background: var(--background-hover-1);
-  transition: background var(--color-trans) ease;
 }
 
-.hover-item-view-btn {
-  background: var(--background-3);
-  transition: background var(--color-trans) ease;
+.item-panel-focus {
+  background: var(--background-focus-1);
+}
+
+.view-btn-hover {
+  opacity: 100%;
+  background: var(--btn-inactive-hover-1);
+}
+
+.view-btn-focus {
+  background: var(--op-get-by-id);
+}
+
+.view-btn-active {
+  filter: brightness(150%);
 }
 
 .hover-item-delete-btn {

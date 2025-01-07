@@ -38,7 +38,6 @@
   --scrollbar: var(--grey-100);
   --scrollbar-hover: var(--grey-150);
 
-
   --op-get-by-id: var(--blueish-1000);
   --op-post: var(--greenish-1100);
   --op-delete: var(--red-1000);
@@ -69,6 +68,7 @@
   --btn-warning-1: var(--red-900);
   --btn-focus-1: var(--blue-900);
   --btn-inactive-1: var(--grey-1000);
+  --btn-inactive-hover-1: var(--grey-1050);
   --btn-disabled-1: var(--grey-900);
   --btn-option-1: var(--turquoise-900);
   --btn-option-2: var(--blue-800);

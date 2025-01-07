@@ -27,9 +27,9 @@ export interface IsHoveredObject {
 }
 
 export interface itemClassesObject {
-  item: string
-  view: string
-  create: string
-  delete: string
-  update: string
+  item: string[]
+  view: string[]
+  create: string[]
+  delete: string[]
+  update: string[]
 }
