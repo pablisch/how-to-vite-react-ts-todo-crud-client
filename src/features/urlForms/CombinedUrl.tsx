@@ -13,12 +13,15 @@ const CombinedUrl = () => {
   const { settings } = useSettings()
   const combinedValue = `${baseUrl}${endpoint}${idParams}${queryParams}`
   const [inputValue, setInputValue] = useState<string>(combinedValue)
+  const [nonsense, setNonsense] = useState<string>('') // TODO nonsense placeholder line to avoid errors
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // setInputValue(event.target.value)
-    setInputValue(inputValue) // TODO nonsense placeholder line
-    console.log('****()** event:', event.target.value)
-    console.log('****()** settings:', JSON.stringify(settings, null, 2))
+    setNonsense(event.target.value || nonsense) // TODO nonsense placeholder line to avoid errors
+    setInputValue(inputValue) // TODO nonsense placeholder line to avoid errors
+    console.log(
+      '****()** - AVOID ERRORS - settings:',
+      JSON.stringify(settings, null, 2)
+    )
   }
 
   useEffect(() => {

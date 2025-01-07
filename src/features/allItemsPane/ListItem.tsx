@@ -34,8 +34,13 @@ const ListItem = ({ item }: ListItemProps) => {
   )
   // const [classes, setClasses] = useState<itemClassesObject>(defaultClasses)
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
-  const { handleResetOperation, deleteItem, loadUpdateForm, operation, isPatchUpdate } =
-    useItems()
+  const {
+    handleResetOperation,
+    deleteItem,
+    loadUpdateForm,
+    operation,
+    isPatchUpdate,
+  } = useItems()
 
   // let classes: itemClassesObject = defaultClasses
 
@@ -156,8 +161,16 @@ const ListItem = ({ item }: ListItemProps) => {
     ],
     update: [
       ...defaultClasses.update,
-      isHovered.update ? isPatchUpdate ? 'update-patch-btn-hover' : 'update-put-btn-hover' : '',
-      isFocussed ? isPatchUpdate ? 'update-patch-btn-focus' : 'update-put-btn-focus' : '',
+      isHovered.update
+        ? isPatchUpdate
+          ? 'update-patch-btn-hover'
+          : 'update-put-btn-hover'
+        : '',
+      isFocussed
+        ? isPatchUpdate
+          ? 'update-patch-btn-focus'
+          : 'update-put-btn-focus'
+        : '',
       isActive ? 'update-btn-active' : '',
     ],
   }

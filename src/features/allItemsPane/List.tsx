@@ -15,11 +15,6 @@ function List() {
     getAllItems()
   }, [baseUrl, endpoint])
 
-  console.log(
-    '****()** error in List component:',
-    getAllItemsError?.props?.children[0]?.props?.children
-  )
-
   return (
     <div id="list-container" className="main-section-panes">
       {getAllItemsError ? (
