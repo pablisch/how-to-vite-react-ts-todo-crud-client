@@ -14,11 +14,14 @@
   --green-900: #105e24;
   --green-1000: #0f531f;
   --green-1100: #0c3e18;
+  --greenish-1100: #273c25;
   --turquoise-50: #e1f8f4;
   --turquoise-100: #d0f4ee;
   --turquoise-200: #afe6e8;
   --turquoise-900: #125a70;
+  --turquoise-1100: #214857;
   --cyan-50: #dee;
+  --cyan-1100: #215757;
   --blue-150: #baedf4;
   --blue-200: #90b7ea;
   --blue-250: #708aff;
@@ -30,6 +33,7 @@
   --blue-800: #14267c;
   --blue-900: #164b80;
   --blue-1500: #011022;
+  --blueish-1000: #243d55;
   --grey-blue-150: #e9ebec;
   --magenta-250: #c278e1;
   --magenta-800: #8414af;

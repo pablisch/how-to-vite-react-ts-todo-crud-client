@@ -6,6 +6,8 @@ interface ButtonProps {
   ariaLabel?: string
   className?: string
   onClick?: () => void
+  onMouseEnter?: () => void
+  onMouseLeave?: () => void
   id: string
   disabled?: boolean
 }
@@ -16,6 +18,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
     ariaLabel = 'button',
     className = 'btn',
     onClick,
+    onMouseEnter,
+    onMouseLeave,
     id = '',
     disabled = false,
   }: ButtonProps,
@@ -27,6 +31,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
       aria-label={ariaLabel}
       className={className}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       disabled={disabled}
       ref={ref}
     >

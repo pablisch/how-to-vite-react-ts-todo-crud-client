@@ -1,11 +1,3 @@
-export interface Todo {
-  _id: string
-  task: string
-  completed: boolean
-  createdAt: Date
-  updatedAt: Date
-}
-
 export interface UnknownObject {
   [key: string]: never
 }
@@ -24,4 +16,12 @@ export interface StatusObject {
 export interface Settings {
   setUrlOnChange: boolean
   theme: string
+}
+
+export interface IsHoveredObject {
+  item: boolean
+  view: boolean
+  create: boolean
+  delete: boolean
+  update: boolean
 }
