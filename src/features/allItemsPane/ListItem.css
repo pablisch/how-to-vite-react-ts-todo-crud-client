@@ -16,7 +16,12 @@
 }
 
 .item-btn {
-  opacity: 70%;
+  /*opacity: 70%;*/
+}
+
+.inactive-item-btn {
+  background: var(--btn-inactive-1);
+  color: var(--text-mute);
 }
 
 .item-panel-hover {
@@ -28,61 +33,92 @@
 }
 
 .view-btn-hover {
-  opacity: 100%;
-  background: var(--op-get-by-id);
-  filter: brightness(70%);
+  /*opacity: 100%;*/
+  background: var(--op-get-by-id-mute);
+  /*filter: brightness(70%);*/
 }
 
 .view-btn-focus {
   background: var(--op-get-by-id);
-  filter: brightness(100%);
+  /*filter: brightness(100%);*/
 }
 
 .delete-btn-hover {
-  opacity: 100%;
-  background: var(--op-delete);
-  filter: brightness(70%);
+  /*opacity: 100%;*/
+  background: var(--op-delete-mute);
+  /*filter: brightness(70%);*/
 }
 
 .delete-btn-focus {
   background: var(--op-delete);
-  filter: brightness(100%);
+  /*filter: brightness(100%);*/
 }
 
 .update-patch-btn-hover {
-  opacity: 100%;
-  background: var(--op-patch);
-  filter: brightness(70%);
+  /*opacity: 100%;*/
+  background: var(--op-patch-mute);
+  /*filter: brightness(70%);*/
 }
 
 .update-put-btn-hover {
-  opacity: 100%;
-  background: var(--op-put);
-  filter: brightness(70%);
+  /*opacity: 100%;*/
+  background: var(--op-put-mute);
+  /*filter: brightness(70%);*/
 }
 
 .update-patch-btn-focus {
   background: var(--op-patch);
-  filter: brightness(100%);
+  /*filter: brightness(100%);*/
 }
 
 .update-put-btn-focus {
   background: var(--op-put);
 }
 
-.view-btn-active,
-.create-btn-active,
-.delete-btn-active,
-.update-btn-active {
-  filter: brightness(150%);
-}
+/*.view-btn-active,*/
+/*.create-btn-active,*/
+/*.delete-btn-active,*/
+/*.update-btn-active {*/
+/*  filter: brightness(150%);*/
+/*}*/
 
 .hover-item-delete-btn {
   background: var(--background-3);
-  transition: background var(--color-trans) ease;
 }
 
 .hover-item-update-btn {
   background: var(--background-3);
-  transition: background var(--color-trans) ease;
+}
+
+.hover {
+  color: var(--text-3);
+}
+
+.focus {
+  color: var(--text-2);
+}
+
+.view-btn-focus-hover {
+  background: var(--op-get-by-id-vibe);
+  color: var(--text-1);
+}
+
+.create-btn-focus-hover {
+  background: var(--op-post-vibe);
+  color: var(--text-1);
+}
+
+.delete-btn-focus-hover {
+  background: var(--op-delete-vibe);
+  color: var(--text-1);
+}
+
+.update-patch-btn-focus-hover {
+  background: var(--op-patch-vibe);
+  color: var(--text-1);
+}
+
+.update-put-btn-focus-hover {
+  background: var(--op-put-vibe);
+  color: var(--text-1);
 }

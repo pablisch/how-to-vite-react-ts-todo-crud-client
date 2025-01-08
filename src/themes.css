@@ -1,15 +1,18 @@
 [data-theme='light'] {
-  --background-1: var(--grey-blue-150);
+  --background-1: var(--warm-grey-100);
   --background-2: var(--white-100);
   --background-3: var(--white-100);
-  --background-focus-1: var(--cyan-50);
+  --background-focus-1: var(--white-50);
+  --background-hover-1: var(--warm-grey-50);
 
   --text-1: var(--grey-1100);
   --text-2: var(--grey-1000);
   --text-mid-grey: var(--grey-300);
+  --text-mute: var(--grey-350);
 
   --border-1: var(--grey-200);
   --border-mute: var(--grey-150);
+  --border-mute-2: var(--warm-grey-200);
   --border-mid-grey: var(--grey-300);
 
   --btn-passive-1: var(--green-150);
@@ -17,6 +20,8 @@
   --btn-passive-3: var(--blue-150);
   --btn-warning-1: var(--red-150);
   --btn-focus-1: var(--blue-150);
+  --btn-inactive-1: var(--warm-grey-100);
+  --btn-inactive-hover-1: var(--warm-grey-50);
   --btn-disabled-1: var(--grey-150);
   --btn-option-1: var(--turquoise-200);
   --btn-option-2: var(--blue-200);
@@ -38,11 +43,16 @@
   --scrollbar: var(--grey-100);
   --scrollbar-hover: var(--grey-150);
 
-  --op-get-by-id: var(--blueish-1000);
-  --op-post: var(--greenish-1100);
-  --op-delete: var(--red-1000);
-  --op-patch: var(--turquoise-1100);
-  --op-put: var(--cyan-1100);
+  --op-get-by-id: var(--blueish-1000l);
+  --op-post: var(--greenish-1100l);
+  --op-delete: var(--red-1000l);
+  --op-patch: var(--violet-1000l);
+  --op-put: var(--indigo-1000l);
+  --op-get-by-id-mute: var(--blueish-1000l);
+  --op-post-mute: var(--greenish-1100l);
+  --op-delete-mute: var(--red-1000l);
+  --op-patch-mute: var(--violet-1000l);
+  --op-put-mute: var(--indigo-1000l);
 }
 
 [data-theme='dark'] {
@@ -54,8 +64,9 @@
 
   --text-1: var(--grey-150);
   --text-2: var(--grey-200);
+  --text-3: var(--grey-300);
   --text-mid-grey: var(--grey-650);
-  --text-mute: var(--grey-350);
+  --text-mute: var(--grey-450);
 
   --border-1: var(--grey-500);
   --border-mute: var(--grey-650);
@@ -95,4 +106,14 @@
   --op-delete: var(--red-1000);
   --op-patch: var(--violet-1000);
   --op-put: var(--indigo-1000);
+  --op-get-by-id-vibe: var(--blueish-1000-vibe);
+  --op-post-vibe: var(--greenish-1100-vibe);
+  --op-delete-vibe: var(--red-1000-vibe);
+  --op-patch-vibe: var(--violet-1000-vibe);
+  --op-put-vibe: var(--indigo-1000-vibe);
+  --op-get-by-id-mute: var(--blueish-1000-mute);
+  --op-post-mute: var(--greenish-1100-mute);
+  --op-delete-mute: var(--red-1000-mute);
+  --op-patch-mute: var(--violet-1000-mute);
+  --op-put-mute: var(--indigo-1000-mute);
 }
