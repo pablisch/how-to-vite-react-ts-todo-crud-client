@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { forwardRef, ReactNode } from 'react'
 import './Button.css'
 
 interface ButtonProps {
@@ -12,7 +12,7 @@ interface ButtonProps {
   disabled?: boolean
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   {
     children,
     ariaLabel = 'button',

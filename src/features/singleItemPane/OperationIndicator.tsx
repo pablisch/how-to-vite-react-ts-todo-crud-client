@@ -1,43 +1,55 @@
-import { useItems } from '../../hooks/useItems.tsx'
 import './OperationIndicator.css'
+import { forwardRef, ReactNode, useState } from 'react'
 
-const OperationIndicator = () => {
-  const { operation, isPatchUpdate } = useItems()
+interface OperationIndicatorProps {
+  children: ReactNode
+  ariaLabel?: string
+  classNames?: string[]
+  hoverClass: string
+  onClick?: () => void
+  id: string
+  disabled?: boolean
+}
+
+const OperationIndicator = forwardRef<
+  HTMLButtonElement,
+  OperationIndicatorProps
+>(function OperationIndicator(
+  {
+    children,
+    ariaLabel = 'button',
+    classNames = ['btn'],
+    hoverClass,
+    onClick,
+    id = '',
+    disabled = false,
+  }: OperationIndicatorProps,
+  ref
+) {
+  const [hovered, setHovered] = useState(false)
+
+  const handleHoverStart = () => setHovered(true)
+  const handleHoverEnd = () => setHovered(false)
+
+  const combinedClasses = [
+    ...classNames,
+    ...(hovered ? [hoverClass] : []),
+  ].join(' ')
 
   return (
-    <div className="operation-indicator-container">
-      <div
-        className={`operation ${operation === 'getById' ? 'active-operation active-get-by-id' : 'active-operation active-get-by-id'}`}
-        // className={`operation ${operation === 'getById' ? 'active-operation active-get-by-id' : ''}`}
-      >
-        GET items/:id
-      </div>
-      <div
-        className={`operation ${operation === 'create' ? 'active-operation active-post' : 'active-operation active-post'}`}
-        // className={`operation ${operation === 'create' ? 'active-operation active-post' : ''}`}
-      >
-        POST items
-      </div>
-      <div
-        className={`operation ${operation === 'delete' ? 'active-operation active-delete' : 'active-operation active-delete'}`}
-        // className={`operation ${operation === 'delete' ? 'active-operation active-delete' : ''}`}
-      >
-        DELETE items
-      </div>
-      <div
-        className={`operation ${operation === 'update' && isPatchUpdate ? 'active-operation active-patch' : 'active-operation active-patch'}`}
-        // className={`operation ${operation === 'update' && isPatchUpdate ? 'active-operation active-patch' : ''}`}
-      >
-        PATCH items/:id
-      </div>
-      <div
-        className={`operation ${operation === 'update' && !isPatchUpdate ? 'active-operation active-put' : 'active-operation active-put'}`}
-        // className={`operation ${operation === 'update' && !isPatchUpdate ? 'active-operation active-put' : ''}`}
-      >
-        PUT items/:id
-      </div>
-    </div>
+    <button
+      id={id}
+      aria-label={ariaLabel}
+      className={combinedClasses}
+      onClick={onClick}
+      onMouseEnter={handleHoverStart}
+      onMouseLeave={handleHoverEnd}
+      disabled={disabled}
+      ref={ref}
+    >
+      <span>{children}</span>
+    </button>
   )
-}
+})
 
 export default OperationIndicator
