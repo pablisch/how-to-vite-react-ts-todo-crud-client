@@ -9,13 +9,15 @@
   --text-2: var(--grey-1000);
   --text-3: var(--grey-900);
   --text-4: var(--grey-500);
+  --text-contrast: var(--black);
   --text-mid-grey: var(--grey-300);
   --text-mute: var(--grey-350);
 
   --border-1: var(--grey-200);
   --border-mute: var(--grey-150);
   --border-mute-2: var(--warm-grey-200);
-  --border-mid-grey: var(--grey-300);
+  --border-contrast-1: var(--grey-300);
+  --border-contrast-2: var(--grey-1100);
 
   --btn-passive-1: var(--green-150);
   --btn-passive-2: var(--turquoise-100);
@@ -45,21 +47,21 @@
   --scrollbar: var(--grey-100);
   --scrollbar-hover: var(--grey-150);
 
-  --op-get-by-id: var(--blueish-100);
-  --op-post: var(--greenish-100);
-  --op-delete: var(--red-100);
-  --op-patch: var(--violet-100);
-  --op-put: var(--indigo-100);
-  --op-get-by-id-vibe: var(--blueish-100-vibe);
-  --op-post-vibe: var(--greenish-100-vibe);
-  --op-delete-vibe: var(--red-100-vibe);
-  --op-patch-vibe: var(--violet-100-vibe);
-  --op-put-vibe: var(--indigo-100-vibe);
-  --op-get-by-id-mute: var(--blueish-100-mute);
-  --op-post-mute: var(--greenish-100-mute);
-  --op-delete-mute: var(--red-100-mute);
-  --op-patch-mute: var(--violet-100-mute);
-  --op-put-mute: var(--indigo-100-mute);
+  --op-get-by-id: var(--GET-light);
+  --op-post: var(--POST-light);
+  --op-put: var(--PUT-light);
+  --op-patch: var(--PATCH-light);
+  --op-delete: var(--DELETE-light);
+  --op-get-by-id-vibe: var(--GET-light-vibe);
+  --op-post-vibe: var(--POST-light-vibe);
+  --op-put-vibe: var(--PUT-light-vibe);
+  --op-patch-vibe: var(--PATCH-light-vibe);
+  --op-delete-vibe: var(--DELETE-light-vibe);
+  --op-get-by-id-mute: var(--GET-light-mute);
+  --op-post-mute: var(--POST-light-mute);
+  --op-put-mute: var(--PUT-light-mute);
+  --op-patch-mute: var(--PATCH-light-mute);
+  --op-delete-mute: var(--DELETE-light-mute);
 }
 
 [data-theme='dark'] {
@@ -73,13 +75,15 @@
   --text-2: var(--grey-200);
   --text-3: var(--grey-300);
   --text-4: var(--grey-400);
+  --text-contrast: var(--white-150);
   --text-mid-grey: var(--grey-650);
   --text-mute: var(--grey-450);
 
   --border-1: var(--grey-500);
   --border-mute: var(--grey-650);
   --border-mute-2: var(--grey-800);
-  --border-mid-grey: var(--grey-300);
+  --border-contrast-1: var(--grey-400);
+  --border-contrast-2: var(--grey-300);
 
   --btn-passive-1: var(--green-1100);
   --btn-passive-2: var(--turquoise-900);
@@ -109,19 +113,19 @@
   --scrollbar: var(--grey-1100);
   --scrollbar-hover: var(--grey-1200);
 
-  --op-get-by-id: var(--blueish-1000);
-  --op-post: var(--greenish-1100);
-  --op-delete: var(--red-1000);
-  --op-patch: var(--violet-1000);
-  --op-put: var(--indigo-1000);
-  --op-get-by-id-vibe: var(--blueish-1000-vibe);
-  --op-post-vibe: var(--greenish-1100-vibe);
-  --op-delete-vibe: var(--red-1000-vibe);
-  --op-patch-vibe: var(--violet-1000-vibe);
-  --op-put-vibe: var(--indigo-1000-vibe);
-  --op-get-by-id-mute: var(--blueish-1000-mute);
-  --op-post-mute: var(--greenish-1100-mute);
-  --op-delete-mute: var(--red-1000-mute);
-  --op-patch-mute: var(--violet-1000-mute);
-  --op-put-mute: var(--indigo-1000-mute);
+  --op-get-by-id: var(--GET-dark);
+  --op-post: var(--POST-dark);
+  --op-put: var(--PUT-dark);
+  --op-patch: var(--PATCH-dark);
+  --op-delete: var(--DELETE-dark);
+  --op-get-by-id-vibe: var(--GET-dark-vibe);
+  --op-post-vibe: var(--POST-dark-vibe);
+  --op-put-vibe: var(--PUT-dark-vibe);
+  --op-patch-vibe: var(--PATCH-dark-vibe);
+  --op-delete-vibe: var(--DELETE-dark-vibe);
+  --op-get-by-id-mute: var(--GET-dark-mute);
+  --op-post-mute: var(--POST-dark-mute);
+  --op-put-mute: var(--PUT-dark-mute);
+  --op-patch-mute: var(--PATCH-dark-mute);
+  --op-delete-mute: var(--DELETE-dark-mute);
 }

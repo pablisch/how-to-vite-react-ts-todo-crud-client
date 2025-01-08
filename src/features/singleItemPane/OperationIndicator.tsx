@@ -5,7 +5,7 @@ interface OperationIndicatorProps {
   children: ReactNode
   ariaLabel?: string
   classNames?: string[]
-  hoverClass: string
+  hoverClass: string[]
   onClick?: () => void
   id: string
   disabled?: boolean
@@ -31,10 +31,9 @@ const OperationIndicator = forwardRef<
   const handleHoverStart = () => setHovered(true)
   const handleHoverEnd = () => setHovered(false)
 
-  const combinedClasses = [
-    ...classNames,
-    ...(hovered ? [hoverClass] : []),
-  ].join(' ')
+  const combinedClasses = [...classNames, ...(hovered ? hoverClass : [])].join(
+    ' '
+  )
 
   return (
     <button
