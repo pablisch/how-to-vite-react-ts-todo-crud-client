@@ -18,6 +18,7 @@ export interface ItemsContextType {
   getItemByIdError: React.ReactElement | null
   deleteItem: (id: string) => void
   deleteItemError: React.ReactElement | null
+  deleteResponseData: UnknownObject | null | undefined
   updateItem: (id: string) => void
   updateItemError: React.ReactElement | null
   operation: string
@@ -25,6 +26,7 @@ export interface ItemsContextType {
   handleResetOperation: () => void
   getItemsStatus: StatusObject
   singleItemStatus: StatusObject
+  deleteStatus: StatusObject
   isPatchUpdate: boolean
   toggleUpdateType: () => void
   loadUpdateForm: (id: string) => void
@@ -41,6 +43,7 @@ export const ItemsContext = createContext<ItemsContextType>({
   getItemByIdError: null,
   deleteItem: () => {},
   deleteItemError: null,
+  deleteResponseData: null,
   updateItem: () => {},
   updateItemError: null,
   operation: 'getById',
@@ -48,6 +51,7 @@ export const ItemsContext = createContext<ItemsContextType>({
   handleResetOperation: () => {},
   getItemsStatus: {},
   singleItemStatus: {},
+  deleteStatus: {},
   isPatchUpdate: true,
   toggleUpdateType: () => {},
   loadUpdateForm: () => {},
@@ -62,6 +66,9 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     UnknownObject[] | UnknownObject | undefined
   >(undefined)
   const [itemToUpdate, setItemToUpdate] = useState<
+    UnknownObject | null | undefined
+  >(null)
+  const [deleteMessage, setDeleteMessage] = useState<
     UnknownObject | null | undefined
   >(null)
   const [getAllItemsError, setGetAllItemError] =
@@ -79,6 +86,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const [operation, setOperation] = useState<string>('getById')
   const [getItemsStatus, setGetItemsStatus] = useState<StatusObject>({})
   const [singleItemStatus, setSingleItemStatus] = useState<StatusObject>({})
+  const [deleteStatus, setDeleteStatus] = useState<StatusObject>({})
   const [isPatchUpdate, setIsPatchUpdate] = useState<boolean>(true)
   const [abortController, setAbortController] =
     useState<AbortController | null>(null)
@@ -141,6 +149,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const deleteItem = async (id: string) => {
+    setDeleteMessage(null)
     setOperation('delete')
     setDeleteItemError(null)
     try {
@@ -151,8 +160,15 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
       })
       console.log(
         '****()** - AVOID ERRORS - delete response in itemsContext:',
-        response.data
+        response
       )
+      // if (typeof response?.data?.message === 'string')
+      setDeleteMessage(response.data)
+      setDeleteStatus({
+        status: response?.status,
+        statusType: helpers.getStatusType(response?.status),
+      })
+      await getAllItems()
     } catch (error) {
       const errorMessage: React.ReactElement =
         // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown
@@ -224,6 +240,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         getItemByIdError,
         deleteItem,
         deleteItemError,
+        deleteResponseData: deleteMessage,
         updateItem,
         updateItemError,
         operation,
@@ -231,6 +248,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         handleResetOperation,
         getItemsStatus,
         singleItemStatus,
+        deleteStatus,
         isPatchUpdate,
         toggleUpdateType,
         loadUpdateForm,

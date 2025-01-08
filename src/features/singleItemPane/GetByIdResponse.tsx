@@ -9,7 +9,7 @@ import './singleItemPane.css'
 import helpers from '../../utils/helpers.tsx'
 import Loading from '../../components/Loading.tsx'
 
-const SingleItem = () => {
+const GetByIdResponse = () => {
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
@@ -20,6 +20,8 @@ const SingleItem = () => {
     operation,
     singleItemStatus,
   } = useItems()
+
+  console.log('singleItem', singleItem)
 
   useEffect(() => {
     if (operation === 'getById') getSingleItem()
@@ -53,4 +55,4 @@ const SingleItem = () => {
   )
 }
 
-export default SingleItem
+export default GetByIdResponse
