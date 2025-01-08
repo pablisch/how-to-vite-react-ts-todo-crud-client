@@ -1,22 +1,31 @@
 [data-theme='light'] {
-  --background-1: var(--grey-blue-150);
+  --background-1: var(--warm-grey-100);
   --background-2: var(--white-100);
   --background-3: var(--white-100);
-  --background-focus-1: var(--cyan-50);
+  --background-focus-1: var(--white-50);
+  --background-hover-1: var(--warm-grey-50);
 
   --text-1: var(--grey-1100);
   --text-2: var(--grey-1000);
+  --text-3: var(--grey-900);
+  --text-4: var(--grey-500);
+  --text-contrast: var(--black);
   --text-mid-grey: var(--grey-300);
+  --text-mute: var(--grey-350);
 
   --border-1: var(--grey-200);
   --border-mute: var(--grey-150);
-  --border-mid-grey: var(--grey-300);
+  --border-mute-2: var(--warm-grey-200);
+  --border-contrast-1: var(--grey-300);
+  --border-contrast-2: var(--grey-1100);
 
   --btn-passive-1: var(--green-150);
   --btn-passive-2: var(--turquoise-100);
   --btn-passive-3: var(--blue-150);
   --btn-warning-1: var(--red-150);
   --btn-focus-1: var(--blue-150);
+  --btn-inactive-1: var(--warm-grey-100);
+  --btn-inactive-hover-1: var(--warm-grey-50);
   --btn-disabled-1: var(--grey-150);
   --btn-option-1: var(--turquoise-200);
   --btn-option-2: var(--blue-200);
@@ -38,11 +47,21 @@
   --scrollbar: var(--grey-100);
   --scrollbar-hover: var(--grey-150);
 
-  --op-get-by-id: var(--blueish-1000);
-  --op-post: var(--greenish-1100);
-  --op-delete: var(--red-1000);
-  --op-patch: var(--turquoise-1100);
-  --op-put: var(--cyan-1100);
+  --op-get-by-id: var(--GET-light);
+  --op-post: var(--POST-light);
+  --op-put: var(--PUT-light);
+  --op-patch: var(--PATCH-light);
+  --op-delete: var(--DELETE-light);
+  --op-get-by-id-vibe: var(--GET-light-vibe);
+  --op-post-vibe: var(--POST-light-vibe);
+  --op-put-vibe: var(--PUT-light-vibe);
+  --op-patch-vibe: var(--PATCH-light-vibe);
+  --op-delete-vibe: var(--DELETE-light-vibe);
+  --op-get-by-id-mute: var(--GET-light-mute);
+  --op-post-mute: var(--POST-light-mute);
+  --op-put-mute: var(--PUT-light-mute);
+  --op-patch-mute: var(--PATCH-light-mute);
+  --op-delete-mute: var(--DELETE-light-mute);
 }
 
 [data-theme='dark'] {
@@ -54,13 +73,17 @@
 
   --text-1: var(--grey-150);
   --text-2: var(--grey-200);
+  --text-3: var(--grey-300);
+  --text-4: var(--grey-400);
+  --text-contrast: var(--white-150);
   --text-mid-grey: var(--grey-650);
-  --text-mute: var(--grey-350);
+  --text-mute: var(--grey-450);
 
   --border-1: var(--grey-500);
   --border-mute: var(--grey-650);
   --border-mute-2: var(--grey-800);
-  --border-mid-grey: var(--grey-300);
+  --border-contrast-1: var(--grey-400);
+  --border-contrast-2: var(--grey-300);
 
   --btn-passive-1: var(--green-1100);
   --btn-passive-2: var(--turquoise-900);
@@ -90,9 +113,19 @@
   --scrollbar: var(--grey-1100);
   --scrollbar-hover: var(--grey-1200);
 
-  --op-get-by-id: var(--blueish-1000);
-  --op-post: var(--greenish-1100);
-  --op-delete: var(--red-1000);
-  --op-patch: var(--violet-1000);
-  --op-put: var(--indigo-1000);
+  --op-get-by-id: var(--GET-dark);
+  --op-post: var(--POST-dark);
+  --op-put: var(--PUT-dark);
+  --op-patch: var(--PATCH-dark);
+  --op-delete: var(--DELETE-dark);
+  --op-get-by-id-vibe: var(--GET-dark-vibe);
+  --op-post-vibe: var(--POST-dark-vibe);
+  --op-put-vibe: var(--PUT-dark-vibe);
+  --op-patch-vibe: var(--PATCH-dark-vibe);
+  --op-delete-vibe: var(--DELETE-dark-vibe);
+  --op-get-by-id-mute: var(--GET-dark-mute);
+  --op-post-mute: var(--POST-dark-mute);
+  --op-put-mute: var(--PUT-dark-mute);
+  --op-patch-mute: var(--PATCH-dark-mute);
+  --op-delete-mute: var(--DELETE-dark-mute);
 }

@@ -17,6 +17,7 @@
   border-radius: 0.5rem;
   border: 1px solid var(--border-1);
   color: var(--text-mid-grey);
+  font-size: 1rem;
   padding: 5px;
   transition:
     background var(--color-trans) ease,
@@ -57,4 +58,54 @@
   background: var(--op-put);
   color: var(--text-1);
   border: 1px solid var(--border-1);
+}
+
+.get-by-id-op-hover {
+  background: var(--op-get-by-id-vibe);
+}
+
+.post-op-hover {
+  background: var(--op-post-vibe);
+}
+
+.delete-op-hover {
+  background: var(--op-delete-vibe);
+}
+
+.patch-op-hover {
+  background: var(--op-patch-vibe);
+}
+
+.put-op-hover {
+  background: var(--op-put-vibe);
+}
+
+.op-indicator-hover {
+  color: var(--text-contrast);
+  border: 1px solid var(--border-contrast-2);
+}
+
+.get-by-id-op-mute {
+  background: var(--op-get-by-id-mute);
+}
+
+.post-op-mute {
+  background: var(--op-post-mute);
+}
+
+.delete-op-mute {
+  background: var(--op-delete-mute);
+}
+
+.patch-op-mute {
+  background: var(--op-patch-mute);
+}
+
+.put-op-mute {
+  background: var(--op-put-mute);
+}
+
+.op-indicator-mute {
+  color: var(--text-3);
+  border: 1px solid var(--border-contrast-1);
 }
