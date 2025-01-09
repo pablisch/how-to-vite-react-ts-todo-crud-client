@@ -14,8 +14,9 @@ export interface ItemsContextType {
   itemToUpdate: UnknownObject | undefined | null
   getAllItems: () => void
   getAllItemsError: React.ReactElement | null
-  getSingleItem: () => void
+  getSingleItem: (changeOperation: boolean, id: string) => void
   getItemByIdError: React.ReactElement | null
+  startDeleteItem: (id: string) => void
   deleteItem: (id: string) => void
   deleteItemError: React.ReactElement | null
   deleteResponseData: UnknownObject | null | undefined
@@ -31,6 +32,8 @@ export interface ItemsContextType {
   toggleUpdateType: () => void
   loadUpdateForm: (id: string) => void
   handlePerformUpdate: () => void
+  itemId: string | undefined
+  setItemId: (id: string) => void
 }
 
 export const ItemsContext = createContext<ItemsContextType>({
@@ -41,6 +44,7 @@ export const ItemsContext = createContext<ItemsContextType>({
   getAllItemsError: null,
   getSingleItem: () => {},
   getItemByIdError: null,
+  startDeleteItem: () => {},
   deleteItem: () => {},
   deleteItemError: null,
   deleteResponseData: null,
@@ -56,6 +60,8 @@ export const ItemsContext = createContext<ItemsContextType>({
   toggleUpdateType: () => {},
   loadUpdateForm: () => {},
   handlePerformUpdate: () => {},
+  itemId: undefined,
+  setItemId: () => {},
 })
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
@@ -81,7 +87,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     useState<React.ReactElement | null>(null)
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
-  const { idParams } = useIdParams()
+  const { idParams, handleSetIdParams } = useIdParams()
   const { queryParams } = useQueryParams()
   const [operation, setOperation] = useState<string>('getById')
   const [getItemsStatus, setGetItemsStatus] = useState<StatusObject>({})
@@ -90,6 +96,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const [isPatchUpdate, setIsPatchUpdate] = useState<boolean>(true)
   const [abortController, setAbortController] =
     useState<AbortController | null>(null)
+  const [itemId, setItemId] = useState<string | undefined>(undefined)
 
   const getAllItems = async () => {
     // Cancel the previous request if it exists
@@ -126,14 +133,18 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  const getSingleItem = async () => {
-    setOperation('getById')
+  const getSingleItem = async (
+    changeOperation: boolean = true,
+    id: string = idParams
+  ) => {
+    if (changeOperation) setOperation('getById')
     setSingleItem(undefined)
     setGetItemByIdError(null)
-    if (!idParams) return
+    if (!id) return
+    id = helpers.ensureLeadingSlash(id)
     try {
       const response = await apiClient.get(
-        `${baseUrl}${endpoint}${idParams}${queryParams}`
+        `${baseUrl}${endpoint}${id}${queryParams}`
       )
       setSingleItem(response.data)
       setSingleItemStatus({
@@ -148,9 +159,26 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
+  const startDeleteItem = async (id: string) => {
+    let fetchItem: boolean = true
+    console.log('deleteProcess:', id)
+    setOperation('delete')
+
+    if (
+      (singleItem && 'id' in singleItem && singleItem.id === id) ||
+      (singleItem && '_id' in singleItem && singleItem._id === id)
+    ) {
+      fetchItem = false
+    }
+
+    if (fetchItem) {
+      handleSetIdParams(id)
+      await getSingleItem(false, id)
+    }
+  }
+
   const deleteItem = async (id: string) => {
     setDeleteMessage(null)
-    setOperation('delete')
     setDeleteItemError(null)
     try {
       const response = await axios.delete(`${baseUrl}${endpoint}/${id}`, {
@@ -162,12 +190,12 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         '****()** - AVOID ERRORS - delete response in itemsContext:',
         response
       )
-      // if (typeof response?.data?.message === 'string')
       setDeleteMessage(response.data)
       setDeleteStatus({
         status: response?.status,
         statusType: helpers.getStatusType(response?.status),
       })
+      setItemId(undefined)
       await getAllItems()
     } catch (error) {
       const errorMessage: React.ReactElement =
@@ -238,6 +266,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         getAllItemsError,
         getSingleItem,
         getItemByIdError,
+        startDeleteItem,
         deleteItem,
         deleteItemError,
         deleteResponseData: deleteMessage,
@@ -253,6 +282,8 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         toggleUpdateType,
         loadUpdateForm,
         handlePerformUpdate,
+        itemId,
+        setItemId,
       }}
     >
       {children}

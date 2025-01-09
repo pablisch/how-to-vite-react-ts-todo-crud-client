@@ -128,4 +128,8 @@ export default {
       </ul>
     )
   },
+
+  ensureLeadingSlash: function (urlSection: string): string {
+    return urlSection.startsWith('/') ? urlSection : `/${urlSection}`
+  },
 }

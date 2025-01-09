@@ -30,6 +30,21 @@
   line-height: 0.8rem;
 }
 
+.confirm-delete-btn {
+  background: var(--DELETE-dark);
+  height: var(--single-status-height);
+  width: var(--wide-btn);
+  margin: var(--above-single-status-spacing) auto
+    var(--below-single-status-spacing);
+  font-size: 1rem;
+  text-align: center;
+}
+
+.confirm-delete-btn-hover {
+  background: var(--DELETE-dark-vibe);
+  border: 1px solid var(--border-contrast-2);
+}
+
 .inactive-btn {
   background: var(--btn-inactive-1);
   color: var(--text-mute);

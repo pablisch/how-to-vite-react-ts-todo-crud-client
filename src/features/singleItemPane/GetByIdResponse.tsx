@@ -6,8 +6,8 @@ import { useItems } from '../../hooks/useItems.tsx'
 import './SingleItem.css'
 import '../../App.css'
 import './singleItemPane.css'
-import helpers from '../../utils/helpers.tsx'
 import Loading from '../../components/Loading.tsx'
+import ObjectDisplay from '../../components/ObjectDisplay.tsx'
 
 const GetByIdResponse = () => {
   const { baseUrl } = useBaseUrl()
@@ -24,7 +24,11 @@ const GetByIdResponse = () => {
   console.log('singleItem', singleItem)
 
   useEffect(() => {
-    if (operation === 'getById') getSingleItem()
+    if (operation === 'getById') {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      getSingleItem()
+    }
   }, [baseUrl, endpoint, idParams])
 
   return (
@@ -40,11 +44,7 @@ const GetByIdResponse = () => {
           <div className={`status-label ${singleItemStatus.statusType}`}>
             {singleItemStatus.status}
           </div>
-          <div className="response-object-container">
-            <div className="response-object-panel">
-              {helpers.formatObjectAsJsxWithBoldKeys(singleItem)}
-            </div>
-          </div>
+          <ObjectDisplay object={singleItem} heightClassPrefix={'get-by-id'} />
         </div>
       ) : (
         <div className="loading-container">
