@@ -1,25 +1,30 @@
 import { useItems } from '../../hooks/useItems.tsx'
-import './SingleItem.css'
-import '../../App.css'
-import './singleItemPane.css'
-import '../../components/Button.css'
 import Loading from '../../components/Loading.tsx'
 import ObjectDisplay from '../../components/ObjectDisplay.tsx'
 import Button from '../../components/Button.tsx'
+import { useState } from 'react'
+import './SingleItem.css'
+import '../../App.css'
+import './singleItemPane.css'
+const defaultClasses: string = `btn confirm-delete-btn`
 
 const DeleteItemConfirm = () => {
-  const { singleItem, getItemByIdError } = useItems()
+  const [btnClasses, setBtnClasses] = useState<string>(defaultClasses)
+  const { singleItem, getItemByIdError, deleteItem, itemId } = useItems()
 
   const handleConfirmDelete = async () => {
     console.log('delete confirmed')
+    if (itemId) deleteItem(itemId)
   }
 
   const HandleHoverStart = async () => {
     console.log('hover start')
+    setBtnClasses('btn confirm-delete-btn confirm-delete-btn-hover')
   }
 
   const handleHoverEnd = async () => {
     console.log('hover end')
+    setBtnClasses(defaultClasses)
   }
 
   return (
@@ -28,9 +33,6 @@ const DeleteItemConfirm = () => {
         <pre className="error-message">{getItemByIdError}</pre>
       ) : singleItem && !Array.isArray(singleItem) ? (
         <div className="single-item-display-container">
-          {/*<div className={`status-label ${singleItemStatus.statusType}`}>*/}
-          {/*  {singleItemStatus.status}*/}
-          {/*</div>*/}
           <div className="confirm-delete-btn-container">
             <Button
               id={`confirm-delete-item`}
@@ -38,7 +40,7 @@ const DeleteItemConfirm = () => {
               onClick={handleConfirmDelete}
               onMouseEnter={HandleHoverStart}
               onMouseLeave={handleHoverEnd}
-              className={`btn confirm-delete-btn`}
+              className={btnClasses}
             >
               Are you sure you want to permanently delete this item?
             </Button>

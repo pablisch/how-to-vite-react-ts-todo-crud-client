@@ -24,7 +24,11 @@ const GetByIdResponse = () => {
   console.log('singleItem', singleItem)
 
   useEffect(() => {
-    if (operation === 'getById') getSingleItem()
+    if (operation === 'getById') {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      getSingleItem()
+    }
   }, [baseUrl, endpoint, idParams])
 
   return (

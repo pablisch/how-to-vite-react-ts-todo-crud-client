@@ -40,6 +40,7 @@ const ListItem = ({ item }: ListItemProps) => {
     loadUpdateForm,
     operation,
     isPatchUpdate,
+    setItemId,
   } = useItems()
 
   // let classes: itemClassesObject = defaultClasses
@@ -89,6 +90,7 @@ const ListItem = ({ item }: ListItemProps) => {
     if (viewActive) {
       handleResetIdParams()
     }
+    setItemId(id)
     await startDeleteItem(id)
   }
 

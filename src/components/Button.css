@@ -31,12 +31,18 @@
 }
 
 .confirm-delete-btn {
-  background: var(--btn-warning-1);
+  background: var(--DELETE-dark);
   height: var(--single-status-height);
   width: var(--wide-btn);
-  margin: var(--above-single-status-spacing) auto var(--below-single-status-spacing);
+  margin: var(--above-single-status-spacing) auto
+    var(--below-single-status-spacing);
   font-size: 1rem;
   text-align: center;
+}
+
+.confirm-delete-btn-hover {
+  background: var(--DELETE-dark-vibe);
+  border: 1px solid var(--border-contrast-2);
 }
 
 .inactive-btn {
