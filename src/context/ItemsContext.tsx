@@ -14,9 +14,9 @@ export interface ItemsContextType {
   itemToUpdate: UnknownObject | undefined | null
   getAllItems: () => void
   getAllItemsError: React.ReactElement | null
-  getSingleItem: () => void
+  getSingleItem: (changeOperation: boolean, id: string) => void
   getItemByIdError: React.ReactElement | null
-  deleteItem: (id: string) => void
+  startDeleteItem: (id: string) => void
   deleteItemError: React.ReactElement | null
   deleteResponseData: UnknownObject | null | undefined
   updateItem: (id: string) => void
@@ -41,7 +41,7 @@ export const ItemsContext = createContext<ItemsContextType>({
   getAllItemsError: null,
   getSingleItem: () => {},
   getItemByIdError: null,
-  deleteItem: () => {},
+  startDeleteItem: () => {},
   deleteItemError: null,
   deleteResponseData: null,
   updateItem: () => {},
@@ -81,7 +81,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     useState<React.ReactElement | null>(null)
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
-  const { idParams } = useIdParams()
+  const { idParams, handleSetIdParams } = useIdParams()
   const { queryParams } = useQueryParams()
   const [operation, setOperation] = useState<string>('getById')
   const [getItemsStatus, setGetItemsStatus] = useState<StatusObject>({})
@@ -126,14 +126,18 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  const getSingleItem = async () => {
-    setOperation('getById')
+  const getSingleItem = async (
+    changeOperation: boolean = true,
+    id: string = idParams
+  ) => {
+    if (changeOperation) setOperation('getById')
     setSingleItem(undefined)
     setGetItemByIdError(null)
-    if (!idParams) return
+    if (!id) return
+    id = helpers.ensureLeadingSlash(id)
     try {
       const response = await apiClient.get(
-        `${baseUrl}${endpoint}${idParams}${queryParams}`
+        `${baseUrl}${endpoint}${id}${queryParams}`
       )
       setSingleItem(response.data)
       setSingleItemStatus({
@@ -148,9 +152,26 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
+  const startDeleteItem = async (id: string) => {
+    let fetchItem: boolean = true
+    console.log('deleteProcess:', id)
+    setOperation('delete')
+
+    if (
+      (singleItem && 'id' in singleItem && singleItem.id === id) ||
+      (singleItem && '_id' in singleItem && singleItem._id === id)
+    ) {
+      fetchItem = false
+    }
+
+    if (fetchItem) {
+      handleSetIdParams(id)
+      await getSingleItem(false, id)
+    }
+  }
+
   const deleteItem = async (id: string) => {
     setDeleteMessage(null)
-    setOperation('delete')
     setDeleteItemError(null)
     try {
       const response = await axios.delete(`${baseUrl}${endpoint}/${id}`, {
@@ -238,7 +259,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         getAllItemsError,
         getSingleItem,
         getItemByIdError,
-        deleteItem,
+        startDeleteItem,
         deleteItemError,
         deleteResponseData: deleteMessage,
         updateItem,

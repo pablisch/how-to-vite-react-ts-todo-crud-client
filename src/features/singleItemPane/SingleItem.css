@@ -9,6 +9,10 @@
   scrollbar-gutter: stable;
   scrollbar-width: auto;
   position: relative;
+  /*height: var(--single-item-display-height);*/
+}
+
+.get-by-id-display-height {
   height: var(--single-item-display-height);
 }
 

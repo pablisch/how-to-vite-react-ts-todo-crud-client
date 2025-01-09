@@ -36,7 +36,7 @@ const ListItem = ({ item }: ListItemProps) => {
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
   const {
     handleResetOperation,
-    deleteItem,
+    startDeleteItem,
     loadUpdateForm,
     operation,
     isPatchUpdate,
@@ -89,7 +89,7 @@ const ListItem = ({ item }: ListItemProps) => {
     if (viewActive) {
       handleResetIdParams()
     }
-    await deleteItem(id)
+    await startDeleteItem(id)
   }
 
   const handleChooseUpdate = async () => {

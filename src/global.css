@@ -43,6 +43,8 @@
   --padding-1: 3px;
 
   --color-trans: 0.3s;
+
+  --wide-btn: 480px;
 }
 
 .border-primary {
