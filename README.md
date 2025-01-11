@@ -1,9 +1,12 @@
 # TODOS
 
-Rethink the logic behind getting a singleItem.
-Fetching a single item really does not have anything to do with getById anymore since my setup requires a single item for any operation.
-I need to fetch a singleItem whenever any item is selected by any operation button and the operation button then dictates how that item is displayed.
-Create might be an exception but that can be dealt with later
+Explore having the text on buttons coloured rather than the buttons themselves
+
+Formatting on the update display
+
+Ability to save URL and URL sections to local storage
+
+Ability to retrieve URL sections and the complete URL broken down into sections
 
 ## Item states in List
 
