@@ -24,8 +24,13 @@ const ListItem = ({ item }: ListItemProps) => {
     defaultIsHoveredSettings
   )
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
-  const { startDeleteItem, loadUpdateForm, isPatchUpdate, setItemId } =
-    useItems()
+  const {
+    startDeleteItem,
+    loadUpdateForm,
+    isPatchUpdate,
+    setItemId,
+    getSingleItem,
+  } = useItems()
   const { operation, handleResetOperation } = useOperation()
 
   const formattedItem = helpers.processListItemForDisplay(item)
@@ -41,6 +46,7 @@ const ListItem = ({ item }: ListItemProps) => {
     } else {
       handleSetIdParams(id)
       handleResetOperation()
+      getSingleItem(id)
     }
   }
 

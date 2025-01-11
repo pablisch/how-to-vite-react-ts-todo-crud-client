@@ -1,8 +1,9 @@
 # TODOS
 
-Stop need for API call when switching operation for same item - look at using the focusItem property... is it focusItem?
-
-Document the different state names used and what they mean, e.g. focus, active, hover relating to the list and list items.
+Rethink the logic behind getting a singleItem.
+Fetching a single item really does not have anything to do with getById anymore since my setup requires a single item for any operation.
+I need to fetch a singleItem whenever any item is selected by any operation button and the operation button then dictates how that item is displayed.
+Create might be an exception but that can be dealt with later
 
 ## Item states in List
 

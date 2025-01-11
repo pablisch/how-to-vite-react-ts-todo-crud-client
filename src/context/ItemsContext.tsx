@@ -16,7 +16,7 @@ export interface ItemsContextType {
   getAllItems: () => void
   getAllItemsError: React.ReactElement | null
   getSingleItem: (
-    changeOperation: boolean | undefined,
+    // changeOperation: boolean | undefined,
     id: string | undefined
   ) => void
   getItemByIdError: React.ReactElement | null
@@ -63,7 +63,7 @@ export const ItemsContext = createContext<ItemsContextType>({
 })
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
-  const { handleResetOperation, handleChangeOperation } = useOperation()
+  const { handleChangeOperation } = useOperation()
   const [items, setItems] = useState<
     UnknownObject[] | UnknownObject | undefined
   >(undefined)
@@ -131,11 +131,10 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  const getSingleItem = async (
-    changeOperation: boolean | undefined = true,
-    id: string | undefined = idParams
-  ) => {
-    if (changeOperation) handleResetOperation()
+  const getSingleItem = async (id: string | undefined = idParams) => {
+    const isCurrentItem = helpers.isCurrentItem(singleItem, id)
+    console.log('****()** isCurrentItem:', isCurrentItem)
+    if (isCurrentItem) return
     setSingleItem(undefined)
     setGetItemByIdError(null)
     if (!id) return
@@ -165,7 +164,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
 
     if (!isCurrentItem) {
       handleSetIdParams(id)
-      await getSingleItem(false, id)
+      await getSingleItem(id)
     }
   }
 
