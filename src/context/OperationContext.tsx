@@ -6,14 +6,12 @@ export interface OperationContextType {
   operation: string
   handleChangeOperation: (newOperation: string) => void
   handleResetOperation: () => void
-  setOperation: (operation: string) => void
 }
 
 export const OperationContext = createContext<OperationContextType>({
   operation: initialOperation,
   handleChangeOperation: () => {},
   handleResetOperation: () => {},
-  setOperation: () => {},
 })
 
 export const OperationProvider = ({ children }: { children: ReactNode }) => {
@@ -33,7 +31,6 @@ export const OperationProvider = ({ children }: { children: ReactNode }) => {
         operation,
         handleChangeOperation,
         handleResetOperation,
-        setOperation,
       }}
     >
       {children}

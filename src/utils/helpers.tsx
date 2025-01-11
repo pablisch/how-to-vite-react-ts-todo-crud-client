@@ -157,4 +157,18 @@ export default {
   ensureLeadingSlash: function (urlSection: string): string {
     return urlSection.startsWith('/') ? urlSection : `/${urlSection}`
   },
+
+  isCurrentItem: function (
+    currentItem: UnknownObject | UnknownObject[] | undefined,
+    id: string
+  ): boolean {
+    let currentId: string = ''
+    if (currentItem && 'id' in currentItem) {
+      currentId = currentItem.id
+    } else if (currentItem && '_id' in currentItem) {
+      currentId = currentItem._id
+    }
+
+    return currentId === id
+  },
 }
