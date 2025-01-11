@@ -50,7 +50,7 @@ export const IdParamsProvider = ({
     } else if (idParams !== defaultIdParams && isDefaultUrlValue) {
       setIsDefaultUrlValue(false)
     }
-  }, [idParams])
+  }, [idParams, isDefaultUrlValue])
 
   return (
     <IdParamsContext.Provider

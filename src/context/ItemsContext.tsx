@@ -23,6 +23,7 @@ export interface ItemsContextType {
   updateItem: (id: string) => void
   updateItemError: React.ReactElement | null
   operation: string
+  setOperation: (operation: string) => void
   handleChangeOperation: (newOperation: string) => void
   handleResetOperation: () => void
   getItemsStatus: StatusObject
@@ -51,6 +52,7 @@ export const ItemsContext = createContext<ItemsContextType>({
   updateItem: () => {},
   updateItemError: null,
   operation: 'getById',
+  setOperation: () => {},
   handleChangeOperation: () => {},
   handleResetOperation: () => {},
   getItemsStatus: {},
@@ -273,6 +275,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         updateItem,
         updateItemError,
         operation,
+        setOperation,
         handleChangeOperation,
         handleResetOperation,
         getItemsStatus,

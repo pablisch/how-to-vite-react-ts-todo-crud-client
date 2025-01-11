@@ -53,7 +53,7 @@ export const BaseUrlProvider = ({
   const [deployedUrl, setDeployedUrl] = useState<string | null>(
     localStorage.getItem('deployedUrl')
   )
-  const [isDefaultUrlValue, setIsDefaultUrlValueUrlValue] = useState<boolean>(
+  const [isDefaultUrlValue, setIsDefaultUrlValue] = useState<boolean>(
     apiSelection.includes('default')
   )
 
@@ -95,11 +95,11 @@ export const BaseUrlProvider = ({
   useEffect(() => {
     const defaultUrl = isLocalApi ? localDefaultUrl : deployedDefaultUrl
     if (isDefaultUrlValue && baseUrl !== defaultUrl) {
-      setIsDefaultUrlValueUrlValue(false)
+      setIsDefaultUrlValue(false)
     } else if (!isDefaultUrlValue && baseUrl === defaultUrl) {
-      setIsDefaultUrlValueUrlValue(true)
+      setIsDefaultUrlValue(true)
     }
-  }, [baseUrl])
+  }, [baseUrl, isDefaultUrlValue, isLocalApi])
 
   useEffect(() => {
     if (isLocalApi) {
