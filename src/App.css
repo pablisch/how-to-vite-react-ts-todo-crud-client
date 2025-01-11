@@ -76,7 +76,7 @@
   margin-bottom: var(--main-panel-bottom-margin);
 }
 
-.single-item-display-container {
+.fixed-height-display-container {
   position: relative;
   height: 100%;
 }
@@ -123,9 +123,10 @@
 .mono {
   font-family: 'Roboto Mono', monospace;
   font-weight: 300;
-  font-stretch: 80%;
-  font-variation-settings: 'wdth' 80;
-  font-size: 0.9rem;
+  /*font-stretch: 80%;*/
+  /*font-variation-settings: 'wdth' 80;*/
+  /*font-size: 0.9rem;*/
+  /*line-height: 1;*/
 }
 
 .mono-bold {

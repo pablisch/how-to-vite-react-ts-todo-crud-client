@@ -31,7 +31,7 @@
 }
 
 .confirm-delete-btn {
-  background: var(--DELETE-dark);
+  background: var(--op-delete);
   height: var(--single-status-height);
   width: var(--wide-btn);
   margin: var(--above-single-status-spacing) auto
@@ -41,7 +41,7 @@
 }
 
 .confirm-delete-btn-hover {
-  background: var(--DELETE-dark-vibe);
+  background: var(--op-delete-vibe);
   border: 1px solid var(--border-contrast-2);
 }
 

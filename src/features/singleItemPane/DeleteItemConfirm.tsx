@@ -32,7 +32,7 @@ const DeleteItemConfirm = () => {
       {getItemByIdError ? (
         <pre className="error-message">{getItemByIdError}</pre>
       ) : singleItem && !Array.isArray(singleItem) ? (
-        <div className="single-item-display-container">
+        <div className="fixed-height-display-container">
           <div className="confirm-delete-btn-container">
             <Button
               id={`confirm-delete-item`}

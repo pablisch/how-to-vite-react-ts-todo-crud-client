@@ -17,7 +17,7 @@
   --border-mute: var(--grey-150);
   --border-mute-2: var(--warm-grey-200);
   --border-contrast-1: var(--grey-300);
-  --border-contrast-2: var(--grey-1100);
+  --border-contrast-2: var(--grey-450);
 
   --btn-passive-1: var(--green-150);
   --btn-passive-2: var(--turquoise-100);
@@ -83,7 +83,7 @@
   --border-mute: var(--grey-650);
   --border-mute-2: var(--grey-800);
   --border-contrast-1: var(--grey-400);
-  --border-contrast-2: var(--grey-300);
+  --border-contrast-2: var(--grey-350);
 
   --btn-passive-1: var(--green-1100);
   --btn-passive-2: var(--turquoise-900);
