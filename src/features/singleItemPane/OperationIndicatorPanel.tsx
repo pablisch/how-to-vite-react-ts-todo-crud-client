@@ -2,9 +2,11 @@ import { useItems } from '../../hooks/useItems.tsx'
 import './OperationIndicator.css'
 import '../allItemsPane/ListItem.css'
 import OperationIndicator from './OperationIndicator.tsx'
+import { useOperation } from '../../hooks/useOperation.tsx'
 
 const OperationIndicatorPanel = () => {
-  const { operation, isPatchUpdate } = useItems()
+  const { operation } = useOperation()
+  const { isPatchUpdate } = useItems()
 
   const patchFocus = operation === 'update' && isPatchUpdate
   const putFocus = operation === 'update' && !isPatchUpdate

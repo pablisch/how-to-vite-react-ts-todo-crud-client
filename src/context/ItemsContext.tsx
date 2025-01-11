@@ -7,6 +7,7 @@ import { useQueryParams } from '../hooks/useQueryParams.tsx'
 import { useIdParams } from '../hooks/useIdParams.tsx'
 import apiClient from '../utils/apiClient.ts'
 import helpers from '../utils/helpers.tsx'
+import { useOperation } from '../hooks/useOperation.tsx'
 
 export interface ItemsContextType {
   items: UnknownObject[] | UnknownObject | undefined
@@ -22,8 +23,6 @@ export interface ItemsContextType {
   deleteResponseData: UnknownObject | null | undefined
   updateItem: (id: string) => void
   updateItemError: React.ReactElement | null
-  operation: string
-  setOperation: (operation: string) => void
   handleChangeOperation: (newOperation: string) => void
   handleResetOperation: () => void
   getItemsStatus: StatusObject
@@ -51,8 +50,6 @@ export const ItemsContext = createContext<ItemsContextType>({
   deleteResponseData: null,
   updateItem: () => {},
   updateItemError: null,
-  operation: 'getById',
-  setOperation: () => {},
   handleChangeOperation: () => {},
   handleResetOperation: () => {},
   getItemsStatus: {},
@@ -67,6 +64,7 @@ export const ItemsContext = createContext<ItemsContextType>({
 })
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
+  const { operation, setOperation } = useOperation()
   const [items, setItems] = useState<
     UnknownObject[] | UnknownObject | undefined
   >(undefined)
@@ -91,7 +89,6 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const { endpoint } = useEndpoint()
   const { idParams, handleSetIdParams } = useIdParams()
   const { queryParams } = useQueryParams()
-  const [operation, setOperation] = useState<string>('getById')
   const [getItemsStatus, setGetItemsStatus] = useState<StatusObject>({})
   const [singleItemStatus, setSingleItemStatus] = useState<StatusObject>({})
   const [deleteStatus, setDeleteStatus] = useState<StatusObject>({})
@@ -274,8 +271,6 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         deleteResponseData: deleteMessage,
         updateItem,
         updateItemError,
-        operation,
-        setOperation,
         handleChangeOperation,
         handleResetOperation,
         getItemsStatus,

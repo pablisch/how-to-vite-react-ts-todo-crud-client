@@ -1,12 +1,12 @@
 import List from '../features/allItemsPane/List.tsx'
 import GetByIdResponse from '../features/singleItemPane/GetByIdResponse.tsx'
 import UpdateItemForm from '../features/singleItemPane/UpdateItemForm.tsx'
-import { useItems } from '../hooks/useItems.tsx'
 import OperationIndicatorPanel from '../features/singleItemPane/OperationIndicatorPanel.tsx'
 import DeleteController from '../features/singleItemPane/DeleteController.tsx'
+import { useOperation } from '../hooks/useOperation.tsx'
 
 const MainPage = () => {
-  const { operation } = useItems()
+  const { operation } = useOperation()
 
   return (
     <div className="main-section-container">

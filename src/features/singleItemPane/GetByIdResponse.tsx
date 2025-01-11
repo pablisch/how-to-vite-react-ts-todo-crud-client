@@ -8,18 +8,15 @@ import '../../App.css'
 import './singleItemPane.css'
 import Loading from '../../components/Loading.tsx'
 import ObjectDisplay from '../../components/ObjectDisplay.tsx'
+import { useOperation } from '../../hooks/useOperation.tsx'
 
 const GetByIdResponse = () => {
+  const { operation } = useOperation()
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
-  const {
-    singleItem,
-    getSingleItem,
-    getItemByIdError,
-    operation,
-    singleItemStatus,
-  } = useItems()
+  const { singleItem, getSingleItem, getItemByIdError, singleItemStatus } =
+    useItems()
 
   console.log('singleItem', singleItem)
 

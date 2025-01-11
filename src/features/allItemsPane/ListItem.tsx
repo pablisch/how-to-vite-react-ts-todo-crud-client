@@ -6,6 +6,7 @@ import { useItems } from '../../hooks/useItems.tsx'
 import { useState } from 'react'
 import helpers from '../../utils/helpers.tsx'
 import classHelpers from '../../utils/classHelpers.ts'
+import { useOperation } from '../../hooks/useOperation.tsx'
 
 const defaultIsHoveredSettings: IsHoveredObject = {
   item: false,
@@ -27,11 +28,10 @@ const ListItem = ({ item }: ListItemProps) => {
     handleResetOperation,
     startDeleteItem,
     loadUpdateForm,
-    operation,
-    setOperation,
     isPatchUpdate,
     setItemId,
   } = useItems()
+  const { operation, setOperation } = useOperation()
 
   const formattedItem = helpers.processListItemForDisplay(item)
   const id = formattedItem[0][1]
