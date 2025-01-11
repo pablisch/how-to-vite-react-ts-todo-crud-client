@@ -7,9 +7,9 @@ Document the different state names used and what they mean, e.g. focus, active, 
 ## Item states in List
 
 There are several variables used to indicate the status of List item that help to manage CSS, text and actions of the item panel and the buttons:
-- **isFocussed** means the currently selected item. This is derived state where the first display property (id, _id or index) is the same as the idParam state value. This is mainly used to derive the classes given to the panel and buttons for CSS styling.
-- **viewActive**, **updateActive** and **deleteActive** mean that the item is the focussed item AND the operation is 'getById', 'update' or 'delete' respectively - this is used to derive the text of the corresponding button and directs the behaviour when this button is clicked.
 
+- **isFocussed** means the currently selected item. This is derived state where the first display property (id, \_id or index) is the same as the idParam state value. This is mainly used to derive the classes given to the panel and buttons for CSS styling.
+- **viewActive**, **updateActive** and **deleteActive** mean that the item is the focussed item AND the operation is 'getById', 'update' or 'delete' respectively - this is used to derive the text of the corresponding button and directs the behaviour when this button is clicked.
 
 # How to build a simple Todo CRUD client app with Vite React TypeScript
 
