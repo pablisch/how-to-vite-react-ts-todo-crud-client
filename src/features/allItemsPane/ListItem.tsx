@@ -127,6 +127,7 @@ const ListItem = ({ item }: ListItemProps) => {
           onMouseEnter={handleViewHoverStart}
           onMouseLeave={handleViewHoverEnd}
           className={[...classes.view].join(' ')}
+          spanClassName={`item-btn-font`}
         >
           {viewActive ? 'Deselect' : 'View'}
         </Button>
@@ -137,6 +138,7 @@ const ListItem = ({ item }: ListItemProps) => {
           onMouseEnter={handleUpdateHoverStart}
           onMouseLeave={handleUpdateHoverEnd}
           className={[...classes.update].join(' ')}
+          spanClassName={`item-btn-font`}
         >
           {updateActive ? 'Cancel' : 'Update'}
         </Button>
@@ -147,6 +149,7 @@ const ListItem = ({ item }: ListItemProps) => {
           onMouseEnter={handleDeleteHoverStart}
           onMouseLeave={handleDeleteHoverEnd}
           className={[...classes.delete].join(' ')}
+          spanClassName={`item-btn-font`}
         >
           {deleteActive ? 'Cancel' : 'Delete'}
         </Button>

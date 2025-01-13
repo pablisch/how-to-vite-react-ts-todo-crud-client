@@ -5,6 +5,7 @@ interface ButtonProps {
   children: ReactNode
   ariaLabel?: string
   className?: string
+  spanClassName?: string
   onClick?: () => void
   onMouseEnter?: () => void
   onMouseLeave?: () => void
@@ -17,6 +18,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
     children,
     ariaLabel = 'button',
     className = 'btn',
+    spanClassName = '',
     onClick,
     onMouseEnter,
     onMouseLeave,
@@ -36,7 +38,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
       disabled={disabled}
       ref={ref}
     >
-      <span>{children}</span>
+      <span className={spanClassName}>{children}</span>
     </button>
   )
 })
