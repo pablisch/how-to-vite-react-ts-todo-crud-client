@@ -89,6 +89,10 @@
   border-radius: 5px;
 }
 
+.display-list {
+  list-style: none;
+}
+
 #single-item-operation-container {
   line-height: 1.5;
 }

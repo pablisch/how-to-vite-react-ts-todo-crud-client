@@ -137,9 +137,9 @@ export default {
     }
 
     return (
-      <div className="single-item-details">
+      <ul className="single-item-details">
         {Object.entries(obj).map(([key, value]) => (
-          <p key={key}>
+          <li key={key} className={`display-list`}>
             <span className={`mono-bold`}>{key}</span>:{' '}
             {typeof value === 'object' && value !== null ? (
               this.formatObjectAsJsxWithBoldKeys(
@@ -148,9 +148,9 @@ export default {
             ) : (
               <span className={`mono pad-left`}>{`${String(value)}`}</span>
             )}
-          </p>
+          </li>
         ))}
-      </div>
+      </ul>
     )
   },
 
