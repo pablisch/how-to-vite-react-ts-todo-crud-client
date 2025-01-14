@@ -74,7 +74,7 @@
 }
 
 .focus {
-  background: var(--btn-focus-1);
+  background: var(--btn-focus-2);
   border: 1px solid var(--border-contrast-1);
 }
 

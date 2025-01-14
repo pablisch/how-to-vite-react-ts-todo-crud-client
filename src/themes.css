@@ -23,7 +23,7 @@
   --btn-passive-2: var(--turquoise-100);
   --btn-passive-3: var(--blue-150);
   --btn-warning-1: var(--red-150);
-  --btn-focus-1: var(--blue-150);
+  --btn-focus-2: var(--blue-150);
   --btn-inactive-1: var(--warm-grey-100);
   --btn-inactive-hover-1: var(--warm-grey-50);
   --btn-disabled-1: var(--grey-150);
@@ -82,6 +82,7 @@
   --border-1: var(--grey-500);
   --border-mute: var(--grey-650);
   --border-mute-2: var(--grey-800);
+  --border-contrast-0: var(--grey-450);
   --border-contrast-1: var(--grey-400);
   --border-contrast-2: var(--grey-350);
 
@@ -89,7 +90,11 @@
   --btn-passive-2: var(--turquoise-900);
   --btn-passive-3: var(--blue-900);
   --btn-warning-1: var(--red-900);
-  --btn-focus-1: var(--grey-1050);
+  --btn-focus-0: var(--grey-1000);
+  --btn-focus-1: var(--grey-1030);
+  --btn-focus-2: var(--grey-1050);
+  --btn-focus-3: var(--grey-1100);
+  --btn-focus-4: var(--grey-1200);
   --btn-inactive-1: var(--grey-1000);
   --btn-inactive-hover-1: var(--grey-1050);
   --btn-disabled-1: var(--grey-900);

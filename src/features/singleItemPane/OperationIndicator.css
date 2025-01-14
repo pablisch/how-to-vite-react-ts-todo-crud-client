@@ -17,7 +17,6 @@
   border-radius: 0.5rem;
   border: 1px solid var(--border-1);
   color: var(--text-mid-grey);
-  font-size: 1rem;
   padding: 5px;
   transition:
     background var(--color-trans) ease,
@@ -25,87 +24,88 @@
 }
 
 .active-operation {
-  background: var(--btn-focus-1);
+  background: var(--btn-focus-2);
   color: var(--text-1);
   border: 1px solid var(--border-1);
 }
 
-.active-get-by-id {
-  background: var(--op-get-by-id);
-  color: var(--text-1);
+.active-get-by-id-op {
+  color: var(--op-get-by-id);
   border: 1px solid var(--border-1);
 }
 
-.active-post {
-  background: var(--op-post);
-  color: var(--text-1);
+.active-post-op {
+  color: var(--op-post);
   border: 1px solid var(--border-1);
 }
 
-.active-delete {
-  background: var(--op-delete);
-  color: var(--text-1);
+.active-put-op {
+  color: var(--op-put);
   border: 1px solid var(--border-1);
 }
 
-.active-patch {
-  background: var(--op-patch);
-  color: var(--text-1);
+.active-patch-op {
+  color: var(--op-patch);
   border: 1px solid var(--border-1);
 }
 
-.active-put {
-  background: var(--op-put);
-  color: var(--text-1);
+.active-delete-op {
+  color: var(--op-delete);
   border: 1px solid var(--border-1);
 }
 
-.get-by-id-op-hover {
-  background: var(--op-get-by-id-vibe);
+/* for each operation - op btn is active and hovered */
+
+.hover-get-by-id-op {
+  color: var(--op-get-by-id-vibe);
 }
 
-.post-op-hover {
-  background: var(--op-post-vibe);
+.hover-post-op {
+  color: var(--op-post-vibe);
 }
 
-.delete-op-hover {
-  background: var(--op-delete-vibe);
+.hover-delete-op {
+  color: var(--op-delete-vibe);
 }
 
-.patch-op-hover {
-  background: var(--op-patch-vibe);
+.hover-patch-op {
+  color: var(--op-patch-vibe);
 }
 
-.put-op-hover {
-  background: var(--op-put-vibe);
+.hover-put-op {
+  color: var(--op-put-vibe);
 }
 
-.op-indicator-hover {
-  color: var(--text-contrast);
+/* any operation btn is active and hovered */
+.active-op-indicator-hover {
+  background: var(--btn-focus-3);
   border: 1px solid var(--border-contrast-2);
 }
 
+/* any operation btn is NOT active but hovered */
+.inactive-op-indicator-hover {
+  background: var(--btn-focus-0);
+  border: 1px solid var(--border-contrast-1);
+}
+
+/* for each operation - op btn is NOT active and hovered */
+
 .get-by-id-op-mute {
-  background: var(--op-get-by-id-mute);
+  color: var(--op-get-by-id-mute);
 }
 
 .post-op-mute {
-  background: var(--op-post-mute);
+  color: var(--op-post-mute);
 }
 
 .delete-op-mute {
-  background: var(--op-delete-mute);
+  color: var(--op-delete-mute);
 }
 
 .patch-op-mute {
-  background: var(--op-patch-mute);
+  color: var(--op-patch-mute);
 }
 
 .put-op-mute {
-  background: var(--op-put-mute);
-}
-
-.op-indicator-mute {
-  color: var(--text-3);
-  border: 1px solid var(--border-contrast-1);
+  color: var(--op-put-mute);
 }
