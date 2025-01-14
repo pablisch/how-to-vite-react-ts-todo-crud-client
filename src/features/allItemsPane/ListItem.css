@@ -15,10 +15,6 @@
   margin: 0.3rem 0.8rem 0.3rem 0;
 }
 
-.item-btn {
-  /*opacity: 70%;*/
-}
-
 .inactive-item-btn {
   background: var(--btn-inactive-1);
   color: var(--text-mute);

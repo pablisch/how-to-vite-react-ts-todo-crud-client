@@ -60,7 +60,13 @@
     color var(--color-trans) ease;
 }
 
+.item-btn {
+  padding: 2px;
+}
+
 .item-btn-font {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  /*font-family: 'Roboto Flex', sans-serif;*/
+  font-family: 'Nunito Sans', sans-serif;
+  font-variation-settings: "slnt" -10, "wdth" 25, "wght" 300;
 }
