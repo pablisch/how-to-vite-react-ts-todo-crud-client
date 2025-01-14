@@ -24,7 +24,7 @@
 }
 
 .active-operation {
-  background: var(--btn-focus-2);
+  background: var(--btn-focus-3);
   color: var(--text-1);
   border: 1px solid var(--border-1);
 }
@@ -78,7 +78,7 @@
 
 /* any operation btn is active and hovered */
 .active-op-indicator-hover {
-  background: var(--btn-focus-3);
+  background: var(--btn-focus-5);
   border: 1px solid var(--border-contrast-2);
 }
 

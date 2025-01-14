@@ -93,8 +93,9 @@
   --btn-focus-0: var(--grey-1000);
   --btn-focus-1: var(--grey-1030);
   --btn-focus-2: var(--grey-1050);
-  --btn-focus-3: var(--grey-1100);
-  --btn-focus-4: var(--grey-1200);
+  --btn-focus-3: var(--grey-1080);
+  --btn-focus-4: var(--grey-1100);
+  --btn-focus-5: var(--grey-1120);
   --btn-inactive-1: var(--grey-1000);
   --btn-inactive-hover-1: var(--grey-1050);
   --btn-disabled-1: var(--grey-900);
