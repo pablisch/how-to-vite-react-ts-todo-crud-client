@@ -41,10 +41,10 @@ html {
 
 .mono-100 {
   font-family: 'Roboto Mono V', monospace;
-  font-variation-settings: "wght" 100;
+  font-variation-settings: 'wght' 100;
 }
 
 .roboto-flex-100 {
   font-family: 'Roboto Flex', sans-serif;
-  font-variation-settings: "wght" 100;
+  font-variation-settings: 'wght' 100;
 }

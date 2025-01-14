@@ -45,7 +45,7 @@
 }
 
 .view-btn-focus {
-  background: var(--op-get-by-id);
+  color: var(--op-get-by-id);
 }
 
 .update-patch-btn-focus {
@@ -74,7 +74,7 @@
 }
 
 .focus {
-  color: var(--text-2);
+  background: var(--btn-focus-1);
   border: 1px solid var(--border-contrast-1);
 }
 

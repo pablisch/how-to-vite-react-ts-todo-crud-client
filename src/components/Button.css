@@ -68,5 +68,8 @@
   font-size: 1.1rem;
   /*font-family: 'Roboto Flex', sans-serif;*/
   font-family: 'Nunito Sans', sans-serif;
-  font-variation-settings: "slnt" -10, "wdth" 25, "wght" 300;
+  font-variation-settings:
+    'slnt' -10,
+    'wdth' 25,
+    'wght' 300;
 }

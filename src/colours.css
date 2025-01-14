@@ -113,11 +113,11 @@
   --PATCH-light-mute: #d0bfe3;
   --DELETE-light-mute: #dcb9b6;
 
-  --GET-dark: #2a4c36;
-  --POST-dark: #5c4e33;
-  --PUT-dark: #344a5e;
-  --PATCH-dark: #453855;
-  --DELETE-dark: #633b36;
+  --GET-dark: #027b31;
+  --POST-dark: #a77607;
+  --PUT-dark: #0251b1;
+  --PATCH-dark: #603492;
+  --DELETE-dark: #891c11;
   --GET-dark-vibe: #156c35;
   --POST-dark-vibe: #976d1b;
   --PUT-dark-vibe: #1859a3;
@@ -128,4 +128,10 @@
   --PUT-dark-mute: #37434e;
   --PATCH-dark-mute: #463f50;
   --DELETE-dark-mute: #553f3c;
+
+  --GET: #027b31;
+  --POST: #a77607;
+  --PUT: #0251b1;
+  --PATCH: #603492;
+  --DELETE: #891c11;
 }

@@ -4,6 +4,9 @@ import '../allItemsPane/ListItem.css'
 import OperationIndicator from './OperationIndicator.tsx'
 import { useOperation } from '../../hooks/useOperation.tsx'
 
+// TODO get rid of fakeFocus when CSS styling complete
+const fakeFocus = true
+
 const OperationIndicatorPanel = () => {
   const { operation } = useOperation()
   const { isPatchUpdate } = useItems()
@@ -20,7 +23,9 @@ const OperationIndicatorPanel = () => {
           'operation',
           ...(operation === 'getById'
             ? ['active-operation', 'active-get-by-id']
-            : []),
+            : fakeFocus
+              ? ['active-operation', 'active-get-by-id']
+              : []),
         ]}
         hoverClass={
           operation === 'getById'
@@ -37,6 +42,8 @@ const OperationIndicatorPanel = () => {
           'operation',
           ...(operation === 'create'
             ? ['active-operation', 'active-post']
+            : fakeFocus
+              ? ['active-operation', 'active-post']
             : []),
         ]}
         hoverClass={
@@ -52,7 +59,8 @@ const OperationIndicatorPanel = () => {
         ariaLabel={`put operation indicator`}
         classNames={[
           'operation',
-          ...(putFocus ? ['active-operation', 'active-put'] : []),
+          ...(putFocus ? ['active-operation', 'active-put'] : fakeFocus
+            ? ['active-operation', 'active-put'] : []),
         ]}
         hoverClass={
           putFocus
@@ -67,7 +75,8 @@ const OperationIndicatorPanel = () => {
         ariaLabel={`patch operation indicator`}
         classNames={[
           'operation',
-          ...(patchFocus ? ['active-operation', 'active-patch'] : []),
+          ...(patchFocus ? ['active-operation', 'active-patch'] : fakeFocus
+            ? ['active-operation', 'active-patch'] : []),
         ]}
         hoverClass={
           patchFocus
@@ -84,6 +93,8 @@ const OperationIndicatorPanel = () => {
           'operation',
           ...(operation === 'delete'
             ? ['active-operation', 'active-delete']
+            : fakeFocus
+              ? ['active-operation', 'active-delete']
             : []),
         ]}
         hoverClass={
