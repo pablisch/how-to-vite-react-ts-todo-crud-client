@@ -29,55 +29,44 @@
 }
 
 .view-btn-hover {
-  /*opacity: 100%;*/
   background: var(--op-get-by-id-mute);
-  /*filter: brightness(70%);*/
+}
+
+.update-patch-btn-hover {
+  background: var(--op-patch-mute);
+}
+
+.update-put-btn-hover {
+  background: var(--op-put-mute);
+}
+
+.delete-btn-hover {
+  background: var(--op-delete-mute);
 }
 
 .view-btn-focus {
   background: var(--op-get-by-id);
-  /*filter: brightness(100%);*/
-}
-
-.delete-btn-hover {
-  /*opacity: 100%;*/
-  background: var(--op-delete-mute);
-  /*filter: brightness(70%);*/
-}
-
-.delete-btn-focus {
-  background: var(--op-delete);
-  /*filter: brightness(100%);*/
-}
-
-.update-patch-btn-hover {
-  /*opacity: 100%;*/
-  background: var(--op-patch-mute);
-  /*filter: brightness(70%);*/
-}
-
-.update-put-btn-hover {
-  /*opacity: 100%;*/
-  background: var(--op-put-mute);
-  /*filter: brightness(70%);*/
 }
 
 .update-patch-btn-focus {
   background: var(--op-patch);
-  /*filter: brightness(100%);*/
 }
 
 .update-put-btn-focus {
   background: var(--op-put);
 }
 
-.hover-item-delete-btn {
-  background: var(--background-3);
+.delete-btn-focus {
+  background: var(--op-delete);
 }
 
-.hover-item-update-btn {
-  background: var(--background-3);
-}
+/*.hover-item-delete-btn {*/
+/*  background: var(--background-3);*/
+/*}*/
+
+/*.hover-item-update-btn {*/
+/*  background: var(--background-3);*/
+/*}*/
 
 .hover {
   color: var(--text-3);
@@ -95,8 +84,6 @@
 
 .view-btn-focus-hover {
   background: var(--op-get-by-id-vibe);
-  /*color: var(--text-contrast);*/
-  /*border: 1px solid var(--border-contrast-2);*/
 }
 
 .create-btn-focus-hover {
