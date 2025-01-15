@@ -15,9 +15,9 @@
   margin: 0.3rem 0.8rem 0.3rem 0;
 }
 
-.inactive-item-btn {
+.unfocussed-item-btn {
   background: var(--btn-inactive-1);
-  color: var(--text-mute);
+  color: var(--text-mute-2);
 }
 
 .item-panel-hover {
@@ -73,7 +73,7 @@
   border: 1px solid var(--border-contrast-1);
 }
 
-.focus {
+.focus-item-btn {
   background: var(--btn-focus-2);
   border: 1px solid var(--border-contrast-1);
 }
@@ -82,31 +82,31 @@
   border: 1px solid var(--border-contrast-1);
 }
 
-.view-btn-focus-hover {
+.hover-focus-view-item-btn {
   background: var(--op-get-by-id-vibe);
 }
 
-.create-btn-focus-hover {
+.hover-focus-create-item-btn {
   background: var(--op-post-vibe);
   color: var(--text-contrast);
 }
 
-.delete-btn-focus-hover {
-  background: var(--op-delete-vibe);
-  color: var(--text-contrast);
-}
-
-.update-patch-btn-focus-hover {
-  background: var(--op-patch-vibe);
-  color: var(--text-contrast);
-}
-
-.update-put-btn-focus-hover {
+.hover-focus-put-item-btn {
   background: var(--op-put-vibe);
   color: var(--text-contrast);
 }
 
-.btn-focus-hover {
+.hover-focus-patch-item-btn {
+  background: var(--op-patch-vibe);
+  color: var(--text-contrast);
+}
+
+.hover-focus-delete-item-btn {
+  background: var(--op-delete-vibe);
+  color: var(--text-contrast);
+}
+
+.hover-focus-item-btn {
   color: var(--text-contrast);
   border: 1px solid var(--border-contrast-2);
 }

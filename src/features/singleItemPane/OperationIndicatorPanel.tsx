@@ -31,7 +31,7 @@ const OperationIndicatorPanel = () => {
         hoverClass={
           operation === 'getById'
             ? ['hover-get-by-id-op', 'active-op-indicator-hover']
-            : ['get-by-id-op-mute', 'inactive-op-indicator-hover']
+            : ['get-by-id-op-inactive-hover', 'inactive-op-indicator-hover']
         }
       >
         GET items/:id
@@ -52,7 +52,7 @@ const OperationIndicatorPanel = () => {
           operation === 'create'
           // operation === 'getById'
             ? ['hover-post-op', 'active-op-indicator-hover']
-            : ['post-op-mute', 'inactive-op-indicator-hover']
+            : ['post-op-inactive-hover', 'inactive-op-indicator-hover']
         }
       >
         POST items
@@ -70,7 +70,7 @@ const OperationIndicatorPanel = () => {
           putFocus
           // operation === 'getById'
             ? ['hover-put-op', 'active-op-indicator-hover']
-            : ['put-op-mute', 'inactive-op-indicator-hover']
+            : ['put-op-inactive-hover', 'inactive-op-indicator-hover']
         }
       >
         PUT items/:id
@@ -88,7 +88,7 @@ const OperationIndicatorPanel = () => {
           patchFocus
           // operation === 'getById'
             ? ['hover-patch-op', 'active-op-indicator-hover']
-            : ['patch-op-mute', 'inactive-op-indicator-hover']
+            : ['patch-op-inactive-hover', 'inactive-op-indicator-hover']
         }
       >
         PATCH items/:id
@@ -110,7 +110,7 @@ const OperationIndicatorPanel = () => {
           operation === 'delete'
           // operation === 'getById'
             ? ['hover-delete-op', 'active-op-indicator-hover']
-            : ['delete-op-mute', 'inactive-op-indicator-hover']
+            : ['delete-op-inactive-hover', 'inactive-op-indicator-hover']
         }
       >
         DELETE items

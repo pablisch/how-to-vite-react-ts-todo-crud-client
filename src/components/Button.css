@@ -47,7 +47,7 @@
 
 .inactive-btn {
   background: var(--btn-inactive-1);
-  color: var(--text-mute);
+  color: var(--text-mute-1);
 }
 
 .disabled {

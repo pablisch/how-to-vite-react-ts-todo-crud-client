@@ -90,22 +90,22 @@
 
 /* for each operation - op btn is NOT active and hovered */
 
-.get-by-id-op-mute {
+.get-by-id-op-inactive-hover {
   color: var(--op-get-by-id-mute);
 }
 
-.post-op-mute {
+.post-op-inactive-hover {
   color: var(--op-post-mute);
 }
 
-.delete-op-mute {
+.delete-op-inactive-hover {
   color: var(--op-delete-mute);
 }
 
-.patch-op-mute {
+.patch-op-inactive-hover {
   color: var(--op-patch-mute);
 }
 
-.put-op-mute {
+.put-op-inactive-hover {
   color: var(--op-put-mute);
 }
