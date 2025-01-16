@@ -12,23 +12,36 @@
   --text-contrast: var(--black);
   --text-mid-grey: var(--grey-300);
   --text-mute-1: var(--grey-350);
+  --text-mute-2: var(--grey-550);
 
   --border-1: var(--grey-200);
   --border-mute: var(--grey-150);
   --border-mute-2: var(--warm-grey-200);
-  --border-contrast-1: var(--grey-300);
-  --border-contrast-2: var(--grey-450);
+  --border-contrast-0: var(--grey-450);
+  --border-contrast-1: var(--grey-250);
+  --border-contrast-2: var(--grey-300);
+
+  --op-border-1: var(--grey-250);
 
   --btn-passive-1: var(--green-150);
   --btn-passive-2: var(--turquoise-100);
   --btn-passive-3: var(--blue-150);
   --btn-warning-1: var(--red-150);
-  --btn-focus-2: var(--blue-150);
+  --btn-focus-0: var(--grey-1000);
+  --btn-focus-1: var(--grey-1030);
+  --btn-focus-2: var(--white-50);
+  --btn-focus-3: var(--white-50);
+  --btn-focus-4: var(--grey-1100);
+  --btn-focus-5: var(--grey-1120);
   --btn-inactive-1: var(--warm-grey-100);
   --btn-inactive-hover-1: var(--warm-grey-50);
   --btn-disabled-1: var(--grey-150);
   --btn-option-1: var(--turquoise-200);
   --btn-option-2: var(--blue-200);
+
+  --op-btn-focus-2: var(--warm-grey-25);
+  --op-btn-focus-3: var(--grey-1080);
+  --op-btn-focus-4: var(--white);
 
   --base-url-text: var(--blue-500);
   --url-endpoint-text: var(--red-500);
@@ -102,6 +115,10 @@
   --btn-disabled-1: var(--grey-900);
   --btn-option-1: var(--turquoise-900);
   --btn-option-2: var(--blue-800);
+
+  --op-btn-focus-2: var(--grey-1080);
+  --op-btn-focus-3: var(--grey-1080);
+  --op-btn-focus-4: var(--grey-1120);
 
   --base-url-text: var(--blue-250);
   --url-endpoint-text: var(--red-250);

@@ -24,34 +24,31 @@
 }
 
 .active-operation {
-  background: var(--btn-focus-3);
+  background: var(--op-btn-focus-2);
   color: var(--text-1);
   border: 1px solid var(--border-1);
 }
 
+/* for each operation - op btn is active but NOT hovered */
+
 .active-get-by-id-op {
   color: var(--op-get-by-id);
-  border: 1px solid var(--border-1);
 }
 
 .active-post-op {
   color: var(--op-post);
-  border: 1px solid var(--border-1);
 }
 
 .active-put-op {
   color: var(--op-put);
-  border: 1px solid var(--border-1);
 }
 
 .active-patch-op {
   color: var(--op-patch);
-  border: 1px solid var(--border-1);
 }
 
 .active-delete-op {
   color: var(--op-delete);
-  border: 1px solid var(--border-1);
 }
 
 /* for each operation - op btn is active and hovered */
@@ -78,7 +75,7 @@
 
 /* any operation btn is active and hovered */
 .active-op-indicator-hover {
-  background: var(--btn-focus-5);
+  background: var(--op-btn-focus-4);
   border: 1px solid var(--border-contrast-2);
 }
 

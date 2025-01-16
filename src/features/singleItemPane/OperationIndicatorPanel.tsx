@@ -5,7 +5,7 @@ import OperationIndicator from './OperationIndicator.tsx'
 import { useOperation } from '../../hooks/useOperation.tsx'
 
 // TODO get rid of fakeFocus when CSS styling complete
-const fakeFocus = false
+const fakeFocus = true
 
 const OperationIndicatorPanel = () => {
   const { operation } = useOperation()
@@ -102,8 +102,8 @@ const OperationIndicatorPanel = () => {
           'operation-btn-font-thicker',
           ...(operation === 'delete'
             ? ['active-operation', 'active-delete-op']
-            // : fakeFocus
-            //   ? ['active-operation', 'active-delete-op']
+            : fakeFocus
+              ? ['active-operation', 'active-delete-op']
             : []),
         ]}
         hoverClass={

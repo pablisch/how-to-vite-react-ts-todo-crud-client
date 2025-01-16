@@ -1,8 +1,4 @@
 :root {
-  --warm-grey-50: #e8e4e5;
-  --warm-grey-100: #e3e0de;
-  --warm-grey-150: #dddad7;
-  --warm-grey-200: #d5d1cf;
   --red-100-vibe: #eaafaf;
   --red-100: #ecc8c8;
   --red-100-mute: #ead6d6;
@@ -75,9 +71,15 @@
   --white-50: #f7f7f7;
   --white-100: #eee;
   --white-150: #e9e9e9;
+  --warm-grey-25: #eceae8;
+  --warm-grey-50: #e8e5e4;
+  --warm-grey-100: #e3e0de;
+  --warm-grey-150: #dddad7;
+  --warm-grey-200: #d5d1cf;
   --grey-100: #dddddd;
   --grey-150: #ccc;
   --grey-200: #bbb;
+  --grey-250: #aaa;
   --grey-300: #999;
   --grey-350: #8c8c8c;
   --grey-400: #7c7c7c;
