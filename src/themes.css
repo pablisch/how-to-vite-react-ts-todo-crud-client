@@ -60,16 +60,16 @@
   --scrollbar: var(--grey-100);
   --scrollbar-hover: var(--grey-150);
 
-  --op-get-by-id: var(--GET-light);
-  --op-post: var(--POST-light);
-  --op-put: var(--PUT-light);
-  --op-patch: var(--PATCH-light);
-  --op-delete: var(--DELETE-light);
   --op-get-by-id-vibe: var(--GET-light-vibe);
   --op-post-vibe: var(--POST-light-vibe);
   --op-put-vibe: var(--PUT-light-vibe);
   --op-patch-vibe: var(--PATCH-light-vibe);
   --op-delete-vibe: var(--DELETE-light-vibe);
+  --op-get-by-id: var(--GET-light);
+  --op-post: var(--POST-light);
+  --op-put: var(--PUT-light);
+  --op-patch: var(--PATCH-light);
+  --op-delete: var(--DELETE-light);
   --op-get-by-id-mute: var(--GET-light-mute);
   --op-post-mute: var(--POST-light-mute);
   --op-put-mute: var(--PUT-light-mute);
@@ -137,16 +137,16 @@
   --scrollbar: var(--grey-1100);
   --scrollbar-hover: var(--grey-1200);
 
-  --op-get-by-id: var(--GET-dark);
-  --op-post: var(--POST-dark);
-  --op-put: var(--PUT-dark);
-  --op-patch: var(--PATCH-dark);
-  --op-delete: var(--DELETE-dark);
   --op-get-by-id-vibe: var(--GET-dark-vibe);
   --op-post-vibe: var(--POST-dark-vibe);
   --op-put-vibe: var(--PUT-dark-vibe);
   --op-patch-vibe: var(--PATCH-dark-vibe);
   --op-delete-vibe: var(--DELETE-dark-vibe);
+  --op-get-by-id: var(--GET-dark);
+  --op-post: var(--POST-dark);
+  --op-put: var(--PUT-dark);
+  --op-patch: var(--PATCH-dark);
+  --op-delete: var(--DELETE-dark);
   --op-get-by-id-mute: var(--GET-dark-mute);
   --op-post-mute: var(--POST-dark-mute);
   --op-put-mute: var(--PUT-dark-mute);
