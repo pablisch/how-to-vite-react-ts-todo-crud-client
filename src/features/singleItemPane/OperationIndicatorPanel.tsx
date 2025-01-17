@@ -3,6 +3,7 @@ import './OperationIndicator.css'
 import '../allItemsPane/ListItem.css'
 import OperationIndicator from './OperationIndicator.tsx'
 import { useOperation } from '../../hooks/useOperation.tsx'
+import { useSettings } from '../../hooks/useSettings.tsx'
 
 // TODO get rid of fakeFocus when CSS styling complete
 const fakeFocus = true
@@ -10,6 +11,7 @@ const fakeFocus = true
 const OperationIndicatorPanel = () => {
   const { operation } = useOperation()
   const { isPatchUpdate } = useItems()
+  const {settings} = useSettings()
 
   const patchFocus = operation === 'update' && isPatchUpdate
   const putFocus = operation === 'update' && !isPatchUpdate
@@ -49,8 +51,8 @@ const OperationIndicatorPanel = () => {
             : []),
         ]}
         hoverClass={
-          operation === 'create'
-          // operation === 'getById'
+          // operation === 'create'
+          operation === 'getById'
             ? ['hover-post-op', 'active-op-indicator-hover']
             : ['post-op-inactive-hover', 'inactive-op-indicator-hover']
         }
@@ -67,8 +69,8 @@ const OperationIndicatorPanel = () => {
             ? ['active-operation', 'active-put-op'] : []),
         ]}
         hoverClass={
-          putFocus
-          // operation === 'getById'
+          // putFocus
+          operation === 'getById'
             ? ['hover-put-op', 'active-op-indicator-hover']
             : ['put-op-inactive-hover', 'inactive-op-indicator-hover']
         }
@@ -85,8 +87,8 @@ const OperationIndicatorPanel = () => {
             ? ['active-operation', 'active-patch-op'] : []),
         ]}
         hoverClass={
-          patchFocus
-          // operation === 'getById'
+          // patchFocus
+          operation === 'getById'
             ? ['hover-patch-op', 'active-op-indicator-hover']
             : ['patch-op-inactive-hover', 'inactive-op-indicator-hover']
         }
@@ -99,7 +101,7 @@ const OperationIndicatorPanel = () => {
         classNames={[
           'operation',
           'operation-btn-font',
-          'operation-btn-font-thicker',
+          settings.theme === 'dark' ? 'operation-btn-font-thicker' : '',
           ...(operation === 'delete'
             ? ['active-operation', 'active-delete-op']
             : fakeFocus
@@ -107,8 +109,8 @@ const OperationIndicatorPanel = () => {
             : []),
         ]}
         hoverClass={
-          operation === 'delete'
-          // operation === 'getById'
+          // operation === 'delete'
+          operation === 'getById'
             ? ['hover-delete-op', 'active-op-indicator-hover']
             : ['delete-op-inactive-hover', 'inactive-op-indicator-hover']
         }

@@ -55,28 +55,33 @@
 
 .hover-get-by-id-op {
   color: var(--op-get-by-id-vibe);
+  border: 1px solid var(--get-by-id-op-border);
 }
 
 .hover-post-op {
   color: var(--op-post-vibe);
-}
-
-.hover-delete-op {
-  color: var(--op-delete-vibe);
-}
-
-.hover-patch-op {
-  color: var(--op-patch-vibe);
+  border: 1px solid var(--post-op-border);
 }
 
 .hover-put-op {
   color: var(--op-put-vibe);
+  border: 1px solid var(--put-op-border);
+}
+
+.hover-patch-op {
+  color: var(--op-patch-vibe);
+  border: 1px solid var(--patch-op-border);
+}
+
+.hover-delete-op {
+  color: var(--op-delete-vibe);
+  border: 1px solid var(--delete-op-border);
 }
 
 /* any operation btn is active and hovered */
 .active-op-indicator-hover {
   background: var(--op-btn-focus-4);
-  border: 1px solid var(--border-contrast-2);
+  /*border: 1px solid var(--border-contrast-2);*/
 }
 
 /* any operation btn is NOT active but hovered */
