@@ -1,7 +1,7 @@
 .single-item-details {
-  list-style-type: none;
   padding-left: 20px;
   word-break: break-word;
+  line-height: 1.5;
 }
 
 .response-object-container {
@@ -9,7 +9,6 @@
   scrollbar-gutter: stable;
   scrollbar-width: auto;
   position: relative;
-  /*height: var(--single-item-display-height);*/
 }
 
 .get-by-id-display-height {
@@ -20,6 +19,7 @@
   background: var(--background-3);
   padding: 15px 0 20px;
   border: 1px solid var(--border-mute-2);
+  font-size: 1rem;
 }
 
 .response-object-container::-webkit-scrollbar {

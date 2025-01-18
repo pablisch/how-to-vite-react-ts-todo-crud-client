@@ -50,7 +50,7 @@ export const EndpointProvider = ({
     } else if (endpoint !== defaultEndpoint && isDefaultUrlValue) {
       setIsDefaultUrlValue(false)
     }
-  }, [endpoint])
+  }, [endpoint, isDefaultUrlValue])
 
   return (
     <EndpointContext.Provider

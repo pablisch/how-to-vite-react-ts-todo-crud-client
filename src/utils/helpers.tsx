@@ -2,6 +2,32 @@ import { ApiErrorObject, UnknownObject } from '../types/types.ts'
 import React from 'react'
 
 export default {
+  processListItemForDisplay: function (item: UnknownObject) {
+    const keys = Object.keys(item)
+
+    const idKey = keys.find(key => key === 'id' || key === '_id')
+    const idValue = idKey
+      ? item[idKey]
+      : 'WARNING: This item has no ID property'
+    const nameKey = keys.find(
+      key => key === 'name' || key === 'firstName' || key === 'fName'
+    )
+    const lastNameKey = keys.find(key => key === 'lName' || key === 'lastName')
+
+    // Remove id/_id and name keys from the rest
+    const otherKeys = keys.filter(
+      key => key !== idKey && key !== nameKey && key !== lastNameKey
+    )
+
+    // Merge properties in desired order: id/_id -> name -> first 3 of others
+    return [
+      ...(idKey ? [[idKey, idValue]] : [['id', idValue]]), // Use 'id' for warning message if no idKey is found
+      ...(nameKey ? [[nameKey, item[nameKey]]] : []),
+      ...(lastNameKey ? [[lastNameKey, item[lastNameKey]]] : []),
+      ...otherKeys.map(key => [key, item[key]]), // Limit to the first 2 remaining keys
+    ].slice(0, 3)
+  },
+
   constructErrorMessage: function (error: ApiErrorObject): React.ReactElement {
     const status: number | undefined = error?.status
     const message: string | undefined = error?.message
@@ -16,7 +42,6 @@ export default {
         <pre className="wrap-text">
           {this.formatObjectAsJsxWithBoldKeys(error)}
         </pre>
-        {/*<pre className="wrap-text">{JSON.stringify(error, null, 2)}</pre>*/}
       </>
     )
 
@@ -114,7 +139,7 @@ export default {
     return (
       <ul className="single-item-details">
         {Object.entries(obj).map(([key, value]) => (
-          <li key={key}>
+          <li key={key} className={`display-list`}>
             <span className={`mono-bold`}>{key}</span>:{' '}
             {typeof value === 'object' && value !== null ? (
               this.formatObjectAsJsxWithBoldKeys(
@@ -131,5 +156,19 @@ export default {
 
   ensureLeadingSlash: function (urlSection: string): string {
     return urlSection.startsWith('/') ? urlSection : `/${urlSection}`
+  },
+
+  isCurrentItem: function (
+    currentItem: UnknownObject | UnknownObject[] | undefined,
+    id: string
+  ): boolean {
+    let currentId: string = ''
+    if (currentItem && 'id' in currentItem) {
+      currentId = currentItem.id
+    } else if (currentItem && '_id' in currentItem) {
+      currentId = currentItem._id
+    }
+
+    return currentId === id
   },
 }

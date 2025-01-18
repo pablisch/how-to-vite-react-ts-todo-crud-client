@@ -1,13 +1,12 @@
-import {
-  IsHoveredObject,
-  itemClassesObject,
-  UnknownObject,
-} from '../../types/types.ts'
+import { IsHoveredObject, UnknownObject } from '../../types/types.ts'
 import Button from '../../components/Button.tsx'
 import { useIdParams } from '../../hooks/useIdParams.tsx'
 import './ListItem.css'
 import { useItems } from '../../hooks/useItems.tsx'
 import { useState } from 'react'
+import helpers from '../../utils/helpers.tsx'
+import classHelpers from '../../utils/classHelpers.ts'
+import { useOperation } from '../../hooks/useOperation.tsx'
 
 const defaultIsHoveredSettings: IsHoveredObject = {
   item: false,
@@ -17,14 +16,6 @@ const defaultIsHoveredSettings: IsHoveredObject = {
   update: false,
 }
 
-const defaultClasses: itemClassesObject = {
-  item: ['item-panel'],
-  view: ['btn', 'item-btn', 'inactive-item-btn'],
-  create: ['btn', 'item-btn', 'btn-space-above', 'inactive-item-btn'],
-  update: ['btn', 'item-btn', 'btn-space-above', 'inactive-item-btn'],
-  delete: ['btn', 'item-btn', 'btn-space-above', 'inactive-item-btn'],
-}
-
 interface ListItemProps {
   item: UnknownObject
 }
@@ -32,50 +23,22 @@ const ListItem = ({ item }: ListItemProps) => {
   const [isHovered, setIsHovered] = useState<IsHoveredObject>(
     defaultIsHoveredSettings
   )
-  // const [classes, setClasses] = useState<itemClassesObject>(defaultClasses)
   const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
   const {
-    handleResetOperation,
     startDeleteItem,
     loadUpdateForm,
-    operation,
     isPatchUpdate,
     setItemId,
+    getSingleItem,
   } = useItems()
+  const { operation, handleResetOperation } = useOperation()
 
-  // let classes: itemClassesObject = defaultClasses
-
-  const processItem = (item: UnknownObject) => {
-    const keys = Object.keys(item)
-
-    const idKey = keys.find(key => key === 'id' || key === '_id')
-    const idValue = idKey
-      ? item[idKey]
-      : 'WARNING: This item has no ID property'
-    const nameKey = keys.find(
-      key => key === 'name' || key === 'firstName' || key === 'fName'
-    )
-    const lastNameKey = keys.find(key => key === 'lName' || key === 'lastName')
-
-    // Remove id/_id and name keys from the rest
-    const otherKeys = keys.filter(
-      key => key !== idKey && key !== nameKey && key !== lastNameKey
-    )
-
-    // Merge properties in desired order: id/_id -> name -> first 3 of others
-    return [
-      ...(idKey ? [[idKey, idValue]] : [['id', idValue]]), // Use 'id' for warning message if no idKey is found
-      ...(nameKey ? [[nameKey, item[nameKey]]] : []),
-      ...(lastNameKey ? [[lastNameKey, item[lastNameKey]]] : []),
-      ...otherKeys.map(key => [key, item[key]]), // Limit to the first 2 remaining keys
-    ].slice(0, 3)
-  }
-
-  const displayItem = processItem(item)
-  const id = displayItem[0][1]
+  const formattedItem = helpers.processListItemForDisplay(item)
+  const id = formattedItem[0][1]
   const isFocussed = `/${id}` === idParams
   const viewActive = isFocussed && operation === 'getById'
   const updateActive = isFocussed && operation === 'update'
+  const deleteActive = isFocussed && operation === 'delete'
 
   const handleToggleViewItem = async () => {
     if (viewActive) {
@@ -83,12 +46,13 @@ const ListItem = ({ item }: ListItemProps) => {
     } else {
       handleSetIdParams(id)
       handleResetOperation()
+      getSingleItem(id)
     }
   }
 
   const handleDeleteItem = async () => {
-    if (viewActive) {
-      handleResetIdParams()
+    if (deleteActive) {
+      handleResetOperation()
     }
     setItemId(id)
     await startDeleteItem(id)
@@ -136,55 +100,11 @@ const ListItem = ({ item }: ListItemProps) => {
     setIsHovered(prev => ({ ...prev, update: false }))
   }
 
-  const classes = {
-    item: [
-      ...defaultClasses.item,
-      isHovered.item ? 'item-panel-hover' : '',
-      isFocussed ? 'item-panel-focus' : '',
-    ],
-    view: [
-      ...defaultClasses.view,
-      ...(isHovered.view ? ['view-btn-hover', 'hover'] : []),
-      ...(isFocussed ? ['view-btn-focus', 'focus'] : []),
-      ...(isFocussed && isHovered.view
-        ? ['view-btn-focus-hover', 'btn-focus-hover']
-        : []),
-    ],
-    create: [
-      ...defaultClasses.create,
-      ...(isHovered.create ? ['create-btn-hover', 'hover'] : []),
-      ...(isFocussed ? ['create-btn-focus', 'focus'] : []),
-      ...(isFocussed && isHovered.create
-        ? ['create-btn-focus-hover', 'btn-focus-hover']
-        : []),
-    ],
-    delete: [
-      ...defaultClasses.delete,
-      ...(isHovered.delete ? ['delete-btn-hover', 'hover'] : []),
-      ...(isFocussed ? ['delete-btn-focus', 'focus'] : []),
-      ...(isFocussed && isHovered.delete
-        ? ['delete-btn-focus-hover', 'btn-focus-hover']
-        : []),
-    ],
-    update: [
-      ...defaultClasses.update,
-      ...(isHovered.update
-        ? isPatchUpdate
-          ? ['update-patch-btn-hover', 'hover']
-          : ['update-put-btn-hover', 'hover']
-        : []),
-      ...(isFocussed
-        ? isPatchUpdate
-          ? ['update-patch-btn-focus', 'focus']
-          : ['update-put-btn-focus', 'focus']
-        : []),
-      ...(isFocussed && isHovered.update
-        ? isPatchUpdate
-          ? ['update-patch-btn-focus-hover', 'btn-focus-hover']
-          : ['update-put-btn-focus-hover', 'btn-focus-hover']
-        : []),
-    ],
-  }
+  const classes = classHelpers.getClassNamesForListItems(
+    isFocussed,
+    isHovered,
+    isPatchUpdate
+  )
 
   return (
     <div
@@ -193,7 +113,7 @@ const ListItem = ({ item }: ListItemProps) => {
       onMouseLeave={handleItemHoverEnd}
     >
       <div className="item-details">
-        {displayItem.map(([key, value]) => (
+        {formattedItem.map(([key, value]) => (
           <p key={key}>
             <strong>{key}:</strong> {String(value)}
           </p>
@@ -207,6 +127,7 @@ const ListItem = ({ item }: ListItemProps) => {
           onMouseEnter={handleViewHoverStart}
           onMouseLeave={handleViewHoverEnd}
           className={[...classes.view].join(' ')}
+          spanClassName={`item-btn-font`}
         >
           {viewActive ? 'Deselect' : 'View'}
         </Button>
@@ -217,6 +138,7 @@ const ListItem = ({ item }: ListItemProps) => {
           onMouseEnter={handleUpdateHoverStart}
           onMouseLeave={handleUpdateHoverEnd}
           className={[...classes.update].join(' ')}
+          spanClassName={`item-btn-font`}
         >
           {updateActive ? 'Cancel' : 'Update'}
         </Button>
@@ -227,8 +149,9 @@ const ListItem = ({ item }: ListItemProps) => {
           onMouseEnter={handleDeleteHoverStart}
           onMouseLeave={handleDeleteHoverEnd}
           className={[...classes.delete].join(' ')}
+          spanClassName={`item-btn-font`}
         >
-          Delete
+          {deleteActive ? 'Cancel' : 'Delete'}
         </Button>
       </div>
     </div>

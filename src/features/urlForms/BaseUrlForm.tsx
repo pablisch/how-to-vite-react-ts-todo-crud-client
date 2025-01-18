@@ -27,7 +27,7 @@ const BaseUrlForm = () => {
           id: 'placeholder id',
           text: isLocalApi ? 'Use deployed API' : 'Use local API',
           onClick: handleToggleApiLocation,
-          className: `btn url-btn ${isLocalApi ? 'deployed' : 'local'}`,
+          classNames: ['btn', 'url-btn', isLocalApi ? 'deployed' : 'local'],
         },
       ]}
     />

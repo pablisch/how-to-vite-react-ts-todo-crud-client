@@ -7,6 +7,7 @@ import { useQueryParams } from '../hooks/useQueryParams.tsx'
 import { useIdParams } from '../hooks/useIdParams.tsx'
 import apiClient from '../utils/apiClient.ts'
 import helpers from '../utils/helpers.tsx'
+import { useOperation } from '../hooks/useOperation.tsx'
 
 export interface ItemsContextType {
   items: UnknownObject[] | UnknownObject | undefined
@@ -14,7 +15,10 @@ export interface ItemsContextType {
   itemToUpdate: UnknownObject | undefined | null
   getAllItems: () => void
   getAllItemsError: React.ReactElement | null
-  getSingleItem: (changeOperation: boolean, id: string) => void
+  getSingleItem: (
+    // changeOperation: boolean | undefined,
+    id: string | undefined
+  ) => void
   getItemByIdError: React.ReactElement | null
   startDeleteItem: (id: string) => void
   deleteItem: (id: string) => void
@@ -22,9 +26,6 @@ export interface ItemsContextType {
   deleteResponseData: UnknownObject | null | undefined
   updateItem: (id: string) => void
   updateItemError: React.ReactElement | null
-  operation: string
-  handleChangeOperation: (newOperation: string) => void
-  handleResetOperation: () => void
   getItemsStatus: StatusObject
   singleItemStatus: StatusObject
   deleteStatus: StatusObject
@@ -50,9 +51,6 @@ export const ItemsContext = createContext<ItemsContextType>({
   deleteResponseData: null,
   updateItem: () => {},
   updateItemError: null,
-  operation: 'getById',
-  handleChangeOperation: () => {},
-  handleResetOperation: () => {},
   getItemsStatus: {},
   singleItemStatus: {},
   deleteStatus: {},
@@ -65,6 +63,7 @@ export const ItemsContext = createContext<ItemsContextType>({
 })
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
+  const { handleChangeOperation } = useOperation()
   const [items, setItems] = useState<
     UnknownObject[] | UnknownObject | undefined
   >(undefined)
@@ -89,7 +88,6 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   const { endpoint } = useEndpoint()
   const { idParams, handleSetIdParams } = useIdParams()
   const { queryParams } = useQueryParams()
-  const [operation, setOperation] = useState<string>('getById')
   const [getItemsStatus, setGetItemsStatus] = useState<StatusObject>({})
   const [singleItemStatus, setSingleItemStatus] = useState<StatusObject>({})
   const [deleteStatus, setDeleteStatus] = useState<StatusObject>({})
@@ -133,11 +131,10 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  const getSingleItem = async (
-    changeOperation: boolean = true,
-    id: string = idParams
-  ) => {
-    if (changeOperation) setOperation('getById')
+  const getSingleItem = async (id: string | undefined = idParams) => {
+    const isCurrentItem = helpers.isCurrentItem(singleItem, id)
+    console.log('****()** isCurrentItem:', isCurrentItem)
+    if (isCurrentItem) return
     setSingleItem(undefined)
     setGetItemByIdError(null)
     if (!id) return
@@ -160,20 +157,14 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const startDeleteItem = async (id: string) => {
-    let fetchItem: boolean = true
     console.log('deleteProcess:', id)
-    setOperation('delete')
+    handleChangeOperation('delete')
 
-    if (
-      (singleItem && 'id' in singleItem && singleItem.id === id) ||
-      (singleItem && '_id' in singleItem && singleItem._id === id)
-    ) {
-      fetchItem = false
-    }
+    const isCurrentItem = helpers.isCurrentItem(singleItem, id)
 
-    if (fetchItem) {
+    if (!isCurrentItem) {
       handleSetIdParams(id)
-      await getSingleItem(false, id)
+      await getSingleItem(id)
     }
   }
 
@@ -186,10 +177,6 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
           'Content-Type': 'application/json',
         },
       })
-      console.log(
-        '****()** - AVOID ERRORS - delete response in itemsContext:',
-        response
-      )
       setDeleteMessage(response.data)
       setDeleteStatus({
         status: response?.status,
@@ -206,7 +193,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const updateItem = async () => {
-    setOperation('update')
+    handleChangeOperation('update')
     setUpdateItemError(null)
     const body = {}
     try {
@@ -231,20 +218,12 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  const handleChangeOperation = (newOperation: string) => {
-    if (newOperation !== operation) setOperation(newOperation)
-  }
-
-  const handleResetOperation = () => {
-    if (operation !== 'getById') setOperation('getById')
-  }
-
   const toggleUpdateType = () => {
     setIsPatchUpdate(!isPatchUpdate)
   }
 
   const loadUpdateForm = (id: string) => {
-    setOperation('update')
+    handleChangeOperation('update')
 
     if (items && items.length)
       setItemToUpdate(items.find(item => item._id === id || item.id === id))
@@ -272,9 +251,6 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
         deleteResponseData: deleteMessage,
         updateItem,
         updateItemError,
-        operation,
-        handleChangeOperation,
-        handleResetOperation,
         getItemsStatus,
         singleItemStatus,
         deleteStatus,

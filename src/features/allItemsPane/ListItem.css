@@ -15,115 +15,98 @@
   margin: 0.3rem 0.8rem 0.3rem 0;
 }
 
-.item-btn {
-  /*opacity: 70%;*/
-}
-
-.inactive-item-btn {
+.unfocussed-item-btn {
   background: var(--btn-inactive-1);
-  color: var(--text-mute);
+  color: var(--text-mute-2);
 }
 
-.item-panel-hover {
+/* Item panel is hovered - ONLY has effect if panel is NOT unfocussed */
+
+.hover-item-panel {
   background: var(--background-hover-1);
 }
 
-.item-panel-focus {
+/* Item panel is focussed - overrides hovered panel */
+
+.focus-item-panel {
   background: var(--background-focus-1);
 }
 
-.view-btn-hover {
-  /*opacity: 100%;*/
-  background: var(--op-get-by-id-mute);
-  /*filter: brightness(70%);*/
+/* hovered but NOT focussed for each button */
+
+.hover-view-item-btn {
+  color: var(--op-get-by-id-mute);
 }
 
-.view-btn-focus {
-  background: var(--op-get-by-id);
-  /*filter: brightness(100%);*/
+.hover-patch-item-btn {
+  color: var(--op-patch-mute);
 }
 
-.delete-btn-hover {
-  /*opacity: 100%;*/
-  background: var(--op-delete-mute);
-  /*filter: brightness(70%);*/
+.hover-put-item-btn {
+  color: var(--op-put-mute);
 }
 
-.delete-btn-focus {
-  background: var(--op-delete);
-  /*filter: brightness(100%);*/
+.hover-delete-item-btn {
+  color: var(--op-delete-mute);
 }
 
-.update-patch-btn-hover {
-  /*opacity: 100%;*/
-  background: var(--op-patch-mute);
-  /*filter: brightness(70%);*/
+/* focussed but NOT hovered for each button */
+
+.focus-view-item-btn {
+  color: var(--op-get-by-id);
 }
 
-.update-put-btn-hover {
-  /*opacity: 100%;*/
-  background: var(--op-put-mute);
-  /*filter: brightness(70%);*/
+.focus-patch-item-btn {
+  color: var(--op-patch);
 }
 
-.update-patch-btn-focus {
-  background: var(--op-patch);
-  /*filter: brightness(100%);*/
+.focus-put-item-btn {
+  color: var(--op-put);
 }
 
-.update-put-btn-focus {
-  background: var(--op-put);
+.focus-delete-item-btn {
+  color: var(--op-delete);
 }
 
-.hover-item-delete-btn {
-  background: var(--background-3);
-}
+/* hovered but NOT focussed for ALL buttons */
 
-.hover-item-update-btn {
-  background: var(--background-3);
-}
-
-.hover {
-  color: var(--text-3);
+.hover-item-btns {
+  background: var(--btn-inactive-hover-1);
   border: 1px solid var(--border-contrast-1);
 }
 
-.focus {
-  color: var(--text-2);
+/* focussed but NOT hovered for ALL buttons */
+
+.focus-item-btns {
+  background: var(--btn-focus-2);
   border: 1px solid var(--border-contrast-1);
 }
 
-.btn-focus {
-  border: 1px solid var(--border-contrast-1);
+/* focussed and hovered for each item button */
+
+.hover-focus-view-item-btn {
+  color: var(--op-get-by-id-vibe);
 }
 
-.view-btn-focus-hover {
-  background: var(--op-get-by-id-vibe);
-  /*color: var(--text-contrast);*/
-  /*border: 1px solid var(--border-contrast-2);*/
+.hover-focus-create-item-btn {
+  color: var(--op-post-vibe);
 }
 
-.create-btn-focus-hover {
-  background: var(--op-post-vibe);
-  color: var(--text-contrast);
+.hover-focus-put-item-btn {
+  color: var(--op-put-vibe);
 }
 
-.delete-btn-focus-hover {
-  background: var(--op-delete-vibe);
-  color: var(--text-contrast);
+.hover-focus-patch-item-btn {
+  color: var(--op-patch-vibe);
 }
 
-.update-patch-btn-focus-hover {
-  background: var(--op-patch-vibe);
-  color: var(--text-contrast);
+.hover-focus-delete-item-btn {
+  color: var(--op-delete-vibe);
 }
 
-.update-put-btn-focus-hover {
-  background: var(--op-put-vibe);
-  color: var(--text-contrast);
-}
+/* focussed and hovered for ALL item button */
 
-.btn-focus-hover {
-  color: var(--text-contrast);
+.hover-focus-item-btns {
+  background: var(--btn-focus-3);
   border: 1px solid var(--border-contrast-2);
 }

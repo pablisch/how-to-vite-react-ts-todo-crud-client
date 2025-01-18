@@ -5,7 +5,7 @@
   border-radius: 5px;
   width: 120px;
   cursor: pointer;
-  color: var(--text-1);
+  color: var(--btn-text-1);
   transition:
     background var(--color-trans) ease,
     color var(--color-trans) ease;
@@ -31,7 +31,7 @@
 }
 
 .confirm-delete-btn {
-  background: var(--DELETE-dark);
+  background: var(--op-delete);
   height: var(--single-status-height);
   width: var(--wide-btn);
   margin: var(--above-single-status-spacing) auto
@@ -41,13 +41,13 @@
 }
 
 .confirm-delete-btn-hover {
-  background: var(--DELETE-dark-vibe);
+  background: var(--op-delete-vibe);
   border: 1px solid var(--border-contrast-2);
 }
 
 .inactive-btn {
   background: var(--btn-inactive-1);
-  color: var(--text-mute);
+  color: var(--text-mute-1);
 }
 
 .disabled {
@@ -58,4 +58,49 @@
   transition:
     background var(--color-trans) ease,
     color var(--color-trans) ease;
+}
+
+.item-btn {
+  padding: 2px;
+}
+
+.item-btn-font {
+  font-size: 1.1rem;
+  /*font-family: 'Roboto Flex', sans-serif;*/
+  font-family: 'Nunito Sans', sans-serif;
+  font-variation-settings:
+    'slnt' -10,
+    'wdth' 25,
+    'wght' 300;
+}
+
+.operation-btn-font {
+  font-size: 1.1rem;
+  /*font-family: 'Roboto Flex', sans-serif;*/
+  font-family: 'Nunito Sans', sans-serif;
+  font-variation-settings:
+    'slnt' -10,
+    'wdth' 105,
+    'wght' 600;
+  line-height: 1;
+}
+
+.operation-btn-font-thicker {
+  font-variation-settings:
+    'slnt' -10,
+    'wdth' 105,
+    'wght' 700;
+}
+
+.btn-hovered {
+  background: var(--background-2);
+  border: 1px solid var(--btn-option-1);
+  color: var(--btn-option-2);
+  /*background: var(--patch-op-border);*/
+}
+
+.disabled:hover {
+  /*background: var(--btn-warning-1);*/
+  color: var(--text-mute-0);
+  border: 1px solid var(--border-mute-2);
 }
