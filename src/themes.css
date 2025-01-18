@@ -22,11 +22,11 @@
   --border-contrast-2: var(--grey-300);
 
   --op-border-1: var(--grey-250);
-  --get-by-id-op-border: var(--GET-light-mute);
-  --post-op-border: var(--POST-light-mute);
-  --put-op-border: var(--PUT-light-mute);
-  --patch-op-border: var(--PATCH-light-mute);
-  --delete-op-border: var(--DELETE-light-mute);
+  --get-by-id-op-border: var(--GET-light-border);
+  --post-op-border: var(--POST-light-border);
+  --put-op-border: var(--PUT-light-border);
+  --patch-op-border: var(--PATCH-light-border);
+  --delete-op-border: var(--DELETE-light-border);
 
   --btn-passive-1: var(--green-150);
   --btn-passive-2: var(--turquoise-100);

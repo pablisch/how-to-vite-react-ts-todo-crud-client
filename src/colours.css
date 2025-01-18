@@ -112,11 +112,17 @@
   --PUT-light: #2778e1;
   --PATCH-light: #8e58d5;
   --DELETE-light: #ed3827;
-  --GET-light-mute: #72b38d;
-  --POST-light-mute: #dcb560;
-  --PUT-light-mute: #79abe4;
-  --PATCH-light-mute: #ab87da;
-  --DELETE-light-mute: #df8c84;
+  --GET-light-mute: #1e914d;
+  --POST-light-mute: #cf920b;
+  --PUT-light-mute: #2778e1;
+  --PATCH-light-mute: #8e58d5;
+  --DELETE-light-mute: #ed3827;
+
+  --GET-light-border: #72b38d;
+  --POST-light-border: #dcb560;
+  --PUT-light-border: #79abe4;
+  --PATCH-light-border: #ab87da;
+  --DELETE-light-border: #df8c84;
 
   --GET-dark-vibe: #08a144;
   --POST-dark-vibe: #d3950e;
