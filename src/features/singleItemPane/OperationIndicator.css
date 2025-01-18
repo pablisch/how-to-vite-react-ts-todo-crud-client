@@ -15,7 +15,7 @@
   background: var(--btn-disabled-1);
   text-align: center;
   border-radius: 0.5rem;
-  border: 1px solid var(--border-1);
+  border: 1px solid var(--border-0);
   color: var(--text-mid-grey);
   padding: 5px;
   transition:
