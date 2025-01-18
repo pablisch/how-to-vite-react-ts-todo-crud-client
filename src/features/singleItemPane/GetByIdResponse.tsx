@@ -9,8 +9,9 @@ import { useEffect } from 'react'
 
 const GetByIdResponse = () => {
   const { idParams } = useIdParams()
-  const { singleItem, getItemByIdError, singleItemStatus, getSingleItem } = useItems()
-  
+  const { singleItem, getItemByIdError, singleItemStatus, getSingleItem } =
+    useItems()
+
   useEffect(() => {
     getSingleItem(idParams)
   }, [])

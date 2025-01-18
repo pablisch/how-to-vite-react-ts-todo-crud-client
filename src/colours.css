@@ -12,6 +12,8 @@
   --red-1000-vibe: #752323;
   --red-1000: #633333;
   --red-1000-mute: #3e2f2f;
+  --orange-mud-200: #bfa798;
+  --orange-mud-800: #704935;
   --green-150: #baf4ca;
   --green-250: #7bc67b;
   --green-400: #38c130;
@@ -76,8 +78,10 @@
   --warm-grey-100: #e3e0de;
   --warm-grey-150: #dddad7;
   --warm-grey-200: #d5d1cf;
-  --grey-100: #dddddd;
+  --grey-75: #e1e1e1;
+  --grey-100: #ddd;
   --grey-150: #ccc;
+  --grey-175: #c4c4c4;
   --grey-200: #bbb;
   --grey-250: #aaa;
   --grey-300: #999;
@@ -86,7 +90,9 @@
   --grey-450: #717171;
   --grey-500: #686868;
   --grey-550: #606060;
+  --grey-600: #585858;
   --grey-650: #505050;
+  --grey-700: #494949;
   --grey-750: #424242;
   --grey-800: #3a3a3a;
   --grey-850: #353535;
@@ -112,11 +118,11 @@
   --PUT-light: #2778e1;
   --PATCH-light: #8e58d5;
   --DELETE-light: #ed3827;
-  --GET-light-mute: #1e914d;
-  --POST-light-mute: #cf920b;
-  --PUT-light-mute: #2778e1;
-  --PATCH-light-mute: #8e58d5;
-  --DELETE-light-mute: #ed3827;
+  --GET-light-mute: #70c593;
+  --POST-light-mute: #ecbb69;
+  --PUT-light-mute: #75a9ec;
+  --PATCH-light-mute: #af89e1;
+  --DELETE-light-mute: #ef7e74;
 
   --GET-light-border: #72b38d;
   --POST-light-border: #dcb560;

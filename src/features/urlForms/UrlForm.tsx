@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Button from '../../components/Button.tsx'
 import { useSettings } from '../../hooks/useSettings.tsx'
+import HoverButton from '../../components/HoverButton.tsx'
 
 interface UrlFormProps {
   id: string
@@ -15,7 +15,7 @@ interface UrlFormProps {
   additionalButtons?: Array<{
     text: string
     onClick: () => void
-    className?: string
+    classNames?: string[]
     id: string
     ariaLabel?: string
   }>
@@ -75,35 +75,35 @@ const UrlForm: React.FC<UrlFormProps> = ({
         />
         <div className="url-btn-container">
           {!settings.setUrlOnChange && (
-            <Button
+            <HoverButton
               ariaLabel={`set ${id}`}
               id={`set-${id}-btn`}
               onClick={() => onSetUrl(inputValue)}
-              className={`btn url-btn ${setUrlDisabled ? 'disabled' : ''}`}
+              classNames={['btn', 'url-btn', setUrlDisabled ? 'disabled' : '']}
               disabled={setUrlDisabled}
             >
               {setUrlBtnText}
-            </Button>
+            </HoverButton>
           )}
-          <Button
+          <HoverButton
             ariaLabel={`reset ${id}`}
             id={`reset-${id}-btn`}
             onClick={onResetUrl}
-            className={`btn url-btn ${isDefaultUrlValue ? 'disabled' : ''}`}
+            classNames={['btn', 'url-btn', isDefaultUrlValue ? 'disabled' : '']}
             disabled={isDefaultUrlValue}
           >
             {resetUrlBtnText}
-          </Button>
+          </HoverButton>
           {additionalButtons.map((button, index) => (
-            <Button
+            <HoverButton
               key={index}
               ariaLabel={button.ariaLabel}
               id={button.id}
               onClick={button.onClick}
-              className={button.className || 'btn url-btn'}
+              classNames={button.classNames || ['btn', 'url-btn']}
             >
               {button.text}
-            </Button>
+            </HoverButton>
           ))}
         </div>
       </div>

@@ -5,7 +5,7 @@
   border-radius: 5px;
   width: 120px;
   cursor: pointer;
-  color: var(--text-1);
+  color: var(--btn-text-1);
   transition:
     background var(--color-trans) ease,
     color var(--color-trans) ease;
@@ -87,7 +87,20 @@
 
 .operation-btn-font-thicker {
   font-variation-settings:
-          'slnt' -10,
-          'wdth' 105,
-          'wght' 700;
+    'slnt' -10,
+    'wdth' 105,
+    'wght' 700;
+}
+
+.btn-hovered {
+  background: var(--background-2);
+  border: 1px solid var(--btn-option-1);
+  color: var(--btn-option-2);
+  /*background: var(--patch-op-border);*/
+}
+
+.disabled:hover {
+  /*background: var(--btn-warning-1);*/
+  color: var(--text-mute-0);
+  border: 1px solid var(--border-mute-2);
 }

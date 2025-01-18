@@ -30,7 +30,9 @@ export default {
       ],
       create: [
         ...defaultClasses.create,
-        ...(isHovered.create ? ['hover-create-item-btn', 'hover-item-btns'] : []),
+        ...(isHovered.create
+          ? ['hover-create-item-btn', 'hover-item-btns']
+          : []),
         ...(isFocussed ? ['focus-create-item-btn', 'focus-item-btns'] : []),
         ...(isFocussed && isHovered.create
           ? ['hover-focus-create-item-btn', 'hover-focus-item-btns']
@@ -38,7 +40,9 @@ export default {
       ],
       delete: [
         ...defaultClasses.delete,
-        ...(isHovered.delete ? ['hover-delete-item-btn', 'hover-item-btns'] : []),
+        ...(isHovered.delete
+          ? ['hover-delete-item-btn', 'hover-item-btns']
+          : []),
         ...(isFocussed ? ['focus-delete-item-btn', 'focus-item-btns'] : []),
         ...(isFocussed && isHovered.delete
           ? ['hover-focus-delete-item-btn', 'hover-focus-item-btns']

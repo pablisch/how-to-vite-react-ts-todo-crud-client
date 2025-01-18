@@ -86,8 +86,8 @@
 
 /* any operation btn is NOT active but hovered */
 .inactive-op-indicator-hover {
-  background: var(--btn-focus-0);
-  border: 1px solid var(--border-contrast-1);
+  background: var(--btn-inactive-hover-2);
+  border: 1px solid var(--border-contrast-0);
 }
 
 /* for each operation - op btn is NOT active and hovered */
