@@ -50,18 +50,27 @@
 /* BASE URL FORM SPECIFIC */
 
 .local {
-  background: var(--btn-option-1);
+  background: var(--btn-passive-1);
   transition:
     background var(--color-trans) ease,
     color var(--color-trans) ease;
 }
 
 .deployed {
-  background: var(--btn-option-2);
+  background: var(--btn-passive-1);
   transition:
     background var(--color-trans) ease,
     color var(--color-trans) ease;
 }
+
+/*.url-btn:hover {*/
+/*  background: var(--btn-passive-1-hover);*/
+/*  color: var(--btn-text-2);*/
+/*}*/
+
+/*.disabled:hover {*/
+/*  background: var(--DELETE-light-border);*/
+/*}*/
 
 /* COMPLETE URL FORM SPECIFIC */
 

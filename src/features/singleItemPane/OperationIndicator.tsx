@@ -46,7 +46,7 @@ const OperationIndicator = forwardRef<
       disabled={disabled}
       ref={ref}
     >
-      <span>{children}</span>
+      {children}
     </button>
   )
 })

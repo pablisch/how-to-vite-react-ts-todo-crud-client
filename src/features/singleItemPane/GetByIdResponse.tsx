@@ -5,10 +5,16 @@ import '../../App.css'
 import './singleItemPane.css'
 import Loading from '../../components/Loading.tsx'
 import ObjectDisplay from '../../components/ObjectDisplay.tsx'
+import { useEffect } from 'react'
 
 const GetByIdResponse = () => {
   const { idParams } = useIdParams()
-  const { singleItem, getItemByIdError, singleItemStatus } = useItems()
+  const { singleItem, getItemByIdError, singleItemStatus, getSingleItem } =
+    useItems()
+
+  useEffect(() => {
+    getSingleItem(idParams)
+  }, [])
 
   return (
     <div id="single-item-operation-container">

@@ -15,9 +15,8 @@
   background: var(--btn-disabled-1);
   text-align: center;
   border-radius: 0.5rem;
-  border: 1px solid var(--border-1);
+  border: 1px solid var(--border-0);
   color: var(--text-mid-grey);
-  font-size: 1rem;
   padding: 5px;
   transition:
     background var(--color-trans) ease,
@@ -25,87 +24,90 @@
 }
 
 .active-operation {
-  background: var(--btn-focus-1);
+  background: var(--op-btn-focus-2);
   color: var(--text-1);
   border: 1px solid var(--border-1);
 }
 
-.active-get-by-id {
-  background: var(--op-get-by-id);
-  color: var(--text-1);
-  border: 1px solid var(--border-1);
+/* for each operation - op btn is active but NOT hovered */
+
+.active-get-by-id-op {
+  color: var(--op-get-by-id);
 }
 
-.active-post {
-  background: var(--op-post);
-  color: var(--text-1);
-  border: 1px solid var(--border-1);
+.active-post-op {
+  color: var(--op-post);
 }
 
-.active-delete {
-  background: var(--op-delete);
-  color: var(--text-1);
-  border: 1px solid var(--border-1);
+.active-put-op {
+  color: var(--op-put);
 }
 
-.active-patch {
-  background: var(--op-patch);
-  color: var(--text-1);
-  border: 1px solid var(--border-1);
+.active-patch-op {
+  color: var(--op-patch);
 }
 
-.active-put {
-  background: var(--op-put);
-  color: var(--text-1);
-  border: 1px solid var(--border-1);
+.active-delete-op {
+  color: var(--op-delete);
 }
 
-.get-by-id-op-hover {
-  background: var(--op-get-by-id-vibe);
+/* for each operation - op btn is active and hovered */
+
+.hover-get-by-id-op {
+  color: var(--op-get-by-id-vibe);
+  border: 1px solid var(--get-by-id-op-border);
 }
 
-.post-op-hover {
-  background: var(--op-post-vibe);
+.hover-post-op {
+  color: var(--op-post-vibe);
+  border: 1px solid var(--post-op-border);
 }
 
-.delete-op-hover {
-  background: var(--op-delete-vibe);
+.hover-put-op {
+  color: var(--op-put-vibe);
+  border: 1px solid var(--put-op-border);
 }
 
-.patch-op-hover {
-  background: var(--op-patch-vibe);
+.hover-patch-op {
+  color: var(--op-patch-vibe);
+  border: 1px solid var(--patch-op-border);
 }
 
-.put-op-hover {
-  background: var(--op-put-vibe);
+.hover-delete-op {
+  color: var(--op-delete-vibe);
+  border: 1px solid var(--delete-op-border);
 }
 
-.op-indicator-hover {
-  color: var(--text-contrast);
-  border: 1px solid var(--border-contrast-2);
+/* any operation btn is active and hovered */
+.active-op-indicator-hover {
+  background: var(--op-btn-focus-4);
+  /*border: 1px solid var(--border-contrast-2);*/
 }
 
-.get-by-id-op-mute {
-  background: var(--op-get-by-id-mute);
+/* any operation btn is NOT active but hovered */
+.inactive-op-indicator-hover {
+  background: var(--btn-inactive-hover-2);
+  border: 1px solid var(--border-contrast-0);
 }
 
-.post-op-mute {
-  background: var(--op-post-mute);
+/* for each operation - op btn is NOT active and hovered */
+
+.get-by-id-op-inactive-hover {
+  color: var(--op-get-by-id-mute);
 }
 
-.delete-op-mute {
-  background: var(--op-delete-mute);
+.post-op-inactive-hover {
+  color: var(--op-post-mute);
 }
 
-.patch-op-mute {
-  background: var(--op-patch-mute);
+.delete-op-inactive-hover {
+  color: var(--op-delete-mute);
 }
 
-.put-op-mute {
-  background: var(--op-put-mute);
+.patch-op-inactive-hover {
+  color: var(--op-patch-mute);
 }
 
-.op-indicator-mute {
-  color: var(--text-3);
-  border: 1px solid var(--border-contrast-1);
+.put-op-inactive-hover {
+  color: var(--op-put-mute);
 }
