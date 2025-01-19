@@ -123,6 +123,7 @@
   --PUT-light-mute: #75a9ec;
   --PATCH-light-mute: #af89e1;
   --DELETE-light-mute: #ef7e74;
+  --DELETE-light-warn: #7c2016;
 
   --GET-light-border: #72b38d;
   --POST-light-border: #dcb560;

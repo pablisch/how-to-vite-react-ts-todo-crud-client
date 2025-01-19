@@ -16,6 +16,7 @@
   --text-mute-0: var(--grey-250);
   --text-mute-1: var(--grey-350);
   --text-mute-2: var(--grey-550);
+  --text-warning-1: var(--grey-150);
 
   --border-0: var(--grey-150);
   --border-1: var(--grey-200);
@@ -36,7 +37,7 @@
   --btn-passive-2: var(--white-100);
   --btn-passive-3: var(--white-100);
   --btn-passive-1-hover: var(--white-100);
-  --btn-warning-1: var(--red-150);
+  --btn-warning-1: var(--grey-750);
   --btn-focus-0: var(--grey-1000);
   --btn-focus-1: var(--grey-1030);
   --btn-focus-2: var(--white-50);
@@ -86,6 +87,7 @@
   --op-put-mute: var(--PUT-light-mute);
   --op-patch-mute: var(--PATCH-light-mute);
   --op-delete-mute: var(--DELETE-light-mute);
+  --op-delete-warning: var(--DELETE-light-warn);
 }
 
 [data-theme='dark'] {
