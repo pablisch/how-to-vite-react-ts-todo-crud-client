@@ -4,6 +4,7 @@ import { useIdParams } from '../../hooks/useIdParams.tsx'
 import { useQueryParams } from '../../hooks/useQueryParams.tsx'
 import React, { useEffect, useState } from 'react'
 import { useSettings } from '../../hooks/useSettings.tsx'
+import '../../fonts.css'
 
 const CombinedUrl = () => {
   const { baseUrl } = useBaseUrl()
@@ -46,6 +47,7 @@ const CombinedUrl = () => {
           </div>
           {/* hidden input element */}
           <input
+            id="hidden-combined-url-input"
             type="text"
             className="url-input mono combined-input hidden-input-element"
             value={combinedValue}
