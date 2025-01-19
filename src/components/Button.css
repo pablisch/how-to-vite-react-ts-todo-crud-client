@@ -43,7 +43,8 @@
 }
 
 .confirm-delete-btn-hover {
-  background: var(--op-delete-warning);
+  background: var(--btn-warning-2);
+  color: var(--text-warning-2);
   border: 1px solid var(--border-contrast-2);
 }
 
@@ -103,4 +104,10 @@
 .disabled:hover {
   color: var(--text-mute-0);
   border: 1px solid var(--border-mute-2);
+}
+
+#confirm-delete-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
