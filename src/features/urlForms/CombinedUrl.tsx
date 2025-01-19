@@ -40,16 +40,20 @@ const CombinedUrl = () => {
       <div className="form-input-wrapper flex-container">
         <div className={`url-overlay-container combined-input`}>
           <div className={`url-overlay`}>
-            <span className="base-url-text mono space-left-18">{baseUrl}</span>
-            <span className="url-endpoint-text mono">{endpoint}</span>
-            <span className="url-id-param-text mono">{idParams}</span>
-            <span className="url-query-param-text mono">{queryParams}</span>
+            <span className="base-url-text url-input-text space-left-18 url-segment">
+              {baseUrl}
+            </span>
+            <span className="url-endpoint-text url-input-text url-segment">{endpoint}</span>
+            <span className="url-id-param-text url-input-text url-segment">{idParams}</span>
+            <span className="url-query-param-text url-input-text url-segment">
+              {queryParams}
+            </span>
           </div>
           {/* hidden input element */}
           <input
             id="hidden-combined-url-input"
             type="text"
-            className="url-input mono combined-input hidden-input-element"
+            className="url-input url-input-text combined-input hidden-input-element"
             value={combinedValue}
             onChange={handleInputChange}
           />

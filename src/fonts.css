@@ -5,38 +5,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght,XOPQ,YOPQ@8..144,105.7,100..1000,78,72&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @font-face {
-    font-family: 'Roboto Mono V';
-    src: url('./assets/fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
-    font-weight: 100 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Roboto Mono V';
+  src: url('./assets/fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 .url-input-text {
-    font-family: 'Roboto Mono V', monospace;
-    font-variation-settings: 'wght' 100;
+  font-family: 'Roboto Mono V', monospace;
+  font-variation-settings: 'wght' 150;
+    font-size: 15px;
 }
 
 .mono-100 {
-    font-family: 'Roboto Mono V', monospace;
-    font-variation-settings: 'wght' 100;
+  font-family: 'Roboto Mono V', monospace;
+  font-variation-settings: 'wght' 100;
 }
 
 .roboto-flex-100 {
-    font-family: 'Roboto Flex', sans-serif;
-    font-variation-settings: 'wght' 100;
+  font-family: 'Roboto Flex', sans-serif;
+  font-variation-settings: 'wght' 100;
 }
 
 .mono {
-    font-family: 'Roboto Mono', monospace;
-    font-weight: 300;
-    /*font-stretch: 80%;*/
-    /*font-variation-settings: 'wdth' 80;*/
-    /*font-size: 0.9rem;*/
-    /*line-height: 1;*/
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+  /*font-stretch: 80%;*/
+  /*font-variation-settings: 'wdth' 80;*/
+  /*font-size: 0.9rem;*/
+  /*line-height: 1;*/
 }
 
 .mono-bold {
-    font-family: 'Roboto Mono', monospace;
-    font-weight: 500;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
 }
