@@ -13,7 +13,7 @@ const GetByIdResponse = () => {
     useItems()
 
   useEffect(() => {
-    getSingleItem(idParams)
+    if (!singleItem) getSingleItem(idParams)
   }, [])
 
   return (
