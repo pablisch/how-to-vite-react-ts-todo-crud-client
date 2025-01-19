@@ -158,6 +158,10 @@ export default {
     return urlSection.startsWith('/') ? urlSection : `/${urlSection}`
   },
 
+  removeLeadingSlash: function (urlSection: string): string {
+    return urlSection.replace(/^\//, '')
+  },
+
   isCurrentItem: function (
     currentItem: UnknownObject | UnknownObject[] | undefined,
     id: string
@@ -170,5 +174,26 @@ export default {
     }
 
     return currentId === id
+  },
+
+  getIdFromObject: function (object: UnknownObject) {
+    if (object && 'id' in object) {
+      return object.id
+    } else if (object && '_id' in object) {
+      return object._id
+    } else {
+      return Object.values(object)[0]
+    }
+  },
+
+  idMatchesIdParams(object: UnknownObject, idParams: string) {
+    const id: string = this.getIdFromObject(object)
+    const params: string = this.removeLeadingSlash(idParams)
+
+    return id === params
+  },
+
+  isObjectTypeUnknownObject(object: unknown): object is UnknownObject {
+    return typeof object === 'object' && object !== null
   },
 }

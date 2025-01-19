@@ -6,14 +6,21 @@ import './singleItemPane.css'
 import Loading from '../../components/Loading.tsx'
 import ObjectDisplay from '../../components/ObjectDisplay.tsx'
 import { useEffect } from 'react'
+import helpers from '../../utils/helpers.tsx'
+
+let haveCorrectSingleItem: boolean
 
 const GetByIdResponse = () => {
   const { idParams } = useIdParams()
   const { singleItem, getItemByIdError, singleItemStatus, getSingleItem } =
     useItems()
 
+  if (helpers.isObjectTypeUnknownObject(singleItem)) {
+    haveCorrectSingleItem = helpers.idMatchesIdParams(singleItem, idParams)
+  }
+
   useEffect(() => {
-    if (!singleItem) getSingleItem(idParams)
+    if (!singleItem || !haveCorrectSingleItem) getSingleItem(idParams)
   }, [])
 
   return (
