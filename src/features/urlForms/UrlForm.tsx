@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSettings } from '../../hooks/useSettings.tsx'
 import HoverButton from '../../components/HoverButton.tsx'
+import SaveButton from '../../components/SaveButton.tsx'
 
 interface UrlFormProps {
   id: string
@@ -73,6 +74,7 @@ const UrlForm: React.FC<UrlFormProps> = ({
           onChange={handleInputChange}
           placeholder={placeholder}
         />
+        <SaveButton />
         <div className="url-btn-container">
           {!settings.setUrlOnChange && (
             <HoverButton

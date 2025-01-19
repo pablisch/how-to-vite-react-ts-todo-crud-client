@@ -43,8 +43,12 @@ const CombinedUrl = () => {
             <span className="base-url-text url-input-text space-left-18 url-segment">
               {baseUrl}
             </span>
-            <span className="url-endpoint-text url-input-text url-segment">{endpoint}</span>
-            <span className="url-id-param-text url-input-text url-segment">{idParams}</span>
+            <span className="url-endpoint-text url-input-text url-segment">
+              {endpoint}
+            </span>
+            <span className="url-id-param-text url-input-text url-segment">
+              {idParams}
+            </span>
             <span className="url-query-param-text url-input-text url-segment">
               {queryParams}
             </span>

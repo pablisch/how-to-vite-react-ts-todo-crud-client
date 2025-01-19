@@ -135,3 +135,13 @@
     background var(--color-trans) ease,
     color var(--color-trans) ease;
 }
+
+.save-btn-icon {
+  height: calc(var(--form-input-height) - 5px);
+  margin: 0 5px 0 4px;
+  filter: invert(0.4);
+}
+
+.save-btn-icon-dark {
+  filter: invert(0.7);
+}
