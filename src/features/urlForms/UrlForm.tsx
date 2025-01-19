@@ -20,6 +20,10 @@ interface UrlFormProps {
     id: string
     ariaLabel?: string
   }>
+  saveAlt: string
+  onSave: (value: string) => void
+  saveClasses?: string[]
+  value: string | undefined
 }
 
 const UrlForm: React.FC<UrlFormProps> = ({
@@ -33,6 +37,10 @@ const UrlForm: React.FC<UrlFormProps> = ({
   setUrlBtnText,
   resetUrlBtnText,
   additionalButtons = [],
+  saveAlt,
+  onSave,
+  saveClasses,
+  value,
 }) => {
   const [inputValue, setInputValue] = useState(defaultUrlValue)
 
@@ -74,7 +82,12 @@ const UrlForm: React.FC<UrlFormProps> = ({
           onChange={handleInputChange}
           placeholder={placeholder}
         />
-        <SaveButton />
+        <SaveButton
+          alt={saveAlt}
+          onSave={onSave}
+          classNames={saveClasses}
+          value={value}
+        />
         <div className="url-btn-container">
           {!settings.setUrlOnChange && (
             <HoverButton

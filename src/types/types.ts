@@ -33,3 +33,11 @@ export interface itemClassesObject {
   delete: string[]
   update: string[]
 }
+
+export interface StoredUrlsObject {
+  complete: string[]
+  base: string[]
+  endpoint: string[]
+  idParam: string[]
+  queryParam: string[]
+}

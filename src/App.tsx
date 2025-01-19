@@ -13,6 +13,7 @@ import UrlComponents from './features/urlForms/UrlComponents.tsx'
 import Navbar from './features/navbar/Navbar.tsx'
 import { useSettings } from './hooks/useSettings.tsx'
 import Settings from './features/settings/Settings.tsx'
+import { SaveProvider } from './context/SaveContext.tsx'
 
 function App() {
   const { menuIsOpen, settings } = useSettings()
@@ -20,24 +21,26 @@ function App() {
   return (
     <div id="app" data-theme={settings.theme}>
       <BrowserRouter>
-        <BaseUrlProvider>
-          <EndpointProvider>
-            <IdParamsProvider>
-              <QueryParamsProvider>
-                <ItemsProvider>
-                  <Navbar />
-                  {menuIsOpen && <Settings />}
-                  <div id="main-page-container">
-                    <UrlComponents />
-                    <Routes>
-                      <Route path="/" element={<MainPage />} />
-                    </Routes>
-                  </div>
-                </ItemsProvider>
-              </QueryParamsProvider>
-            </IdParamsProvider>
-          </EndpointProvider>
-        </BaseUrlProvider>
+        <SaveProvider>
+          <BaseUrlProvider>
+            <EndpointProvider>
+              <IdParamsProvider>
+                <QueryParamsProvider>
+                  <ItemsProvider>
+                    <Navbar />
+                    {menuIsOpen && <Settings />}
+                    <div id="main-page-container">
+                      <UrlComponents />
+                      <Routes>
+                        <Route path="/" element={<MainPage />} />
+                      </Routes>
+                    </div>
+                  </ItemsProvider>
+                </QueryParamsProvider>
+              </IdParamsProvider>
+            </EndpointProvider>
+          </BaseUrlProvider>
+        </SaveProvider>
       </BrowserRouter>
     </div>
   )
