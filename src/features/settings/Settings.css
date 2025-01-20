@@ -1,0 +1,21 @@
+#settings-container {
+    /*display: flex;*/
+}
+
+.settings-section {
+    display: flex;
+}
+
+.settings-left-wrapper {
+    width: 500px;
+    margin: 0 20px;
+}
+
+.settings-right-wrapper {
+    width: 200px;
+}
+
+.settings-header {
+    font-size: 1rem;
+    font-weight: 300;
+}
