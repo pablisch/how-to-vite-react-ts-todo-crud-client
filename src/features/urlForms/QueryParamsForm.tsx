@@ -1,5 +1,6 @@
 import UrlForm from './UrlForm.tsx'
 import { useQueryParams } from '../../hooks/useQueryParams.tsx'
+import { useSave } from '../../hooks/useSave.tsx'
 
 const QueryParamsForm = () => {
   const {
@@ -8,6 +9,7 @@ const QueryParamsForm = () => {
     handleSetQueryParams,
     handleResetQueryParams,
   } = useQueryParams()
+  const { handleSaveUrlSection } = useSave()
 
   return (
     <UrlForm
@@ -21,6 +23,9 @@ const QueryParamsForm = () => {
       setUrlBtnText={`Set query params`}
       resetUrlBtnText="Reset query params"
       additionalButtons={[]}
+      saveAlt="save endpoint URL"
+      onSave={() => handleSaveUrlSection('queryParam', queryParams)}
+      value={queryParams}
     />
   )
 }

@@ -3,13 +3,10 @@ import { useSettings } from '../../hooks/useSettings.tsx'
 import './Settings.css'
 import { useSave } from '../../hooks/useSave.tsx'
 import ClearSavedUrl from './ClearSavedUrl.tsx'
-import { useParams } from 'react-router-dom'
 
 const Settings = () => {
   const { settings, handleSetUrlSetMode } = useSettings()
-  const { clearSavedBaseUrls, handleSaveUrlSection, clearSavedSectionUrls } = useSave()
-  const { idParams } = useParams()
-  const { queryParams } = useParams()
+  const { clearSavedBaseUrls, clearSavedSectionUrls } = useSave()
 
   return (
     <div
@@ -43,12 +40,12 @@ const Settings = () => {
         section="endpoint"
       />
       <ClearSavedUrl
-        onClear={() => handleSaveUrlSection('idParam', idParams as string)}
+        onClear={() => clearSavedSectionUrls('idParam')}
         section="idParam"
       />
       <ClearSavedUrl
         onClear={() =>
-          handleSaveUrlSection('queryParam', queryParams as string)
+          clearSavedSectionUrls('queryParam')
         }
         section="queryParam"
       />

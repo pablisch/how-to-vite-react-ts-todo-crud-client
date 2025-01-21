@@ -1,5 +1,6 @@
 import UrlForm from './UrlForm.tsx'
 import { useIdParams } from '../../hooks/useIdParams.tsx'
+import { useSave } from '../../hooks/useSave.tsx'
 
 const IdParamsForm = () => {
   const {
@@ -8,6 +9,7 @@ const IdParamsForm = () => {
     handleSetIdParams,
     handleResetIdParams,
   } = useIdParams()
+  const { handleSaveUrlSection } = useSave()
 
   return (
     <UrlForm
@@ -21,6 +23,9 @@ const IdParamsForm = () => {
       setUrlBtnText={`Set /:id param`}
       resetUrlBtnText="Reset /:id param"
       additionalButtons={[]}
+      saveAlt="save endpoint URL"
+      onSave={() => handleSaveUrlSection('idParam', idParams)}
+      value={idParams}
     />
   )
 }
