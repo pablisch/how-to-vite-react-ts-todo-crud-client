@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
+import { defaultUrls } from '../utils/data.ts'
 
-const defaultQueryParams: string = ''
+const defaultQueryParams: string = defaultUrls.queryParam
 const initialQueryParams: string =
   localStorage.getItem('queryParams') || defaultQueryParams
 

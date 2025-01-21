@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
+import { defaultUrls } from '../utils/data.ts'
 
-const defaultEndpoint: string = '/todos'
+const defaultEndpoint: string = defaultUrls.endpoint
 const initialEndpoint: string =
   localStorage.getItem('endpoint') || defaultEndpoint
 

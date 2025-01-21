@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSettings } from '../../hooks/useSettings.tsx'
 import HoverButton from '../../components/HoverButton.tsx'
 import SaveButton from '../../components/SaveButton.tsx'
+import { urlSections } from '../../types/types.ts'
 
 interface UrlFormProps {
   id: string
@@ -21,7 +22,7 @@ interface UrlFormProps {
     ariaLabel?: string
   }>
   saveAlt: string
-  onSave: (value: string) => void
+  onSave: (section: keyof urlSections, value: string) => void
   saveClasses?: string[]
   value: string | undefined
 }

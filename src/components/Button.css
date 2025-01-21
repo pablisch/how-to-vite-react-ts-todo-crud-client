@@ -30,6 +30,10 @@
   line-height: 0.8rem;
 }
 
+.settings-btn {
+  width: 140px;
+}
+
 .confirm-delete-btn {
   background: var(--btn-warning-1);
   color: var(--text-warning-1);

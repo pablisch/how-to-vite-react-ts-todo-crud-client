@@ -1,5 +1,6 @@
 import UrlForm from './UrlForm.tsx'
 import { useEndpoint } from '../../hooks/useEndpoint.tsx'
+import { useSave } from '../../hooks/useSave.tsx'
 
 const EndpointUrlForm = () => {
   const {
@@ -8,6 +9,7 @@ const EndpointUrlForm = () => {
     handleSetEndpoint,
     handleResetEndpoint,
   } = useEndpoint()
+  const { handleSaveUrlSection } = useSave()
 
   return (
     <UrlForm
@@ -21,6 +23,9 @@ const EndpointUrlForm = () => {
       setUrlBtnText={`Set URL endpoint`}
       resetUrlBtnText="Reset URL endpoint"
       additionalButtons={[]}
+      saveAlt="save endpoint URL"
+      onSave={() => handleSaveUrlSection('endpoint', endpoint)}
+      value={endpoint}
     />
   )
 }

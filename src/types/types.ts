@@ -41,3 +41,9 @@ export interface StoredUrlsObject {
   idParam: string[]
   queryParam: string[]
 }
+
+export interface urlSections {
+  endpoint: ''
+  idParam: ''
+  queryParam: ''
+}

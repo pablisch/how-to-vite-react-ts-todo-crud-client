@@ -1,9 +1,15 @@
 import Button from '../../components/Button.tsx'
 import { useSettings } from '../../hooks/useSettings.tsx'
 import './Settings.css'
+import { useSave } from '../../hooks/useSave.tsx'
+import ClearSavedUrl from './ClearSavedUrl.tsx'
+import { useParams } from 'react-router-dom'
 
 const Settings = () => {
   const { settings, handleSetUrlSetMode } = useSettings()
+  const { clearSavedBaseUrls, handleSaveUrlSection, clearSavedSectionUrls } = useSave()
+  const { idParams } = useParams()
+  const { queryParams } = useParams()
 
   return (
     <div
@@ -12,21 +18,40 @@ const Settings = () => {
     >
       <div className="set-url-options-container settings-section flex-container">
         <div className="settings-left-wrapper">
-        
-        <h1 className="set-url-options-header settings-header">Choose if URL sections are set as you type or only on submission:</h1>
+          <h1 className="set-url-options-header settings-header">
+            Choose if URL sections are set as you type or only on submission:
+          </h1>
         </div>
         <div className="settings-right-wrapper">
-        
-        <Button
-          ariaLabel="set url section setting behaviour"
-          id={`set-url-mode`}
-          className={`btn url-btn`}
-          onClick={handleSetUrlSetMode}
-        >
-          {`Set URL section ${settings.setUrlOnChange ? 'on submit' : 'as you type'}`}
-        </Button>
+          <Button
+            ariaLabel="set url section setting behaviour"
+            id={`set-url-mode`}
+            className={`btn url-btn settings-btn`}
+            onClick={handleSetUrlSetMode}
+          >
+            {`Set URL section ${settings.setUrlOnChange ? 'on submit' : 'as you type'}`}
+          </Button>
         </div>
       </div>
+      <ClearSavedUrl
+        onClear={clearSavedBaseUrls}
+        section="base"
+        titleText="Clear saved URL entries for each section (clears local storage):"
+      />
+      <ClearSavedUrl
+        onClear={() => clearSavedSectionUrls('endpoint')}
+        section="endpoint"
+      />
+      <ClearSavedUrl
+        onClear={() => handleSaveUrlSection('idParam', idParams as string)}
+        section="idParam"
+      />
+      <ClearSavedUrl
+        onClear={() =>
+          handleSaveUrlSection('queryParam', queryParams as string)
+        }
+        section="queryParam"
+      />
     </div>
   )
 }
