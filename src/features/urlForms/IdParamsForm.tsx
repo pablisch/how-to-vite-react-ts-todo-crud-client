@@ -24,8 +24,10 @@ const IdParamsForm = () => {
       resetUrlBtnText="Reset /:id param"
       additionalButtons={[]}
       saveAlt="save endpoint URL"
-      onSave={() => handleSaveUrlSection('idParam', idParams)}
+      onSave={() => handleSaveUrlSection(idParams, 'idParam')}
       value={idParams}
+      section="idParam"
+      isDisabled={false}
     />
   )
 }

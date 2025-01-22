@@ -35,6 +35,8 @@ const BaseUrlForm = () => {
       saveAlt="save base URL"
       onSave={handleSaveBaseUrl}
       value={baseUrl}
+      section="base"
+      isDisabled={false}
     />
   )
 }

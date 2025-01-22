@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSettings } from '../../hooks/useSettings.tsx'
 import HoverButton from '../../components/HoverButton.tsx'
 import SaveButton from '../../components/SaveButton.tsx'
-import { urlSections } from '../../types/types.ts'
+import { StoredUrlsObject, urlSections } from '../../types/types.ts'
 
 interface UrlFormProps {
   id: string
@@ -22,9 +22,14 @@ interface UrlFormProps {
     ariaLabel?: string
   }>
   saveAlt: string
-  onSave: (section: keyof urlSections, value: string) => void
+  onSave: (
+    value: string,
+    section: keyof urlSections | keyof StoredUrlsObject
+  ) => void
   saveClasses?: string[]
   value: string | undefined
+  section: keyof urlSections | keyof StoredUrlsObject
+  isDisabled: boolean
 }
 
 const UrlForm: React.FC<UrlFormProps> = ({
@@ -42,6 +47,8 @@ const UrlForm: React.FC<UrlFormProps> = ({
   onSave,
   saveClasses,
   value,
+  section,
+  isDisabled,
 }) => {
   const [inputValue, setInputValue] = useState(defaultUrlValue)
 
@@ -88,6 +95,8 @@ const UrlForm: React.FC<UrlFormProps> = ({
           onSave={onSave}
           classNames={saveClasses}
           value={value}
+          section={section}
+          isDisabled={isDisabled}
         />
         <div className="url-btn-container">
           {!settings.setUrlOnChange && (

@@ -137,9 +137,16 @@
 }
 
 .save-btn-icon {
+  background: rgba(13, 142, 15, 0);
+  background-image: url('/floppy-save.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   height: calc(var(--form-input-height) - 5px);
+  width: calc(var(--form-input-height) - 8.4px);
   margin: 0 5px 0 4px;
   filter: invert(0.4);
+  border: none;
+  cursor: pointer;
 }
 
 .save-btn-icon-dark {

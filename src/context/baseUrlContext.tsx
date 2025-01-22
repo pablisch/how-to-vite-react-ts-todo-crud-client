@@ -85,7 +85,9 @@ export const BaseUrlProvider = ({
       if (newLocalUrlValue !== defaultUrls.localBase)
         localStorage.setItem('localUrl', newLocalUrlValue)
     } else {
-      const newDeployedUrlValue = deployedUrl ? deployedUrl : defaultUrls.remoteBase
+      const newDeployedUrlValue = deployedUrl
+        ? deployedUrl
+        : defaultUrls.remoteBase
       setBaseUrl(newDeployedUrlValue)
       if (newDeployedUrlValue !== defaultUrls.remoteBase)
         localStorage.setItem('deployedUrl', newDeployedUrlValue)
@@ -93,7 +95,9 @@ export const BaseUrlProvider = ({
   }, [isLocalApi, localUrl, deployedUrl])
 
   useEffect(() => {
-    const defaultUrl = isLocalApi ? defaultUrls.localBase : defaultUrls.remoteBase
+    const defaultUrl = isLocalApi
+      ? defaultUrls.localBase
+      : defaultUrls.remoteBase
     if (isDefaultUrlValue && baseUrl !== defaultUrl) {
       setIsDefaultUrlValue(false)
     } else if (!isDefaultUrlValue && baseUrl === defaultUrl) {

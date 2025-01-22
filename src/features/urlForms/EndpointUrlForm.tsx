@@ -24,8 +24,10 @@ const EndpointUrlForm = () => {
       resetUrlBtnText="Reset URL endpoint"
       additionalButtons={[]}
       saveAlt="save endpoint URL"
-      onSave={() => handleSaveUrlSection('endpoint', endpoint)}
+      onSave={() => handleSaveUrlSection(endpoint, 'endpoint')}
       value={endpoint}
+      section="endpoint"
+      isDisabled={false}
     />
   )
 }

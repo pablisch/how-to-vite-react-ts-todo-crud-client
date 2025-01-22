@@ -24,8 +24,10 @@ const QueryParamsForm = () => {
       resetUrlBtnText="Reset query params"
       additionalButtons={[]}
       saveAlt="save endpoint URL"
-      onSave={() => handleSaveUrlSection('queryParam', queryParams)}
+      onSave={() => handleSaveUrlSection(queryParams, 'queryParam')}
       value={queryParams}
+      section="queryParam"
+      isDisabled={false}
     />
   )
 }

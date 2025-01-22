@@ -19,7 +19,7 @@ const initialSavedUrls: StoredUrlsObject = storedSavedUrls
 export interface SaveContextType {
   storedUrls: StoredUrlsObject
   handleSaveBaseUrl: (value: string) => void
-  handleSaveUrlSection: (section: keyof urlSections, value: string) => void
+  handleSaveUrlSection: (value: string, section: keyof urlSections) => void
   clearSavedBaseUrls: () => void
   clearSavedSectionUrls: (section: keyof urlSections) => void
   clearAllSavedUrls: () => void
@@ -49,10 +49,13 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
     return false
   }
 
-  const handleSaveBaseUrl = (value: string) => {
+  const handleSaveBaseUrl = (
+    value: string,
+    section: keyof StoredUrlsObject = 'base'
+  ) => {
     if (!value) {
       console.log('Do not store empty value')
-    } else if (storedUrls.base.includes(value)) {
+    } else if (storedUrls[section].includes(value)) {
       console.log(`${value} is already saved - return`)
 
       return
@@ -70,8 +73,10 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  const handleSaveUrlSection = (section: keyof urlSections, value: string) => {
-    console.log(`Default: ${defaultUrls[section]}, value: ${value}, section: ${section}`)
+  const handleSaveUrlSection = (value: string, section: keyof urlSections) => {
+    console.log(
+      `Default: ${defaultUrls[section]}, value: ${value}, section: ${section}`
+    )
     if (!value) {
       console.log('Do not store empty value')
     } else if (storedUrls[section].includes(value)) {
