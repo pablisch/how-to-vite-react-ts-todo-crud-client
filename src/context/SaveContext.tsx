@@ -4,6 +4,7 @@ import { defaultUrls } from '../utils/data.ts'
 
 const defaultSavedUrls: StoredUrlsObject = {
   complete: [],
+  combined: [],
   base: [],
   endpoint: [],
   idParam: [],
@@ -55,7 +56,7 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
   ) => {
     if (!value) {
       console.log('Do not store empty value')
-    } else if (storedUrls[section].includes(value)) {
+    } else if (section === "base" && storedUrls[section].includes(value)) {
       console.log(`${value} is already saved - return`)
 
       return

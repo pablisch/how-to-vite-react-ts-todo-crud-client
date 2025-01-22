@@ -36,6 +36,7 @@ export interface itemClassesObject {
 
 export interface StoredUrlsObject {
   complete: string[]
+  combined: combinedUrlObject[]
   base: string[]
   endpoint: string[]
   idParam: string[]
@@ -46,4 +47,11 @@ export interface urlSections {
   endpoint: ''
   idParam: ''
   queryParam: ''
+}
+
+interface combinedUrlObject {
+  base: string
+  endpoint: string
+  idParam: string
+  queryParam: string
 }
