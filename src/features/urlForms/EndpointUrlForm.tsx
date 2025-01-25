@@ -2,7 +2,6 @@ import UrlForm from './UrlForm.tsx'
 import { useEndpoint } from '../../hooks/useEndpoint.tsx'
 import { useSave } from '../../hooks/useSave.tsx'
 import { useEffect } from 'react'
-import { defaultUrls } from '../../utils/data.ts'
 import saveHelpers from '../../utils/saveHelpers.ts'
 
 const EndpointUrlForm = () => {
@@ -18,10 +17,15 @@ const EndpointUrlForm = () => {
   console.log('****()** endpoint form loading:')
 
   useEffect(() => {
-    const section = "endpoint"
-    const updateSaveDisabled = saveHelpers.updateSaveDisabled(endpoint, section, saveDisabled, storedUrls)
-    if (updateSaveDisabled === "true") handleSaveDisabled(true, section)
-    if (updateSaveDisabled === "false") handleSaveDisabled(false, section)
+    const section = 'endpoint'
+    const updateSaveDisabled = saveHelpers.updateSaveDisabled(
+      endpoint,
+      section,
+      saveDisabled,
+      storedUrls
+    )
+    if (updateSaveDisabled === 'true') handleSaveDisabled(true, section)
+    if (updateSaveDisabled === 'false') handleSaveDisabled(false, section)
   }, [endpoint, storedUrls.endpoint, saveDisabled.endpoint, handleSaveDisabled])
 
   return (
