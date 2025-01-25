@@ -18,7 +18,8 @@ const ClearSavedUrl: FC<ClearSavedUrlProps> = ({
 }) => {
   const { storedUrls } = useSave()
 
-  const hasStored = storedUrls[section].length > defaultSavedUrls[section].length
+  const hasStored =
+    storedUrls[section].length > defaultSavedUrls[section].length
 
   return (
     <div
