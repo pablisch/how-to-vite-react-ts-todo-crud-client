@@ -56,6 +56,14 @@ interface combinedUrlObject {
   queryParam: string
 }
 
+export interface defaultUrlsObject {
+  localBase: string
+  remoteBase: string
+  endpoint: string
+  idParam: string
+  queryParam: string
+}
+
 export interface saveDisabledObject {
   complete: boolean
   combined: boolean
