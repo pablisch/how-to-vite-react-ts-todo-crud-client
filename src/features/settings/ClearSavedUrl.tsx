@@ -3,6 +3,7 @@ import Button from '../../components/Button.tsx'
 import { useSave } from '../../hooks/useSave.tsx'
 import { StoredUrlsObject } from '../../types/types.ts'
 import './Settings.css'
+import { defaultSavedUrls } from '../../utils/data.ts'
 
 interface ClearSavedUrlProps {
   onClear: () => void
@@ -17,7 +18,7 @@ const ClearSavedUrl: FC<ClearSavedUrlProps> = ({
 }) => {
   const { storedUrls } = useSave()
 
-  const hasStored = storedUrls[section].length > 0
+  const hasStored = storedUrls[section].length > defaultSavedUrls[section].length
 
   return (
     <div

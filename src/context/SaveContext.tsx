@@ -118,7 +118,7 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const clearSavedSectionUrls = (section: keyof urlSections) => {
-    setStoredUrls(prev => ({ ...prev, [section]: [] }))
+    setStoredUrls(prev => ({ ...prev, [section]: defaultSavedUrls[section] }))
   }
 
   const clearAllSavedUrls = () => {
