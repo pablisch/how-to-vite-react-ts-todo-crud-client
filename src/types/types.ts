@@ -55,3 +55,12 @@ interface combinedUrlObject {
   idParam: string
   queryParam: string
 }
+
+export interface saveDisabledObject {
+  complete: boolean
+  combined: boolean
+  base: boolean
+  endpoint: boolean
+  idParam: boolean
+  queryParam: boolean
+}

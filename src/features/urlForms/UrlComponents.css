@@ -152,3 +152,7 @@
 .save-btn-icon-dark {
   filter: invert(0.7);
 }
+
+.save-btn-disabled {
+  opacity: 0.3;
+}

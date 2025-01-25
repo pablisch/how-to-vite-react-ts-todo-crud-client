@@ -1,15 +1,14 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { StoredUrlsObject, urlSections } from '../types/types.ts'
-import { defaultUrls } from '../utils/data.ts'
-
-const defaultSavedUrls: StoredUrlsObject = {
-  complete: [],
-  combined: [],
-  base: [],
-  endpoint: [],
-  idParam: [],
-  queryParam: [],
-}
+import {
+  saveDisabledObject,
+  StoredUrlsObject,
+  urlSections,
+} from '../types/types.ts'
+import {
+  defaultSaveDisabledObject,
+  defaultSavedUrls,
+  defaultUrls,
+} from '../utils/data.ts'
 
 const storedSavedUrls = localStorage.getItem('savedUrls')
 
@@ -25,6 +24,11 @@ export interface SaveContextType {
   clearSavedSectionUrls: (section: keyof urlSections) => void
   clearAllSavedUrls: () => void
   urlsAreStored: (section: string) => boolean
+  saveDisabled: saveDisabledObject
+  handleSaveDisabled: (
+    value: boolean,
+    section: keyof saveDisabledObject
+  ) => void
 }
 
 export const SaveContext = createContext<SaveContextType>({
@@ -35,11 +39,26 @@ export const SaveContext = createContext<SaveContextType>({
   clearSavedSectionUrls: () => {},
   clearAllSavedUrls: () => {},
   urlsAreStored: () => false,
+  saveDisabled: defaultSaveDisabledObject,
+  handleSaveDisabled: () => {},
 })
 
 export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
   const [storedUrls, setStoredUrls] =
     useState<StoredUrlsObject>(initialSavedUrls)
+  const [saveDisabled, setSaveDisabled] = useState<saveDisabledObject>(
+    defaultSaveDisabledObject
+  )
+
+  const handleSaveDisabled = (
+    value: boolean,
+    section: keyof saveDisabledObject
+  ) => {
+    setSaveDisabled(prev => ({
+      ...prev,
+      [section]: value,
+    }))
+  }
 
   const urlsAreStored = (section: string) => {
     const saveUrlsString = localStorage.getItem('savedUrls')
@@ -56,7 +75,7 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
   ) => {
     if (!value) {
       console.log('Do not store empty value')
-    } else if (section === "base" && storedUrls[section].includes(value)) {
+    } else if (section === 'base' && storedUrls[section].includes(value)) {
       console.log(`${value} is already saved - return`)
 
       return
@@ -120,6 +139,8 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
         clearSavedSectionUrls,
         clearAllSavedUrls,
         urlsAreStored,
+        saveDisabled,
+        handleSaveDisabled,
       }}
     >
       {children}

@@ -19,10 +19,7 @@ const CombinedUrl = () => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNonsense(event.target.value || nonsense) // TODO nonsense placeholder line to avoid errors
     setInputValue(inputValue) // TODO nonsense placeholder line to avoid errors
-    console.log(
-      '****()** - AVOID ERRORS - settings:',
-      JSON.stringify(settings, null, 2)
-    )
+    console.log(JSON.stringify(settings, null, 2))
   }
 
   useEffect(() => {

@@ -11,7 +11,7 @@ interface SaveButtonProps {
   classNames?: string[]
   value?: string
   section: keyof urlSections | keyof StoredUrlsObject
-  isDisabled?: boolean
+  isDisabled: boolean
 }
 
 const SaveButton: FC<SaveButtonProps> = ({
@@ -20,14 +20,14 @@ const SaveButton: FC<SaveButtonProps> = ({
   classNames = ['save-btn-icon'],
   value = '',
   section,
-  isDisabled = false,
+  isDisabled,
 }) => {
   const { settings } = useSettings()
 
   const buttonClassNames = [
     ...classNames,
     settings.theme === 'dark' ? 'save-btn-icon-dark' : '',
-    isDisabled ? 'save-btn-disabled' : '',
+    isDisabled ? 'save-btn-disabled' : 'ENABLED',
   ].join(' ')
 
   return (

@@ -35,10 +35,10 @@ export default {
 
     const responseDetails = (
       <>
-        <p className="spacer"> </p>
-        <p>
+        <div className="spacer"> </div>
+        <div>
           <strong>Response from API:</strong>
-        </p>
+        </div>
         <pre className="wrap-text">
           {this.formatObjectAsJsxWithBoldKeys(error)}
         </pre>
@@ -50,12 +50,12 @@ export default {
         <>
           <div className={`status-label ${statusType}`}>N/A</div>
           <div className="alert alert-info"></div>
-          <p>
+          <div>
             <strong>An unknown error occurred.</strong>
-          </p>
-          <p className="spacer"></p>
-          <p>No status or message properties were received from the API.</p>
-          <p>{responseDetails}</p>
+          </div>
+          <div className="spacer"></div>
+          <div>No status or message properties were received from the API.</div>
+          <div>{responseDetails}</div>
         </>
       )
     }
@@ -64,13 +64,13 @@ export default {
       return (
         <>
           <div className={`status-label ${statusType}`}>N/A</div>
-          <p>
+          <div>
             <strong>No status property was received from the API.</strong>
-          </p>
-          <p className="spacer"></p>
+          </div>
+          <div className="spacer"></div>
           <p>Message: {message}</p>
 
-          <p>{responseDetails}</p>
+          <div>{responseDetails}</div>
         </>
       )
     }
@@ -79,14 +79,14 @@ export default {
       return (
         <>
           <div className={`status-label ${statusType}`}>{status}</div>
-          <p>
+          <div>
             <strong>Status code:</strong> {status}
-          </p>
-          <p className="spacer"></p>
-          <p className="space-around">
+          </div>
+          <div className="spacer"></div>
+          <div className="space-around">
             <strong>No message property was received from the API.</strong>
-          </p>
-          <p>{responseDetails}</p>
+          </div>
+          <div>{responseDetails}</div>
         </>
       )
     }
@@ -94,14 +94,14 @@ export default {
     return (
       <>
         <div className={`status-label ${statusType}`}>{status}</div>
-        <p>
+        <div>
           <strong>Status code:</strong> {status}
-        </p>
-        <p className="spacer"></p>
-        <p>
+        </div>
+        <div className="spacer"></div>
+        <div>
           <strong>Message:</strong> {message}
-        </p>
-        <p>{responseDetails}</p>
+        </div>
+        <div>{responseDetails}</div>
       </>
     )
   },

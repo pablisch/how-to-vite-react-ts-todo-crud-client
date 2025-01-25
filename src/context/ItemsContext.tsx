@@ -206,10 +206,7 @@ export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
           body,
         }
       )
-      console.log(
-        '****()** - AVOID ERRORS - update response in itemsContext:',
-        response.data
-      )
+      console.log(response.data)
     } catch (error) {
       const errorMessage: React.ReactElement =
         // @ts-expect-error - The error from the catch block cannot be assigned a type other than any or unknown

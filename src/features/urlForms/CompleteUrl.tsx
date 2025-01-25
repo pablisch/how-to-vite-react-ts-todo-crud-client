@@ -10,13 +10,10 @@ const CompleteUrl = ({ combinedUrl }: CompleteUrlProps) => {
   const { settings } = useSettings()
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('****()** event to AVOID ERRORS:', event)
     // setInputValue(event.target.value)
     setInputValue(inputValue) // TODO nonsense placeholder line
-    console.log('****()** - AVOID ERRORS - event:', event.target.value)
-    console.log(
-      '****()** - AVOID ERRORS - settings:',
-      JSON.stringify(settings, null, 2)
-    )
+    console.log(JSON.stringify(settings, null, 2))
   }
 
   useEffect(() => {
