@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
+import { defaultUrls } from '../utils/data.ts'
 
-const defaultIdParams: string = ''
+const defaultIdParams: string = defaultUrls.idParam
 const initialIdParams: string =
   localStorage.getItem('idParams') || defaultIdParams
 

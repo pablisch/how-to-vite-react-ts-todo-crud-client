@@ -76,17 +76,14 @@
 
 .url-overlay-container {
   position: relative;
-  /*height: var(--form-input-height);*/
-  /*padding: 5px;*/
 }
 
 .url-overlay {
-  /*background: var(--btn-option-1);*/
   position: absolute;
   top: 0;
+  /*top: 30px;*/
   left: 0;
   width: 100%;
-  /*height: 100%;*/
   height: var(--form-input-height);
   border: 1px solid transparent;
   border-radius: var(--form-border-radius);
@@ -105,7 +102,6 @@
   color: transparent;
   caret-color: var(--white);
   background: var(--background-3);
-  /*border: 1px solid transparent;*/
 }
 
 #complete-url-text {
@@ -138,4 +134,25 @@
   transition:
     background var(--color-trans) ease,
     color var(--color-trans) ease;
+}
+
+.save-btn-icon {
+  background: rgba(13, 142, 15, 0);
+  background-image: url('/floppy-save.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(var(--form-input-height) - 5px);
+  width: calc(var(--form-input-height) - 8.4px);
+  margin: 0 5px 0 4px;
+  filter: invert(0.4);
+  border: none;
+  cursor: pointer;
+}
+
+.save-btn-icon-dark {
+  filter: invert(0.7);
+}
+
+.save-btn-disabled {
+  opacity: 0.3;
 }

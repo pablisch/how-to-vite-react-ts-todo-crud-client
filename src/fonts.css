@@ -11,40 +11,33 @@
   font-style: normal;
   font-display: swap;
 }
-/*@font-face {*/
-/*  font-family: 'Roboto Flex V';*/
-/*  src: url('./assets/fonts/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf') format('truetype');*/
-/*  font-weight: 100 1000;*/
-/*  font-style: normal;*/
-/*  font-display: swap;*/
-/*}*/
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
+.url-input-text {
+  font-family: 'Roboto Mono V', monospace;
+  font-variation-settings: 'wght' 150;
+  font-size: 15px;
 }
 
-html {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow: hidden;
+.mono-100 {
+  font-family: 'Roboto Mono V', monospace;
+  font-variation-settings: 'wght' 100;
 }
 
-.flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.roboto-flex-100 {
+  font-family: 'Roboto Flex', sans-serif;
+  font-variation-settings: 'wght' 100;
 }
 
-/*.mono-100 {*/
-/*  font-family: 'Roboto Mono V', monospace;*/
-/*  font-variation-settings: 'wght' 100;*/
-/*}*/
+.mono {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+  /*font-stretch: 80%;*/
+  /*font-variation-settings: 'wdth' 80;*/
+  /*font-size: 0.9rem;*/
+  /*line-height: 1;*/
+}
 
-/*.roboto-flex-100 {*/
-/*  font-family: 'Roboto Flex', sans-serif;*/
-/*  font-variation-settings: 'wght' 100;*/
-/*}*/
+.mono-bold {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+}

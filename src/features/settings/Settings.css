@@ -1,0 +1,22 @@
+#settings-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-section {
+  display: flex;
+}
+
+.settings-left-wrapper {
+  width: 470px;
+  margin: 0 20px;
+}
+
+.settings-right-wrapper {
+  width: 200px;
+}
+
+.settings-header {
+  font-size: 1rem;
+  font-weight: 300;
+}

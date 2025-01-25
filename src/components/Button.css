@@ -15,7 +15,7 @@
   margin-top: 0.5rem;
 }
 
-.red-btn {
+.warning-btn {
   background: var(--btn-warning-1);
   transition:
     background var(--color-trans) ease,
@@ -30,8 +30,14 @@
   line-height: 0.8rem;
 }
 
+.settings-btn {
+  width: 160px;
+}
+
 .confirm-delete-btn {
-  background: var(--op-delete);
+  background: var(--btn-warning-1);
+  color: var(--text-warning-1);
+  border: 1px solid var(--grey-550);
   height: var(--single-status-height);
   width: var(--wide-btn);
   margin: var(--above-single-status-spacing) auto
@@ -41,7 +47,8 @@
 }
 
 .confirm-delete-btn-hover {
-  background: var(--op-delete-vibe);
+  background: var(--btn-warning-2);
+  color: var(--text-warning-2);
   border: 1px solid var(--border-contrast-2);
 }
 
@@ -96,11 +103,15 @@
   background: var(--background-2);
   border: 1px solid var(--btn-option-1);
   color: var(--btn-option-2);
-  /*background: var(--patch-op-border);*/
 }
 
 .disabled:hover {
-  /*background: var(--btn-warning-1);*/
   color: var(--text-mute-0);
   border: 1px solid var(--border-mute-2);
+}
+
+#confirm-delete-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

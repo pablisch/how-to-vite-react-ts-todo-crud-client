@@ -1,5 +1,6 @@
 import { useBaseUrl } from '../../hooks/useBaseUrl.tsx'
 import UrlForm from './UrlForm.tsx'
+import { useSave } from '../../hooks/useSave.tsx'
 
 const BaseUrlForm = () => {
   const {
@@ -10,6 +11,7 @@ const BaseUrlForm = () => {
     handleResetBaseUrl,
     handleToggleApiLocation,
   } = useBaseUrl()
+  const { handleSaveBaseUrl } = useSave()
 
   return (
     <UrlForm
@@ -30,6 +32,11 @@ const BaseUrlForm = () => {
           classNames: ['btn', 'url-btn', isLocalApi ? 'deployed' : 'local'],
         },
       ]}
+      saveAlt="save base URL"
+      onSave={handleSaveBaseUrl}
+      value={baseUrl}
+      section="base"
+      isDisabled={false}
     />
   )
 }

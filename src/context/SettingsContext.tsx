@@ -63,7 +63,7 @@ export const SettingsProvider = ({
 
   useEffect(() => {
     localStorage.setItem('storedSettings', JSON.stringify(settings))
-  })
+  }, [settings])
 
   return (
     <SettingsContext.Provider
