@@ -1,9 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { defaultUrls } from '../utils/data.ts'
 
-const defaultQueryParams: string = defaultUrls.queryParam
 const initialQueryParams: string =
-  localStorage.getItem('queryParams') || defaultQueryParams
+  localStorage.getItem('queryParams') || defaultUrls.queryParams
 
 export interface QueryParamsContextType {
   queryParams: string
@@ -16,7 +15,7 @@ export const QueryParamsContext = createContext<QueryParamsContextType>({
   queryParams: initialQueryParams,
   handleSetQueryParams: () => {},
   handleResetQueryParams: () => {},
-  isDefaultUrlValue: initialQueryParams === defaultQueryParams,
+  isDefaultUrlValue: initialQueryParams === defaultUrls.queryParams,
 })
 
 export const QueryParamsProvider = ({
@@ -26,7 +25,7 @@ export const QueryParamsProvider = ({
 }) => {
   const [queryParams, setQueryParams] = useState<string>(initialQueryParams)
   const [isDefaultUrlValue, setIsDefaultUrlValue] = useState<boolean>(
-    initialQueryParams === defaultQueryParams
+    initialQueryParams === defaultUrls.queryParams
   )
 
   const handleSetQueryParams = (newQueryParams: string) => {
@@ -35,7 +34,7 @@ export const QueryParamsProvider = ({
       ? newQueryParams
       : `?${newQueryParams}`
     setQueryParams(newQueryParams)
-    if (newQueryParams === defaultQueryParams) {
+    if (newQueryParams === defaultUrls.queryParams) {
       localStorage.removeItem('queryParams')
     } else {
       localStorage.setItem('queryParams', newQueryParams)
@@ -43,14 +42,14 @@ export const QueryParamsProvider = ({
   }
 
   const handleResetQueryParams = () => {
-    setQueryParams(defaultQueryParams)
+    setQueryParams(defaultUrls.queryParams)
     localStorage.removeItem('queryParams')
   }
 
   useEffect(() => {
-    if (queryParams === defaultQueryParams && !isDefaultUrlValue) {
+    if (queryParams === defaultUrls.queryParams && !isDefaultUrlValue) {
       setIsDefaultUrlValue(true)
-    } else if (queryParams !== defaultQueryParams && isDefaultUrlValue) {
+    } else if (queryParams !== defaultUrls.queryParams && isDefaultUrlValue) {
       setIsDefaultUrlValue(false)
     }
   }, [queryParams])

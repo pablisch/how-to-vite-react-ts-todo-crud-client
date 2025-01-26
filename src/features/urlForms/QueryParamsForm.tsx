@@ -1,6 +1,7 @@
 import UrlForm from './UrlForm.tsx'
 import { useQueryParams } from '../../hooks/useQueryParams.tsx'
 import { useSave } from '../../hooks/useSave.tsx'
+import { useSaveDisabledUpdater } from '../../hooks/useSaveDisabledUpdater.tsx'
 
 const QueryParamsForm = () => {
   const {
@@ -9,13 +10,17 @@ const QueryParamsForm = () => {
     handleSetQueryParams,
     handleResetQueryParams,
   } = useQueryParams()
-  const { handleSaveUrlSection } = useSave()
+  const { handleSaveUrlSection, saveDisabled } = useSave()
+
+  const sectionKey = 'queryParams'
+
+  useSaveDisabledUpdater(sectionKey)
 
   return (
     <UrlForm
-      id="id-params"
+      id={`url-${sectionKey}-form`}
       title="URL query params:"
-      placeholder="Enter new URL endpoint"
+      placeholder="Enter query param"
       defaultUrlValue={queryParams}
       isDefaultUrlValue={isDefaultUrlValue}
       onSetUrl={(value: string) => handleSetQueryParams(value)}
@@ -24,10 +29,10 @@ const QueryParamsForm = () => {
       resetUrlBtnText="Reset query params"
       additionalButtons={[]}
       saveAlt="save endpoint URL"
-      onSave={() => handleSaveUrlSection(queryParams, 'queryParam')}
+      onSave={() => handleSaveUrlSection(queryParams, sectionKey)}
       value={queryParams}
-      section="queryParam"
-      isDisabled={false}
+      section={sectionKey}
+      isDisabled={saveDisabled.queryParams}
     />
   )
 }

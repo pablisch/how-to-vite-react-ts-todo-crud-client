@@ -40,12 +40,12 @@ const Settings = () => {
         section="endpoint"
       />
       <ClearSavedUrl
-        onClear={() => clearSavedSectionUrls('idParam')}
-        section="idParam"
+        onClear={() => clearSavedSectionUrls('idParams')}
+        section="idParams"
       />
       <ClearSavedUrl
-        onClear={() => clearSavedSectionUrls('queryParam')}
-        section="queryParam"
+        onClear={() => clearSavedSectionUrls('queryParams')}
+        section="queryParams"
       />
     </div>
   )

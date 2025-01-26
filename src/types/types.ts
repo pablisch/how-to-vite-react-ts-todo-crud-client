@@ -39,29 +39,29 @@ export interface StoredUrlsObject {
   combined: combinedUrlObject[]
   base: string[]
   endpoint: string[]
-  idParam: string[]
-  queryParam: string[]
+  idParams: string[]
+  queryParams: string[]
 }
 
 export interface urlSections {
   endpoint: ''
-  idParam: ''
-  queryParam: ''
+  idParams: ''
+  queryParams: ''
 }
 
 interface combinedUrlObject {
   base: string
   endpoint: string
   idParam: string
-  queryParam: string
+  queryParams: string
 }
 
 export interface defaultUrlsObject {
   localBase: string
   remoteBase: string
   endpoint: string
-  idParam: string
-  queryParam: string
+  idParams: string
+  queryParams: string
 }
 
 export interface saveDisabledObject {
@@ -69,6 +69,6 @@ export interface saveDisabledObject {
   combined: boolean
   base: boolean
   endpoint: boolean
-  idParam: boolean
-  queryParam: boolean
+  idParams: boolean
+  queryParams: boolean
 }

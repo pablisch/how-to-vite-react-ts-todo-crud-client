@@ -1,8 +1,7 @@
 import UrlForm from './UrlForm.tsx'
 import { useEndpoint } from '../../hooks/useEndpoint.tsx'
 import { useSave } from '../../hooks/useSave.tsx'
-import { useEffect } from 'react'
-import saveHelpers from '../../utils/saveHelpers.ts'
+import { useSaveDisabledUpdater } from '../../hooks/useSaveDisabledUpdater.tsx'
 
 const EndpointUrlForm = () => {
   const {
@@ -11,26 +10,15 @@ const EndpointUrlForm = () => {
     handleSetEndpoint,
     handleResetEndpoint,
   } = useEndpoint()
-  const { handleSaveUrlSection, saveDisabled, handleSaveDisabled, storedUrls } =
-    useSave()
-  // const { storedUrls, saveDisabled, handleSaveDisabled } = useSave()
-  console.log('****()** endpoint form loading:')
+  const { handleSaveUrlSection, saveDisabled } = useSave()
 
-  useEffect(() => {
-    const section = 'endpoint'
-    const updateSaveDisabled = saveHelpers.updateSaveDisabled(
-      endpoint,
-      section,
-      saveDisabled,
-      storedUrls
-    )
-    if (updateSaveDisabled === 'true') handleSaveDisabled(true, section)
-    if (updateSaveDisabled === 'false') handleSaveDisabled(false, section)
-  }, [endpoint, storedUrls.endpoint, saveDisabled.endpoint, handleSaveDisabled])
+  const sectionKey = 'endpoint'
+
+  useSaveDisabledUpdater(sectionKey)
 
   return (
     <UrlForm
-      id="url-endpoint"
+      id={`url-${sectionKey}-form`}
       title="URL endpoint:"
       placeholder="Enter new URL endpoint"
       defaultUrlValue={endpoint}
@@ -41,10 +29,9 @@ const EndpointUrlForm = () => {
       resetUrlBtnText="Reset URL endpoint"
       additionalButtons={[]}
       saveAlt="save endpoint URL"
-      onSave={() => handleSaveUrlSection(endpoint, 'endpoint')}
+      onSave={() => handleSaveUrlSection(endpoint, sectionKey)}
       value={endpoint}
-      section="endpoint"
-      // isDisabled={false}
+      section={sectionKey}
       isDisabled={saveDisabled.endpoint}
     />
   )

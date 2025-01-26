@@ -1,6 +1,7 @@
 import UrlForm from './UrlForm.tsx'
 import { useIdParams } from '../../hooks/useIdParams.tsx'
 import { useSave } from '../../hooks/useSave.tsx'
+import { useSaveDisabledUpdater } from '../../hooks/useSaveDisabledUpdater.tsx'
 
 const IdParamsForm = () => {
   const {
@@ -9,13 +10,17 @@ const IdParamsForm = () => {
     handleSetIdParams,
     handleResetIdParams,
   } = useIdParams()
-  const { handleSaveUrlSection } = useSave()
+  const { handleSaveUrlSection, saveDisabled } = useSave()
+
+  const sectionKey = 'idParams'
+
+  useSaveDisabledUpdater(sectionKey)
 
   return (
     <UrlForm
-      id="id-params"
+      id={`url-${sectionKey}-form`}
       title="URL /:id param:"
-      placeholder="Enter new URL endpoint"
+      placeholder="Enter ID param"
       defaultUrlValue={idParams}
       isDefaultUrlValue={isDefaultUrlValue}
       onSetUrl={(value: string) => handleSetIdParams(value)}
@@ -23,11 +28,11 @@ const IdParamsForm = () => {
       setUrlBtnText={`Set /:id param`}
       resetUrlBtnText="Reset /:id param"
       additionalButtons={[]}
-      saveAlt="save endpoint URL"
-      onSave={() => handleSaveUrlSection(idParams, 'idParam')}
+      saveAlt="save ID param"
+      onSave={() => handleSaveUrlSection(idParams, sectionKey)}
       value={idParams}
-      section="idParam"
-      isDisabled={false}
+      section={sectionKey}
+      isDisabled={saveDisabled.idParams}
     />
   )
 }
