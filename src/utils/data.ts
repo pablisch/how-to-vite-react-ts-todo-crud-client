@@ -25,8 +25,21 @@ export const defaultSaveDisabledObject: saveDisabledObject = {
 export const defaultSavedUrls: StoredUrlsObject = {
   complete: [],
   combined: [],
-  base: ['https://jsonplaceholder.typicode.com'],
+  base: [],
+  localBase: ['http://localhost:3000/'],
+  remoteBase: ['https://jsonplaceholder.typicode.com'],
   endpoint: ['/todos'],
   idParams: [],
   queryParams: [],
+}
+
+export const sections = {
+  complete: 'complete',
+  combined: 'combined',
+  localBase: 'localBase',
+  remoteBase: 'remoteBase',
+  base: 'base',
+  endpoint: 'endpoint',
+  idParams: 'idParams',
+  queryParams: 'queryParams',
 }

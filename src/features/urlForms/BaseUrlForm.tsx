@@ -11,7 +11,10 @@ const BaseUrlForm = () => {
     handleResetBaseUrl,
     handleToggleApiLocation,
   } = useBaseUrl()
-  const { handleSaveBaseUrl } = useSave()
+  // const { handleSaveBaseUrl } = useSave()
+  const { handleSaveUrlSection } = useSave()
+  
+  const sectionKey = isLocalApi ? 'localBase' : 'remoteBase'
 
   return (
     <UrlForm
@@ -33,9 +36,10 @@ const BaseUrlForm = () => {
         },
       ]}
       saveAlt="save base URL"
-      onSave={handleSaveBaseUrl}
+      // onSave={handleSaveBaseUrl}
+      onSave={() => handleSaveUrlSection(baseUrl, sectionKey)}
       value={baseUrl}
-      section="base"
+      section={sectionKey}
       isDisabled={false}
     />
   )

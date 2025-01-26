@@ -9,12 +9,16 @@ interface ClearSavedUrlProps {
   onClear: () => void
   section: keyof StoredUrlsObject
   titleText?: string
+  activeText: string
+  disabledText: string
 }
 
-const ClearSavedUrl: FC<ClearSavedUrlProps> = ({
+const ClearSavedUrlBtn: FC<ClearSavedUrlProps> = ({
   onClear,
   section,
   titleText,
+  activeText,
+  disabledText,
 }) => {
   const { storedUrls } = useSave()
 
@@ -38,12 +42,12 @@ const ClearSavedUrl: FC<ClearSavedUrlProps> = ({
           disabled={!hasStored}
         >
           {hasStored
-            ? `Clear saved ${section} URL sections`
-            : `No saved ${section} URLs`}
+            ? activeText || "active"
+            : disabledText || "disabled"}
         </Button>
       </div>
     </div>
   )
 }
 
-export default ClearSavedUrl
+export default ClearSavedUrlBtn

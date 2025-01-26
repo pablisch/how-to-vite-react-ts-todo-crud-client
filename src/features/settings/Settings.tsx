@@ -2,11 +2,11 @@ import Button from '../../components/Button.tsx'
 import { useSettings } from '../../hooks/useSettings.tsx'
 import './Settings.css'
 import { useSave } from '../../hooks/useSave.tsx'
-import ClearSavedUrl from './ClearSavedUrl.tsx'
+import ClearSavedUrlBtn from './ClearSavedUrlBtn.tsx'
 
 const Settings = () => {
   const { settings, handleSetUrlSetMode } = useSettings()
-  const { clearSavedBaseUrls, clearSavedSectionUrls } = useSave()
+  const { clearSavedSectionUrls } = useSave()
 
   return (
     <div
@@ -30,22 +30,37 @@ const Settings = () => {
           </Button>
         </div>
       </div>
-      <ClearSavedUrl
-        onClear={clearSavedBaseUrls}
-        section="base"
+      <ClearSavedUrlBtn
+        onClear={() => clearSavedSectionUrls('remoteBase')}
+        // onClear={clearSavedBaseUrls}
+        section="remoteBase"
         titleText="Clear saved URL entries for each section (clears local storage):"
+        activeText="Clear saved remote base URLs"
+        disabledText="No saved remote base URLs"
       />
-      <ClearSavedUrl
+      <ClearSavedUrlBtn
+        onClear={() => clearSavedSectionUrls('localBase')}
+        section="localBase"
+        activeText="Clear saved local base URLs"
+        disabledText="No saved local base URLs"
+      />
+      <ClearSavedUrlBtn
         onClear={() => clearSavedSectionUrls('endpoint')}
         section="endpoint"
+        activeText="Clear saved URL enpoints"
+        disabledText="No saved URL enpoints"
       />
-      <ClearSavedUrl
+      <ClearSavedUrlBtn
         onClear={() => clearSavedSectionUrls('idParams')}
         section="idParams"
+        activeText="Clear saved ID params"
+        disabledText="No saved ID params"
       />
-      <ClearSavedUrl
+      <ClearSavedUrlBtn
         onClear={() => clearSavedSectionUrls('queryParams')}
         section="queryParams"
+        activeText="Clear saved query params"
+        disabledText="No saved query params"
       />
     </div>
   )

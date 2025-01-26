@@ -18,7 +18,7 @@ const initialSavedUrls: StoredUrlsObject = storedSavedUrls
 
 export interface SaveContextType {
   storedUrls: StoredUrlsObject
-  handleSaveBaseUrl: (value: string) => void
+  // handleSaveBaseUrl: (value: string) => void
   handleSaveUrlSection: (value: string, section: keyof urlSections) => void
   clearSavedBaseUrls: () => void
   clearSavedSectionUrls: (section: keyof urlSections) => void
@@ -33,7 +33,7 @@ export interface SaveContextType {
 
 export const SaveContext = createContext<SaveContextType>({
   storedUrls: initialSavedUrls,
-  handleSaveBaseUrl: () => {},
+  // handleSaveBaseUrl: () => {},
   handleSaveUrlSection: () => {},
   clearSavedBaseUrls: () => {},
   clearSavedSectionUrls: () => {},
@@ -69,29 +69,29 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
     return false
   }
 
-  const handleSaveBaseUrl = (
-    value: string,
-    section: keyof StoredUrlsObject = 'base'
-  ) => {
-    if (!value) {
-      console.log('Do not store empty value')
-    } else if (section === 'base' && storedUrls[section].includes(value)) {
-      console.log(`${value} is already saved - return`)
-
-      return
-    } else if (value === defaultUrls.localBase) {
-      console.log(`${value} is default local URL - return`)
-
-      return
-    } else if (value === defaultUrls.remoteBase) {
-      console.log(`${value} is default remote URL - return`)
-
-      return
-    } else {
-      setStoredUrls(prev => ({ ...prev, base: [...prev.base, value] }))
-      console.log(`${value} is saved`)
-    }
-  }
+  // const handleSaveBaseUrl = (
+  //   value: string,
+  //   section: keyof StoredUrlsObject = 'base'
+  // ) => {
+  //   if (!value) {
+  //     console.log('Do not store empty value')
+  //   } else if (section === 'base' && storedUrls[section].includes(value)) {
+  //     console.log(`${value} is already saved - return`)
+  //
+  //     return
+  //   } else if (value === defaultUrls.localBase) {
+  //     console.log(`${value} is default local URL - return`)
+  //
+  //     return
+  //   } else if (value === defaultUrls.remoteBase) {
+  //     console.log(`${value} is default remote URL - return`)
+  //
+  //     return
+  //   } else {
+  //     setStoredUrls(prev => ({ ...prev, base: [...prev.base, value] }))
+  //     console.log(`${value} is saved`)
+  //   }
+  // }
 
   const handleSaveUrlSection = (value: string, section: keyof urlSections) => {
     console.log(
@@ -133,7 +133,7 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
     <SaveContext.Provider
       value={{
         storedUrls,
-        handleSaveBaseUrl,
+        // handleSaveBaseUrl,
         handleSaveUrlSection,
         clearSavedBaseUrls,
         clearSavedSectionUrls,

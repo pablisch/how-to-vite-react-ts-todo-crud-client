@@ -37,16 +37,20 @@ export interface itemClassesObject {
 export interface StoredUrlsObject {
   complete: string[]
   combined: combinedUrlObject[]
-  base: string[]
+  localBase: string[]
+  remoteBase: string[]
+  // base: string[]
   endpoint: string[]
   idParams: string[]
   queryParams: string[]
 }
 
 export interface urlSections {
-  endpoint: ''
-  idParams: ''
-  queryParams: ''
+  localBase: string
+  remoteBase: string
+  endpoint: string
+  idParams: string
+  queryParams: string
 }
 
 interface combinedUrlObject {
@@ -71,4 +75,15 @@ export interface saveDisabledObject {
   endpoint: boolean
   idParams: boolean
   queryParams: boolean
+}
+
+export interface urlSectionsObject {
+  complete: string
+  combined: combinedUrlObject
+  localBase: string
+  remoteBase: string
+  base: string
+  endpoint: string
+  idParams: string
+  queryParams: string
 }
