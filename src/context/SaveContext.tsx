@@ -25,7 +25,7 @@ export interface SaveContextType {
   clearAllSavedUrls: () => void
   urlsAreStored: (section: string) => boolean
   saveDisabled: saveDisabledObject
-  handleSaveDisabled: (
+  handleUpdateSaveDisabled: (
     value: boolean,
     section: keyof saveDisabledObject
   ) => void
@@ -40,7 +40,7 @@ export const SaveContext = createContext<SaveContextType>({
   clearAllSavedUrls: () => {},
   urlsAreStored: () => false,
   saveDisabled: defaultSaveDisabledObject,
-  handleSaveDisabled: () => {},
+  handleUpdateSaveDisabled: () => {},
 })
 
 export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
@@ -50,7 +50,7 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
     defaultSaveDisabledObject
   )
 
-  const handleSaveDisabled = (
+  const handleUpdateSaveDisabled = (
     value: boolean,
     section: keyof saveDisabledObject
   ) => {
@@ -140,7 +140,7 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
         clearAllSavedUrls,
         urlsAreStored,
         saveDisabled,
-        handleSaveDisabled,
+        handleUpdateSaveDisabled,
       }}
     >
       {children}

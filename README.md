@@ -15,6 +15,8 @@ There are several variables used to indicate the status of List item that help t
 - **isFocussed** means the currently selected item. This is derived state where the first display property (id, \_id or index) is the same as the idParam state value. This is mainly used to derive the classes given to the panel and buttons for CSS styling.
 - **viewActive**, **updateActive** and **deleteActive** mean that the item is the focussed item AND the operation is 'getById', 'update' or 'delete' respectively - this is used to derive the text of the corresponding button and directs the behaviour when this button is clicked.
 
+check that all changes to savedUrls are also written to local state e.g. clearing the savedUrls
+
 ## Combined URL component
 
 This presented a problem for me since the combined URL is made up from the four other URL segments and at the same time, I wished to present it as a single URL AND to later add the ability to enter a whole URL here and bypass the individual URL segments.
