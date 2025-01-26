@@ -20,7 +20,7 @@ const IdParamsForm = () => {
     <UrlForm
       id={`url-${sectionKey}-form`}
       title="URL /:id param:"
-      placeholder="Enter new URL endpoint"
+      placeholder="Enter ID param"
       defaultUrlValue={idParams}
       isDefaultUrlValue={isDefaultUrlValue}
       onSetUrl={(value: string) => handleSetIdParams(value)}

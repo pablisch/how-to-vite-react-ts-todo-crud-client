@@ -20,7 +20,7 @@ const QueryParamsForm = () => {
     <UrlForm
       id={`url-${sectionKey}-form`}
       title="URL query params:"
-      placeholder="Enter new URL endpoint"
+      placeholder="Enter query param"
       defaultUrlValue={queryParams}
       isDefaultUrlValue={isDefaultUrlValue}
       onSetUrl={(value: string) => handleSetQueryParams(value)}
