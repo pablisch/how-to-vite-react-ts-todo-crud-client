@@ -12,13 +12,13 @@ const IdParamsForm = () => {
   } = useIdParams()
   const { handleSaveUrlSection, saveDisabled } = useSave()
 
-  const idParamsKey = 'idParams'
+  const sectionKey = 'idParams'
 
-  useSaveDisabledUpdater('idParams')
+  useSaveDisabledUpdater(sectionKey)
 
   return (
     <UrlForm
-      id={idParamsKey}
+      id={`url-${sectionKey}-form`}
       title="URL /:id param:"
       placeholder="Enter new URL endpoint"
       defaultUrlValue={idParams}
@@ -28,10 +28,10 @@ const IdParamsForm = () => {
       setUrlBtnText={`Set /:id param`}
       resetUrlBtnText="Reset /:id param"
       additionalButtons={[]}
-      saveAlt="save endpoint URL"
-      onSave={() => handleSaveUrlSection(idParams, idParamsKey)}
+      saveAlt="save ID param"
+      onSave={() => handleSaveUrlSection(idParams, sectionKey)}
       value={idParams}
-      section={idParamsKey}
+      section={sectionKey}
       isDisabled={saveDisabled.idParams}
     />
   )

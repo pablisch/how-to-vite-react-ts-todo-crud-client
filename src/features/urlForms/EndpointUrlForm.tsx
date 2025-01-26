@@ -12,11 +12,13 @@ const EndpointUrlForm = () => {
   } = useEndpoint()
   const { handleSaveUrlSection, saveDisabled } = useSave()
 
-  useSaveDisabledUpdater('endpoint')
+  const sectionKey = 'endpoint'
+
+  useSaveDisabledUpdater(sectionKey)
 
   return (
     <UrlForm
-      id="url-endpoint"
+      id={`url-${sectionKey}-form`}
       title="URL endpoint:"
       placeholder="Enter new URL endpoint"
       defaultUrlValue={endpoint}
@@ -27,10 +29,9 @@ const EndpointUrlForm = () => {
       resetUrlBtnText="Reset URL endpoint"
       additionalButtons={[]}
       saveAlt="save endpoint URL"
-      onSave={() => handleSaveUrlSection(endpoint, 'endpoint')}
+      onSave={() => handleSaveUrlSection(endpoint, sectionKey)}
       value={endpoint}
-      section="endpoint"
-      // isDisabled={false}
+      section={sectionKey}
       isDisabled={saveDisabled.endpoint}
     />
   )
