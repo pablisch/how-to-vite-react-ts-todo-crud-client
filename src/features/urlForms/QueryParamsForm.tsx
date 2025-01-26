@@ -9,7 +9,7 @@ const QueryParamsForm = () => {
     handleSetQueryParams,
     handleResetQueryParams,
   } = useQueryParams()
-  const { handleSaveUrlSection } = useSave()
+  const { handleSaveUrlSection, saveDisabled } = useSave()
 
   return (
     <UrlForm
@@ -27,7 +27,7 @@ const QueryParamsForm = () => {
       onSave={() => handleSaveUrlSection(queryParams, 'queryParam')}
       value={queryParams}
       section="queryParam"
-      isDisabled={false}
+      isDisabled={saveDisabled.queryParam}
     />
   )
 }

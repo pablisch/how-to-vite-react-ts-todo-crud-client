@@ -15,7 +15,7 @@ export const useSaveDisabledUpdater = (section: keyof urlSections) => {
     case 'endpoint':
       url = endpoint
       break
-    case 'idParam':
+    case 'idParams':
       url = idParams
       break
     case 'queryParam':
@@ -24,12 +24,11 @@ export const useSaveDisabledUpdater = (section: keyof urlSections) => {
     default:
       break
   }
-  if (url === '') return
 
   const isDefaultUrl = url === defaultUrls[section]
 
   if (!saveDisabled[section]) {
-    if (storedUrls[section].includes(url) || isDefaultUrl) {
+    if (storedUrls[section].includes(url) || isDefaultUrl || url === '') {
       handleUpdateSaveDisabled(true, section)
     }
   } else if (saveDisabled[section]) {

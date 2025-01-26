@@ -9,7 +9,7 @@ export const defaultUrls: defaultUrlsObject = {
   localBase: localDefaultUrl,
   remoteBase: deployedDefaultUrl,
   endpoint: '/samples',
-  idParam: '',
+  idParams: '',
   queryParam: '',
 }
 
@@ -18,7 +18,7 @@ export const defaultSaveDisabledObject: saveDisabledObject = {
   combined: true,
   base: true,
   endpoint: true,
-  idParam: true,
+  idParams: true,
   queryParam: true,
 }
 
@@ -27,6 +27,6 @@ export const defaultSavedUrls: StoredUrlsObject = {
   combined: [],
   base: ['https://jsonplaceholder.typicode.com'],
   endpoint: ['/todos'],
-  idParam: [],
+  idParams: [],
   queryParam: [],
 }
