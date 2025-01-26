@@ -32,7 +32,6 @@ const Settings = () => {
       </div>
       <ClearSavedUrlBtn
         onClear={() => clearSavedSectionUrls('remoteBase')}
-        // onClear={clearSavedBaseUrls}
         section="remoteBase"
         titleText="Clear saved URL entries for each section (clears local storage):"
         activeText="Clear saved remote base URLs"

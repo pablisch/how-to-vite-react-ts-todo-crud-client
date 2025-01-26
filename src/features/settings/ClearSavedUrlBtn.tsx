@@ -41,9 +41,7 @@ const ClearSavedUrlBtn: FC<ClearSavedUrlProps> = ({
           onClick={onClear}
           disabled={!hasStored}
         >
-          {hasStored
-            ? activeText || "active"
-            : disabledText || "disabled"}
+          {hasStored ? activeText || 'active' : disabledText || 'disabled'}
         </Button>
       </div>
     </div>

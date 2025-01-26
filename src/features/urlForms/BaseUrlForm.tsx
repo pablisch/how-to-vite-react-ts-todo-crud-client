@@ -1,6 +1,7 @@
 import { useBaseUrl } from '../../hooks/useBaseUrl.tsx'
 import UrlForm from './UrlForm.tsx'
 import { useSave } from '../../hooks/useSave.tsx'
+import { useSaveDisabledUpdater } from '../../hooks/useSaveDisabledUpdater.tsx'
 
 const BaseUrlForm = () => {
   const {
@@ -12,9 +13,14 @@ const BaseUrlForm = () => {
     handleToggleApiLocation,
   } = useBaseUrl()
   // const { handleSaveBaseUrl } = useSave()
-  const { handleSaveUrlSection } = useSave()
-  
+  const { handleSaveUrlSection, saveDisabled } = useSave()
+
   const sectionKey = isLocalApi ? 'localBase' : 'remoteBase'
+  const isSaveDisabled = isLocalApi
+    ? saveDisabled.localBase
+    : saveDisabled.remoteBase
+  
+  useSaveDisabledUpdater(sectionKey)
 
   return (
     <UrlForm
@@ -36,11 +42,10 @@ const BaseUrlForm = () => {
         },
       ]}
       saveAlt="save base URL"
-      // onSave={handleSaveBaseUrl}
       onSave={() => handleSaveUrlSection(baseUrl, sectionKey)}
       value={baseUrl}
       section={sectionKey}
-      isDisabled={false}
+      isDisabled={isSaveDisabled}
     />
   )
 }

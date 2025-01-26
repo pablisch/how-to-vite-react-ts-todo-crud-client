@@ -39,7 +39,6 @@ export interface StoredUrlsObject {
   combined: combinedUrlObject[]
   localBase: string[]
   remoteBase: string[]
-  // base: string[]
   endpoint: string[]
   idParams: string[]
   queryParams: string[]
@@ -71,7 +70,8 @@ export interface defaultUrlsObject {
 export interface saveDisabledObject {
   complete: boolean
   combined: boolean
-  base: boolean
+  localBase: boolean
+  remoteBase: boolean
   endpoint: boolean
   idParams: boolean
   queryParams: boolean
