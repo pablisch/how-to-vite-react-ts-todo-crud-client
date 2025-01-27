@@ -2,16 +2,13 @@ import UrlForm from './UrlForm.tsx'
 import { useIdParams } from '../../hooks/useIdParams.tsx'
 import { useSave } from '../../hooks/useSave.tsx'
 import { useSaveDisabledUpdater } from '../../hooks/useSaveDisabledUpdater.tsx'
+import { defaultUrls } from '../../utils/data.ts'
 
 const IdParamsForm = () => {
-  const {
-    idParams,
-    isDefaultUrlValue,
-    handleSetIdParams,
-    handleResetIdParams,
-  } = useIdParams()
+  const { idParams, handleSetIdParams, handleResetIdParams } = useIdParams()
   const { handleSaveUrlSection, saveDisabled } = useSave()
 
+  const isDefaultIdParam = idParams === defaultUrls.idParams
   const sectionKey = 'idParams'
 
   useSaveDisabledUpdater(sectionKey)
@@ -22,7 +19,7 @@ const IdParamsForm = () => {
       title="URL /:id param:"
       placeholder="Enter ID param"
       defaultUrlValue={idParams}
-      isDefaultUrlValue={isDefaultUrlValue}
+      isDefaultUrlValue={isDefaultIdParam}
       onSetUrl={(value: string) => handleSetIdParams(value)}
       onResetUrl={handleResetIdParams}
       setUrlBtnText={`Set /:id param`}

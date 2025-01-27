@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import { defaultUrls } from '../utils/data.ts'
 
 const defaultIdParams: string = defaultUrls.idParams
@@ -9,14 +9,12 @@ export interface IdParamsContextType {
   idParams: string
   handleSetIdParams: (newIdParams: string) => void
   handleResetIdParams: () => void
-  isDefaultUrlValue: boolean
 }
 
 export const IdParamsContext = createContext<IdParamsContextType>({
   idParams: initialIdParams,
   handleSetIdParams: () => {},
   handleResetIdParams: () => {},
-  isDefaultUrlValue: initialIdParams === defaultIdParams,
 })
 
 export const IdParamsProvider = ({
@@ -25,9 +23,6 @@ export const IdParamsProvider = ({
   children: React.ReactNode
 }) => {
   const [idParams, setIdParams] = useState<string>(initialIdParams)
-  const [isDefaultUrlValue, setIsDefaultUrlValue] = useState<boolean>(
-    initialIdParams === defaultIdParams
-  )
 
   const handleSetIdParams = (newIdParams: string) => {
     if (!newIdParams) return
@@ -45,21 +40,12 @@ export const IdParamsProvider = ({
     localStorage.removeItem('idParams')
   }
 
-  useEffect(() => {
-    if (idParams === defaultIdParams && !isDefaultUrlValue) {
-      setIsDefaultUrlValue(true)
-    } else if (idParams !== defaultIdParams && isDefaultUrlValue) {
-      setIsDefaultUrlValue(false)
-    }
-  }, [idParams, isDefaultUrlValue])
-
   return (
     <IdParamsContext.Provider
       value={{
         idParams,
         handleSetIdParams,
         handleResetIdParams,
-        isDefaultUrlValue,
       }}
     >
       {children}
