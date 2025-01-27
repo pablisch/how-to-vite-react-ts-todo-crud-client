@@ -5,6 +5,7 @@ import { useIdParams } from './useIdParams.tsx'
 import { urlSections } from '../types/types.ts'
 import { defaultUrls } from '../utils/data.ts'
 import { useBaseUrl } from './useBaseUrl.tsx'
+import helpers from '../utils/helpers.tsx'
 
 export const useSaveDisabledUpdater = (section: keyof urlSections) => {
   const { savedUrls, saveDisabled, handleUpdateSaveDisabled } = useSave()
@@ -34,10 +35,9 @@ export const useSaveDisabledUpdater = (section: keyof urlSections) => {
   }
 
   const isDefaultUrl = url === defaultUrls[section]
-  const validQueryRegex = /^\?[a-zA-Z0-9]+=[a-zA-Z0-9]+$/
   const queryIsValid =
     section !== 'queryParams' ||
-    (section === 'queryParams' && validQueryRegex.test(url))
+    (section === 'queryParams' && helpers.isValidQueryString(url))
 
   console.log(
     '****()** is default:',

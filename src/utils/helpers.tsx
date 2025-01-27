@@ -196,4 +196,10 @@ export default {
   isObjectTypeUnknownObject(object: unknown): object is UnknownObject {
     return typeof object === 'object' && object !== null
   },
+
+  isValidQueryString: function (queryString: string) {
+    const validQueryRegex = /^\?[a-zA-Z0-9]+=[a-zA-Z0-9]+$/
+
+    return validQueryRegex.test(queryString)
+  },
 }
