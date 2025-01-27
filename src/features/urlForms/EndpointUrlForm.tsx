@@ -2,16 +2,13 @@ import UrlForm from './UrlForm.tsx'
 import { useEndpoint } from '../../hooks/useEndpoint.tsx'
 import { useSave } from '../../hooks/useSave.tsx'
 import { useSaveDisabledUpdater } from '../../hooks/useSaveDisabledUpdater.tsx'
+import { defaultUrls } from '../../utils/data.ts'
 
 const EndpointUrlForm = () => {
-  const {
-    endpoint,
-    isDefaultUrlValue,
-    handleSetEndpoint,
-    handleResetEndpoint,
-  } = useEndpoint()
+  const { endpoint, handleSetEndpoint, handleResetEndpoint } = useEndpoint()
   const { handleSaveUrlSection, saveDisabled } = useSave()
 
+  const isDefaultEndpoint = endpoint === defaultUrls.endpoint
   const sectionKey = 'endpoint'
 
   useSaveDisabledUpdater(sectionKey)
@@ -22,7 +19,7 @@ const EndpointUrlForm = () => {
       title="URL endpoint:"
       placeholder="Enter new URL endpoint"
       defaultUrlValue={endpoint}
-      isDefaultUrlValue={isDefaultUrlValue}
+      isDefaultUrlValue={isDefaultEndpoint}
       onSetUrl={(value: string) => handleSetEndpoint(value)}
       onResetUrl={handleResetEndpoint}
       setUrlBtnText={`Set URL endpoint`}
