@@ -8,8 +8,7 @@
 
 - Ability to retrieve URL sections and the complete URL broken down into sections
 
-* Review `isDefaultUrlValue` in IdParamsContext and any other possible repeats of this. Is this needed? Sounds better to accept repetition of local derived state and if needed should be url section specific named.
-  Once this is resolved, look at better logic for removing local stored idParam and queryParams based on valid entries, e.g. no `/` for idParams and appropriate regex for queryParams.
+- Once defaultUrls are resolved (NOW DONE), look at better logic for removing local stored idParam and queryParams based on valid entries, e.g. no `/` for idParams and appropriate regex for queryParams.
 
 Continue with data-list trial in UrlForms
 

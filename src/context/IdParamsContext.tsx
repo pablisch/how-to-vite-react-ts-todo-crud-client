@@ -26,9 +26,14 @@ export const IdParamsProvider = ({
 
   const handleSetIdParams = (newIdParams: string) => {
     if (!newIdParams) return
+    if (newIdParams === '/') {
+      handleResetIdParams()
+
+      return
+    }
     newIdParams = newIdParams.startsWith('/') ? newIdParams : `/${newIdParams}`
     setIdParams(newIdParams)
-    if (newIdParams === defaultIdParams) {
+    if (newIdParams === defaultIdParams || newIdParams === '/') {
       localStorage.removeItem('idParams')
     } else {
       localStorage.setItem('idParams', newIdParams)
