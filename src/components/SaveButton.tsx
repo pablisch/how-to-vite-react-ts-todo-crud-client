@@ -1,16 +1,16 @@
 import { useSettings } from '../hooks/useSettings.tsx'
 import { FC } from 'react'
-import { StoredUrlsObject, urlSections } from '../types/types.ts'
+import { SavedUrlsObject, urlSections } from '../types/types.ts'
 
 interface SaveButtonProps {
   onSave: (
     value: string,
-    section: keyof urlSections | keyof StoredUrlsObject
+    section: keyof urlSections | keyof SavedUrlsObject
   ) => void
   alt: string
   classNames?: string[]
   value?: string
-  section: keyof urlSections | keyof StoredUrlsObject
+  section: keyof urlSections | keyof SavedUrlsObject
   isDisabled: boolean
 }
 

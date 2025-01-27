@@ -7,7 +7,7 @@ import { defaultUrls } from '../utils/data.ts'
 import { useBaseUrl } from './useBaseUrl.tsx'
 
 export const useSaveDisabledUpdater = (section: keyof urlSections) => {
-  const { storedUrls, saveDisabled, handleUpdateSaveDisabled } = useSave()
+  const { savedUrls, saveDisabled, handleUpdateSaveDisabled } = useSave()
   const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
@@ -38,12 +38,19 @@ export const useSaveDisabledUpdater = (section: keyof urlSections) => {
   const queryIsValid =
     section !== 'queryParams' ||
     (section === 'queryParams' && validQueryRegex.test(url))
-  
-  console.log("****()** is default:", isDefaultUrl, "valid Qurery:", queryIsValid, "url:", url)
+
+  console.log(
+    '****()** is default:',
+    isDefaultUrl,
+    'valid Query:',
+    queryIsValid,
+    'url:',
+    url
+  )
 
   if (!saveDisabled[section]) {
     if (
-      storedUrls[section].includes(url) ||
+      savedUrls[section].includes(url) ||
       isDefaultUrl ||
       url === '' ||
       !queryIsValid
@@ -51,7 +58,7 @@ export const useSaveDisabledUpdater = (section: keyof urlSections) => {
       handleUpdateSaveDisabled(true, section)
     }
   } else if (saveDisabled[section]) {
-    if (!storedUrls[section].includes(url) && !isDefaultUrl && queryIsValid) {
+    if (!savedUrls[section].includes(url) && !isDefaultUrl && queryIsValid) {
       handleUpdateSaveDisabled(false, section)
     }
   }

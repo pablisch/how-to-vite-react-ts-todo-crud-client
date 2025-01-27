@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSettings } from '../../hooks/useSettings.tsx'
 import HoverButton from '../../components/HoverButton.tsx'
 import SaveButton from '../../components/SaveButton.tsx'
-import { StoredUrlsObject, urlSections } from '../../types/types.ts'
+import { SavedUrlsObject, urlSections } from '../../types/types.ts'
 
 interface UrlFormProps {
   id: string
@@ -24,11 +24,11 @@ interface UrlFormProps {
   saveAlt: string
   onSave: (
     value: string,
-    section: keyof urlSections | keyof StoredUrlsObject
+    section: keyof urlSections | keyof SavedUrlsObject
   ) => void
   saveClasses?: string[]
   value: string | undefined
-  section: keyof urlSections | keyof StoredUrlsObject
+  section: keyof urlSections | keyof SavedUrlsObject
   isDisabled: boolean
 }
 
@@ -92,7 +92,7 @@ const UrlForm: React.FC<UrlFormProps> = ({
           placeholder={placeholder}
         />
         {/*<input type="text" list="data" onChange={this._onChange} />*/}
-        
+
         {/*<datalist id="data">*/}
         {/*  {this.state.data.map((item, key) =>*/}
         {/*    <option key={key} value={item.displayValue} />*/}

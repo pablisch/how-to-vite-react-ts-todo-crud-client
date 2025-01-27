@@ -19,7 +19,7 @@ const BaseUrlForm = () => {
   const isSaveDisabled = isLocalApi
     ? saveDisabled.localBase
     : saveDisabled.remoteBase
-  
+
   useSaveDisabledUpdater(sectionKey)
 
   return (

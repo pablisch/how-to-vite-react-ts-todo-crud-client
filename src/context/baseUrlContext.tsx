@@ -82,15 +82,21 @@ export const BaseUrlProvider = ({
     if (isLocalApi) {
       const newLocalUrlValue = localUrl ? localUrl : defaultUrls.localBase
       setBaseUrl(newLocalUrlValue)
-      if (newLocalUrlValue !== defaultUrls.localBase)
+      if (newLocalUrlValue !== defaultUrls.localBase) {
         localStorage.setItem('localUrl', newLocalUrlValue)
+      } else {
+        localStorage.removeItem('localUrl')
+      }
     } else {
       const newDeployedUrlValue = deployedUrl
         ? deployedUrl
         : defaultUrls.remoteBase
       setBaseUrl(newDeployedUrlValue)
-      if (newDeployedUrlValue !== defaultUrls.remoteBase)
+      if (newDeployedUrlValue !== defaultUrls.remoteBase) {
         localStorage.setItem('deployedUrl', newDeployedUrlValue)
+      } else {
+        localStorage.removeItem('deployedUrl')
+      }
     }
   }, [isLocalApi, localUrl, deployedUrl])
 

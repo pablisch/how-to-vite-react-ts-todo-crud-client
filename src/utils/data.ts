@@ -2,7 +2,7 @@ import { deployedDefaultUrl, localDefaultUrl } from './baseUrl.ts'
 import {
   defaultUrlsObject,
   saveDisabledObject,
-  StoredUrlsObject,
+  SavedUrlsObject,
 } from '../types/types.ts'
 
 export const defaultUrls: defaultUrlsObject = {
@@ -23,7 +23,7 @@ export const defaultSaveDisabledObject: saveDisabledObject = {
   queryParams: true,
 }
 
-export const defaultSavedUrls: StoredUrlsObject = {
+export const defaultSavedUrls: SavedUrlsObject = {
   complete: [],
   combined: [],
   // base: [],

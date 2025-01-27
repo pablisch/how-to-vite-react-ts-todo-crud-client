@@ -34,7 +34,7 @@ export interface itemClassesObject {
   update: string[]
 }
 
-export interface StoredUrlsObject {
+export interface SavedUrlsObject {
   complete: string[]
   combined: combinedUrlObject[]
   localBase: string[]

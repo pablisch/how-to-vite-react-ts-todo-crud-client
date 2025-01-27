@@ -17,6 +17,13 @@ There are several variables used to indicate the status of List item that help t
 
 check that all changes to savedUrls are also written to local state e.g. clearing the savedUrls
 
+**Review ALL the above and see what needs to be removed**
+
+Review `isDefaultUrlValue` in IdParamsContext and any other possible repeats of this. Is this needed? Sounds better to accept repetition of local derived state and if needed should be url section specific named.
+Once this is resolved, look at better logic for removing local stored idParam and queryParams based on valid entries, e.g. no `/` for idParams and appropriate regex for queryParams.
+
+Continue with data-list trial in UrlForms
+
 ## Combined URL component
 
 This presented a problem for me since the combined URL is made up from the four other URL segments and at the same time, I wished to present it as a single URL AND to later add the ability to enter a whole URL here and bypass the individual URL segments.
