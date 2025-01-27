@@ -1,12 +1,19 @@
 # TODOS
 
-Explore having the text on buttons coloured rather than the buttons themselves
+- Formatting on the update display - HOLD on this till doing the update section
 
-Formatting on the update display
+- CSS for update section buttons
 
-Ability to save URL and URL sections to local storage
+- save button and functionality for combined URLs
 
-Ability to retrieve URL sections and the complete URL broken down into sections
+- Ability to retrieve URL sections and the complete URL broken down into sections
+
+**Review ALL the above and see what needs to be removed**
+
+Review `isDefaultUrlValue` in IdParamsContext and any other possible repeats of this. Is this needed? Sounds better to accept repetition of local derived state and if needed should be url section specific named.
+Once this is resolved, look at better logic for removing local stored idParam and queryParams based on valid entries, e.g. no `/` for idParams and appropriate regex for queryParams.
+
+Continue with data-list trial in UrlForms
 
 ## Item states in List
 
@@ -15,14 +22,8 @@ There are several variables used to indicate the status of List item that help t
 - **isFocussed** means the currently selected item. This is derived state where the first display property (id, \_id or index) is the same as the idParam state value. This is mainly used to derive the classes given to the panel and buttons for CSS styling.
 - **viewActive**, **updateActive** and **deleteActive** mean that the item is the focussed item AND the operation is 'getById', 'update' or 'delete' respectively - this is used to derive the text of the corresponding button and directs the behaviour when this button is clicked.
 
-check that all changes to savedUrls are also written to local state e.g. clearing the savedUrls
 
-**Review ALL the above and see what needs to be removed**
 
-Review `isDefaultUrlValue` in IdParamsContext and any other possible repeats of this. Is this needed? Sounds better to accept repetition of local derived state and if needed should be url section specific named.
-Once this is resolved, look at better logic for removing local stored idParam and queryParams based on valid entries, e.g. no `/` for idParams and appropriate regex for queryParams.
-
-Continue with data-list trial in UrlForms
 
 ## Combined URL component
 
