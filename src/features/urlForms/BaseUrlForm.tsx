@@ -14,8 +14,10 @@ const BaseUrlForm = () => {
   } = useBaseUrl()
   // const { handleSaveBaseUrl } = useSave()
   const { handleSaveUrlSection, saveDisabled } = useSave()
-  
-  const isDefaultBaseUrl = isLocalApi ? baseUrl === defaultUrls.localBase : baseUrl === defaultUrls.remoteBase
+
+  const isDefaultBaseUrl = isLocalApi
+    ? baseUrl === defaultUrls.localBase
+    : baseUrl === defaultUrls.remoteBase
   const sectionKey = isLocalApi ? 'localBase' : 'remoteBase'
   const isSaveDisabled = isLocalApi
     ? saveDisabled.localBase

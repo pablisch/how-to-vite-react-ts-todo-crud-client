@@ -1,29 +1,22 @@
 import React, { createContext, useEffect, useState } from 'react'
 
 import { defaultUrls } from '../utils/data.ts'
-const apiSelection = localStorage.getItem('apiSelection') || 'defaultDeployed'
+const initialApiSelection: string =
+  localStorage.getItem('apiSelection') || 'remote'
 const localStoredUrlValue = localStorage.getItem('localUrl')
 const deployedStoredUrlValue = localStorage.getItem('deployedUrl')
+const initialApiIsLocal = initialApiSelection === 'local'
 
-let initialBaseUrl: string = defaultUrls.remoteBase
-if (apiSelection && apiSelection.includes('default')) {
-  localStorage.removeItem('localUrl')
-  localStorage.removeItem('deployedUrl')
-  if (apiSelection === 'defaultLocal') {
-    initialBaseUrl = defaultUrls.localBase
-  }
-} else if (apiSelection && apiSelection.includes('Local')) {
-  localStorage.removeItem('deployedUrl')
-  if (localStoredUrlValue) initialBaseUrl = localStoredUrlValue
-} else if (apiSelection && apiSelection.includes('Deployed')) {
-  localStorage.removeItem('localUrl')
-  if (deployedStoredUrlValue) initialBaseUrl = deployedStoredUrlValue
+let initialBaseUrl: string = ''
+if (initialApiIsLocal) {
+  initialBaseUrl = localStoredUrlValue || defaultUrls.localBase
+} else {
+  initialBaseUrl = deployedStoredUrlValue || defaultUrls.remoteBase
 }
 
 export interface BaseUrlContextType {
   baseUrl: string
   isLocalApi: boolean
-  isDefaultUrlValue: boolean
   handleSetBaseUrl: (baseUrl: string | undefined) => void
   handleResetBaseUrl: () => void
   handleToggleApiLocation: () => void
@@ -31,8 +24,7 @@ export interface BaseUrlContextType {
 
 export const BaseUrlContext = createContext<BaseUrlContextType>({
   baseUrl: initialBaseUrl || defaultUrls.remoteBase,
-  isLocalApi: apiSelection.includes('Local'),
-  isDefaultUrlValue: apiSelection.includes('default'),
+  isLocalApi: initialApiIsLocal,
   handleSetBaseUrl: () => {},
   handleResetBaseUrl: () => {},
   handleToggleApiLocation: () => {},
@@ -44,17 +36,12 @@ export const BaseUrlProvider = ({
   children: React.ReactNode
 }) => {
   const [baseUrl, setBaseUrl] = useState<string>(initialBaseUrl)
-  const [isLocalApi, setIsLocalApi] = useState<boolean>(
-    apiSelection.includes('Local')
-  )
+  const [isLocalApi, setIsLocalApi] = useState<boolean>(initialApiIsLocal)
   const [localUrl, setLocalUrl] = useState<string | null>(
     localStorage.getItem('localUrl')
   )
   const [deployedUrl, setDeployedUrl] = useState<string | null>(
     localStorage.getItem('deployedUrl')
-  )
-  const [isDefaultUrlValue, setIsDefaultUrlValue] = useState<boolean>(
-    apiSelection.includes('default')
   )
 
   const handleSetBaseUrl = (newBaseUrl: string | undefined) => {
@@ -101,36 +88,18 @@ export const BaseUrlProvider = ({
   }, [isLocalApi, localUrl, deployedUrl])
 
   useEffect(() => {
-    const defaultUrl = isLocalApi
-      ? defaultUrls.localBase
-      : defaultUrls.remoteBase
-    if (isDefaultUrlValue && baseUrl !== defaultUrl) {
-      setIsDefaultUrlValue(false)
-    } else if (!isDefaultUrlValue && baseUrl === defaultUrl) {
-      setIsDefaultUrlValue(true)
-    }
-  }, [baseUrl, isDefaultUrlValue, isLocalApi])
-
-  useEffect(() => {
     if (isLocalApi) {
-      localStorage.setItem(
-        'apiSelection',
-        isDefaultUrlValue ? 'defaultLocal' : 'customLocal'
-      )
+      localStorage.setItem('apiSelection', 'local')
     } else {
-      localStorage.setItem(
-        'apiSelection',
-        isDefaultUrlValue ? 'defaultDeployed' : 'customDeployed'
-      )
+      localStorage.setItem('apiSelection', 'remote')
     }
-  }, [isLocalApi, isDefaultUrlValue])
+  }, [isLocalApi])
 
   return (
     <BaseUrlContext.Provider
       value={{
         baseUrl,
         isLocalApi,
-        isDefaultUrlValue,
         handleResetBaseUrl,
         handleSetBaseUrl,
         handleToggleApiLocation,
