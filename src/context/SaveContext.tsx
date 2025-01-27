@@ -10,7 +10,7 @@ import {
   defaultUrls,
 } from '../utils/data.ts'
 
-const storedSavedUrls = localStorage.getItem('savedUrls')
+const storedSavedUrls = localStorage.getItem('storedSavedUrls')
 
 const initialSavedUrls: StoredUrlsObject = storedSavedUrls
   ? JSON.parse(storedSavedUrls)
@@ -59,10 +59,10 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const urlsAreStored = (section: string) => {
-    const saveUrlsString = localStorage.getItem('savedUrls')
+    const saveUrlsString = localStorage.getItem('storedSavedUrls')
     if (!saveUrlsString) return false
-    const savedUrls = JSON.parse(saveUrlsString)
-    if (savedUrls[section].length > 0) return true
+    const savedUrlsInLocalStorage = JSON.parse(saveUrlsString)
+    if (savedUrlsInLocalStorage[section].length > 0) return true
 
     return false
   }
@@ -100,7 +100,7 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   useEffect(() => {
-    localStorage.setItem('savedUrls', JSON.stringify(storedUrls))
+    localStorage.setItem('storedSavedUrls', JSON.stringify(storedUrls))
   }, [storedUrls])
 
   return (

@@ -85,11 +85,19 @@ const UrlForm: React.FC<UrlFormProps> = ({
         <input
           id={`${id}-input`}
           className="url-input url-input-text"
+          list="data"
           type="text"
           value={inputValue}
           onChange={handleInputChange}
           placeholder={placeholder}
         />
+        {/*<input type="text" list="data" onChange={this._onChange} />*/}
+        
+        {/*<datalist id="data">*/}
+        {/*  {this.state.data.map((item, key) =>*/}
+        {/*    <option key={key} value={item.displayValue} />*/}
+        {/*  )}*/}
+        {/*</datalist>*/}
         <SaveButton
           alt={saveAlt}
           onSave={onSave}

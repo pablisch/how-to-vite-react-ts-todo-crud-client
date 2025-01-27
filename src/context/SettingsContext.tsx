@@ -6,10 +6,10 @@ const defaultSettings: Settings = {
   theme: 'dark',
 }
 
-const storedSettings = localStorage.getItem('storedSettings')
+const settingsInLocalStorage = localStorage.getItem('settings')
 
-const initialSettings: Settings = storedSettings
-  ? JSON.parse(storedSettings)
+const initialSettings: Settings = settingsInLocalStorage
+  ? JSON.parse(settingsInLocalStorage)
   : defaultSettings
 
 export interface SettingsContextType {
@@ -62,7 +62,7 @@ export const SettingsProvider = ({
   }
 
   useEffect(() => {
-    localStorage.setItem('storedSettings', JSON.stringify(settings))
+    localStorage.setItem('settings', JSON.stringify(settings))
   }, [settings])
 
   return (

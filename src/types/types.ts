@@ -53,7 +53,8 @@ export interface urlSections {
 }
 
 interface combinedUrlObject {
-  base: string
+  localBase: string
+  remoteBase: string
   endpoint: string
   idParam: string
   queryParams: string
