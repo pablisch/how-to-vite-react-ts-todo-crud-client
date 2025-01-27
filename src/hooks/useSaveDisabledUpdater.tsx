@@ -4,9 +4,12 @@ import { useQueryParams } from './useQueryParams.tsx'
 import { useIdParams } from './useIdParams.tsx'
 import { urlSections } from '../types/types.ts'
 import { defaultUrls } from '../utils/data.ts'
+import { useBaseUrl } from './useBaseUrl.tsx'
+import helpers from '../utils/helpers.tsx'
 
 export const useSaveDisabledUpdater = (section: keyof urlSections) => {
-  const { storedUrls, saveDisabled, handleUpdateSaveDisabled } = useSave()
+  const { savedUrls, saveDisabled, handleUpdateSaveDisabled } = useSave()
+  const { baseUrl } = useBaseUrl()
   const { endpoint } = useEndpoint()
   const { idParams } = useIdParams()
   const { queryParams } = useQueryParams()
@@ -21,19 +24,33 @@ export const useSaveDisabledUpdater = (section: keyof urlSections) => {
     case 'queryParams':
       url = queryParams
       break
+    case 'localBase':
+      url = baseUrl
+      break
+    case 'remoteBase':
+      url = baseUrl
+      break
     default:
       break
   }
 
   const isDefaultUrl = url === defaultUrls[section]
-  const validQueryRegex = /^\?[a-zA-Z0-9]+=[a-zA-Z0-9]+$/
   const queryIsValid =
     section !== 'queryParams' ||
-    (section === 'queryParams' && validQueryRegex.test(url))
+    (section === 'queryParams' && helpers.isValidQueryString(url))
+
+  console.log(
+    '****()** is default:',
+    isDefaultUrl,
+    'valid Query:',
+    queryIsValid,
+    'url:',
+    url
+  )
 
   if (!saveDisabled[section]) {
     if (
-      storedUrls[section].includes(url) ||
+      savedUrls[section].includes(url) ||
       isDefaultUrl ||
       url === '' ||
       !queryIsValid
@@ -41,25 +58,8 @@ export const useSaveDisabledUpdater = (section: keyof urlSections) => {
       handleUpdateSaveDisabled(true, section)
     }
   } else if (saveDisabled[section]) {
-    if (!storedUrls[section].includes(url) && !isDefaultUrl && queryIsValid) {
+    if (!savedUrls[section].includes(url) && !isDefaultUrl && queryIsValid) {
       handleUpdateSaveDisabled(false, section)
     }
   }
 }
-
-// if (!saveDisabled[section]) {
-//   if (section === 'queryParams' && !url.includes('=')) {
-//     handleUpdateSaveDisabled(true, section)
-//   } else if (
-//     storedUrls[section].includes(url) ||
-//     isDefaultUrl ||
-//     url === ''
-//   ) {
-//     handleUpdateSaveDisabled(true, section)
-//   }
-// } else if (saveDisabled[section]) {
-//   if (!storedUrls[section].includes(url) && !isDefaultUrl) {
-//     if (section === 'queryParams' && !url.includes('=')) return
-//     handleUpdateSaveDisabled(false, section)
-//   }
-// }

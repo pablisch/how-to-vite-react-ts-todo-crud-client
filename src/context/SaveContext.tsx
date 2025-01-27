@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 import {
   saveDisabledObject,
-  StoredUrlsObject,
+  SavedUrlsObject,
   urlSections,
 } from '../types/types.ts'
 import {
@@ -10,15 +10,14 @@ import {
   defaultUrls,
 } from '../utils/data.ts'
 
-const storedSavedUrls = localStorage.getItem('savedUrls')
+const savedUrlsInLocalStorage = localStorage.getItem('storedUrls')
 
-const initialSavedUrls: StoredUrlsObject = storedSavedUrls
-  ? JSON.parse(storedSavedUrls)
+const initialSavedUrls: SavedUrlsObject = savedUrlsInLocalStorage
+  ? JSON.parse(savedUrlsInLocalStorage)
   : defaultSavedUrls
 
 export interface SaveContextType {
-  storedUrls: StoredUrlsObject
-  handleSaveBaseUrl: (value: string) => void
+  savedUrls: SavedUrlsObject
   handleSaveUrlSection: (value: string, section: keyof urlSections) => void
   clearSavedBaseUrls: () => void
   clearSavedSectionUrls: (section: keyof urlSections) => void
@@ -32,8 +31,7 @@ export interface SaveContextType {
 }
 
 export const SaveContext = createContext<SaveContextType>({
-  storedUrls: initialSavedUrls,
-  handleSaveBaseUrl: () => {},
+  savedUrls: initialSavedUrls,
   handleSaveUrlSection: () => {},
   clearSavedBaseUrls: () => {},
   clearSavedSectionUrls: () => {},
@@ -44,8 +42,7 @@ export const SaveContext = createContext<SaveContextType>({
 })
 
 export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
-  const [storedUrls, setStoredUrls] =
-    useState<StoredUrlsObject>(initialSavedUrls)
+  const [savedUrls, setSavedUrls] = useState<SavedUrlsObject>(initialSavedUrls)
   const [saveDisabled, setSaveDisabled] = useState<saveDisabledObject>(
     defaultSaveDisabledObject
   )
@@ -61,36 +58,12 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const urlsAreStored = (section: string) => {
-    const saveUrlsString = localStorage.getItem('savedUrls')
+    const saveUrlsString = localStorage.getItem('storedUrls')
     if (!saveUrlsString) return false
-    const savedUrls = JSON.parse(saveUrlsString)
-    if (savedUrls[section].length > 0) return true
+    const savedUrlsInLocalStorage = JSON.parse(saveUrlsString)
+    if (savedUrlsInLocalStorage[section].length > 0) return true
 
     return false
-  }
-
-  const handleSaveBaseUrl = (
-    value: string,
-    section: keyof StoredUrlsObject = 'base'
-  ) => {
-    if (!value) {
-      console.log('Do not store empty value')
-    } else if (section === 'base' && storedUrls[section].includes(value)) {
-      console.log(`${value} is already saved - return`)
-
-      return
-    } else if (value === defaultUrls.localBase) {
-      console.log(`${value} is default local URL - return`)
-
-      return
-    } else if (value === defaultUrls.remoteBase) {
-      console.log(`${value} is default remote URL - return`)
-
-      return
-    } else {
-      setStoredUrls(prev => ({ ...prev, base: [...prev.base, value] }))
-      console.log(`${value} is saved`)
-    }
   }
 
   const handleSaveUrlSection = (value: string, section: keyof urlSections) => {
@@ -99,7 +72,7 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
     )
     if (!value) {
       console.log('Do not store empty value')
-    } else if (storedUrls[section].includes(value)) {
+    } else if (savedUrls[section].includes(value)) {
       console.log(`${value} is already saved - return`)
 
       return
@@ -108,32 +81,31 @@ export const SaveProvider = ({ children }: { children: React.ReactNode }) => {
 
       return
     } else {
-      setStoredUrls(prev => ({ ...prev, [section]: [...prev[section], value] }))
+      setSavedUrls(prev => ({ ...prev, [section]: [...prev[section], value] }))
       console.log(`${value} is saved`)
     }
   }
 
   const clearSavedBaseUrls = () => {
-    setStoredUrls(prev => ({ ...prev, base: [] }))
+    setSavedUrls(prev => ({ ...prev, base: [] }))
   }
 
   const clearSavedSectionUrls = (section: keyof urlSections) => {
-    setStoredUrls(prev => ({ ...prev, [section]: defaultSavedUrls[section] }))
+    setSavedUrls(prev => ({ ...prev, [section]: defaultSavedUrls[section] }))
   }
 
   const clearAllSavedUrls = () => {
-    setStoredUrls(defaultSavedUrls)
+    setSavedUrls(defaultSavedUrls)
   }
 
   useEffect(() => {
-    localStorage.setItem('savedUrls', JSON.stringify(storedUrls))
-  }, [storedUrls])
+    localStorage.setItem('storedUrls', JSON.stringify(savedUrls))
+  }, [savedUrls])
 
   return (
     <SaveContext.Provider
       value={{
-        storedUrls,
-        handleSaveBaseUrl,
+        savedUrls,
         handleSaveUrlSection,
         clearSavedBaseUrls,
         clearSavedSectionUrls,

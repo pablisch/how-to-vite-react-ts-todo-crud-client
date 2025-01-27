@@ -2,7 +2,7 @@ import { deployedDefaultUrl, localDefaultUrl } from './baseUrl.ts'
 import {
   defaultUrlsObject,
   saveDisabledObject,
-  StoredUrlsObject,
+  SavedUrlsObject,
 } from '../types/types.ts'
 
 export const defaultUrls: defaultUrlsObject = {
@@ -16,17 +16,31 @@ export const defaultUrls: defaultUrlsObject = {
 export const defaultSaveDisabledObject: saveDisabledObject = {
   complete: true,
   combined: true,
-  base: true,
+  localBase: true,
+  remoteBase: true,
   endpoint: true,
   idParams: true,
   queryParams: true,
 }
 
-export const defaultSavedUrls: StoredUrlsObject = {
+export const defaultSavedUrls: SavedUrlsObject = {
   complete: [],
   combined: [],
-  base: ['https://jsonplaceholder.typicode.com'],
+  // base: [],
+  localBase: ['http://localhost:3000/'],
+  remoteBase: ['https://jsonplaceholder.typicode.com'],
   endpoint: ['/todos'],
   idParams: [],
   queryParams: [],
+}
+
+export const sections = {
+  complete: 'complete',
+  combined: 'combined',
+  localBase: 'localBase',
+  remoteBase: 'remoteBase',
+  base: 'base',
+  endpoint: 'endpoint',
+  idParams: 'idParams',
+  queryParams: 'queryParams',
 }

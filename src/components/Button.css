@@ -31,7 +31,9 @@
 }
 
 .settings-btn {
-  width: 160px;
+  width: 140px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .confirm-delete-btn {

@@ -1,17 +1,29 @@
 import { useBaseUrl } from '../../hooks/useBaseUrl.tsx'
 import UrlForm from './UrlForm.tsx'
 import { useSave } from '../../hooks/useSave.tsx'
+import { useSaveDisabledUpdater } from '../../hooks/useSaveDisabledUpdater.tsx'
+import { defaultUrls } from '../../utils/data.ts'
 
 const BaseUrlForm = () => {
   const {
     baseUrl,
-    isDefaultUrlValue,
     isLocalApi,
     handleSetBaseUrl,
     handleResetBaseUrl,
     handleToggleApiLocation,
   } = useBaseUrl()
-  const { handleSaveBaseUrl } = useSave()
+  // const { handleSaveBaseUrl } = useSave()
+  const { handleSaveUrlSection, saveDisabled } = useSave()
+
+  const isDefaultBaseUrl = isLocalApi
+    ? baseUrl === defaultUrls.localBase
+    : baseUrl === defaultUrls.remoteBase
+  const sectionKey = isLocalApi ? 'localBase' : 'remoteBase'
+  const isSaveDisabled = isLocalApi
+    ? saveDisabled.localBase
+    : saveDisabled.remoteBase
+
+  useSaveDisabledUpdater(sectionKey)
 
   return (
     <UrlForm
@@ -19,7 +31,7 @@ const BaseUrlForm = () => {
       title="Base URL:"
       placeholder="Enter new base URL"
       defaultUrlValue={baseUrl}
-      isDefaultUrlValue={isDefaultUrlValue}
+      isDefaultUrlValue={isDefaultBaseUrl}
       onSetUrl={(value: string | undefined) => handleSetBaseUrl(value)}
       onResetUrl={handleResetBaseUrl}
       setUrlBtnText={`Set ${isLocalApi ? 'localhost' : 'remote'} base URL`}
@@ -33,10 +45,10 @@ const BaseUrlForm = () => {
         },
       ]}
       saveAlt="save base URL"
-      onSave={handleSaveBaseUrl}
+      onSave={() => handleSaveUrlSection(baseUrl, sectionKey)}
       value={baseUrl}
-      section="base"
-      isDisabled={false}
+      section={sectionKey}
+      isDisabled={isSaveDisabled}
     />
   )
 }

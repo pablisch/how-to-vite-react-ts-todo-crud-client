@@ -1,25 +1,28 @@
 import { FC } from 'react'
 import Button from '../../components/Button.tsx'
 import { useSave } from '../../hooks/useSave.tsx'
-import { StoredUrlsObject } from '../../types/types.ts'
+import { SavedUrlsObject } from '../../types/types.ts'
 import './Settings.css'
 import { defaultSavedUrls } from '../../utils/data.ts'
 
 interface ClearSavedUrlProps {
   onClear: () => void
-  section: keyof StoredUrlsObject
+  section: keyof SavedUrlsObject
   titleText?: string
+  activeText: string
+  disabledText: string
 }
 
-const ClearSavedUrl: FC<ClearSavedUrlProps> = ({
+const ClearSavedUrlBtn: FC<ClearSavedUrlProps> = ({
   onClear,
   section,
   titleText,
+  activeText,
+  disabledText,
 }) => {
-  const { storedUrls } = useSave()
+  const { savedUrls } = useSave()
 
-  const hasStored =
-    storedUrls[section].length > defaultSavedUrls[section].length
+  const hasStored = savedUrls[section].length > defaultSavedUrls[section].length
 
   return (
     <div
@@ -37,13 +40,11 @@ const ClearSavedUrl: FC<ClearSavedUrlProps> = ({
           onClick={onClear}
           disabled={!hasStored}
         >
-          {hasStored
-            ? `Clear saved ${section} URL sections`
-            : `No saved ${section} URLs`}
+          {hasStored ? activeText || 'active' : disabledText || 'disabled'}
         </Button>
       </div>
     </div>
   )
 }
 
-export default ClearSavedUrl
+export default ClearSavedUrlBtn

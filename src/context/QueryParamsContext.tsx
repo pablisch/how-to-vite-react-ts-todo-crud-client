@@ -1,5 +1,6 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import { defaultUrls } from '../utils/data.ts'
+import helpers from '../utils/helpers.tsx'
 
 const initialQueryParams: string =
   localStorage.getItem('queryParams') || defaultUrls.queryParams
@@ -8,14 +9,12 @@ export interface QueryParamsContextType {
   queryParams: string
   handleSetQueryParams: (newQueryParams: string) => void
   handleResetQueryParams: () => void
-  isDefaultUrlValue: boolean
 }
 
 export const QueryParamsContext = createContext<QueryParamsContextType>({
   queryParams: initialQueryParams,
   handleSetQueryParams: () => {},
   handleResetQueryParams: () => {},
-  isDefaultUrlValue: initialQueryParams === defaultUrls.queryParams,
 })
 
 export const QueryParamsProvider = ({
@@ -24,17 +23,22 @@ export const QueryParamsProvider = ({
   children: React.ReactNode
 }) => {
   const [queryParams, setQueryParams] = useState<string>(initialQueryParams)
-  const [isDefaultUrlValue, setIsDefaultUrlValue] = useState<boolean>(
-    initialQueryParams === defaultUrls.queryParams
-  )
 
   const handleSetQueryParams = (newQueryParams: string) => {
     if (!newQueryParams) return
+    if (newQueryParams === '?') {
+      handleResetQueryParams()
+
+      return
+    }
     newQueryParams = newQueryParams.startsWith('?')
       ? newQueryParams
       : `?${newQueryParams}`
     setQueryParams(newQueryParams)
-    if (newQueryParams === defaultUrls.queryParams) {
+    if (
+      newQueryParams === defaultUrls.queryParams ||
+      !helpers.isValidQueryString(newQueryParams)
+    ) {
       localStorage.removeItem('queryParams')
     } else {
       localStorage.setItem('queryParams', newQueryParams)
@@ -46,21 +50,12 @@ export const QueryParamsProvider = ({
     localStorage.removeItem('queryParams')
   }
 
-  useEffect(() => {
-    if (queryParams === defaultUrls.queryParams && !isDefaultUrlValue) {
-      setIsDefaultUrlValue(true)
-    } else if (queryParams !== defaultUrls.queryParams && isDefaultUrlValue) {
-      setIsDefaultUrlValue(false)
-    }
-  }, [queryParams])
-
   return (
     <QueryParamsContext.Provider
       value={{
         queryParams,
         handleSetQueryParams,
         handleResetQueryParams,
-        isDefaultUrlValue,
       }}
     >
       {children}

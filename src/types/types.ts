@@ -34,23 +34,27 @@ export interface itemClassesObject {
   update: string[]
 }
 
-export interface StoredUrlsObject {
+export interface SavedUrlsObject {
   complete: string[]
   combined: combinedUrlObject[]
-  base: string[]
+  localBase: string[]
+  remoteBase: string[]
   endpoint: string[]
   idParams: string[]
   queryParams: string[]
 }
 
 export interface urlSections {
-  endpoint: ''
-  idParams: ''
-  queryParams: ''
+  localBase: string
+  remoteBase: string
+  endpoint: string
+  idParams: string
+  queryParams: string
 }
 
 interface combinedUrlObject {
-  base: string
+  localBase: string
+  remoteBase: string
   endpoint: string
   idParam: string
   queryParams: string
@@ -67,8 +71,20 @@ export interface defaultUrlsObject {
 export interface saveDisabledObject {
   complete: boolean
   combined: boolean
-  base: boolean
+  localBase: boolean
+  remoteBase: boolean
   endpoint: boolean
   idParams: boolean
   queryParams: boolean
+}
+
+export interface urlSectionsObject {
+  complete: string
+  combined: combinedUrlObject
+  localBase: string
+  remoteBase: string
+  base: string
+  endpoint: string
+  idParams: string
+  queryParams: string
 }
