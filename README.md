@@ -8,9 +8,7 @@
 
 - Ability to retrieve URL sections and the complete URL broken down into sections
 
-- Once defaultUrls are resolved (NOW DONE), look at better logic for removing local stored idParam and queryParams based on valid entries, e.g. no `/` for idParams and appropriate regex for queryParams.
-
-Continue with data-list trial in UrlForms
+- Continue with data-list trial in UrlForms
 
 ## Item states in List
 

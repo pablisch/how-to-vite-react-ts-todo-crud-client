@@ -3,6 +3,7 @@ import { useSettings } from '../../hooks/useSettings.tsx'
 import HoverButton from '../../components/HoverButton.tsx'
 import SaveButton from '../../components/SaveButton.tsx'
 import { SavedUrlsObject, urlSections } from '../../types/types.ts'
+// import { useSave } from '../../hooks/useSave.tsx'
 
 interface UrlFormProps {
   id: string
@@ -53,6 +54,7 @@ const UrlForm: React.FC<UrlFormProps> = ({
   const [inputValue, setInputValue] = useState(defaultUrlValue)
 
   const { settings } = useSettings()
+  // const { savedUrls } = useSave()
 
   const setUrlDisabled: boolean = inputValue === defaultUrlValue
 
@@ -74,6 +76,12 @@ const UrlForm: React.FC<UrlFormProps> = ({
     }
   }, [inputValue])
 
+  // // Validate savedUrls[section] is a string array
+  // const isStringArray = (data: unknown): data is string[] =>
+  //   Array.isArray(data) && data.every(item => typeof item === 'string')
+  //
+  // const filteredUrls = isStringArray(savedUrls[section]) ? savedUrls[section] : []
+
   return (
     <div id={`${id}-form`} className="url-form">
       <div className="form-title-wrapper">
@@ -91,11 +99,13 @@ const UrlForm: React.FC<UrlFormProps> = ({
           onChange={handleInputChange}
           placeholder={placeholder}
         />
-        {/*<input type="text" list="data" onChange={this._onChange} />*/}
+        {/*<input type="text" list="data"*/}
+        {/*       // onChange={}*/}
+        {/*/>*/}
 
         {/*<datalist id="data">*/}
-        {/*  {this.state.data.map((item, key) =>*/}
-        {/*    <option key={key} value={item.displayValue} />*/}
+        {/*  {filteredUrls.map(item =>*/}
+        {/*    <option value={item} />*/}
         {/*  )}*/}
         {/*</datalist>*/}
         <SaveButton
