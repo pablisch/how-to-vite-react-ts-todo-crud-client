@@ -156,3 +156,16 @@
 .save-btn-disabled {
   opacity: 0.3;
 }
+
+.saved-url-dropdown-icon {
+  background: rgba(13, 142, 15, 0);
+  background-image: url('/dropdown-arrow.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(var(--form-input-height) - 5px);
+  width: calc(var(--form-input-height) - 8.4px);
+  margin: 0 5px 0 4px;
+  filter: invert(0.7);
+  border: none;
+  cursor: pointer;
+}

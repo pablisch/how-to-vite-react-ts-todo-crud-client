@@ -3,6 +3,7 @@ import { useSettings } from '../../hooks/useSettings.tsx'
 import HoverButton from '../../components/HoverButton.tsx'
 import SaveButton from '../../components/SaveButton.tsx'
 import { SavedUrlsObject, urlSections } from '../../types/types.ts'
+import SavedUrlSelector from '../../components/SavedUrlSelector.tsx'
 // import { useSave } from '../../hooks/useSave.tsx'
 
 interface UrlFormProps {
@@ -108,6 +109,14 @@ const UrlForm: React.FC<UrlFormProps> = ({
         {/*    <option value={item} />*/}
         {/*  )}*/}
         {/*</datalist>*/}
+        <SavedUrlSelector
+          alt={saveAlt}
+          onSave={onSave}
+          classNames={saveClasses}
+          value={value}
+          section={section}
+          isDisabled={isDisabled}
+        />
         <SaveButton
           alt={saveAlt}
           onSave={onSave}
