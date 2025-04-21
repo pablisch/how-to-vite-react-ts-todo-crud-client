@@ -51,10 +51,6 @@ export default tseslint.config(
       'prettier/prettier': [
         'error',
         {
-          // spread your existing config here
-          allowBlankLines: true,
-        },
-        {
           usePrettierrc: true,
         },
       ],

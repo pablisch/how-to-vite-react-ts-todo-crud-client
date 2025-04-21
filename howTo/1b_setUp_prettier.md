@@ -18,8 +18,18 @@ I choose the following as my base configuration:
 {
   "semi": false,
   "singleQuote": true,
-  "tabWidth": 2
+  "tabWidth": 2,
+  "printWidth": 80,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "singleAttributePerLine": false,
+  "jsxSingleQuote": false,
+  "jsxBracketSameLine": false,
+  "arrowParens": "avoid",
+  "endOfLine": "auto",
+  "allowBlankLines": true
 }
+
 ```
 
 This enforces single quotes and does not use semicolons. Obviously use your own preferences here.
@@ -34,7 +44,7 @@ node_modules
 To help `eslint` and `prettier` play nicely, install these plugins:
 
 ```bash
-npm install -D @eslint/js typescript-eslint eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh eslint-plugin-prettier prettier
+npm install -D @eslint/js typescript-eslint eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh eslint-plugin-prettier prettier eslint-config-prettier @stylistic/eslint-plugin
 ```
 
 And amend your `eslint.config.js` file:
@@ -48,6 +58,7 @@ import tseslint from 'typescript-eslint'
 import prettier from 'eslint-plugin-prettier'
 import react from 'eslint-plugin-react'
 import prettierConfig from 'eslint-config-prettier'
+import stylistic from '@stylistic/eslint-plugin'
 
 export default tseslint.config(
   {
@@ -58,7 +69,7 @@ export default tseslint.config(
     extends: [
       js.configs.recommended,
       ...tseslint.configs.recommended,
-      prettierConfig, // This disables ESLint rules that conflict with Prettier
+      prettierConfig,
     ],
     languageOptions: {
       ecmaVersion: 2020,
@@ -77,29 +88,32 @@ export default tseslint.config(
       'react-refresh': reactRefresh,
       prettier: prettier,
       react: react,
+      '@stylistic': stylistic,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
+      '@stylistic/padding-line-between-statements': [
+        'error',
+        { blankLine: 'always', prev: 'function', next: 'return' },
+        { blankLine: 'always', prev: '*', next: 'return' },
       ],
+      'no-extra-semi': 'off',
+      'lines-between-class-members': 'off',
+      'padding-line-between-statements': 'off',
       'prettier/prettier': [
         'error',
         {
-          semi: false,
-          singleQuote: true,
-          tabWidth: 2,
+          // spread your existing config here
+          allowBlankLines: true,
+        },
+        {
+          usePrettierrc: true,
         },
       ],
     },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
   }
 )
+
 ```
 
 ## Adding scripts for Prettier and Eslint
@@ -121,6 +135,3 @@ As a personal preference, I prefer `npm start` to start the dev project, so I wi
 
 [//]: # 'NEXT'
 
-.........
-
-npm install @stylistic/eslint-plugin --save-dev
